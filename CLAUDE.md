@@ -25,6 +25,9 @@ PHM 2016 CMP 데이터로 웨이퍼 MRR을 예측하는 가상계측 모델을 �
 1. **test MRR 라벨을 읽지 않는다.** 원본 저장소에는 test 정답이 두 곳에 들어 있다:
    `CMP-test-removalrate.csv`(424장 전부 값 있음), `PHM16TestValidationAnswers/`.
    둘 다 `data/locked/`로 옮기고 코드에서 읽지 않는다. 게이트 확인 1회는 팀장만 하고 `preregistration.md`에 기록한다.
+   - PHM16TestValidationAnswers/ 안의 orig_CMP-validation-removalrate.csv는
+     data/raw/labels/CMP-validation-removalrate.csv와 내용이 완전히 같다 (2026-09-22 확인).
+     따라서 validation 라벨은 data/raw/labels/의 파일만 쓰고, data/locked/는 어떤 파일도 열지 않는다.
 2. `data/raw/` 원본을 수정하거나 커밋하지 않는다.
 3. `results/`의 기존 파일을 덮어쓰지 않는다.
 4. `preregistration.md`, `src/harness.py`, `src/plans.py`는 팀 합의 없이 수정하지 않는다.
