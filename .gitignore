@@ -1,2 +1,6 @@
 # 논문 PDF (저작권 문제로 커밋하지 않음)
 docs/papers/
+
+# 원본 데이터 (CLAUDE.md 4절). locked = test 정답, 읽기·커밋 금지
+data/raw/
+data/locked/
