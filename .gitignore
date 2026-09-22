@@ -4,3 +4,7 @@ docs/papers/
 # 원본 데이터 (CLAUDE.md 4절). locked = test 정답, 읽기·커밋 금지
 data/raw/
 data/locked/
+
+# Python 환경·캐시
+.venv/
+__pycache__/
