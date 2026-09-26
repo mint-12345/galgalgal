@@ -1,0 +1,15 @@
+date: 2026-09-26
+author: 김혜연
+script: src/models/repro_R_xgb.py
+featureset: R-fold (분할별로 13절 임시 기준을 통과한 피처만)
+input: data/processed/wafer_table.csv (14.2에서 동결한 버전)
+seed: 42
+n_jobs: -1  # 병렬 처리 설정. random_state 고정이라 결과는 n_jobs와 무관하게 같다
+cv: Monte Carlo CV 20회, 그룹별 무작위 0.8/0.19999999999999996 (repro_R_selected.py와 같은 난수열로 재현한 같은 분할)
+selection: p < 0.05 AND OOB permutation importance > 0, 학습 조각 안에서만 (13절)
+models:
+  xgb: XGBRegressor(n_estimators=400, learning_rate=0.05, max_depth=4, subsample=0.8, colsample_bytree=0.8, min_child_weight=2, reg_lambda=1.0, objective='reg:squarederror', tree_method='hist', random_state=42, n_jobs=-1)
+  tree_bag: RandomForestRegressor(max_features=1.0, random_state=42, n_jobs=-1) # 분할 재현 확인용
+tuning: 없음. 하이퍼파라미터는 고정값 (TODO 결정 필요)
+di_target: 없음 (Di 원문에 XGBoost 없음). tree bagging 과 비슷한 수준인지만 본다
+labels: train 라벨만. test 라벨과 data/locked/ 는 열지 않았다
