@@ -1,0 +1,18 @@
+date: 2026-09-26
+author: 김혜연
+script: src/models/repro_R_selected.py
+featureset: R (Di 125개) + 13절 임시 선택 기준
+input: data/processed/wafer_table.csv (14.2에서 동결한 버전)
+seed: 42
+cv: Monte Carlo CV 20회, 그룹별 무작위 0.8/0.19999999999999996
+revealed: train 전체 (R 재현 설정, CLAUDE.md 7절)
+selection: p < 0.05 (단순회귀 t-검정) AND OOB permutation importance > 0, 20회 중 10회 이상. 각 분할의 학습 조각 안에서만 계산
+variants: {all: 125개 전부, voted: 최종 투표 피처, fold: 분할별 선택 피처(엄격)}
+models: {lr: LinearRegression, tree_bag: RandomForestRegressor(max_features=1.0, random_state=42)}
+votes_file: results/diagnostics/2026-09-26_김혜연_R_feature_votes.csv
+selected_features:
+  A-456: ['lag_MRR_01', 'lag_MRR_02', 'lag_MRR_03', 'lag_MRR_04', 'lag_MRR_05', 'lag_MRR_06', 'lag_MRR_07', 'lag_MRR_08', 'lag_MRR_09', 'lag_MRR_10', 'lag_MRR_11', 'nn_MRR_01', 'nn_MRR_02', 'nn_MRR_03', 'nn_MRR_04', 'nn_MRR_05', 'nn_MRR_06', 'nn_MRR_07', 'nn_MRR_08', 'nn_MRR_09', 'nn_MRR_10', 'dur_POLISH_s1', 'std_BACKING_FILM_s1', 'mean_DRESSER_s1', 'mean_DRESSER_s2', 'std_POLISH_TABLE_s1', 'slope_POLISH_TABLE_s1', 'mean_DRESSER_TABLE_s1', 'mean_DRESSER_TABLE_s2', 'std_MEMBRANE_s1', 'std_PSHEET_s1', 'mean_PCHAMBER_s1', 'auc_PCHAMBER_s1', 'mean_MAIN_OUTER_s1', 'std_MAIN_OUTER_s1', 'auc_MAIN_OUTER_s1', 'mean_CENTER_s1', 'std_CENTER_s1', 'auc_CENTER_s1', 'std_RETAINER_s1', 'auc_RETAINER_s1', 'mean_RIPPLE_s1', 'std_RIPPLE_s1', 'auc_RIPPLE_s1', 'mean_EDGE_s1', 'std_EDGE_s1', 'auc_EDGE_s1', 'auc_SLURRY_A_s1', 'auc_SLURRY_B_s1', 'mean_SLURRY_C_s1', 'auc_SLURRY_C_s1', 'mean_WAFER_ROT_s1', 'mean_STAGE_ROT_s1']
+  B-456: ['lag_MRR_01', 'lag_MRR_02', 'lag_MRR_03', 'lag_MRR_04', 'lag_MRR_05', 'lag_MRR_06', 'lag_MRR_07', 'lag_MRR_08', 'lag_MRR_09', 'lag_MRR_10', 'lag_MRR_11', 'nn_MRR_01', 'nn_MRR_02', 'nn_MRR_03', 'nn_MRR_04', 'nn_MRR_05', 'nn_MRR_06', 'nn_MRR_07', 'nn_MRR_08', 'nn_MRR_09', 'nn_MRR_10', 'dur_POLISH_s1', 'std_BACKING_FILM_s1', 'slope_BACKING_FILM_s1', 'mean_DRESSER_s1', 'mean_DRESSER_s2', 'mean_POLISH_TABLE_s1', 'mean_POLISH_TABLE_s2', 'std_POLISH_TABLE_s1', 'slope_POLISH_TABLE_s1', 'mean_DRESSER_TABLE_s1', 'mean_DRESSER_TABLE_s2', 'std_MEMBRANE_s1', 'slope_MEMBRANE_s1', 'std_PSHEET_s1', 'slope_PSHEET_s1', 'mean_PCHAMBER_s1', 'std_PCHAMBER_s1', 'auc_PCHAMBER_s1', 'mean_MAIN_OUTER_s1', 'std_MAIN_OUTER_s1', 'auc_MAIN_OUTER_s1', 'mean_CENTER_s1', 'std_CENTER_s1', 'std_CENTER_s2', 'auc_CENTER_s1', 'mean_RETAINER_s2', 'std_RETAINER_s1', 'std_RETAINER_s2', 'auc_RETAINER_s1', 'mean_RIPPLE_s1', 'std_RIPPLE_s1', 'auc_RIPPLE_s1', 'mean_EDGE_s1', 'std_EDGE_s1', 'auc_EDGE_s1', 'std_SLURRY_A_s1', 'auc_SLURRY_A_s1', 'auc_SLURRY_B_s1', 'mean_SLURRY_C_s1', 'std_SLURRY_C_s1', 'std_SLURRY_C_s2', 'auc_SLURRY_C_s1', 'mean_WAFER_ROT_s1', 'mean_STAGE_ROT_s1']
+  A-123: ['lag_MRR_01', 'lag_MRR_02', 'lag_MRR_03', 'lag_MRR_04', 'lag_MRR_05', 'lag_MRR_06', 'lag_MRR_07', 'lag_MRR_08', 'lag_MRR_09', 'lag_MRR_10', 'lag_MRR_11', 'nn_MRR_01', 'nn_MRR_02', 'nn_MRR_03', 'nn_MRR_04', 'nn_MRR_05', 'nn_MRR_06', 'nn_MRR_07', 'nn_MRR_08', 'nn_MRR_09', 'nn_MRR_10', 'dur_POLISH_s1', 'mean_BACKING_FILM_s1', 'mean_BACKING_FILM_s2', 'mean_DRESSER_s1', 'mean_DRESSER_s2', 'mean_DRESSER_TABLE_s1', 'mean_DRESSER_TABLE_s2', 'mean_MEMBRANE_s1', 'mean_MEMBRANE_s2', 'mean_PSHEET_s1', 'mean_PSHEET_s2', 'mean_SLURRY_B_s2', 'auc_SLURRY_B_s1', 'auc_SLURRY_B_s2']
+labels: train 라벨만. test 라벨과 data/locked/ 는 열지 않았다
+caveat: voted 는 20개 분할의 학습 조각을 모아 만든 목록이라 완전 중첩 설계가 아니다 → fold 와 비교

@@ -1,0 +1,8 @@
+date: 2026-09-26
+author: 김혜연
+script: src/models/repro_R_selected.py
+content: R 피처 125개의 그룹별 선택 투표 수 (20회 중)
+rule: p < 0.05 AND OOB permutation importance > 0, 각 분할의 학습 조각 안에서만
+selected: votes >= 10
+related: results/2026-09-26_김혜연_R_montecarlo_cv_selected.csv
+note: 진단 결과 (14.4)
