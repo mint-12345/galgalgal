@@ -16,7 +16,7 @@
 | `data/processed/wafer_table.csv` | **집계표 본체.** 2,829행 × 153열 | O |
 | `data/processed/COLUMNS.md` | 컬럼 153개의 이름·의미·단위·계산 방법 | O |
 | `src/reset_sweep.py` | 소모품 리셋 감지 임계값 10/20/30% 비교 | 미커밋 |
-| `results/week4_reset_summary.csv` `.yaml` | 위 비교 결과와 설정 | 미커밋 |
+| `results/diagnostics/2026-09-26_김혜연_reset_threshold.csv` `.yaml` | 위 비교 결과와 설정 (진단 결과, CLAUDE.md 14.4) | O |
 | `notebooks/check_wafer_table.ipynb` | 집계표 눈으로 점검 (개수 표, MRR 분포·시간순 산점도, 소모품 추이, 결측 표) | 제외 (`.gitignore`) |
 | `requirements.txt`, `README.md` | 실행 환경과 설치 방법 | O |
 | `docs/paper_notes/INDEX.md` | 논문 PDF 18편의 서지 정보 (PDF 자체는 `.gitignore`) | O (main) |
