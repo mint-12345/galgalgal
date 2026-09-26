@@ -1,0 +1,12 @@
+date: 2026-09-26
+author: 김혜연
+script: src/persistence_order.py
+question: 직전 웨이퍼의 순서 기준을 바꾸면 지속 모델이 Di Table 4에 가까워지는가
+input: data/processed/wafer_table.csv + data/raw/train 센서 + data/raw/labels/CMP-validation-removalrate.csv
+model: 지속 모델 r_t = r_{t-1} (features_repro.neighbor_features 의 lag_MRR_01)
+wafers: MRR > 400 인 이상치 4장 제외. 직전 공개 웨이퍼가 없는 행은 평가에서 제외
+orders: {t_start: 첫 기록 시각, main_chamber: 주 연마 챔버(456→4, 123→1) 첫 진입 시각, t_end: 마지막 기록 시각, polish_table: (nreset, start) 순, dresser: 같은 방식, dresser_table: 리셋 0회 카운터}
+val_check: revealed = train + 자기보다 앞선 val, 평가 = val. Di Table 5 test 지속 모델 8.23
+di_table4: {A-456: 7.55, B-456: 11.4, A-123: 5.62}
+locked: data/locked/ 와 test 라벨은 열지 않았다
+note: 진단 결과 (14.4)
