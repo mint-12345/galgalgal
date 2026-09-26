@@ -1,0 +1,9 @@
+date: 2026-09-26
+script: src/reset_sweep.py
+input: data/raw (train+val+test 센서, 라벨 미사용)
+wafers: 2829
+rule: 시작값이 직전 웨이퍼(같은 스테이지, 시작 시각 순)의 시작값보다 frac x (스테이지 내 변수 범위) 이상 감소
+thresholds: [0.1, 0.2, 0.3]
+variables: [BACKING_FILM, DRESSER, POLISH_TABLE, DRESSER_TABLE, MEMBRANE, PSHEET]
+seed: 42
+note: 임계값 미확정 (CLAUDE.md 13절)
