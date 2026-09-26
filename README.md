@@ -1,4 +1,4 @@
-# drift-k-cmp
+# 갈갈갈 (galgalgal)
 
 PHM 2016 CMP 데이터로 웨이퍼 MRR 가상계측 모델과 샘플링 정책을 비교하는 프로젝트. 작업 규칙은 [CLAUDE.md](CLAUDE.md).
 

@@ -95,8 +95,8 @@ train·val·test 센서를 합쳐(2,829장) 스테이지별 시작 시각 순으
 ### 5.1 환경 설치
 
 ```bash
-git clone https://github.com/mint-12345/drift-k-cmp.git
-cd drift-k-cmp
+git clone https://github.com/mint-12345/galgalgal.git
+cd galgalgal
 git switch week4/data-table      # main에 머지되기 전까지
 
 python -m venv .venv

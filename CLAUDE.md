@@ -1,4 +1,4 @@
-# CLAUDE.md — Drift.k CMP 가상계측 프로젝트
+# CLAUDE.md — 갈갈갈 CMP 가상계측 프로젝트
 
 > 저장소 루트의 이 파일은 Claude Code가 작업을 시작할 때 자동으로 읽는다.
 > 팀원 4명의 Claude가 같은 규칙으로 일하게 하는 **단일 기준 문서**다.
