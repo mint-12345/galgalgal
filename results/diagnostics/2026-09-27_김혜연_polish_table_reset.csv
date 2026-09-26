@@ -1,0 +1,11 @@
+check,unit,series,n_wafer,n_reset,wafers_per_reset,peak_median,peak_min,peak_max,inside_median,between_median,between_p90,n_row,rate_per_hour,hours_per_reset,cycle_height_median,total_increase,inside_wafer_increase,inside_share,inside_mean,implied_wafers_deiv,gap_counter_median,gap_seconds_median,gap_rate_per_s,inside_rate_per_s,corr_gap_time_counter,abs_diff_median,abs_diff_p90,same_within_1
+1_2_3,stage,A,1656.0,100.0,16.56,307.037,85.926,353.333,8.148,5.926,42.222,,,,,,,,,,,,,,,,,
+1_2_3,stage,B,1173.0,87.0,13.483,309.63,171.111,357.037,11.111,5.926,53.481,,,,,,,,,,,,,,,,,
+1_2_3,stage_group,A/A-123,508.0,50.0,10.16,277.037,85.926,341.481,0.0,3.704,81.778,,,,,,,,,,,,,,,,,
+1_2_3,stage_group,A/A-456,1148.0,90.0,12.756,303.333,119.259,353.333,11.111,5.926,49.185,,,,,,,,,,,,,,,,,
+1_2_3,stage_group,B/B-456,1173.0,87.0,13.483,309.63,171.111,357.037,11.111,5.926,53.481,,,,,,,,,,,,,,,,,
+5_row_level,row(stage),A,1656.0,111.0,14.919,,,,8.148,,,549890.0,15.884,14.096,246.667,24853.333,11982.963,0.482,7.236,48.369,,,,,,,,
+5_row_level,row(stage),B,1173.0,100.0,11.73,,,,11.111,,,420913.0,14.137,15.647,248.889,22120.0,11454.074,0.518,9.765,35.843,,,,,,,,
+6_gap,wafer gap,A,,,,,,,,,,641.0,,,,,,,,,16.296,2697.667,0.005,0.025,0.564,,,
+6_gap,wafer gap,B,,,,,,,,,,432.0,,,,,,,,,20.0,3131.0,0.006,0.03,0.591,,,
+4_shared,A-123 vs A-456,같은 시각(±60초) 값 차이,,,,,,,,,,15522.0,,,,,,,,,,,,,,0.0,0.0,0.985
