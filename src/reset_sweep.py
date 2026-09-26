@@ -6,7 +6,7 @@
 - 임계값은 확정하지 않는다 (CLAUDE.md 13절). 이 스크립트는 비교표만 만든다.
 
 실행: python src/reset_sweep.py
-출력: results/week4_reset_summary.csv (+ 같은 이름의 .yaml)
+출력: results/diagnostics/{날짜}_{이름}_reset_threshold.csv (+ 같은 이름의 .yaml). 진단 결과이므로 14.4 규칙을 따른다.
 """
 import sys
 from datetime import date
@@ -19,7 +19,8 @@ from aggregate import USAGE, dedup  # noqa: E402
 from load import KEY, ROOT, SPLITS, load_sensors  # noqa: E402
 
 FRACS = [0.10, 0.20, 0.30]
-OUT = ROOT / "results" / "week4_reset_summary.csv"
+AUTHOR = "김혜연"  # 파일명에 들어가는 작성자 (CLAUDE.md 14.4)
+OUT = ROOT / "results" / "diagnostics" / f"{date.today().isoformat()}_{AUTHOR}_reset_threshold.csv"
 SEED = 42  # 이 스크립트는 난수를 쓰지 않지만 설정 기록용으로 남긴다
 
 

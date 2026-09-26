@@ -48,7 +48,8 @@ data/locked/          CMP-test-removalrate.csv, PHM16TestValidationAnswers/  ←
 data/processed/       웨이퍼 단위 집계표 (커밋함)
 docs/                 피처 설계서, 연구설계 문서
 src/load.py  src/aggregate.py  src/features.py  src/models/  src/harness.py
-results/              실험 결과 csv + 설정 yaml
+results/              모델 실험 결과 csv + 설정 yaml (14.3)
+results/diagnostics/  진단·점검 결과 (14.4)
 ```
 
 `.gitignore`에 `data/raw/`, `data/locked/`를 넣는다.
@@ -265,6 +266,7 @@ def neighbor_features(wafers, revealed, n_lag=11, k_usage=10, window=None):
 
 `results/{날짜}_{이름}_{R|Rc|S}_{실험명}.csv` + 같은 이름의 `.yaml`(사용 설정·피처 목록·시드·입력 파일 버전).
 csv 컬럼: `group, model, featureset, fold, mse, mae, rmse, n_train, n_eval`. **`featureset` 컬럼은 필수다** (14절).
+진단·점검 결과는 `results/diagnostics/`에 두고 다른 규칙을 따른다 (14.4).
 
 ## 13. 미결정 (결정되면 이 절에서 지우고 해당 절에 반영)
 
@@ -304,7 +306,16 @@ csv 컬럼: `group, model, featureset, fold, mse, mae, rmse, n_train, n_eval`. *
 - 집계표를 다시 만들어야 하면 덮어쓰지 말고 파일명에 `_v2`를 붙인다 (`wafer_table_v2.csv`). 3절 3번과 같은 취지다.
 - **어떤 결과가 어느 버전으로 나왔는지 `results/`의 `.yaml`에 기록한다.** 예: `input: data/processed/wafer_table.csv` 또는 `wafer_table_v2.csv + features_S.csv`.
 
-### 14.3 결과 파일
+### 14.3 결과 파일: `results/` 최상위 = 모델 실험 결과만
 
-- 파일명: `results/{날짜}_{이름}_{R|Rc|S}_{실험명}.csv` (12절).
+- 파일명: `results/{날짜}_{이름}_{R|Rc|S}_{실험명}.csv` + 같은 이름의 `.yaml` (12절).
 - csv에 `featureset` 컬럼을 **반드시** 넣는다. 파일명만으로는 한 파일에 여러 세트가 섞였을 때 구분할 수 없다.
+- 모델 성능 수치가 아닌 것은 여기 두지 않는다 (14.4).
+
+### 14.4 진단·점검 결과: `results/diagnostics/`
+
+리셋 임계값 비교, P·V 후보 표, 분포 확인처럼 **모델 성능이 아닌 점검 결과**를 둔다.
+
+- 14.3의 이름 규칙(`{R|Rc|S}`)과 `featureset` 컬럼 요건을 **적용하지 않는다.** 피처셋과 무관한 결과이기 때문이다.
+- 대신 파일명에 **날짜와 작성자**는 넣는다: `results/diagnostics/{날짜}_{이름}_{내용}.csv`.
+- 설정 `.yaml`을 같이 두는 것과 기존 파일을 덮어쓰지 않는 규칙(3절 3번)은 최상위와 같다.
