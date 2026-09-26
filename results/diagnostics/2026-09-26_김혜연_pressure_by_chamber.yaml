@@ -1,0 +1,7 @@
+date: 2026-09-26
+author: 김혜연
+script: src/pressure_profile.py
+input: data/raw (train+val+test 센서, 라벨 미사용) + data/processed/wafer_table.csv (group 컬럼)
+question: A-123의 주 연마 챔버가 1인가 2·3인가
+variables: [RETAINER_RING_PRESSURE, MAIN_OUTER_AIR_BAG_PRESSURE]
+note: 진단 결과 (14.4). featureset 컬럼 없음
