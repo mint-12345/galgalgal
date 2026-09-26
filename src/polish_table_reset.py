@@ -26,19 +26,30 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
+from matplotlib.font_manager import FontProperties, findSystemFonts  # noqa: E402
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from aggregate import RESET_FRAC, dedup  # noqa: E402
 from load import KEY, ROOT, SPLITS, load_sensors  # noqa: E402
-from pv_check import AUTHOR  # noqa: E402
-from scatter_pv import korean_font  # noqa: E402
 
+AUTHOR = "김혜연"
 OUT = ROOT / "results" / "diagnostics" / f"2026-09-27_{AUTHOR}_polish_table_reset.csv"
 FIG = ROOT / "docs" / "reports" / "figs" / f"{AUTHOR}_polish_table_stage_A.png"
 COL, AB = "USAGE_OF_POLISHING_TABLE", "POLISH_TABLE"
 DROP_MIN = 10.0                                   # 행 단위 리셋 판정 (한 주기 높이의 3% 미만은 무시)
 DEIV = {"limit": 350, "per_wafer": 10, "wafers_per_reset": 35}
 COLORS = {"A-456": "#2a78d6", "A-123": "#eb6834"}   # 범주형 색 (dataviz)
+
+
+def korean_font() -> str:
+    """설치된 한글 폰트 중 첫 번째. 없으면 기본 폰트."""
+    want = ["Malgun Gothic", "NanumGothic", "Nanum Gothic", "Gulim", "Batang", "AppleGothic"]
+    have = {FontProperties(fname=f).get_name() for f in findSystemFonts()}
+    for name in want:
+        if name in have:
+            return name
+    print("한글 폰트를 찾지 못했다. 축 이름이 깨질 수 있다.", flush=True)
+    return plt.rcParams["font.family"][0]
 
 
 def load_rows() -> pd.DataFrame:
