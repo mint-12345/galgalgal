@@ -1,1 +1,1 @@
-# drift-k-cmp
+# galgalgal-cmp
