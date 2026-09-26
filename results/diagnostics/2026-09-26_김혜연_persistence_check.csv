@@ -1,0 +1,25 @@
+check,group,pool,n_revealed,n_eval,mse,mse_std,di_mse,di_std,gap_median_s
+1_revealed_train_only,A-456,train 전체,1977.0,797,12.0748,,7.55,1.27,
+1_revealed_train_only,B-456,train 전체,1977.0,814,17.785,,11.4,1.36,
+1_revealed_train_only,A-123,train 전체,1977.0,363,9.9992,,5.62,1.06,
+2_interleave,A-456,train만,,798,,,,,866.333
+2_interleave,A-456,train+val,,983,,,,,384.5
+2_interleave,A-456,train+val+test,,1148,,,,,200.667
+2_interleave,B-456,train만,,815,,,,,812.5
+2_interleave,B-456,train+val,,987,,,,,432.5
+2_interleave,B-456,train+val+test,,1173,,,,,209.3335
+2_interleave,A-123,train만,,364,,,,,2632.334
+2_interleave,A-123,train+val,,431,,,,,1850.3335
+2_interleave,A-123,train+val+test,,504,,,,,1142.667
+3_revealed_train_val,A-456,train+val,2401.0,797,11.4706,,7.55,1.27,
+3_revealed_train_val,B-456,train+val,2401.0,814,16.9859,,11.4,1.36,
+3_revealed_train_val,A-123,train+val,2401.0,363,9.6112,,5.62,1.06,
+4_mccv,A-456,train80,,20,12.6984,1.2222,7.55,1.27,
+4_mccv,B-456,train80,,20,19.8746,2.7777,11.4,1.36,
+4_mccv,A-123,train80,,20,10.1408,1.5986,5.62,1.06,
+4_mccv,A-456,train80+val,,20,11.7778,1.2848,7.55,1.27,
+4_mccv,B-456,train80+val,,20,19.0967,2.6505,11.4,1.36,
+4_mccv,A-123,train80+val,,20,9.6931,1.5035,5.62,1.06,
+5_chamberset,A-456,"train+val, 챔버군 단위",2401.0,797,28.7047,,7.55,1.27,
+5_chamberset,B-456,"train+val, 챔버군 단위",2401.0,815,37.3097,,11.4,1.36,
+5_chamberset,A-123,"train+val, 챔버군 단위",2401.0,363,9.6112,,5.62,1.06,
