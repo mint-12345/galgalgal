@@ -1,0 +1,11 @@
+date: 2026-09-26
+author: 김혜연
+script: src/scatter_pv.py
+input: data/raw/train 센서 + data/processed/wafer_table.csv
+wafers: train, is_outlier 제외, n_allzero_sensors == 0 (clean)
+P1_on: RETAINER_RING_PRESSURE, 압력 6개 중 하나라도 >0 이고 STAGE_ROTATION >0 인 행만 평균
+controls: ['t_start', 'start_POLISH_TABLE_w']
+metrics: Pearson. partial_corr = 통제 변수 선형 회귀 잔차끼리의 Pearson
+figs: docs/reports/figs/김혜연_scatter_p3.png, _p1_on.png, _t.png (점 색 = 웨이퍼 시작 시각)
+related: 2026-09-26_김혜연_pv_T_check.csv (T·P3 수치는 그 파일과 같은 정의)
+note: 진단 결과 (14.4). MRR은 그림과 상관 계산에만 사용
