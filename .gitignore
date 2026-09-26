@@ -8,3 +8,6 @@ data/locked/
 # Python 환경·캐시
 .venv/
 __pycache__/
+
+# 탐색용 노트북 (CLAUDE.md 2절: 커밋하지 않음)
+notebooks/
