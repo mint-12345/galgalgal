@@ -33,7 +33,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from load import ROOT  # noqa: E402
 from pv_check import AUTHOR  # noqa: E402
-from repro_R import GROUPS, N_REP, SEED, TRAIN_FRAC, build  # noqa: E402
+from repro_R import GROUPS, N_JOBS, N_REP, SEED, TRAIN_FRAC, build  # noqa: E402
 
 P_MAX, MIN_VOTES = 0.05, 10
 OUT = ROOT / "results" / f"2026-09-26_{AUTHOR}_R_montecarlo_cv_selected.csv"
@@ -77,7 +77,8 @@ def evaluate(name: str, tr: pd.DataFrame, te: pd.DataFrame, cols: list[str]) -> 
     """고른 피처로 LR과 tree bagging을 학습해 검증 조각의 오차를 낸다."""
     out = []
     for model, est in (("lr", LinearRegression()),
-                       ("tree_bag", RandomForestRegressor(max_features=1.0, random_state=SEED))):
+                       ("tree_bag", RandomForestRegressor(max_features=1.0, random_state=SEED,
+                                                          n_jobs=N_JOBS))):
         if not cols:
             out.append({"model": model, "mse": np.nan, "mae": np.nan, "rmse": np.nan})
             continue
@@ -110,11 +111,11 @@ def main() -> None:
             tr, te = gd.iloc[idx[:cut]], gd.iloc[idx[cut:]]
             splits[group].append((tr, te))
             X, y = tr[cols].to_numpy(float), tr["MRR"].to_numpy(float)   # 학습 조각만 본다
-            rf = RandomForestRegressor(max_features=1.0, random_state=SEED).fit(X, y)
+            rf = RandomForestRegressor(max_features=1.0, random_state=SEED, n_jobs=N_JOBS).fit(X, y)
             keep = ttest_pass(X, y) & (oob_importance(rf, X, y, rng) > 0)
             votes[group] += keep
             per_fold[group].append([c for c, k in zip(cols, keep) if k])
-        print(f"  {rep + 1}/{N_REP} 회", end="\r")
+        print(f"  {rep + 1}/{N_REP} 회", end="\r", flush=True)
 
     final = {g: [c for c, v in zip(cols, votes[g]) if v >= MIN_VOTES] for g in GROUPS}
     print("\n\n[선택된 피처 수] 그룹별")
@@ -138,7 +139,9 @@ def main() -> None:
         "date: 2026-09-26", f"author: {AUTHOR}", "script: src/models/repro_R_selected.py",
         "featureset: R (Di 125개) + 13절 임시 선택 기준",
         "input: data/processed/wafer_table.csv (14.2에서 동결한 버전)",
-        f"seed: {SEED}", f"cv: Monte Carlo CV {N_REP}회, 그룹별 무작위 {TRAIN_FRAC}/{1 - TRAIN_FRAC}",
+        f"seed: {SEED}",
+        f"n_jobs: {N_JOBS}  # 병렬 처리 설정. random_state 고정이라 결과는 n_jobs와 무관하게 같다",
+        f"cv: Monte Carlo CV {N_REP}회, 그룹별 무작위 {TRAIN_FRAC}/{1 - TRAIN_FRAC}",
         "revealed: train 전체 (R 재현 설정, CLAUDE.md 7절)",
         f"selection: p < {P_MAX} (단순회귀 t-검정) AND OOB permutation importance > 0, "
         f"{N_REP}회 중 {MIN_VOTES}회 이상. 각 분할의 학습 조각 안에서만 계산",

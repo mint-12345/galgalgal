@@ -32,6 +32,7 @@ from load import KEY, ROOT  # noqa: E402
 from pv_check import AUTHOR  # noqa: E402
 
 SEED, N_REP, TRAIN_FRAC = 42, 20, 0.8
+N_JOBS = -1          # 병렬 처리만 바꾼다. random_state 고정이라 학습된 숲과 결과는 같다
 FEATURESET = "R"
 INPUT = "data/processed/wafer_table.csv"
 OUT = ROOT / "results" / f"2026-09-26_{AUTHOR}_R_montecarlo_cv.csv"
@@ -63,7 +64,7 @@ def fit_predict(name: str, tr: pd.DataFrame, te: pd.DataFrame, cols: list[str]) 
     if name == "persistence":
         return te["lag_MRR_01"].to_numpy(float)                      # 학습 없음
     model = (LinearRegression() if name == "lr"
-             else RandomForestRegressor(max_features=1.0, random_state=SEED))
+             else RandomForestRegressor(max_features=1.0, random_state=SEED, n_jobs=N_JOBS))
     model.fit(tr[cols], tr["MRR"])
     return model.predict(te[cols])
 
@@ -85,7 +86,7 @@ def main() -> None:
                              "mse": float((err ** 2).mean()), "mae": float(np.abs(err).mean()),
                              "rmse": float(np.sqrt((err ** 2).mean())),
                              "n_train": len(tr), "n_eval": len(te)})
-        print(f"  {rep + 1}/{N_REP} 회 완료", end="\r")
+        print(f"  {rep + 1}/{N_REP} 회 완료", end="\r", flush=True)
     res = pd.DataFrame(rows).round(4)
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
@@ -94,7 +95,9 @@ def main() -> None:
         "date: 2026-09-26", f"author: {AUTHOR}", "script: src/models/repro_R.py",
         f"featureset: {FEATURESET} (Di 125개: ID 1~21 neighbor_features + ID 22~125 집계표 104개)",
         f"input: {INPUT} (14.2에서 동결한 버전)",
-        f"seed: {SEED}", f"cv: Monte Carlo CV {N_REP}회, 그룹별 무작위 {TRAIN_FRAC}/{1 - TRAIN_FRAC}",
+        f"seed: {SEED}",
+        f"n_jobs: {N_JOBS}  # 병렬 처리 설정. random_state 고정이라 결과는 n_jobs와 무관하게 같다",
+        f"cv: Monte Carlo CV {N_REP}회, 그룹별 무작위 {TRAIN_FRAC}/{1 - TRAIN_FRAC}",
         "revealed: train 전체 (R 재현 설정, CLAUDE.md 7절)",
         "models: {persistence: r_t = r_{t-1}, lr: LinearRegression, "
         "tree_bag: RandomForestRegressor(max_features=1.0, random_state=42)}",
