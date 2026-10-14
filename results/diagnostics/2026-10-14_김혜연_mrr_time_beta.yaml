@@ -1,0 +1,21 @@
+date: 2026-10-14
+author: 김혜연
+script: src/hyp_mrr_time.py
+question: MRR 이 실제 연마 시간으로 나눈 값(가설 1, β≈0)인가 고정 공정 시간으로 나눈 값(가설 2, β≈1)인가
+input: data/processed/wafer_table.csv + data/raw/{train,val} 센서 + data/raw/labels/CMP-validation-removalrate.csv (집계표 val MRR과 대조 후 사용)
+wafers: train·val 라벨 웨이퍼 중 is_outlier=0, n_allzero_sensors=0, flag_incomplete_chamber=0, flag_long_trace=0
+locked: data/locked/, test 센서·라벨은 열지 않았다
+time: 행 i 의 시간 = 다음 기록까지 dt (마지막 행 0). 정의별로 조건 만족 행의 dt 합
+definitions: {'a_total': '웨이퍼 전체 기록', 'b_chamber': '주 연마 챔버(4 / 1) 체류', 'c_press': '압력 > 0', 'd_press_rot': '압력 > 0 이고 STAGE 회전 on', 'e_ret_high': '리테이너 링 고압 단계(> 3,000)'}
+main_chamber: {'456': 4, '123': 1}
+ret_high: RETAINER_RING_PRESSURE > 3000
+gap: dt > 2.0 초. in = 빈칸 포함, out = 빈칸 간격을 0으로
+model: log(MRR) = a + beta*log(T) + t_start + start_{U}_w 6개 (통제 변수는 z-score). OLS
+controls: ['t_start', 'start_BACKING_FILM_w', 'start_DRESSER_w', 'start_POLISH_TABLE_w', 'start_DRESSER_TABLE_w', 'start_MEMBRANE_w', 'start_PSHEET_w']
+ci: 웨이퍼 쌍 부트스트랩 2000회 백분위수 95%, seed 42, 그룹마다 같은 재표본을 모든 정의에 사용
+nocontrol: beta_nocontrol = log-log 단순회귀 (참고용, 판정에 쓰지 않음)
+power: cv_time / cv_mrr >= 0.25 이면 있음 (결과 보기 전 고정)
+verdict: CI가 0 포함·1 미포함 = 가설 1 지지, 1 포함·0 미포함 = 가설 2 지지, 그 밖 = 판단 불가 (결과 보기 전 고정)
+n_zero_time: 그 정의의 T 가 0 이라 로그를 못 써서 빠진 웨이퍼 수
+figs: docs/reports/figs/김혜연_mrr_time_scatter_gapout.png, docs/reports/figs/김혜연_mrr_time_scatter_gapin.png
+note: 진단 결과 (14.4). MRR 은 회귀 계산에만 사용
