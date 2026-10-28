@@ -1,0 +1,10 @@
+date: 2026-10-28
+author: 김혜연
+script: src/hyp_a123_counters.py
+question: A-123 소모품 카운터 6개가 A-123이 실제로 쓰는 부품을 세는지 (사전 확정 문서 5.0절)
+input: data/raw/{train,val} 센서 + data/processed/features_v1.csv (allzero)
+labels: MRR 사용 안 함. test·data/locked/ 열지 않음
+rule: A-123 증가 비율 >= 0.8 자기 부품 / <= 0.2 이고 A-456 >= 0.8 자기 부품 아님 / 그 외 보류
+same_time_tolerance_s: 2.0
+reset_frac: 0.2
+note: 진단 결과 (14.4)
