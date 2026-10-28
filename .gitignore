@@ -4,6 +4,12 @@ docs/papers/
 # 원본 데이터 (CLAUDE.md 4절). locked = test 정답, 읽기·커밋 금지
 data/raw/
 data/locked/
+# 하위 폴더에 있어도 막는다 (10/28 basic-cmp-ml 브랜치에 하위 경로로 원본·test 정답이 커밋된 일 재발 방지)
+**/data/raw/
+**/data/locked/
+**/*removalrate*.csv
+**/PHM16TestValidationAnswers/
+**/CMP-test-*.csv
 
 # Python 환경·캐시
 .venv/
