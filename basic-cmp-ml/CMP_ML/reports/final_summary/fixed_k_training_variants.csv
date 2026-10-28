@@ -1,0 +1,3 @@
+item,value
+"training fixed-k RMSE, PV = P9 x V3 (Step 26/27 에서 사용, master table 값)",8.759663495612177
+"training fixed-k RMSE, Step 16 당시의 PV 조합 (5-fold 평균)",8.65110223247082

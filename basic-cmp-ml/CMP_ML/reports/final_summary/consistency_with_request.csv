@@ -1,0 +1,10 @@
+dataset,model,expected_in_request,saved_value,rounded_saved,matches
+training,Pure ML,3.32,3.3192694579108295,3.32,True
+training,Hybrid,3.57,3.5723149557906457,3.57,True
+training,Fixed-k Preston,8.65,8.759663495612177,8.76,False
+validation,Pure ML,3.256,3.255966844123559,3.256,True
+validation,Hybrid,3.4142,3.414172633557639,3.4142,True
+validation,Fixed-k Preston,9.113,9.112972097814131,9.113,True
+test,Pure ML,3.1856,3.1856486425017376,3.1856,True
+test,Hybrid,3.465,3.464981795514309,3.465,True
+test,Fixed-k Preston,9.1367,9.136695282505823,9.1367,True

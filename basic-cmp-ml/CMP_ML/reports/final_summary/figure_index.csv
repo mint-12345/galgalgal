@@ -1,0 +1,8 @@
+final_figure,source
+fig1_model_concept.png,Step 28 에서 새로 그린 구조 개념도
+fig2_train_val_test_rmse.png,reports/step27_test/figures/fig1_train_val_test_rmse.png
+fig3_fixedk_hybrid_pure.png,reports/step27_test/figures/fig4_fixedk_hybrid_pure.png
+fig4_test_actual_vs_predicted.png,reports/step27_test/figures/fig3_test_actual_vs_predicted.png
+fig5_hybrid_k_importance.png,reports/step21_interpretation/figures/fig1_hybrid_k_importance.png
+fig6_feature_group_share.png,reports/step21_interpretation/figures/fig3_group_share_comparison.png
+fig7_distribution_shift.png,reports/step25_final_robustness/figures/fig3_shift_rmse.png

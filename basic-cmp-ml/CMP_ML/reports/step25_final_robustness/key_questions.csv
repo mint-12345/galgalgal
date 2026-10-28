@@ -1,0 +1,10 @@
+question,answer
+within-distribution 17개 그룹에서 더 낮은 RMSE 그룹 수,Pure ML 17 / Hybrid 0
+distribution-shift 7개 test 에서 더 낮은 RMSE test 수,Pure ML 6 / Hybrid 1
+shift RMSE 평균,Pure ML 6.0529 / Hybrid 6.0590
+shift RMSE 최대값,Pure ML 11.1933 / Hybrid 9.7362
+within-distribution worst-group RMSE,Pure ML 3.5973 / Hybrid 3.8028
+nominal 대비 shift 평균 증가폭,Pure ML +2.7336 / Hybrid +2.4867
+그룹 RMSE 범위 (작을수록 흔들림이 작음),Pure ML 0.5875 / Hybrid 0.4818
+그룹 RMSE 표준편차,Pure ML 0.1964 / Hybrid 0.1466
+평균 절대 delta_RMSE,Pure ML 0.1720 / Hybrid 0.1261

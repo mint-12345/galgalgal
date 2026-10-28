@@ -1,0 +1,10 @@
+item,value
+"sample 수가 1,609개인가",True
+Pure ML 5-fold 평균 RMSE 가 Step 24 저장값과 같은가,True
+Hybrid 5-fold 평균 RMSE 가 Step 20 저장값과 같은가,True
+Hybrid pooled RMSE 가 Step 22 저장값과 같은가,True
+Hybrid 예측 = k_pred x PV_proxy 인가,True
+모든 split 에서 학습과 평가의 wafer 가 겹치지 않는가,True
+7개 split 의 평가 sample 이 Step 23 과 같은가,True
+Hybrid 재학습 결과가 Step 23 저장값과 같은가,True
+17개 그룹의 sample 수가 Step 22 저장값과 같은가,True

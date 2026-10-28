@@ -1,0 +1,10 @@
+model,dataset,n,R2,MAE,RMSE,source,PV_definition
+Pure ML,training,1609,0.8552401030971855,2.5531152890221387,3.3192694579108295,Step 27 three_way_comparison.csv,사용하지 않음
+Pure ML,validation,357,0.8683582483982528,2.427516170589329,3.255966844123559,Step 27 three_way_comparison.csv,사용하지 않음
+Pure ML,test,351,0.8699171867669587,2.438651206044254,3.1856486425017376,Step 27 three_way_comparison.csv,사용하지 않음
+Fixed-k Preston,training,1609,-0.008180031741214622,7.0385616456802,8.759663495612177,Step 27 three_way_comparison.csv,P9 x V3
+Fixed-k Preston,validation,357,-0.031225837678591217,7.4405171669302055,9.112972097814131,Step 27 three_way_comparison.csv,P9 x V3
+Fixed-k Preston,test,351,-0.07004601621414475,7.3425173457352075,9.136695282505823,Step 27 three_way_comparison.csv,P9 x V3
+Hybrid,training,1609,0.8323271566283069,2.7642765339207354,3.5723149557906457,Step 27 three_way_comparison.csv,P9 x V3
+Hybrid,validation,357,0.855254637385148,2.613437306910599,3.414172633557639,Step 27 three_way_comparison.csv,P9 x V3
+Hybrid,test,351,0.846104441201956,2.6472554503167163,3.464981795514309,Step 27 three_way_comparison.csv,P9 x V3

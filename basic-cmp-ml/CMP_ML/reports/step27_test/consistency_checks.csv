@@ -1,0 +1,19 @@
+item,value
+test 원본 파일 수 (폴더 전체),185
+test 원본 파일 수 (내용이 있는 파일),155
+test 원본 행 수,"156,262"
+연속 완전중복으로 제외한 행 수,98
+test wafer+Stage 수,424
+test 정답 행 수,424
+MRR 이 비어 있는 test wafer+Stage 수,0
+test 4-5-6 sample 수,351
+4-5-6 중 PV_proxy 를 계산할 수 없는 sample 수,0
+"4-5-6 중 MRR > 1,000 인 sample 수 (제외하지 않음)",0
+두 test 정답 파일이 동일한가 (데이터셋 루트 / 정답 폴더),True
+validation 표를 다시 만들어 Step 26 저장본과 같은가,True
+fixed k (training 4-5-6 전체),0.001290789418
+fixed k 가 Step 26 값과 같은가,True
+k 표준화 평균/표준편차가 Step 26 값과 같은가,True
+validation 성능이 Step 26 결과와 같은가,True
+세 데이터 사이에 겹치는 wafer+Stage 키가 있는가,False
+test 예측 = k_pred x PV_proxy 인가,True

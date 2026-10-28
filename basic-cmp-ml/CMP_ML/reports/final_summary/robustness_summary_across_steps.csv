@@ -1,0 +1,5 @@
+analysis,comparison,hybrid_better,total,hybrid_spread,pure_spread
+"Step 22 (within-distribution, 기본 설정 Pure ML)",Hybrid vs 기본 Pure ML,11,17,0.481800088858265,0.8351279038488948
+"Step 23 (distribution shift, 기본 설정 Pure ML)",Hybrid vs 기본 Pure ML,4,7,,
+"Step 25 (within-distribution, tuned Pure ML)",Hybrid vs tuned Pure ML,0,17,0.481800088858265,0.5875419530939707
+"Step 25 (distribution shift, tuned Pure ML)",Hybrid vs tuned Pure ML,1,7,,
