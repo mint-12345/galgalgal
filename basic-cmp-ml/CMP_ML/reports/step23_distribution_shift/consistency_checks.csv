@@ -1,0 +1,10 @@
+item,value
+"sample 수가 1,609개인가",True
+feature 가 31개인가,True
+PV_PROXY 가 Step 20 저장값과 같은가,True
+k_target = MRR / PV_proxy 인가,True
+모든 split 에서 학습과 평가의 wafer 가 겹치지 않는가,True
+"시간 block 의 sample 합이 1,609 인가",True
+시간 block 이 시간순으로 겹치지 않는가,True
+usage test 에서 평가 wafer 의 usage 가 학습 wafer 보다 높은가,True
+Hybrid 예측 = k_pred x PV_proxy 인가,True

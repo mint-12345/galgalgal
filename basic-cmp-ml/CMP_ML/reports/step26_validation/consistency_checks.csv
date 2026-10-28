@@ -1,0 +1,18 @@
+item,value
+validation 원본 파일 수 (폴더 전체),185
+validation 원본 파일 수 (내용이 있는 파일),158
+validation 원본 행 수,"144,148"
+연속 완전중복으로 제외한 행 수,434
+validation wafer+Stage 수,424
+정답 파일 행 수,424
+MRR 이 비어 있는 wafer+Stage 수,0
+validation 4-5-6 sample 수,357
+"4-5-6 중 MRR > 1,000 인 sample 수 (제외하지 않음)",0
+4-5-6 중 PV_proxy 를 계산할 수 없는 sample 수,0
+validation feature 열이 training 과 같은가,True
+fixed k (training 4-5-6 전체),0.001290789418
+k 표준화 평균 (training),0.001293403292
+k 표준화 표준편차 (training),0.0001469023049
+Hybrid 예측 = k_pred x PV_proxy 인가,True
+validation 과 training 이 공유하는 wafer+Stage 키 수,0
+validation 과 training 이 공유하는 WAFER_ID 수 (Stage 는 서로 다름),115
