@@ -3,7 +3,7 @@
 - 생성 일시: 2026-10-28 13:54:41
 - 생성 코드: `src/make_features.py` (실행: `python src/make_features.py`)
 - 파일: `data/processed/features_v1.csv` (2,401행 × 116열), SHA-256 `31aefa89f84aa209535a03fe12190f7cd4fbd43177be11ba51b22acbde7fc4f8`
-- 계열 초안: `data/processed/feature_families_v1.csv` (열: feature, family). **팀이 최종 확인할 초안**이다.
+- 계열 구분: `data/processed/feature_families_v1.csv` (열: feature, family, guaranteed_slot, sr_candidate). 2026-10-28 팀 회의 결정표 #6 기준(채택 후 확정).
 - 행: `folds_v1.csv`와 같은 train+val 2,401행 (A-456 983 / B-456 987 / A-123 431).
 - MRR은 읽지 않았다 (집계표에서 MRR 열 제외). 상관 계산·변수 선택은 하지 않았다. test 웨이퍼와 `data/locked/`는 쓰지 않았다.
 
@@ -32,7 +32,7 @@
 | `allzero` | 1 | 전체-0 판정 센서 12개 중 웨이퍼 전체가 0인 센서가 하나라도 있으면 1 | 원본 센서 (`n_allzero_sensors > 0`과 일치 확인) |
 
 - `U` = BACKING_FILM, DRESSER, POLISH_TABLE, DRESSER_TABLE, MEMBRANE, PSHEET / `P` = PCHAMBER, MAIN_OUTER, CENTER, RETAINER, RIPPLE, EDGE / `F` = SLURRY_A·B·C, DRESS_WATER / `R` = WAFER_ROT, STAGE_ROT, HEAD_ROT. 이름 규칙과 단위는 `COLUMNS.md`.
-- **`since_DRESSER_TABLE_w`는 없다.** DRESSER_TABLE은 리셋이 한 번도 감지되지 않아 집계표가 열을 만들지 않았다 (COLUMNS.md 4절). 6종 중 5종만 있다.
+- **리셋 후 경과량은 5종. DRESSER_TABLE은 데이터 기간 중 교체(리셋)가 없어 카운터 값 자체가 경과량이므로 별도 열을 만들지 않음.** (집계표에도 `since_DRESSER_TABLE_w`가 없다, COLUMNS.md 4절)
 - `since_*` 리셋 감지는 집계표대로 train·val·test 센서를 합쳐 한 것이다 (라벨 불필요, 임계값 0.20은 임시값).
 - 집계표의 다른 열(`t_start`, `chambers`, 플래그, `start_*`·`delta_*`·`reset_*`·`nreset_*` 등)은 요청 범위 밖이라 넣지 않았다.
 
@@ -139,20 +139,28 @@
 - `frac_hi` 경계 4,000: 기존 진단(`hyp_r2r_retainer.py`)의 7,135 단계 경계는 > 3,000이었다. 3,000 초과 4,000 이하인 행은 P1_on 행의 506 / 198,139행(0.26%, 단계 전환 구간)이라 두 정의의 차이는 작다.
 - R 피처의 기존 NaN(챔버 4만 있는 2장의 `_s2` 등)은 그대로다.
 
-## 계열 초안 (feature_families_v1.csv)
+## 계열 구분 (feature_families_v1.csv)
 
-| family | 피처 수 |
-|---|---|
-| 소모품 카운터 | 36 |
-| 에어백 압력 | 24 |
-| 슬러리 유량 | 18 |
-| 확인 필요 | 12 |
-| 리테이너 링 압력 | 8 |
-| 회전 | 6 |
-| 리셋 후 경과량 | 5 |
-| 시간 | 2 |
-| 기타 | 2 |
+계열 구분은 2026-10-28 팀 회의 결정표 #6 기준(채택 후 확정).
 
-- **확인 필요**: `PCHAMBER`(가압 챔버 압력, 에어백 계열인지 불분명), `DRESS_WATER`(드레싱 워터 상태 0/1, 슬러리가 아니며 유량 4번째 변수라는 것도 추정).
-- `frac_hi`는 리테이너 압력 단계의 체류 비율이라 "시간"으로 볼 수도 있으나, 리테이너 압력 수준으로 정의되므로 리테이너 링 압력으로 두었다.
-- `dur_POLISH_*`는 구간 체류 시간(마지막 − 첫 TIMESTAMP)이라 "시간"이다.
+열: `feature, family, guaranteed_slot, sr_candidate`. `feature` 목록은 `features_v1.csv`의 피처 열(키 3개 제외 113개)과 순서까지 정확히 일치한다.
+
+| family | 피처 수 | guaranteed_slot | 포함 피처 |
+|---|---|---|---|
+| 소모품 카운터 | 36 | 1 | `{mean,std,slope}_{U}_{s1,s2}` |
+| 헤드 압력 | 30 | 1 | `{mean,std,auc}_{MAIN_OUTER,CENTER,RIPPLE,EDGE,PCHAMBER}_{s1,s2}` |
+| 슬러리 유량 | 18 | 1 | `{mean,std,auc}_{SLURRY_A,SLURRY_B,SLURRY_C}_{s1,s2}` |
+| 리테이너 링 압력 | 8 | 1 | `{mean,std,auc}_RETAINER_{s1,s2}`, `P1_on`, `frac_hi` |
+| 회전 | 6 | 1 | `mean_{WAFER_ROT,STAGE_ROT,HEAD_ROT}_{s1,s2}` |
+| 리셋 후 경과량 | 5 | 1 | `since_{BACKING_FILM,DRESSER,POLISH_TABLE,MEMBRANE,PSHEET}_w` |
+| 시간 | 2 | 1 | `dur_POLISH_{s1,s2}` |
+| 기타 | 8 | 0 | `{mean,std,auc}_DRESS_WATER_{s1,s2}`, `ch56_step`, `allzero` |
+
+- **헤드 압력**: 에어백 4개(MAIN_OUTER, CENTER, RIPPLE, EDGE)와 가압 챔버(PCHAMBER). 가압 챔버는 멤브레인 뒤에서 웨이퍼를 누르는 헤드 압력 계통이다. (초안의 "에어백 압력"에서 이름 변경)
+- **기타**: `DRESS_WATER`는 드레싱 워터 0/1 상태라 유량과 성격이 달라 기타로 둔다. `ch56_step`, `allzero`도 기타.
+- `frac_hi`는 리테이너 압력 단계의 체류 비율이고, 리테이너 압력 수준으로 정의되므로 리테이너 링 압력이다.
+- `dur_POLISH_*`는 구간 체류 시간(마지막 − 첫 TIMESTAMP)이라 시간이다.
+
+**추가 열의 의미**
+- `guaranteed_slot` (0/1): SR 후보 선택에서 계열 대표 자리를 보장받는 계열이면 1. 1인 계열은 소모품 카운터, 리셋 후 경과량, 리테이너 링 압력, 헤드 압력, 슬러리 유량, 회전, 시간(7개)이고, 기타는 0이다.
+- `sr_candidate` (0/1): SR 후보 풀에 들어가는지. `allzero`만 0이다 (SR은 456 정상 웨이퍼만 쓰므로 값이 전부 0). 나머지 112개는 1.
