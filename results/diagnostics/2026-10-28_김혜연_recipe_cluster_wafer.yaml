@@ -1,0 +1,16 @@
+date: 2026-10-28
+author: 김혜연
+script: src/hyp_recipe_cluster.py
+question: 456 그룹 연마 시간의 두 무리가 레시피 차이인지, SR 후보에 군집 표시 변수를 넣을 수 있는지
+input: data/raw/{train,val} 센서만 (집계표·라벨 파일·test·data/locked/ 열지 않음)
+labels: MRR 사용 안 함 (SR 실행 전 결과 미리 보기 방지)
+definitions: {'press': '압력 > 0 행 수', 'stagerot': 'STAGE_ROTATION > 0 행 수'}
+main_definition: press
+criteria: 작은 무리 >= 0.1 그리고 5블록 중 4개 이상에 작은 무리 1장 이상 (2026-10-28 팀 결정)
+blocks: 그룹별 t_start 순 np.array_split 5등분
+valley_rule: 10행 폭, 봉우리 간격 >= 50행, 골 = 사이 최소 구간 중심, 골 깊이 <= 0.5 이면 쌍봉
+big_difference: |표준화 평균차| >= 0.8
+resets: aggregate 규칙(RESET_FRAC=0.2, 웨이퍼 시작값), train·val만
+reset_window: 10
+outputs: [2026-10-28_김혜연_recipe_cluster_wafer.csv, 2026-10-28_김혜연_recipe_cluster_tables.md, 2026-10-28_김혜연_recipe_cluster_hist.png, 2026-10-28_김혜연_recipe_cluster_time.png]
+note: 진단 결과 (14.4)
