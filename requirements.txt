@@ -1,4 +1,4 @@
-# Python 3.13.2 에서 pip freeze (직접 설치: pandas numpy scikit-learn xgboost matplotlib ipykernel)
+# Python 3.13.2 에서 pip freeze (직접 설치: pandas numpy scikit-learn xgboost matplotlib ipykernel pytest)
 asttokens==3.0.2
 cloudpickle==3.1.2
 colorama==0.4.6
@@ -8,6 +8,7 @@ cycler==0.12.1
 debugpy==1.8.22
 executing==2.2.1
 fonttools==4.65.0
+iniconfig==2.3.0
 ipykernel==7.3.0
 ipython==9.17.1
 ipython_pygments_lexers==1.1.1
@@ -26,11 +27,13 @@ pandas==3.0.6
 parso==0.8.7
 pillow==12.3.0
 platformdirs==4.11.12
+pluggy==1.6.0
 prompt_toolkit==3.0.53
 psutil==7.2.2
 pure_eval==0.2.4
 Pygments==2.21.0
 pyparsing==3.3.3
+pytest==9.1.1
 python-dateutil==2.9.0.post0
 pyzmq==27.2.0
 scikit-learn==1.9.1

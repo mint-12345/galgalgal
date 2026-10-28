@@ -1,0 +1,14 @@
+date: 2026-10-06
+author: 김혜연
+script: src/hyp_r2r_retainer.py
+question: 가설 1 — 리테이너 링 압력(P1_on)이 run-to-run 제어의 결과인가
+input: data/processed/wafer_table.csv + data/raw/{train,val,test} 센서 + data/raw/labels/CMP-validation-removalrate.csv (집계표 val MRR과 대조 후 사용)
+groups: ['A-456', 'B-456']
+P1_on: RETAINER_RING_PRESSURE, 압력 6개 중 하나라도 >0 이고 STAGE_ROTATION >0 인 행만 평균
+levels: {'low': '(-inf, 300)', 'L725': '(300, 1100)', 'L1450': '(1100, 3000)', 'L7135': '(3000, inf)'}  # (하한, 상한]
+locked: data/locked/ 와 test 라벨은 열지 않았다
+controls: ['t_start', 'start_BACKING_FILM_w', 'start_DRESSER_w', 'start_POLISH_TABLE_w', 'start_DRESSER_TABLE_w', 'start_MEMBRANE_w', 'start_PSHEET_w']  # + extra_control 열
+targets: 라벨 있는 456 웨이퍼 (train + val)
+neighbors: 같은 그룹, t_start 순. MRR_lag/lead = 라벨 있는 웨이퍼만 줄 세운 직전/직후, MRR_prev5/next5 = 직전/직후 5장 평균, *_prev_imm/*_next_imm 과 P1_on_prev/next = split 무관 바로 앞/뒤 웨이퍼
+metrics: Pearson. partial_corr = 통제 변수 선형 회귀 잔차끼리의 Pearson. pc_ci = Fisher z, se = 1/sqrt(n-3-통제 수)
+note: 진단 결과 (14.4). MRR 은 상관 계산에만 사용

@@ -1,0 +1,13 @@
+date: 2026-09-26
+author: 김혜연
+script: src/pv_T_check.py
+input: data/raw/train 센서 + data/processed/wafer_table.csv
+wafers: train, is_outlier 제외, n_allzero_sensors == 0 (clean)
+agg: polish (압력 6개 중 하나라도 > 0 인 행만 평균)
+T: 압력 구간에서 STAGE_ROTATION != 0 인 행의 비율 (웨이퍼 단위)
+bases: ['MAIN_OUTER', 'CENTER', 'RIPPLE', 'EDGE', 'P3', 'P1', 'P2'] (에어백 4개는 각각의 압력 구간 평균, P3 = 에어백 4개 평균)
+products: 웨이퍼 단위 곱 (압력 구간 평균 × T). T가 웨이퍼 단위라 행 단위 곱은 정의되지 않음
+controls: ['t_start', 'start_POLISH_TABLE_w']
+metrics: Pearson. partial_corr = 통제 변수 선형 회귀 잔차끼리의 Pearson
+related: 2026-09-26_김혜연_pv_check_followup.csv, _pv_partial_grid.csv (두 파일 모두 유지)
+note: 진단 결과 (14.4). MRR은 상관 계산에만 사용

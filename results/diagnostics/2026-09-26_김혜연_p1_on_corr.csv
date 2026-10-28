@@ -1,0 +1,4 @@
+group,x,y,n_wafer,n_valid,mean,std,cv,corr,partial_corr,controls
+A-123,P1_on,MRR,139,129,1815.3487,685.679,0.3777,0.1017,0.0493,t_start+start_POLISH_TABLE_w
+A-456,P1_on,MRR,798,793,1843.8373,377.8316,0.2049,0.5636,0.4246,t_start+start_POLISH_TABLE_w
+B-456,P1_on,MRR,815,808,1636.3857,364.723,0.2229,0.5742,0.414,t_start+start_POLISH_TABLE_w

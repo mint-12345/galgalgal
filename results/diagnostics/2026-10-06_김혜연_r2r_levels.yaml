@@ -1,0 +1,14 @@
+date: 2026-10-06
+author: 김혜연
+script: src/hyp_r2r_retainer.py
+question: 가설 1 — 리테이너 링 압력(P1_on)이 run-to-run 제어의 결과인가
+input: data/processed/wafer_table.csv + data/raw/{train,val,test} 센서 + data/raw/labels/CMP-validation-removalrate.csv (집계표 val MRR과 대조 후 사용)
+groups: ['A-456', 'B-456']
+P1_on: RETAINER_RING_PRESSURE, 압력 6개 중 하나라도 >0 이고 STAGE_ROTATION >0 인 행만 평균
+levels: {'low': '(-inf, 300)', 'L725': '(300, 1100)', 'L1450': '(1100, 3000)', 'L7135': '(3000, inf)'}  # (하한, 상한]
+locked: data/locked/ 와 test 라벨은 열지 않았다
+content: {1_row_level: on 행 원값의 단계별 비율·평균, 1_wafer: 웨이퍼 단위 P1_on·단계 체류 비율·단계 안 평균의 분포와 P1_on 상관, 2_step: 시간순 계단성}
+wafers: 456 그룹 전부 (세 split, 센서만). 2_step 의 MRR 은 라벨 있는 웨이퍼만
+step: lag1_autocorr = 시작 시각 순 lag-1 자기상관, smooth_var_share = 이동 중앙값(25장, 중심) 분산 / 원 분산, resid_sd_over_sd = 이동 중앙값을 뺀 잔차 표준편차 / 원 표준편차
+figs: docs/reports/figs/김혜연_r2r_p1_on_hist.png, docs/reports/figs/김혜연_r2r_p1_on_time.png
+note: 진단 결과 (14.4)

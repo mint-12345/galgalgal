@@ -1,0 +1,20 @@
+date: 2026-09-26
+author: 김혜연
+script: src/pv_partial_consumables.py
+question: P1_on의 MRR 상관이 소모품 상태로 설명되는가
+input: data/raw/train 센서 + data/processed/wafer_table.csv
+wafers: train, is_outlier 제외, n_allzero_sensors == 0 (clean)
+agg: polish (압력 6개 중 하나라도 >0 인 행) / P1_on 은 그중 STAGE_ROTATION >0 인 행만
+targets: ['P1_on', 'P1', 'P3', 'T']
+usage_columns: ['start_BACKING_FILM_w', 'start_DRESSER_w', 'start_POLISH_TABLE_w', 'start_DRESSER_TABLE_w', 'start_MEMBRANE_w', 'start_PSHEET_w'] (COLUMNS.md 4절 start_{U}_w = 웨이퍼 첫 행의 카운터 값)
+since_columns: ['since_BACKING_FILM_w', 'since_DRESSER_w', 'since_POLISH_TABLE_w', 'since_MEMBRANE_w', 'since_PSHEET_w'] (since_DRESSER_TABLE_w 는 리셋이 없어 집계표에 없음)
+t_curve: t_day = (t_start - 평균)/86400, 2차·3차 항 (초 단위 3제곱의 수치 불안정 회피)
+conditions:
+  1_base: ['t_start', 'start_POLISH_TABLE_w']
+  2_usage6: ['t_start', 'start_BACKING_FILM_w', 'start_DRESSER_w', 'start_POLISH_TABLE_w', 'start_DRESSER_TABLE_w', 'start_MEMBRANE_w', 'start_PSHEET_w']
+  3_usage6_since: ['t_start', 'start_BACKING_FILM_w', 'start_DRESSER_w', 'start_POLISH_TABLE_w', 'start_DRESSER_TABLE_w', 'start_MEMBRANE_w', 'start_PSHEET_w', 'since_BACKING_FILM_w', 'since_DRESSER_w', 'since_POLISH_TABLE_w', 'since_MEMBRANE_w', 'since_PSHEET_w']
+  4_usage6_t23: ['t_start', 'start_BACKING_FILM_w', 'start_DRESSER_w', 'start_POLISH_TABLE_w', 'start_DRESSER_TABLE_w', 'start_MEMBRANE_w', 'start_PSHEET_w', 't_day2', 't_day3']
+metrics: Pearson. partial_corr = 통제 변수 선형 회귀 잔차끼리의 Pearson (완전 관측 행만)
+note: since_* 는 스테이지 첫 리셋 이전 웨이퍼가 NaN → 조건 3의 n_used 가 작다
+related: 2026-09-26_김혜연_p1_on_corr.csv (조건 1의 P1_on 값과 같아야 한다)
+note2: 진단 결과 (14.4). MRR은 상관 계산에만 사용
