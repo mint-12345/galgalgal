@@ -125,7 +125,7 @@ def main() -> None:
         "- 생성 코드: `src/make_folds.py` (실행: `python src/make_folds.py`)",
         f"- 파일: `data/processed/folds_v1.csv` ({len(f):,}행 = {len(t):,}행 × 반복 {len(SEEDS)}회), "
         f"SHA-256 `{hashlib.sha256(OUT.read_bytes()).hexdigest()}`"
-        " (LF 줄바꿈 기준. `core.autocrlf=true`인 Windows 체크아웃은 CRLF가 되어 해시가 다르다. 내용 비교는 pandas로 읽어서 한다)",
+        " (`.gitattributes`로 LF 고정, 모든 PC에서 해시 동일)",
         f"- 환경: Python {sys.version.split()[0]}, pandas {pd.__version__}, scikit-learn {sklearn.__version__}",
         "- 사용처: SR, A-123 분리/통합 비교, 전이학습이 모두 이 파일 하나를 공유한다.",
         "",

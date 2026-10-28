@@ -2,7 +2,7 @@
 
 - 생성 일시: 2026-10-28 13:31:27
 - 생성 코드: `src/make_folds.py` (실행: `python src/make_folds.py`)
-- 파일: `data/processed/folds_v1.csv` (12,005행 = 2,401행 × 반복 5회), SHA-256 `e4b364141b0bdaa96e6a5687b4f56f0e0ca201216998fdaea9bb3edfe94a4c68` (LF 줄바꿈 기준. `core.autocrlf=true`인 Windows 체크아웃은 CRLF가 되어 해시가 다르다. 내용 비교는 pandas로 읽어서 한다)
+- 파일: `data/processed/folds_v1.csv` (12,005행 = 2,401행 × 반복 5회), SHA-256 `e4b364141b0bdaa96e6a5687b4f56f0e0ca201216998fdaea9bb3edfe94a4c68` (`.gitattributes`로 LF 고정, 모든 PC에서 해시 동일)
 - 환경: Python 3.13.2, pandas 3.0.6, scikit-learn 1.9.1
 - 사용처: SR, A-123 분리/통합 비교, 전이학습이 모두 이 파일 하나를 공유한다.
 
