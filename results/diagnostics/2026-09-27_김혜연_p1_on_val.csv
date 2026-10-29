@@ -1,0 +1,13 @@
+split,group,x,y,condition,n_wafer,n_valid,n_used,corr,corr_ci_lo,corr_ci_hi,partial_corr,n_controls,controls
+train,A-123,P1_on,MRR,1_base,139,129,129,0.1017,-0.0724,0.2698,0.0493,2,t_start+start_POLISH_TABLE_w
+train,A-123,P1_on,MRR,2_usage6,139,129,129,0.1017,-0.0724,0.2698,0.0563,7,t_start+start_BACKING_FILM_w+start_DRESSER_w+start_POLISH_TABLE_w+start_DRESSER_TABLE_w+start_MEMBRANE_w+start_PSHEET_w
+train,A-456,P1_on,MRR,1_base,798,793,793,0.5636,0.5142,0.6093,0.4246,2,t_start+start_POLISH_TABLE_w
+train,A-456,P1_on,MRR,2_usage6,798,793,793,0.5636,0.5142,0.6093,0.3322,7,t_start+start_BACKING_FILM_w+start_DRESSER_w+start_POLISH_TABLE_w+start_DRESSER_TABLE_w+start_MEMBRANE_w+start_PSHEET_w
+train,B-456,P1_on,MRR,1_base,815,808,808,0.5742,0.526,0.6187,0.414,2,t_start+start_POLISH_TABLE_w
+train,B-456,P1_on,MRR,2_usage6,815,808,808,0.5742,0.526,0.6187,0.3385,7,t_start+start_BACKING_FILM_w+start_DRESSER_w+start_POLISH_TABLE_w+start_DRESSER_TABLE_w+start_MEMBRANE_w+start_PSHEET_w
+val,A-123,P1_on,MRR,1_base,27,23,23,0.3279,-0.0975,0.652,0.2043,2,t_start+start_POLISH_TABLE_w
+val,A-123,P1_on,MRR,2_usage6,27,23,23,0.3279,-0.0975,0.652,0.2023,7,t_start+start_BACKING_FILM_w+start_DRESSER_w+start_POLISH_TABLE_w+start_DRESSER_TABLE_w+start_MEMBRANE_w+start_PSHEET_w
+val,A-456,P1_on,MRR,1_base,185,183,183,0.4824,0.3628,0.5865,0.3414,2,t_start+start_POLISH_TABLE_w
+val,A-456,P1_on,MRR,2_usage6,185,183,183,0.4824,0.3628,0.5865,0.2636,7,t_start+start_BACKING_FILM_w+start_DRESSER_w+start_POLISH_TABLE_w+start_DRESSER_TABLE_w+start_MEMBRANE_w+start_PSHEET_w
+val,B-456,P1_on,MRR,1_base,172,172,172,0.5716,0.4614,0.6644,0.3675,2,t_start+start_POLISH_TABLE_w
+val,B-456,P1_on,MRR,2_usage6,172,172,172,0.5716,0.4614,0.6644,0.2608,7,t_start+start_BACKING_FILM_w+start_DRESSER_w+start_POLISH_TABLE_w+start_DRESSER_TABLE_w+start_MEMBRANE_w+start_PSHEET_w

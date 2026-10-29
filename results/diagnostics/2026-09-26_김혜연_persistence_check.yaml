@@ -1,0 +1,12 @@
+date: 2026-09-26
+author: 김혜연
+script: src/persistence_check.py
+question: 지속 모델 MSE가 Di Table 4와 다른 원인
+input: data/processed/wafer_table.csv + data/raw/labels/CMP-validation-removalrate.csv
+model: 지속 모델 r_t = r_{t-1} (features_repro.neighbor_features 의 lag_MRR_01)
+wafers: MRR > 400 인 이상치 4장 제외. 직전 공개 웨이퍼가 없는 행은 평가에서 제외
+mccv: 20회, 무작위 0.8/0.19999999999999996 분할, seed 42
+checks: {1: revealed=train 전체, 2: split 시간 섞임(간격 중앙값), 3: revealed=train+val, 4: Monte Carlo CV, 5: 챔버군 단위 직전 웨이퍼}
+di_table4: {A-456: 7.55±1.27, B-456: 11.4±1.36, A-123: 5.62±1.06}
+locked: data/locked/ 와 test 라벨은 열지 않았다 (test 웨이퍼는 확인 2에만 t_start로 등장)
+note: 진단 결과 (14.4)

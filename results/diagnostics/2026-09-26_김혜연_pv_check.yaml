@@ -1,0 +1,13 @@
+date: 2026-09-26
+author: 김혜연
+script: src/pv_check.py
+input: data/raw/train 센서 + data/processed/wafer_table.csv (group, MRR, n_allzero_sensors)
+wafers: train, is_outlier 제외
+question: P·V가 그룹 안에서 MRR 변동을 설명할 만큼 변하는가
+P: {P1: RETAINER_RING_PRESSURE, P2: PRESSURIZED_CHAMBER_PRESSURE, P3: 에어백 4개 행 평균}
+V: {V1: STAGE-WAFER, V2: HEAD-(STAGE-WAFER), V3: STAGE, V4: HEAD, V5: 챔버별 켜진 회전(6번은 STAGE, 나머지 WAFER)}
+PxV: 행 단위 곱의 웨이퍼 평균
+agg: {whole: 전 행 평균, polish: 압력 6개 중 하나라도 >0 인 행만}
+subset: {all: 이상치 제외 train, clean: 전체-0 센서 웨이퍼까지 제외}
+metrics: cv = std/mean (ddof=1), corr_mrr = Pearson
+note: 진단 결과 (14.4). MRR은 상관 계산에만 사용

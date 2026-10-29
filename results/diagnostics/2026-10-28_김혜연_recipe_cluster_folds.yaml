@@ -1,0 +1,8 @@
+date: 2026-10-28
+author: 김혜연
+script: src/hyp_recipe_cluster_folds.py
+question: 판정 조건 (3) — folds_v1 25개 fold 모두 학습 쪽에 작은 무리 1장 이상
+input: results/diagnostics/2026-10-28_김혜연_recipe_cluster_wafer.csv (long_press), data/processed/folds_v1.csv
+labels: MRR 사용 안 함
+train_side: 같은 repeat에서 fold != k 인 행
+note: 진단 결과 (14.4)

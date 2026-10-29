@@ -1,0 +1,14 @@
+date: 2026-09-27
+author: 김혜연
+script: src/p1_on_val.py
+question: P1_on 의 MRR 상관이 val 에서도 train 과 같은 크기인가
+input: data/processed/wafer_table.csv + data/raw/{train,val} 센서 + data/raw/labels/CMP-validation-removalrate.csv
+P1_on: RETAINER_RING_PRESSURE, 압력 6개 중 하나라도 >0 이고 STAGE_ROTATION >0 인 행만 평균
+wafers: split 별 clean (MRR > 400 이상치 제외, n_allzero_sensors == 0)
+conditions:
+  1_base: ['t_start', 'start_POLISH_TABLE_w']
+  2_usage6: ['t_start', 'start_BACKING_FILM_w', 'start_DRESSER_w', 'start_POLISH_TABLE_w', 'start_DRESSER_TABLE_w', 'start_MEMBRANE_w', 'start_PSHEET_w']
+metrics: Pearson, 95% CI 는 Fisher z. partial_corr = 통제 변수 선형 회귀 잔차끼리의 Pearson
+related: 2026-09-26_김혜연_pv_partial_consumables.csv (train 값, 같은 정의)
+locked: data/locked/ 와 test 라벨은 열지 않았다
+note: 진단 결과 (14.4). MRR 은 상관 계산에만 사용

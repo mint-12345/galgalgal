@@ -27,3 +27,12 @@ pip install -r requirements.txt
    ```
 
    `data/processed/wafer_table.csv`가 생긴다. 이미 있으면 덮어쓰지 않고 멈추니, 다시 만들 때는 먼저 지운다. 컬럼 설명은 [data/processed/COLUMNS.md](data/processed/COLUMNS.md).
+
+## 테스트
+
+```bash
+python -m pytest tests -q
+```
+
+`tests/`는 CLAUDE.md 7절의 F4 규칙(같은 그룹·과거 웨이퍼·자기 자신 제외·비공개 라벨 금지)을 확인한다.
+집계표가 없으면 실제 데이터로 하는 검사 1개만 건너뛰고 나머지는 그대로 돈다.

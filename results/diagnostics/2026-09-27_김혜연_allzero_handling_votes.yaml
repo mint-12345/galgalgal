@@ -1,0 +1,16 @@
+date: 2026-09-27
+author: 김혜연
+script: src/allzero_handling.py
+input: data/processed/wafer_table.csv (14.2에서 동결한 버전)
+group: A-123
+seed: 42
+n_jobs: -1  # 병렬 처리 설정. random_state 고정이라 결과는 n_jobs와 무관하게 같다
+cv: Monte Carlo CV 20회, 0.8/0.2. 분할은 repro_R_selected.py와 같다 (다른 두 그룹은 난수 소비만 흉내)
+selection: R-fold. p < 0.05 (단순회귀 t-검정) AND OOB permutation importance > 0, 분할마다 학습 조각 안에서만
+methods: {baseline: 표시만 하고 그대로, exclude: 전체-0 센서 웨이퍼를 학습·평가에서 제외, dropfeat: 전체-0이 한 번이라도 나온 센서 11개의 피처 58개 제거, flags: baseline + n_allzero_sensors + 센서별 전체-0 여부 12개 (선택 절차를 같이 거침)}
+zero_sensors: ['PCHAMBER', 'MAIN_OUTER', 'CENTER', 'RETAINER', 'RIPPLE', 'EDGE', 'SLURRY_A', 'SLURRY_B', 'SLURRY_C', 'WAFER_ROT', 'STAGE_ROT']
+flag_source: R 피처 mean·std가 두 구간 모두 0 → 전체-0. train 1,981장에서 합이 n_allzero_sensors와 일치
+labels: train 라벨만. test 라벨과 data/locked/ 는 열지 않았다
+content: 방식별 피처 선택 횟수 (20회 중). 그 방식에 없는 피처는 빈 칸
+voted_ge_10: {'baseline': 35, 'exclude': 38, 'dropfeat': 32, 'flags': 39}
+related: results/diagnostics/2026-09-27_김혜연_allzero_handling.csv

@@ -1,0 +1,11 @@
+date: 2026-09-26
+author: 김혜연
+script: src/pv_partial_grid.py
+input: data/raw/train 센서 + data/processed/wafer_table.csv
+wafers: train, is_outlier 제외, n_allzero_sensors == 0 (clean)
+agg: polish (압력 6개 중 하나라도 > 0 인 행만 평균)
+candidates: ['P1', 'P2', 'V1', 'V2', 'V3', 'V4', 'V5', 'P1xV1', 'P1xV2', 'P1xV3', 'P1xV4', 'P1xV5']
+controls: ['t_start', 'start_POLISH_TABLE_w']
+metrics: Pearson. partial_corr = 통제 변수 선형 회귀 잔차끼리의 Pearson
+related: 2026-09-26_김혜연_pv_check_followup.csv (항목 일부 중복, 그 파일은 유지)
+note: 진단 결과 (14.4). MRR은 상관 계산에만 사용

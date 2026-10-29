@@ -1,0 +1,13 @@
+date: 2026-09-26
+author: 김혜연
+script: src/models/repro_R.py
+featureset: R (Di 125개: ID 1~21 neighbor_features + ID 22~125 집계표 104개)
+input: data/processed/wafer_table.csv (14.2에서 동결한 버전)
+seed: 42
+cv: Monte Carlo CV 20회, 그룹별 무작위 0.8/0.19999999999999996
+revealed: train 전체 (R 재현 설정, CLAUDE.md 7절)
+models: {persistence: r_t = r_{t-1}, lr: LinearRegression, tree_bag: RandomForestRegressor(max_features=1.0, random_state=42)}
+feature_selection: 없음 (6.1절 임계값 미정 → TODO 결정 필요)
+wafers: MRR > 400 이상치 4장 제외, 피처에 NaN이 있는 웨이퍼 제외
+labels: train 라벨만. test 라벨과 data/locked/ 는 열지 않았다
+caveat: 지속 모델 기준선이 Di Table 4의 1.6배다 (docs/reports/repro_김혜연.md '지속 모델 기준선 불일치'). 절대값 대신 지속 대비 개선폭으로 읽는다

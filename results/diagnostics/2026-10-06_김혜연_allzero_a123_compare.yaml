@@ -1,0 +1,13 @@
+date: 2026-10-06
+author: 김혜연
+script: src/hyp_allzero_a123.py
+question: 가설 3 — A-123 전체-0 센서 웨이퍼의 성격
+input: data/processed/wafer_table.csv + data/raw/{train,val,test} 센서 (A-123) + data/raw/labels/CMP-validation-removalrate.csv (집계표 val MRR과 대조 후 사용)
+wafers: A-123 세 split 508장 (전체-0 314장). MRR 비교는 train·val, MRR > 400 제외
+allzero: 12개 센서(압력 6 + 슬러리 3 + 회전 3) 중 하나 이상이 웨이퍼 모든 행에서 0 (5.4절). 원본에서 직접 계산, n_allzero_sensors 와 전 웨이퍼 일치
+locked: data/locked/ 와 test 라벨은 열지 않았다
+content: {1_time: 연 검정(Wald–Wolfowitz, 정규 근사)·5일 구간별·split별 비율, 2_compare: 정상 대 전체-0 중앙값·사분위·평균 + Mann–Whitney p, MRR 은 t_start 통제 회귀 계수도}
+gaps: gap_prev_A123 = 직전 A-123 웨이퍼와의 시작 시각 차(초), gap_prev_stageA = 직전 스테이지 A 웨이퍼(A-123·A-456 무관)와의 차
+dur: dur_total = t_end − t_start, dur_POLISH_s1/s2 = 집계표 R 피처 (ID 22~23)
+fig: docs/reports/figs/김혜연_allzero_a123_time.png
+note: 진단 결과 (14.4)

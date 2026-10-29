@@ -1,0 +1,11 @@
+date: 2026-09-26
+author: 김혜연
+script: src/pv_check_followup.py
+base: results/diagnostics/2026-09-26_김혜연_pv_check.csv 의 추가 확인
+input: data/raw/train 센서 + data/processed/wafer_table.csv
+wafers: train, is_outlier 제외, n_allzero_sensors == 0 (clean)
+agg: polish (압력 6개 중 하나라도 > 0 인 행만 평균)
+checks: {1: P1/V4/P1xV4 상관, 2: V3 vs 압력구간 내 STAGE 켜진 시간 비율, 3: 부분상관, 4: P3 구성 에어백 4개 각각의 상관·부분상관}
+controls: ['t_start', 'start_POLISH_TABLE_w']
+metrics: Pearson. partial_corr = 통제 변수 선형 회귀 잔차끼리의 Pearson
+note: 진단 결과 (14.4). MRR은 상관 계산에만 사용
