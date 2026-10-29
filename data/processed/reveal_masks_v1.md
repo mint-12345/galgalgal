@@ -20,6 +20,9 @@
 
 (11 소스 모델 전달 형식, 12 결과 파일 이름 규칙은 팀 합의 중. 이 파일에는 필요 없음)
 
+11) 연마 시작 시각은 data/processed/wafer_table.csv의 t_start(웨이퍼 기록 시작 시각)를 (WAFER_ID, STAGE)로 붙여 씀. 새 피처 열은 만들지 않음.
+12) 공개 8%에서 센서 정상 공개가 10장 미만인 fold는 규칙대로 P1_on을 빼고, 결과표에 P1_on 포함/제외 fold를 나눠 함께 보고.
+
 ## 시간 순서
 
 `features_v1.csv`에는 연마 시작 시각 열이 없다. 그래서 시간 순서는 `wafer_table.csv`의 `t_start`(웨이퍼 첫 TIMESTAMP, CLAUDE.md 10절)로 정한다.
