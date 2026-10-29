@@ -1,0 +1,16 @@
+date: 2026-10-14
+author: 김혜연
+script: src/hyp_press_cluster.py
+question: 456 그룹 압력 > 0 시간의 두 무리(약 150초 / 285초)는 무엇이 다른가
+input: data/processed/wafer_table.csv + data/processed/features_S.csv (press_long) + data/raw/{train,val,test} 센서 + data/raw/labels/CMP-validation-removalrate.csv (집계표 val MRR과 대조 후 사용)
+groups: ['A-456', 'B-456']
+cluster: press_long = 1 (long) if press_on_s >= 220 s, else 0 (short). src/features.py
+time: 행 dt = 다음 기록까지 간격, dt > 2.0 초 빈칸은 0. dwell/press_on 은 챔버별 dt 합
+ret_levels: {'low': '(-inf, 300)', 'L725': '(300, 1100)', 'L1450': '(1100, 3000)', 'L7135': '(3000, inf)'}  # 압력 > 0 행만
+pos_{센서}_ch{c}: 그 챔버 행 중 값 > 0 비율. onmean_{센서}: 압력 > 0 행 평균. inc_{카운터}_ch{c}: 챔버 안 마지막 − 첫 값
+p: Mann–Whitney (2_sensor, 2_mrr 중앙값), OLS 정규 근사 (2_mrr 통제), 연 검정 정규 근사 (3_runs)
+mrr_controls: ['t_start', 'start_BACKING_FILM_w', 'start_DRESSER_w', 'start_POLISH_TABLE_w', 'start_DRESSER_TABLE_w', 'start_MEMBRANE_w', 'start_PSHEET_w'] (z-score)
+sync: A-456 웨이퍼마다 시작 시각이 가장 가까운 B-456 웨이퍼. 기대 = pA*pB + (1-pA)*(1-pB)
+fig: docs/reports/figs/김혜연_press_cluster_time.png
+locked: data/locked/ 와 test 라벨은 열지 않았다
+note: 진단 결과 (14.4). MRR 은 비교에만 사용

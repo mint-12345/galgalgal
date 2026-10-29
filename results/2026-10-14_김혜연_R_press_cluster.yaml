@@ -1,0 +1,16 @@
+date: 2026-10-14
+author: 김혜연
+script: src/models/repro_R_press_cluster.py
+featureset: R-fold (분할별 13절 임시 기준 통과 피처), R-fold+press_long (위 + press_long 강제 포함)
+input: data/processed/wafer_table.csv (14.2에서 동결한 버전) + data/processed/features_S.csv (press_long)
+press_long: src/features.py. 456 그룹에서 압력 6개 중 하나라도 > 0 인 시간(빈칸 dt > 2초 제외) >= 220초면 1
+seed: 42
+n_jobs: -1  # 병렬 처리 설정. random_state 고정이라 결과는 n_jobs와 무관하게 같다
+cv: Monte Carlo CV 20회, 그룹별 무작위 0.8/0.2 (repro_R_selected.py와 같은 난수열로 재현한 같은 분할)
+selection: p < 0.05 AND OOB permutation importance > 0, 학습 조각 안에서만 (13절). press_long 는 선택을 거치지 않음
+model: RandomForestRegressor(max_features=1.0, random_state=42, n_jobs=-1)
+flag_ttest_pass: 그 분할 학습 조각에서 press_long 단독 t-검정 p < 0.05 이면 1 (참고)
+flag_corr_top5 (|r|, train 전체):
+  A-456: slope_POLISH_TABLE_s2 0.983, slope_PSHEET_s2 0.982, slope_MEMBRANE_s2 0.982, slope_BACKING_FILM_s2 0.982, mean_SLURRY_C_s2 0.972
+  B-456: slope_MEMBRANE_s2 0.974, slope_BACKING_FILM_s2 0.974, slope_PSHEET_s2 0.974, slope_POLISH_TABLE_s2 0.973, mean_SLURRY_C_s2 0.960
+labels: train 라벨만. test 라벨과 data/locked/ 는 열지 않았다
