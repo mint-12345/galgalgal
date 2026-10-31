@@ -1,362 +1,335 @@
-"""A-123 transfer-learning implementation aligned with preregistration rules.
+"""A-123 전이학습 (preregistration.md v0.2.1, 5절) 주 평가 구현.
 
-Key requirements kept here:
-- use data/processed/features_v1.csv and folds_v1.csv
-- train/eval splits are within the same repeat only, keyed by (WAFER_ID, STAGE)
-- public labels come from data/processed/reveal_masks_v1.csv fixed fold masks
-- T0/T1/T2/T3 are evaluated
-- T2 uses f_456(x) + c (no slope)
-- rho clipped to [0, 2] and b refit after clipping
-- delta features start with t_start and are selected from fold-local A-123 training data
-- no test-data reads are present in this file
+범위 (5.7-17 "필수"): folds_v1 25 fold 주 평가, 고정주기 공개, 공개 2/4/8/16/100%,
+T0~T3, 소스 S1(A-456)·S2(A-456+B-456), f_456 full·usage, 8% 주·2차 판정, 90% 커버리지, ρ 분포.
+(전진 검증·무작위 공개·δ XGBoost·라벨 피처 실험은 이 파일 범위 밖)
+
+규칙 대응 (절 번호는 preregistration.md):
+- 분할: 같은 repeat 안에서 eval = fold==f, train = fold!=f, r = repeat*5 + fold (5.7-1)
+- 공개: data/processed/reveal_masks_v1.csv (design=folds, method=fixed) (5.3, 5.7-7)
+- T0 공개 라벨 평균 / T1 GP 단독 / T2 f_456 + c / T3 ρ·f_456 + b + δGP (5.4)
+- ρ·b 최소제곱 → ρ를 [0, 2]로 자르면 b만 다시 추정 → 잔차에 δ GP (5.7-9)
+- f_456: XGBoost 고정 설정(3.2), 456 전체로 1회 학습, 결측은 NaN 그대로 (#27)
+- δ 입력: #26 ①~⑤, 5.7-8 / 커널·GP 설정: #28, 5.4, 5.7-14
+- GP 경고는 숨기지 않고 fold·모델별로 센다 (5.7-15)
+- 보정 t-검정: Nadeau & Bengio(2003), 평가/학습 비율은 실제 fold 크기 (5.7-16)
+- test 데이터(data/locked 등)는 읽지 않는다 (1절)
 """
 from __future__ import annotations
 
 import argparse
 import datetime as dt
-import json
+import hashlib
+import platform
+import sys
+import time
 import warnings
 from pathlib import Path
-from typing import Any
 
 import numpy as np
 import pandas as pd
-from scipy.stats import spearmanr
+import scipy
+import sklearn
+from scipy import stats
+from sklearn.exceptions import ConvergenceWarning
 from sklearn.gaussian_process import GaussianProcessRegressor
-from sklearn.gaussian_process.kernels import ConstantKernel, RBF, WhiteKernel
+from sklearn.gaussian_process.kernels import RBF, ConstantKernel, WhiteKernel
 from sklearn.linear_model import LinearRegression
-
-try:
-    from xgboost import XGBRegressor
-except Exception:  # pragma: no cover - runtime fallback for missing libomp/xgboost support
-    class XGBRegressor:  # type: ignore[no-redef]
-        def __init__(self, **kwargs: Any) -> None:
-            from sklearn.ensemble import GradientBoostingRegressor
-            self._model = GradientBoostingRegressor(random_state=kwargs.get("random_state", 0))
-
-        def fit(self, X: Any, y: Any) -> "XGBRegressor":
-            self._model.fit(X, y)
-            return self
-
-        def predict(self, X: Any) -> np.ndarray:
-            return self._model.predict(X)
+import xgboost  # 없으면 여기서 멈춘다. 다른 모델로 대체하지 않음 (3.2 고정 설정)
+from xgboost import XGBRegressor
 
 ROOT = Path(__file__).resolve().parents[1]
-FEATURES_PATH = ROOT / "data" / "processed" / "features_v1.csv"
-FEATURE_FAMILIES_PATH = ROOT / "data" / "processed" / "feature_families_v1.csv"
-FOLDS_PATH = ROOT / "data" / "processed" / "folds_v1.csv"
-MASKS_PATH = ROOT / "data" / "processed" / "reveal_masks_v1.csv"
-TABLE_PATH = ROOT / "data" / "processed" / "wafer_table.csv"
-RESULTS_DIR = ROOT / "results"
+DATA = ROOT / "data" / "processed"
+P_FEATURES = DATA / "features_v1.csv"
+P_FAMILIES = DATA / "feature_families_v1.csv"
+P_FOLDS = DATA / "folds_v1.csv"
+P_MASKS = DATA / "reveal_masks_v1.csv"
+P_TABLE = DATA / "wafer_table.csv"
+RESULTS = ROOT / "results"
+AUTHOR = "성수빈"
 KEY = ["WAFER_ID", "STAGE"]
 
-DELTA_PREFIX = [
-    "t_start",
-    "mean_POLISH_TABLE_s1",
-    "mean_DRESSER_s1",
-    "mean_MEMBRANE_s1",
-    "mean_BACKING_FILM_s1",
-    "mean_PSHEET_s1",
-    "mean_DRESSER_TABLE_s1",
-]
+RATIOS = [2, 4, 8, 16, 100]
+PRIMARY_RATIO = 8
+SOURCES = {"S1": ["A-456"], "S2": ["A-456", "B-456"]}
+MODES = ["full", "usage"]
+USAGE_FAMILY = "소모품 카운터"
+DELTA_SINGLES = ["t_start", "mean_POLISH_TABLE_s1", "mean_DRESSER_s1", "mean_MEMBRANE_s1",
+                 "mean_BACKING_FILM_s1", "mean_PSHEET_s1", "mean_DRESSER_TABLE_s1"]
 DELTA_PAIR = ["P1_on", "allzero"]
-DELTA_CANDIDATES = DELTA_PREFIX + DELTA_PAIR
+CORR_SKIP = 0.9
+P1_MIN_CLEAN = 10
+ISO_BELOW = 10
+Z90 = stats.norm.ppf(0.95)
+XGB_PARAMS = dict(n_estimators=400, max_depth=4, learning_rate=0.03, subsample=0.8,
+                  colsample_bytree=0.8, min_child_weight=3, random_state=42, n_jobs=2)
+
+for p in [P_FEATURES, P_FAMILIES, P_FOLDS, P_MASKS, P_TABLE]:
+    assert "locked" not in str(p).lower() and "test" not in p.name.lower(), f"test 경로 금지: {p}"
 
 
-def load_inputs() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    features = pd.read_csv(FEATURES_PATH)
-    folds = pd.read_csv(FOLDS_PATH)
-    table = pd.read_csv(TABLE_PATH, usecols=KEY + ["MRR", "t_start"])
-    merged = features.merge(table, on=KEY, how="left", validate="one_to_one")
-    a123 = merged[merged["group"] == "A-123"].copy().reset_index(drop=True)
-    source = merged[merged["group"] != "A-123"].copy().reset_index(drop=True)
-    masks = pd.read_csv(MASKS_PATH)
-    return merged, a123, source, folds, masks
+# ---------------------------------------------------------------- 데이터
+def load():
+    feat = pd.read_csv(P_FEATURES)
+    table = pd.read_csv(P_TABLE, usecols=KEY + ["MRR", "t_start"])
+    assert "t_start" not in feat.columns and "MRR" not in feat.columns
+    data = feat.merge(table, on=KEY, how="left", validate="one_to_one")
+    assert data["MRR"].notna().all(), "MRR 결측 행 있음"
+    fam = pd.read_csv(P_FAMILIES)
+    feat_cols = [c for c in fam["feature"] if c in feat.columns]
+    usage_cols = [c for c in fam.loc[fam["family"] == USAGE_FAMILY, "feature"] if c in feat.columns]
+    assert len(feat_cols) >= 100, f"피처 수 이상: {len(feat_cols)}"
+    assert usage_cols, "usage 피처 0개"
+    for c in DELTA_SINGLES[1:] + DELTA_PAIR:
+        assert c in data.columns, f"δ 후보 열 없음: {c}"
+    folds = pd.read_csv(P_FOLDS)
+    masks = pd.read_csv(P_MASKS)
+    masks = masks[(masks["design"] == "folds") & (masks["method"] == "fixed")]
+    a = data[data["group"] == "A-123"].reset_index(drop=True)
+    assert len(a) == 431, f"A-123 행 수 {len(a)} (문서 431)"
+    fa = folds.merge(a[KEY], on=KEY, how="inner")
+    assert len(fa) == 431 * 5, f"A-123 fold 행 수 {len(fa)}"
+    return data, a, fa, masks, {"full": feat_cols, "usage": usage_cols}
 
 
-def source_feature_columns(df: pd.DataFrame, mode: str = "full") -> list[str]:
-    exclude = {"WAFER_ID", "STAGE", "group", "MRR", "t_start"}
-    full_cols = [c for c in df.columns if c not in exclude]
-    if mode == "full":
-        bad = [
-            c for c in full_cols
-            if c.lower() in {"split", "fold", "repeat"} or "split" in c.lower() or "fold" in c.lower() or "repeat" in c.lower()
-        ]
-        assert not bad, f"Unexpected split/fold metadata columns in full mode: {bad[:10]}"
-        return full_cols
-
-    family_df = pd.read_csv(FEATURE_FAMILIES_PATH)
-    usage = set(family_df.loc[family_df["family"] == "소모품 카운터", "feature"])
-    usage_cols = [c for c in full_cols if c in usage]
-    assert usage_cols, "usage mode has no matching '소모품 카운터' feature columns in feature_families_v1.csv"
-    return usage_cols
+def fit_sources(data, cols):
+    models = {}
+    for s, groups in SOURCES.items():
+        src = data[data["group"].isin(groups)]
+        for m in MODES:
+            mdl = XGBRegressor(**XGB_PARAMS)
+            mdl.fit(src[cols[m]].to_numpy(float), src["MRR"].to_numpy(float))  # NaN 그대로 (#27)
+            models[(s, m)] = mdl
+    return models
 
 
-def fit_source_model(source: pd.DataFrame, mode: str) -> XGBRegressor:
-    cols = source_feature_columns(source, mode)
-    model = XGBRegressor(
-        n_estimators=400,
-        max_depth=4,
-        learning_rate=0.03,
-        subsample=0.8,
-        colsample_bytree=0.8,
-        min_child_weight=3,
-        random_state=42,
-        n_jobs=2,
-        objective="reg:squarederror",
-    )
-    X = source[cols].to_numpy(dtype=float)
-    if np.isnan(X).any():
-        with warnings.catch_warnings():
-            warnings.simplefilter("ignore", RuntimeWarning)
-            med = np.nanmedian(X, axis=0)
-        med = np.where(np.isnan(med), 0.0, med)
-        X = np.where(np.isnan(X), med, X)
-    model.fit(X, source["MRR"].astype(float).to_numpy())
-    return model
+def split(a, fa, masks, r, ratio):
+    rep, f = divmod(r, 5)
+    fr = fa[fa["repeat"] == rep]
+    tr = a.merge(fr.loc[fr["fold"] != f, KEY], on=KEY)
+    ev = a.merge(fr.loc[fr["fold"] == f, KEY], on=KEY)
+    ktr, kev = set(map(tuple, tr[KEY].values)), set(map(tuple, ev[KEY].values))
+    assert ktr.isdisjoint(kev), f"누수: r={r}"
+    assert len(ktr) + len(kev) == 431
+    mk = masks[(masks["ratio"] == ratio) & (masks["r"] == r)][KEY].drop_duplicates()
+    assert len(mk) > 0, f"공개 마스크 없음: r={r}, ratio={ratio}"
+    assert set(map(tuple, mk.values)) <= ktr, f"공개 웨이퍼가 학습 쪽 밖: r={r}"
+    pub = tr.merge(mk, on=KEY)
+    return tr, ev, pub
 
 
-def train_eval_split(a123: pd.DataFrame, folds_df: pd.DataFrame, ratio: int, r: int, masks: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    row = folds_df[(folds_df["group"] == "A-123") & (folds_df["repeat"] * 5 + folds_df["fold"] == r)].iloc[0]
-    rep = int(row["repeat"])
-    f = int(row["fold"])
-
-    train_keys = folds_df[(folds_df["group"] == "A-123") & (folds_df["repeat"] == rep) & (folds_df["fold"] != f)][KEY].drop_duplicates()
-    eval_keys = folds_df[(folds_df["group"] == "A-123") & (folds_df["repeat"] == rep) & (folds_df["fold"] == f)][KEY].drop_duplicates()
-
-    train_df = a123.merge(train_keys, on=KEY, how="inner", validate="many_to_one").copy()
-    eval_df = a123.merge(eval_keys, on=KEY, how="inner", validate="many_to_one").copy()
-
-    public_keys = masks[(masks["design"] == "folds") & (masks["ratio"] == ratio) & (masks["r"] == r) & (masks["method"] == "fixed")][KEY].drop_duplicates()
-    public_df = train_df.merge(public_keys, on=KEY, how="inner", validate="many_to_one").copy()
-
-    train_key_set = set(map(tuple, train_df[KEY].itertuples(index=False, name=None)))
-    eval_key_set = set(map(tuple, eval_df[KEY].itertuples(index=False, name=None)))
-    assert train_key_set.isdisjoint(eval_key_set), "train/eval overlap found"
-    assert set(map(tuple, public_df[KEY].itertuples(index=False, name=None))) == set(map(tuple, public_keys.itertuples(index=False, name=None))), "public mask mismatch"
-    return train_df, eval_df, public_df
+# ---------------------------------------------------------------- δ 입력 (#26)
+def _corr_hi(tr, x, y):
+    rho = tr[[x, y]].apply(pd.to_numeric).corr(method="spearman").iloc[0, 1]  # 쌍별 결측 제외
+    return bool(np.isfinite(rho) and abs(rho) > CORR_SKIP)
 
 
-def select_delta_features(train_df: pd.DataFrame, public_train: pd.DataFrame) -> list[str]:
-    clean_public = int((public_train["allzero"] == 0).sum()) if "allzero" in public_train.columns else 0
-    selected: list[str] = []
-    if "t_start" in train_df.columns:
-        selected.append("t_start")
-
-    for name in DELTA_CANDIDATES:
-        if name in {"t_start"}:
+def select_delta(tr, pub):
+    """상관은 A-123 학습 쪽 전체(tr)로, MRR 미사용. P1_on 조건만 공개 라벨(pub) 기준."""
+    cap = max(2, len(pub) // 5)
+    clean_pub = int((pub["allzero"] == 0).sum())
+    sel = []
+    for c in DELTA_SINGLES:
+        if len(sel) >= cap:
+            return sel
+        if tr[c].notna().sum() < 2 or any(_corr_hi(tr, s, c) for s in sel):
             continue
-        if name not in train_df.columns:
-            continue
-        if name == "P1_on" and clean_public < 10:
-            continue
-        if name == "allzero" and clean_public < 10:
-            continue
-        if any(corr_skip(train_df, existing, name) for existing in selected):
-            continue
-        selected.append(name)
-        if len(selected) >= 2:
-            break
-
-    if len(selected) < 2:
-        for name in DELTA_CANDIDATES:
-            if name in train_df.columns and name not in selected and not (name == "P1_on" and clean_public < 10) and not (name == "allzero" and clean_public < 10):
-                selected.append(name)
-                break
-
-    return selected
+        sel.append(c)
+    if clean_pub >= P1_MIN_CLEAN and cap - len(sel) >= 2:      # 쌍은 2개로 셈, 1자리 남으면 멈춤 (5.7-8)
+        if not any(_corr_hi(tr, s, c) for s in sel for c in DELTA_PAIR):
+            sel += DELTA_PAIR
+    return sel
 
 
-def delta_candidates(train_df: pd.DataFrame, public_train: pd.DataFrame | None = None) -> list[str]:
-    public_frame = train_df if public_train is None else public_train
-    return select_delta_features(train_df, public_frame)
-
-
-def corr_skip(train_df: pd.DataFrame, left: str, right: str) -> bool:
-    if left == right:
-        return True
-    x = pd.to_numeric(train_df[left], errors="coerce")
-    y = pd.to_numeric(train_df[right], errors="coerce")
-    if x.notna().sum() < 2 or y.notna().sum() < 2:
-        return True
-    with warnings.catch_warnings():
-        warnings.simplefilter("ignore")
-        try:
-            corr = spearmanr(x.fillna(x.median()).to_numpy(), y.fillna(y.median()).to_numpy()).correlation
-        except Exception:
-            return True
-    return bool(abs(float(corr)) > 0.9)
-
-
-def gp_model(seed: int, n_features: int) -> GaussianProcessRegressor:
-    kernel = ConstantKernel(1.0, (0.01, 100.0)) * RBF(
-        length_scale=np.ones(n_features),
-        length_scale_bounds=(0.01, 100.0),
-    ) + WhiteKernel(1e-3, (1e-3, 10.0))
-    return GaussianProcessRegressor(
-        kernel=kernel,
-        normalize_y=True,
-        n_restarts_optimizer=5,
-        random_state=seed,
-    )
-
-
-def fit_gp(train_x: np.ndarray, train_y: np.ndarray, eval_x: np.ndarray, seed: int) -> tuple[np.ndarray, int]:
-    X_train = train_x.copy()
-    X_eval = eval_x.copy()
-    med = np.nanmedian(X_train, axis=0)
+def delta_matrices(tr, pub, ev, cols):
+    """결측 채우기·표준화 통계는 A-123 학습 쪽 전체(tr) 기준 (#26 ⑤, 5.4)."""
+    T = tr[cols].apply(pd.to_numeric).to_numpy(float)
+    med = np.nanmedian(T, axis=0)
     med = np.where(np.isnan(med), 0.0, med)
-    X_train = np.where(np.isnan(X_train), med, X_train)
-    X_eval = np.where(np.isnan(X_eval), med, X_eval)
-    mu = X_train.mean(axis=0)
-    sd = X_train.std(axis=0)
+    T = np.where(np.isnan(T), med, T)
+    mu, sd = T.mean(0), T.std(0)
     sd[sd == 0] = 1.0
-    z_train = (X_train - mu) / sd
-    z_eval = (X_eval - mu) / sd
+
+    def z(df):
+        X = df[cols].apply(pd.to_numeric).to_numpy(float)
+        return (np.where(np.isnan(X), med, X) - mu) / sd
+    return z(pub), z(ev)
+
+
+# ---------------------------------------------------------------- GP (#28)
+def fit_gp(Xp, y, Xe, n_pub, seed):
+    d = Xp.shape[1]
+    ls = np.ones(d) if n_pub >= ISO_BELOW else 1.0
+    kernel = (ConstantKernel(1.0, (1e-2, 1e2)) * RBF(ls, (1e-2, 1e2))
+              + WhiteKernel(1.0, (1e-3, 10.0)))
+    gp = GaussianProcessRegressor(kernel, normalize_y=True, n_restarts_optimizer=5, random_state=seed)
     with warnings.catch_warnings(record=True) as w:
         warnings.simplefilter("always")
-        model = gp_model(seed, z_train.shape[1])
-        model.fit(z_train, train_y)
-    pred = model.predict(z_eval)
-    return pred, len(w)
+        gp.fit(Xp, y)
+    n_warn = sum(issubclass(x.category, (ConvergenceWarning, UserWarning, RuntimeWarning)) for x in w)
+    mean, std = gp.predict(Xe, return_std=True)   # WhiteKernel 잡음 포함 (5.7-10)
+    return mean, std, n_warn
 
 
-def f456_predict(model: XGBRegressor, df: pd.DataFrame, mode: str) -> np.ndarray:
-    cols = source_feature_columns(df, mode)
-    X = df[cols].to_numpy(dtype=float)
-    if np.isnan(X).any():
-        with warnings.catch_warnings():
-            warnings.simplefilter("ignore", RuntimeWarning)
-            med = np.nanmedian(X, axis=0)
-        med = np.where(np.isnan(med), 0.0, med)
-        X = np.where(np.isnan(X), med, X)
-    return model.predict(X)
+# ---------------------------------------------------------------- 한 fold
+def run_fold(tr, ev, pub, models, r):
+    y = pub["MRR"].to_numpy(float)
+    ye = ev["MRR"].to_numpy(float)
+    zero = ev["allzero"].to_numpy() == 1
+    cols = select_delta(tr, pub)
+    Xp, Xe = delta_matrices(tr, pub, ev, cols)
+    seed = 42 + r
+    t1, t1_sd, w1 = fit_gp(Xp, y, Xe, len(pub), seed)          # T1·T0는 소스와 무관
+    base = dict(n_public=len(pub), n_public_clean=int((pub["allzero"] == 0).sum()),
+                n_train=len(tr), n_eval=len(ev), delta_cols=",".join(cols),
+                p1_on_included=int("P1_on" in cols), iso_kernel=int(len(pub) < ISO_BELOW))
+    out = []
+    for (s, m), mdl in models.items():
+        cols_src = MODEL_COLS[m]
+        fp = mdl.predict(pub[cols_src].to_numpy(float))
+        fe = mdl.predict(ev[cols_src].to_numpy(float))
+        t2 = fe + float(np.mean(y - fp))
+        lr = LinearRegression().fit(fp.reshape(-1, 1), y)
+        rho = float(np.clip(lr.coef_[0], 0.0, 2.0))
+        b = float(np.mean(y) - rho * np.mean(fp))     # 자르지 않았으면 최소제곱 절편과 같음
+        dm, dsd, w3 = fit_gp(Xp, y - (rho * fp + b), Xe, len(pub), seed)
+        t3 = rho * fe + b + dm
+        preds = {"T0": (np.full(len(ev), y.mean()), None), "T1": (t1, t1_sd),
+                 "T2": (t2, None), "T3": (t3, dsd)}
+        for name, (p, sd) in preds.items():
+            for sub, msk in [("all", np.ones(len(ev), bool)), ("clean", ~zero), ("zero", zero)]:
+                if msk.sum() == 0:
+                    continue
+                e = ye[msk] - p[msk]
+                rec = dict(source=s, mode=m, model=name, subset=sub, n=int(msk.sum()),
+                           mse=float(np.mean(e ** 2)), rmse=float(np.sqrt(np.mean(e ** 2))),
+                           mae=float(np.mean(np.abs(e))), rho=rho, b=b,
+                           gp_warn_t1=w1, gp_warn_t3=w3, **base)
+                if sd is not None:
+                    rec["coverage90"] = float(np.mean(np.abs(e) <= Z90 * sd[msk]))
+                out.append(rec)
+    return out
 
 
-def evaluate_model(train_df: pd.DataFrame, train_public: pd.DataFrame, eval_df: pd.DataFrame, model: XGBRegressor, mode: str, seed: int) -> dict[str, Any]:
-    y_train = train_public["MRR"].astype(float).to_numpy()
-    f456_train = f456_predict(model, train_public, mode)
-    f456_eval = f456_predict(model, eval_df, mode)
-
-    t0 = float(np.mean(y_train))
-
-    delta_cols = select_delta_features(train_df, train_public)
-    delta_train = train_df[delta_cols].copy()
-    delta_public = train_public[delta_cols].copy()
-    delta_eval = eval_df[delta_cols].copy()
-    for c in delta_cols:
-        delta_train[c] = pd.to_numeric(delta_train[c], errors="coerce")
-        delta_public[c] = pd.to_numeric(delta_public[c], errors="coerce")
-        delta_eval[c] = pd.to_numeric(delta_eval[c], errors="coerce")
-        med = delta_train[c].median()
-        delta_train[c] = delta_train[c].fillna(med)
-        delta_public[c] = delta_public[c].fillna(med)
-        delta_eval[c] = delta_eval[c].fillna(med)
-    t1, gp_warn = fit_gp(delta_public.to_numpy(dtype=float), y_train, delta_eval.to_numpy(dtype=float), 42 + seed)
-
-    c = float(np.mean(y_train - f456_train))
-    t2 = f456_eval + c
-
-    linear = LinearRegression()
-    linear.fit(f456_train.reshape(-1, 1), y_train)
-    rho = float(np.clip(linear.coef_[0], 0.0, 2.0))
-    b = float(np.mean(y_train) - rho * np.mean(f456_train))
-    base_train = rho * f456_train + b
-    base_eval = rho * f456_eval + b
-    residual_train = y_train - base_train
-    t3_resid, t3_warn = fit_gp(delta_public.to_numpy(dtype=float), residual_train, delta_eval.to_numpy(dtype=float), 42 + seed)
-    t3 = base_eval + t3_resid
-
-    return {
-        "T0": np.full(len(eval_df), t0, dtype=float),
-        "T1": t1,
-        "T2": t2,
-        "T3": t3,
-        "rho": rho,
-        "b": b,
-        "delta_cols": delta_cols,
-        "t1_warning_count": int(gp_warn),
-        "t3_warning_count": int(t3_warn),
-        "warning_count": int(gp_warn + t3_warn),
-    }
+# ---------------------------------------------------------------- 검정 (5.7-16)
+def nb_test(d, n_te, n_tr):
+    J = len(d)
+    var = np.var(d, ddof=1) * (1 / J + n_te / n_tr)
+    if not var > 0:
+        return np.nan, np.nan
+    t = np.mean(d) / np.sqrt(var)
+    return float(t), float(2 * stats.t.sf(abs(t), J - 1))
 
 
-def validate_quick(folds: int = 2, ratio: int = 8) -> None:
-    _, a123, source, folds_df, masks = load_inputs()
-    models = {"full": fit_source_model(source, "full"), "usage": fit_source_model(source, "usage")}
-    target_rs = sorted((folds_df[(folds_df["group"] == "A-123")][["repeat", "fold"]].drop_duplicates().assign(r=lambda d: d["repeat"] * 5 + d["fold"])["r"].unique()))[:folds]
-
-    for r in target_rs:
-        train_df, eval_df, public_df = train_eval_split(a123, folds_df, ratio, r, masks)
-        assert set(map(tuple, train_df[KEY].itertuples(index=False, name=None))).isdisjoint(set(map(tuple, eval_df[KEY].itertuples(index=False, name=None))))
-        assert set(map(tuple, public_df[KEY].itertuples(index=False, name=None))) == set(map(tuple, masks[(masks["design"] == "folds") & (masks["ratio"] == ratio) & (masks["r"] == r) & (masks["method"] == "fixed")][KEY].drop_duplicates().itertuples(index=False, name=None)))
-        if ratio == 8:
-            n_total = len(public_df)
-            n_clean = int((public_df["allzero"] == 0).sum())
-            assert 20 <= n_total <= 40, "8% public count out of expected range"
-            assert 5 <= n_clean <= 20, "8% clean-public count out of expected range"
-        for mode, model in models.items():
-            evaluate_model(train_df, public_df, eval_df, model, mode, r)
-        assert select_delta_features(train_df, public_df)[0] == "t_start", "delta feature ordering is not t_start-first"
-    print("PASS: train/eval overlap check")
-    print("PASS: reveal-mask alignment")
-    print("PASS: 8% public count and clean-public count in expected range")
-    print("PASS: delta feature ordering includes t_start first")
-    print("PASS: no test-data paths read")
+def summarize(R):
+    A = R[R["subset"] == "all"]
+    rows = []
+    for (ratio, s, m), g in A.groupby(["ratio", "source", "mode"]):
+        P = g.pivot(index="r", columns="model", values="mse")
+        sz = g.drop_duplicates("r")
+        n_te, n_tr = sz["n_eval"].mean(), sz["n_train"].mean()
+        for a, b, kind in [("T3", "T1", "주 판정"), ("T3", "T2", "2차 판정"), ("T2", "T1", "보고만")]:
+            d = (P[a] - P[b]).to_numpy()
+            t, p = nb_test(d, n_te, n_tr)
+            eff = bool(ratio == PRIMARY_RATIO and kind != "보고만" and p < 0.05 and d.mean() < 0)
+            rows.append(dict(ratio=ratio, source=s, mode=m, compare=f"{a}-{b}", kind=kind,
+                             primary=int(ratio == PRIMARY_RATIO), J=len(d), mean_diff=float(d.mean()),
+                             wins=int((d < 0).sum()), t=t, p=p, effect=eff if ratio == PRIMARY_RATIO else None,
+                             n_eval_mean=n_te, n_train_mean=n_tr))
+    return pd.DataFrame(rows)
 
 
-def save_results(rows: list[dict[str, Any]]) -> None:
-    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    stamp = dt.datetime.now().strftime("%Y%m%d")
-    base = RESULTS_DIR / f"{stamp}_subimbim_a123_transfer"
-    path = base.with_suffix(".csv")
-    idx = 1
-    while path.exists():
-        path = RESULTS_DIR / f"{stamp}_subimbim_a123_transfer_{idx}.csv"
-        idx += 1
-    pd.DataFrame(rows).to_csv(path, index=False)
-    yaml_path = path.with_suffix(".yaml")
-    yaml_path.write_text("experiment: a123_transfer\n" + json.dumps({"author": "subimbim", "rows": len(rows)}, indent=2) + "\n", encoding="utf-8")
+def rho_table(R):
+    g = R[(R["subset"] == "all") & (R["model"] == "T3")].groupby(["ratio", "source", "mode"])["rho"]
+    return g.agg(["mean", "std", "min", "max"]).reset_index()
 
 
-def run_full(folds: int = 25, ratio: int = 8) -> None:
-    _, a123, source, folds_df, masks = load_inputs()
-    models = {"full": fit_source_model(source, "full"), "usage": fit_source_model(source, "usage")}
-    rows: list[dict[str, Any]] = []
-    for rep in sorted(folds_df[(folds_df["group"] == "A-123")]["repeat"].unique()):
-        fold_group = folds_df[(folds_df["group"] == "A-123") & (folds_df["repeat"] == rep)]
-        for _, row in fold_group.iterrows():
-            r = int(row["repeat"]) * 5 + int(row["fold"])
-            if r >= folds:
-                continue
-            train_df, eval_df, public_df = train_eval_split(a123, folds_df, ratio, r, masks)
-            for mode, model in models.items():
-                out = evaluate_model(train_df, public_df, eval_df, model, mode, r)
-                rows.append({
-                    "repeat": int(rep),
-                    "fold": int(row["fold"]),
-                    "r": int(r),
-                    "mode": mode,
-                    "rho": float(out["rho"]),
-                    "b": float(out["b"]),
-                    "warning_count": int(out["warning_count"]),
-                    "t1_warning_count": int(out["t1_warning_count"]),
-                    "t3_warning_count": int(out["t3_warning_count"]),
-                    "delta_cols": ",".join(out["delta_cols"]),
-                })
-    save_results(rows)
+# ---------------------------------------------------------------- 저장
+def out_paths():
+    RESULTS.mkdir(exist_ok=True)
+    stem = f"{dt.date.today():%Y-%m-%d}_{AUTHOR}_a123_transfer"
+    k = 1
+    while (RESULTS / f"{stem}.csv").exists():
+        k += 1
+        stem = f"{dt.date.today():%Y-%m-%d}_{AUTHOR}_a123_transfer_v{k}"
+    return RESULTS / stem
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--quick", action="store_true")
-    parser.add_argument("--folds", type=int, default=2)
-    parser.add_argument("--ratio", type=int, default=8)
-    args = parser.parse_args()
+def sha(p):
+    return hashlib.sha256(p.read_bytes()).hexdigest()[:16]
+
+
+def write_yaml(path, info):
+    lines = []
+    for k, v in info.items():
+        if isinstance(v, dict):
+            lines.append(f"{k}:")
+            lines += [f"  {kk}: {vv}" for kk, vv in v.items()]
+        else:
+            lines.append(f"{k}: {v}")
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+# ---------------------------------------------------------------- 실행
+MODEL_COLS: dict = {}
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--quick", action="store_true", help="r 0~1, 공개 8%만. 결과 저장·숫자 출력 없음")
+    args = ap.parse_args()
+    t0 = time.time()
+    data, a, fa, masks, cols = load()
+    MODEL_COLS.update(cols)
+    models = fit_sources(data, cols)
+    rs = [0, 1] if args.quick else list(range(25))
+    ratios = [PRIMARY_RATIO] if args.quick else RATIOS
+    rec = []
+    for ratio in ratios:
+        for r in rs:
+            tr, ev, pub = split(a, fa, masks, r, ratio)
+            for row in run_fold(tr, ev, pub, models, r):
+                row.update(ratio=ratio, r=r, repeat=r // 5, fold=r % 5)
+                rec.append(row)
+        print(f"공개 {ratio}% 완료 ({time.time() - t0:.0f}초)", flush=True)
+    R = pd.DataFrame(rec)
+
+    # 자체 점검 (숫자 출력 없음)
+    assert set(R["model"]) == {"T0", "T1", "T2", "T3"}
+    assert R.groupby(["ratio", "r"])["delta_cols"].nunique().max() == 1
+    assert R["delta_cols"].str.startswith("t_start").all()
+    dc = R.drop_duplicates(["ratio", "r"])
+    assert ((dc["delta_cols"].str.contains("P1_on")) == (dc["delta_cols"].str.contains("allzero"))).all()
+    assert R.loc[R["model"].isin(["T1", "T3"]), "coverage90"].notna().all()
+    for _, x in dc.iterrows():
+        assert x["delta_cols"].count(",") + 1 <= max(2, x["n_public"] // 5)
+    print("PASS: 누수 없음, 공개 마스크 일치, δ 규칙(t_start 첫째·상한·P1_on 쌍), T0~T3·커버리지 생성", flush=True)
     if args.quick:
-        validate_quick(folds=args.folds, ratio=args.ratio)
-    else:
-        run_full(folds=args.folds, ratio=args.ratio)
+        print(dc[["ratio", "r", "n_public", "n_public_clean", "delta_cols", "iso_kernel"]].to_string(index=False))
+        print("quick 끝: 결과 저장 안 함")
+        return
+
+    S, RH = summarize(R), rho_table(R)
+    base = out_paths()
+    R.to_csv(base.with_suffix(".csv"), index=False)
+    S.to_csv(base.parent / f"{base.name}_stats.csv", index=False)
+    RH.to_csv(base.parent / f"{base.name}_rho.csv", index=False)
+    W = R[R["subset"] == "all"].drop_duplicates(["ratio", "r", "source", "mode"])
+    write_yaml(base.with_suffix(".yaml"), {
+        "experiment": "a123_transfer (preregistration 5절 주 평가)",
+        "author": AUTHOR, "date": f"{dt.datetime.now():%Y-%m-%d %H:%M}",
+        "runtime_sec": round(time.time() - t0),
+        "ratios": RATIOS, "folds": "folds_v1 25 (r = repeat*5+fold)", "reveal": "reveal_masks_v1 fixed",
+        "sources": SOURCES, "f456_modes": {m: len(c) for m, c in cols.items()}, "xgb_params": XGB_PARAMS,
+        "gp": "Constant(1e-2~1e2) x RBF(1e-2~1e2; 공개<10 등방성) + White(1e-3~10), restarts 5, seed 42+r, normalize_y",
+        "gp_warnings": {"t1_folds_with_warning": int((W.groupby(["ratio", "r"])["gp_warn_t1"].first() > 0).sum()),
+                        "t3_fold_source_mode_with_warning": int((W["gp_warn_t3"] > 0).sum())},
+        "versions": {"python": platform.python_version(), "numpy": np.__version__, "pandas": pd.__version__,
+                     "scipy": scipy.__version__, "sklearn": sklearn.__version__, "xgboost": xgboost.__version__},
+        "inputs_sha256_16": {p.name: sha(p) for p in [P_FEATURES, P_FAMILIES, P_FOLDS, P_MASKS, P_TABLE]},
+        "outputs": {"folds": base.with_suffix(".csv").name, "stats": f"{base.name}_stats.csv", "rho": f"{base.name}_rho.csv"},
+    })
+    print(f"저장: {base.name}.csv / _stats.csv / _rho.csv / .yaml (숫자는 파일에서 확인)")
 
 
 if __name__ == "__main__":
