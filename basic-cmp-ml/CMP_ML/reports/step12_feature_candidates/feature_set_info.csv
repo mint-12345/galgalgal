@@ -1,0 +1,5 @@
+feature_set,n_features,n_numeric,n_numeric_with_missing,n_missing_cells
+Baseline,32,30,0,0
+C5_nonzero,52,50,10,1873
+C6_distribution,62,60,0,0
+C7_combined,82,80,10,1873

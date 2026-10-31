@@ -1,0 +1,6 @@
+feature_set,n_features,n_numeric,n_numeric_with_missing,n_missing_cells
+Baseline,32,30,0,0
+C1_chamber,104,102,66,65296
+C2_airbag,33,31,0,0
+C3_usage,40,38,0,0
+C4_combined,113,111,66,65296

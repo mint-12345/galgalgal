@@ -1,0 +1,12 @@
+item,value
+temporal test 중 Hybrid 의 RMSE 가 더 낮은 경우,2 / 3
+usage test 중 Hybrid 의 RMSE 가 더 낮은 경우,2 / 4
+전체 shift test 중 Hybrid 의 RMSE 가 더 낮은 경우,4 / 7
+Pure ML 의 shift RMSE 평균,6.3945
+Hybrid 의 shift RMSE 평균,6.0590
+Pure ML 의 shift RMSE 최대,11.5604
+Hybrid 의 shift RMSE 최대,9.7362
+Pure ML 의 random 5-fold 대비 평균 증가,+2.8073
+Hybrid 의 random 5-fold 대비 평균 증가,+2.4867
+RMSE 차이(Hybrid - Pure ML) 최소 / 최대,-1.8242 / +0.7464
+Stage B 비율 차이(평가 - 학습)의 최대 절대값,0.0833

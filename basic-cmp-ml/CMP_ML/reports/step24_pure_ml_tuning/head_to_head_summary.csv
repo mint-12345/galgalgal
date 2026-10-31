@@ -1,0 +1,9 @@
+item,value
+비교한 Pure ML 설정,n900_d4_lr0.05_mcw3
+비교한 Hybrid 설정,n900_d2_lr0.1_mcw1 (P9 x V3)
+Hybrid 가 더 낮은 fold 수,0
+Pure ML 이 더 낮은 fold 수,5
+평균 RMSE (Pure ML 최상위),3.3163
+평균 RMSE (대표 Hybrid),3.5693
+평균 RMSE 차이 (Hybrid - Pure ML),+0.2530
+fold 별 차이의 표준편차,0.0561
