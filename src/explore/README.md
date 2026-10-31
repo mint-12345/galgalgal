@@ -24,7 +24,7 @@ CMP-training-removalrate.csv, CMP-validation-removalrate.csv가 한 폴더에 �
   - 전체 86장 기준: 0_mean 14.99, 1_sep_XGB 6.22, 1_sep_GP 6.58, 2_pool_XGB_onehot 9.56, 2_pool_CatBoost 11.55,
     3a_AR1_GP_all 6.61, 3a_stack_XGB_all 6.29(p=0.595), 3u_AR1_GP_use 6.42, 3u_stack_XGB_use 6.33
   - check_pool_scaled.py: pool_z 9.038, sep 6.221, p=0.001
-  - 결론: ① 분리 XGB가 가장 좋음 / ② 통합은 ①보다 나쁨(wins 0, p<0.05) / ③ MF는 ①과 차이 없음(p>0.05)
+  - 결론: ① 분리 XGB가 가장 좋음 / ② 통합은 ①보다 나쁨(wins 1 / 20 (문서는 0), p=0.0045) / ③ MF는 ①과 차이 없음(p>0.05)
   - 따라서 재현에 성공했고, 라이브러리 버전 차이로 소수점 차이는 생길 수 있지만 결론은 일치한다.
 
 ## 용어
