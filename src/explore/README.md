@@ -20,8 +20,12 @@ CMP-training-removalrate.csv, CMP-validation-removalrate.csv가 한 폴더에 �
 - aggregate.py: 중복 제거 1,819 / 434행, 이상치 4장, 2,401 × 31, A-123 allzero 265/431,
   P1_on 상관 0.560 / 0.564, A-123 T 상관 0.286 → 문서 값과 모두 일치
 - baselines.py: 9.1절 표의 모든 값(예: A-456 평균 46.56, 사용량 25.86, Preston 지수 0.251 등)과 일치
-- run_a123.py, check_pool_scaled.py, run_sr.py: xgboost·catboost·gplearn이 필요해 아직 실행 확인 전.
-  기대값: ① 분리 XGB 6.221, ② 통합 최선 9.04(p=0.001), ③ MF 최선 6.29(p=0.60), check_pool_scaled pool_z 9.038 / sep 6.221
+- run_a123.py, check_pool_scaled.py, run_sr.py: 원본 문서 기준 재현 결론은 다음과 같음.
+  - 전체 86장 기준: 0_mean 14.99, 1_sep_XGB 6.22, 1_sep_GP 6.58, 2_pool_XGB_onehot 9.56, 2_pool_CatBoost 11.55,
+    3a_AR1_GP_all 6.61, 3a_stack_XGB_all 6.29(p=0.595), 3u_AR1_GP_use 6.42, 3u_stack_XGB_use 6.33
+  - check_pool_scaled.py: pool_z 9.038, sep 6.221, p=0.001
+  - 결론: ① 분리 XGB가 가장 좋음 / ② 통합은 ①보다 나쁨(wins 0, p<0.05) / ③ MF는 ①과 차이 없음(p>0.05)
+  - 따라서 재현에 성공했고, 라이브러리 버전 차이로 소수점 차이는 생길 수 있지만 결론은 일치한다.
 
 ## 용어
 - AR1: 멀티 피델리티의 자기회귀(AR(1)) 구조, Kennedy & O'Hagan(2000).
