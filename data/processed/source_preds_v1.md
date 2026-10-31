@@ -95,6 +95,20 @@ tr = w[w.role == "train"]; ev = w[w.role == "eval"]
 S2 · 사용량 버전만 크게 나쁘다. 소모품 카운터는 장비 전체가 공유하는 값(PR #14)이라 A·B 스테이지를 구분하지 못하고,
 A-456과 B-456의 MRR 수준 차이(평균 72.9 대 79.9)를 설명할 입력이 없기 때문으로 보인다.
 
+## 깊이 민감도용 파일 (6절 "트리 깊이 3, 6", #9)
+
+같은 코드·같은 열 구조로 `max_depth`만 바꾼 파일. 전이 대 단독 결론의 깊이 민감도를 볼 때 `source_preds_v1.csv` 대신 쓴다.
+
+| 파일 | max_depth | 생성 명령 |
+|---|---|---|
+| `source_preds_v1_d3.csv` (+ `.yaml`) | 3 | `python src/source_models.py --depth 3 --out data/processed/source_preds_v1_d3.csv` |
+| `source_preds_v1.csv` | 4 (주) | `python src/source_models.py` |
+| `source_preds_v1_d6.csv` (+ `.yaml`) | 6 | `python src/source_models.py --depth 6 --out data/processed/source_preds_v1_d6.csv` |
+
+세 파일을 `concat`한 뒤 `max_depth` 열로 거르면 된다. 점검 7개는 세 파일 모두 통과(각 `.yaml`의 `checks`).
+456 안 교차검증 RMSE(전체 평균, 깊이 3 / 4 / 6): S1·F-free 3.042 / 3.004 / 3.040, S1·사용량 3.218 / 3.115 / 3.053,
+S2·F-free 3.251 / 3.151 / 3.136, S2·사용량 5.161 / 5.072 / 5.012 (`results/2026-10-31_전준혁_depth_sensitivity.csv`).
+
 ## 알려진 한계
 
 - A-123 전체-0 센서 웨이퍼(265장)는 압력·유량·회전 피처가 NaN이다. 456 학습 데이터에는 이 피처들의 NaN이 없어서,

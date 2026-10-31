@@ -162,7 +162,7 @@ def main() -> None:
     ap.add_argument("--out", default=str(cv.PROCESSED / "source_preds_v1.csv"))
     ap.add_argument("--skip-cv", action="store_true")
     args = ap.parse_args()
-    out = Path(args.out)
+    out = cv.ROOT / args.out   # 상대 경로는 저장소 루트 기준 (절대 경로면 그대로)
     today = date.today().isoformat()
     cv_out = cv.ROOT / "results" / f"{today}_{AUTHOR}_source456_cv{'' if args.depth == 4 else f'_d{args.depth}'}.csv"
     for p in [out, out.with_suffix(".yaml")] + ([] if args.skip_cv else [cv_out]):

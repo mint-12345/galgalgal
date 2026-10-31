@@ -1,0 +1,17 @@
+date: 2026-10-31
+author: 전준혁
+script: src/depth_sensitivity.py
+preregistration: v0.2.1 3.2절 민감도(트리 깊이 3/4/6), 6절
+inputs:
+  - results/2026-10-31_전준혁_a123_split_vs_pooled_d3_tests.csv, _walkforward.csv
+  - results/2026-10-31_전준혁_a123_split_vs_pooled_tests.csv, _walkforward.csv
+  - results/2026-10-31_전준혁_a123_split_vs_pooled_d6_tests.csv, _walkforward.csv
+  - results/2026-10-31_전준혁_source456_cv_d3.csv
+  - results/2026-10-31_전준혁_source456_cv.csv
+  - results/2026-10-31_전준혁_source456_cv_d6.csv
+changed: XGBoost max_depth만 (나머지는 3.2절 고정값)
+featureset: F-free (113) (+ group·STAGE one-hot for pooled) / source: F-free, F-free-usage
+retrained: 없음 (기존 결과 파일만 요약)
+conclusion_stable_across_depths: True
+conclusion: d3 차이 없음(분리 유지) (p = 0.216), d4 차이 없음(분리 유지) (p = 0.712), d6 차이 없음(분리 유지) (p = 0.702)
+labels: train+val만. test·data/locked/ 사용 안 함

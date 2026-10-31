@@ -1,0 +1,11 @@
+date: 2026-10-31
+author: 전준혁
+script: src/source_models.py
+purpose: 소스 모델 f_456의 456 안 교차검증 (품질 점검, 전이 성능 아님)
+input: data/processed/features_v1.csv + wafer_table.csv (MRR), folds_v1.csv 25 fold
+model: XGBRegressor(n_estimators=400, max_depth=6, learning_rate=0.03, subsample=0.8, colsample_bytree=0.8, min_child_weight=3, objective='reg:squarederror', tree_method='hist', random_state=42, n_jobs=4)
+featureset: F-free (113) / F-free-usage (36)
+rows: source × featureset × fold × group(all + 소스 그룹)
+columns: group(all/A-456/B-456), model, featureset, source, max_depth, fold(r_id 0~24), repeat, mse, mae, rmse, n_train, n_eval
+seed: 42
+labels: train+val. test·data/locked/ 사용 안 함. A-123 미사용
