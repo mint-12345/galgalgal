@@ -17,6 +17,22 @@ CANDIDATES = ROOT / "results" / "diagnostics" / "2026-10-30_박종화_sr_candida
 UNARY = ["exp", "log", "sqrt"]
 MAX_ABS_EXPONENT = 3.0
 POW_TOKEN = re.compile(r"\^\s*\(?\s*([^\s()]+)")
+# 탐색 중 차단 (4.8 5번): `^`의 지수가 상수가 아니거나 −3~3 밖이면 이 loss를 준다.
+# 무한대 때문에 경고가 나거나 멈추면 "L(1e10)"으로 바꾼다.
+BLOCKED_LOSS = "L(Inf)"
+LOSS_EXPRESSION = f"""
+function pow_guard(ex, dataset::Dataset{{T,L}}, options) where {{T,L}}
+    tree = SymbolicRegression.get_tree(ex)
+    bad = any(tree) do node
+        node.degree == 2 && options.operators.binops[node.op] === SymbolicRegression.safe_pow &&
+            !(node.r.degree == 0 && node.r.constant && abs(node.r.val) <= {MAX_ABS_EXPONENT})
+    end
+    bad && return {BLOCKED_LOSS}
+    pred, ok = eval_tree_array(ex, dataset.X, options)
+    !ok && return {BLOCKED_LOSS}
+    return sum(abs2, pred .- dataset.y) / length(dataset.y)
+end
+"""
 
 
 def load_xy(group):
@@ -55,11 +71,12 @@ def make_model(seed, niterations):
         progress=False,
         verbosity=0,
         temp_equation_file=True,
+        loss_function_expression=LOSS_EXPRESSION,
     )
 
 
 def exponent_ok(equation):
-    """모든 `^`의 지수가 상수이고 −3~3 안에 있으면 True (4.8 5번).
+    """모든 `^`의 지수가 상수이고 −3~3 안에 있으면 True (4.8 5번의 사후 검증용).
 
     constraints로 지수 크기가 1이라 오른쪽은 상수나 변수 하나다.
     """

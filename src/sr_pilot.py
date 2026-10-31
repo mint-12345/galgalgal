@@ -18,7 +18,7 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from sr_run import filter_pareto, load_xy, make_model  # noqa: E402
+from sr_run import BLOCKED_LOSS, filter_pareto, load_xy, make_model  # noqa: E402
 
 GROUP = "A-456"
 SEED = 42
@@ -90,6 +90,8 @@ def main():
         f"improvement_250_to_500: {gain:.6f}",
         f"improvement_500_to_1000: {'null' if gain_1000 is None else f'{gain_1000:.6f}'}",
         f"decision: {decision}",
+        "exponent_rule: 탐색 중 차단 (loss_function_expression), 사후 제외는 검증용",
+        f"blocked_loss: {BLOCKED_LOSS}",
         "equations: 출력·저장하지 않음",
         "",
     ]), encoding="utf-8")
