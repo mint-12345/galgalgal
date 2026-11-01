@@ -41,6 +41,8 @@ EXPECTED_HEAD_RESETS = 5
 MIN_INTERVAL_WAFERS = 10
 # RF 입력에서도 since_POLISH_TABLE_w를 뺀다 (4.8 11번).
 RF_EXCLUDED = {"since_POLISH_TABLE_w"}
+# 헤드 부품 3종의 경과량은 같은 웨이퍼에서 리셋되므로 그룹 간 형태 비교에서 같은 계열로 본다 (4.6). 변수명은 각각 표기한다.
+HEAD_SINCE = {f"since_{u}_w": "since_head" for u in ("BACKING_FILM", "MEMBRANE", "PSHEET")}
 UNARY = {"exp": np.exp, "log": np.log, "sqrt": np.sqrt}
 
 
@@ -419,7 +421,8 @@ def analyze_group(group, pareto):
         "n_invalid_refit": n_invalid, "rmse_lr": float(means["lr"]), "rmse_rf": float(means["rf"]),
         "worse_than_lr": bool(final["mean_rmse"] > means["lr"]), "p_vs_lr": test.get("p"),
         "main_terms": main_list, "main_signs_stable": all(stable[t] for t in main_list),
-        "form": skeleton(eq.node), "variables": sorted(variables(eq.node)), "cv_constants": cv,
+        "form": skeleton(eq.node, HEAD_SINCE), "raw_form": skeleton(eq.node),
+        "variables": sorted(variables(eq.node)), "cv_constants": cv,
     }
     curve = curve.assign(group=group)[["group", "complexity", "mean_rmse", "se", "equation"]]
     stab = pd.DataFrame(rows).assign(group=group)
@@ -453,12 +456,9 @@ def main():
     for k, p in out.items():
         pd.concat(parts[k], ignore_index=True).to_csv(p, index=False, encoding="utf-8-sig")
 
-    fam = pd.read_csv(PROC / "feature_families_v1.csv").set_index("feature")["family"].to_dict()
-    family_forms = {g: skeleton(parse_equation(r["equation"]).node, fam) for g, r in results.items()}
     lines = [f"date: {stamp}", "author: 박종화", "script: src/sr_select.py", f"input: {pareto_path.as_posix()}",
              f"featureset: {FEATURESET}", "note: folds_v1 오차는 식 선택에 쓴 데이터라 낙관적, 성능으로 보고하지 않음",
-             f"same_variables_and_form: {consistent(results)}",
-             f"same_form_by_family: {len(set(family_forms.values())) == 1}"]
+             f"same_form_head_since_as_family: {consistent(results)}"]
     for g, r in results.items():
         lines.append(f"{g}:")
         lines += [f"  {k}: {v}" for k, v in r.items()]

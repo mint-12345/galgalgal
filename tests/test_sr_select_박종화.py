@@ -9,6 +9,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from sr_run import exponent_ok, filter_pareto  # noqa: E402
 from sr_select import (  # noqa: E402
+    HEAD_SINCE,
     consistent, const_ids, exponent_ids, fold_rmse, main_terms, parse_equation, predict, refit, remove_term,
     score_candidates, select_1se, select_multiplier, skeleton, split_terms, stability, term_signs, variables,
 )
@@ -189,6 +190,16 @@ def test_consistent_requires_signs_and_same_form():
     assert consistent(ok)
     assert not consistent({**ok, "B": {"main_signs_stable": True, "form": "g"}})
     assert not consistent({**ok, "B": {"main_signs_stable": False, "form": "f"}})
+
+
+def test_head_since_counts_as_same_form_only_for_head_parts():
+    a = parse_equation("since_MEMBRANE_w * 2.0 + x * 1.0").node
+    b = parse_equation("since_BACKING_FILM_w * 3.0 + x * 1.0").node
+    c = parse_equation("since_MEMBRANE_w * 2.0 + y * 1.0").node
+    assert skeleton(a, HEAD_SINCE) == skeleton(b, HEAD_SINCE)
+    assert skeleton(a) != skeleton(b)
+    assert skeleton(a, HEAD_SINCE) != skeleton(c, HEAD_SINCE)
+    assert "since_DRESSER_w" not in HEAD_SINCE
 
 
 def test_exponent_rule_on_equations():
