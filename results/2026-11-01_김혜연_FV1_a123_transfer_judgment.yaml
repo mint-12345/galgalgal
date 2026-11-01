@@ -1,0 +1,54 @@
+this_file: "2026-11-01_김혜연_FV1_a123_transfer_judgment.csv"
+experiment: "a123_transfer (preregistration 5절 주 평가)"
+author: "김혜연"
+tag: "FV1"
+featureset: "features_v1"
+group: "A-123"
+run_started: "2026-11-01 17:29:54"
+run_finished: "2026-11-01 17:53:12"
+runtime_sec: 1398
+git:
+  commit: "9947b4c95d1ef5170e510407a85744ca9e73834e"
+  branch: "main"
+  uncommitted_files: 0
+environment:
+  python: "3.13.2"
+  numpy: "2.5.3"
+  pandas: "3.0.6"
+  scipy: "1.18.1"
+  scikit-learn: "1.9.1"
+  xgboost: "3.2.0"
+  cpu: "12th Gen Intel(R) Core(TM) i7-12650H"
+  cpu_count: 16
+  os: "Windows-11-10.0.26200-SP0"
+ratios: [2, 4, 8, 16, 100]
+folds: "folds_v1 25 (r = repeat*5+fold)"
+reveal: "reveal_masks_v1 fixed"
+sources:
+  S1: ["A-456"]
+  S2: ["A-456", "B-456"]
+f456:
+  model: "XGBRegressor (3.2 고정 설정)"
+  params: {"n_estimators": 400, "max_depth": 4, "learning_rate": 0.03, "subsample": 0.8, "colsample_bytree": 0.8, "min_child_weight": 3, "random_state": 42, "n_jobs": 2}
+  n_jobs: 2
+  train: "소스별 456 전체 1회 학습, 결측 NaN 그대로"
+  inputs: {"full": 112, "usage": 36}
+  exclude_full: ["since_POLISH_TABLE_w"]
+seed_rule: "f_456 random_state=42 / GP random_state=42+r (r = repeat*5+fold, 재시작 5회도 이 시드에서 시작)"
+gp: "Constant(1e-2~1e2) x RBF(1e-2~1e2; 공개<10 등방성) + White(1e-3~10), restarts 5, normalize_y"
+gp_warnings:
+  t1_folds_with_warning: 93
+  t3_fold_source_input_with_warning: 406
+ttest: "cv_common.corrected_ttest (Nadeau-Bengio), n_train = A-123 학습 쪽 전체로 판정. revealed(n_train = 공개 라벨 수)는 cv_common.ttest_ntrain_sensitivity로 병기, 판정에 안 씀"
+judgment_rule: "8%, f_456 full, S1·S2 둘 다 (평균 차이 < 0, p < 0.05)일 때만 효과 있음 / 하나만 통과면 소스에 따라 갈림 / 둘 다 아니면 효과 없음. 갈림·없음이면 기본값 T1. 주 판정 T3-T1, 2차 판정 T3-T2 같은 규칙. usage는 보고만"
+inputs_sha256_16:
+  features_v1.csv: "31aefa89f84aa209"
+  feature_families_v1.csv: "91eae0447643cb16"
+  folds_v1.csv: "e4b364141b0bdaa9"
+  reveal_masks_v1.csv: "00d9ed3ef9436450"
+  wafer_table.csv: "3aaf498e8562d6e8"
+outputs:
+  folds: "2026-11-01_김혜연_FV1_a123_transfer_folds.csv"
+  stats: "2026-11-01_김혜연_FV1_a123_transfer_stats.csv"
+  judgment: "2026-11-01_김혜연_FV1_a123_transfer_judgment.csv"
+  rho: "2026-11-01_김혜연_FV1_a123_transfer_rho.csv"
