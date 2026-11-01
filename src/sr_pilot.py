@@ -18,7 +18,7 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from sr_run import BLOCKED_LOSS, filter_pareto, load_xy, make_model  # noqa: E402
+from sr_run import BLOCKED_LOSS, CANDIDATES, filter_pareto, load_xy, make_model  # noqa: E402
 
 GROUP = "A-456"
 SEED = 42
@@ -81,7 +81,7 @@ def main():
         f"date: {stamp}",
         "author: 박종화",
         "script: src/sr_pilot.py",
-        "input: data/processed/features_v1.csv + wafer_table.csv(MRR) + 2026-10-30_박종화_sr_candidates.csv",
+        f"input: data/processed/features_v1.csv + wafer_table.csv(MRR) + {CANDIDATES.name}",
         f"group: {GROUP}",
         f"seed: {SEED}",
         f"n_wafers_total: {n_total}",

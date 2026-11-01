@@ -2,7 +2,8 @@
 
 - 입력: features_v1.csv(FV1), feature_families_v1.csv, wafer_table.csv의 MRR.
   train·val, is_outlier = 0만 쓴다. test 라벨과 data/locked/는 읽지 않는다.
-- 후보 풀: sr_candidate = 1 → 그룹 안 NaN 5% 초과 제외 → 절댓값 중앙값 1e-9 미만 제외 (4.8 2·3번).
+- 후보 풀: sr_candidate = 1 → since_POLISH_TABLE_w 제외 (4.8 11번) → 그룹 안 NaN 5% 초과 제외 →
+  절댓값 중앙값 1e-9 미만 제외 (4.8 2·3번).
 - 선택: 대표 자리 보장 계열마다 |스피어만 상관|이 가장 큰 변수 1개 →
   남은 자리는 상관 순서로 채우되 이미 뽑힌 변수와 |스피어만 상관| > 0.9면 건너뜀.
 - 계산 데이터: 그룹별 train+val 전체 1회 (4.8 1번).
@@ -22,7 +23,8 @@ PROC = ROOT / "data" / "processed"
 OUT_DIR = ROOT / "results" / "diagnostics"
 GROUPS = ["A-456", "B-456"]
 EXPECTED_N = {"A-456": 983, "B-456": 987}
-EXPECTED_POOL = 107
+EXPECTED_POOL = 106
+EXCLUDED_FEATURES = {"since_POLISH_TABLE_w": "missed_reset"}   # 4.8 11번
 K = 10
 MAX_NAN_FRAC = 0.05
 MIN_ABS_MEDIAN = 1e-9
@@ -55,7 +57,7 @@ def select_group(x, fam):
             "nan_frac": v.isna().mean(), "abs_median": v.abs().median(),
         })
     t = pd.DataFrame(rows)
-    t["excluded"] = ""
+    t["excluded"] = t["feature"].map(EXCLUDED_FEATURES).fillna("")
     t.loc[t["nan_frac"] > MAX_NAN_FRAC, "excluded"] = "nan_over_5pct"
     t.loc[t["abs_median"] < MIN_ABS_MEDIAN, "excluded"] = "abs_median_under_1e-9"
     pool = t[t["excluded"] == ""].copy()
@@ -132,7 +134,8 @@ def main():
         "author: 박종화",
         "script: src/sr_candidates.py",
         "input: data/processed/features_v1.csv + feature_families_v1.csv + wafer_table.csv(MRR)",
-        "rule: preregistration.md 4.2, 4.8 1~3번",
+        "rule: preregistration.md 4.2, 4.8 1~3·11번",
+        f"excluded_features: {list(EXCLUDED_FEATURES)}",
         f"k: {K}",
         f"max_nan_frac: {MAX_NAN_FRAC}",
         f"min_abs_median: {MIN_ABS_MEDIAN}",
