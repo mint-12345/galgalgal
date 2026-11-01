@@ -37,7 +37,7 @@ MULTIPLIERS = [1.00, 1.02, 1.05, 1.10]
 MAIN_TERM_RATIO = 1.05
 MAX_COMPLEXITY = 20
 EXPECTED_HEAD_RESETS = 5
-# TODO(결정 필요): 구간별 재적합의 최소 웨이퍼 수. 문서에 없어 임시로 max(10, 2 × (상수 수 + 1))을 쓴다.
+# 구간별 재적합의 최소 웨이퍼 수는 max(10, 2 × (상수 수 + 1))이다 (4.8 9번).
 MIN_INTERVAL_WAFERS = 10
 # RF 입력에서도 since_POLISH_TABLE_w를 뺀다 (4.8 11번).
 RF_EXCLUDED = {"since_POLISH_TABLE_w"}
@@ -421,6 +421,7 @@ def analyze_group(group, pareto):
         "n_invalid_refit": n_invalid, "rmse_lr": float(means["lr"]), "rmse_rf": float(means["rf"]),
         "worse_than_lr": bool(final["mean_rmse"] > means["lr"]), "p_vs_lr": test.get("p"),
         "main_terms": main_list, "main_signs_stable": all(stable[t] for t in main_list),
+        "n_intervals": len(rows), "n_intervals_skipped": sum(1 for row in rows if not row["used"]),
         "form": skeleton(eq.node, HEAD_SINCE), "raw_form": skeleton(eq.node),
         "variables": sorted(variables(eq.node)), "cv_constants": cv,
     }
