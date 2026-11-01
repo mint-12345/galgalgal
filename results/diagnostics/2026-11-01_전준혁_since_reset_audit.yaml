@@ -1,0 +1,13 @@
+date: 2026-11-01
+author: 전준혁
+script: src/since_reset_check.py
+input: data/processed/wafer_table.csv (start_/reset_/since_*_w 열만, MRR 미사용, train·val·test 센서)
+rule: aggregate.py 순서(STAGE, t_start). 감지되지 않은 감소 = 시작값 차이 < 0 이고 reset = 0. restart = 다음 웨이퍼 시작값 < 감소 전 값, bounce = 그 외
+affected: restart 웨이퍼부터 그 스테이지 다음 감지 리셋 직전까지 + bounce 웨이퍼, since가 NaN이 아닌 것
+row_level_reference: CLAUDE.md 5.5절 POLISH_TABLE 행 단위 리셋 A 111 / B 100
+result:
+  since_POLISH_TABLE_w: 감지 187, 미감지 감소 25 (restart 19, bounce 6), 음수 16, 영향 웨이퍼 197
+  detected_plus_restart: A 110 / B 96
+  other_4_since_vars_clean: True (미감지 감소·음수 0)
+decision: 없음. 공통 피처(features_v1, wafer_table) 수정·제외는 팀 합의 사항
+

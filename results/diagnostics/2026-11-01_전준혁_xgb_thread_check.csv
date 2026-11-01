@@ -1,0 +1,29 @@
+check,n_jobs,source,featureset,max_abs_diff_vs4,mean_abs_diff_vs4,pred_sd,rmse,mse,mse_separate,mse_pooled,mean_diff,t,p,verdict
+source_pred_A123,1,S1,F-free,2.448303,0.546019,5.982472,,,,,,,,
+source_pred_A123,2,S1,F-free,1.975899,0.603919,6.054324,,,,,,,,
+source_pred_A123,4,S1,F-free,0.0,0.0,5.833437,,,,,,,,
+source_pred_A123,8,S1,F-free,1.570396,0.459678,6.115801,,,,,,,,
+source_pred_A123,1,S1,F-free-usage,1.577919,0.44167,6.054141,,,,,,,,
+source_pred_A123,2,S1,F-free-usage,1.785545,0.468661,5.976378,,,,,,,,
+source_pred_A123,4,S1,F-free-usage,0.0,0.0,5.930811,,,,,,,,
+source_pred_A123,8,S1,F-free-usage,1.538467,0.432146,5.997162,,,,,,,,
+source_pred_A123,1,S2,F-free,3.119766,0.938634,9.294674,,,,,,,,
+source_pred_A123,2,S2,F-free,2.905991,0.622757,9.427929,,,,,,,,
+source_pred_A123,4,S2,F-free,0.0,0.0,9.391761,,,,,,,,
+source_pred_A123,8,S2,F-free,2.621269,0.664702,9.020343,,,,,,,,
+source_pred_A123,1,S2,F-free-usage,2.743912,0.735138,7.524205,,,,,,,,
+source_pred_A123,2,S2,F-free-usage,2.418732,0.63107,7.539014,,,,,,,,
+source_pred_A123,4,S2,F-free-usage,0.0,0.0,7.688606,,,,,,,,
+source_pred_A123,8,S2,F-free-usage,2.31575,0.636562,7.538526,,,,,,,,
+source456_cv,1,S1,F-free,,,,3.007336,9.059635,,,,,,
+source456_cv,1,S2,F-free,,,,3.150997,9.939055,,,,,,
+source456_cv,2,S1,F-free,,,,3.002058,9.026169,,,,,,
+source456_cv,2,S2,F-free,,,,3.14911,9.926758,,,,,,
+source456_cv,4,S1,F-free,,,,3.003684,9.038603,,,,,,
+source456_cv,4,S2,F-free,,,,3.151265,9.938926,,,,,,
+source456_cv,8,S1,F-free,,,,3.011525,9.086935,,,,,,
+source456_cv,8,S2,F-free,,,,3.146581,9.911515,,,,,,
+a123_split_vs_pooled,1,,,,,,,,7.220232,7.584307,0.364075,0.460365,0.649398,차이 없음(분리 유지)
+a123_split_vs_pooled,2,,,,,,,,7.20413,7.458511,0.254381,0.421381,0.677227,차이 없음(분리 유지)
+a123_split_vs_pooled,4,,,,,,,,7.177989,7.400453,0.222464,0.373438,0.712101,차이 없음(분리 유지)
+a123_split_vs_pooled,8,,,,,,,,7.183846,7.474644,0.290798,0.460423,0.649357,차이 없음(분리 유지)

@@ -1,0 +1,13 @@
+date: 2026-11-01
+author: 전준혁
+script: src/ttest_ntrain_sensitivity.py
+purpose: 보정 t-검정 n_train 해석(A-123 학습 쪽 전체 대 공개 라벨 수) 민감도. 사전확정 기준은 바꾸지 않음
+preregistration: v0.2.1 5.5절 주 판정, 5.7절 16번 (평가/학습 비율은 실제 fold 크기)
+input: data/processed/reveal_masks_v1.csv (design=folds, method=fixed; n_train, n_reveal만, 라벨 미사용), results/2026-10-31_전준혁_a123_split_vs_pooled.csv (재검증 예시)
+formula: t = mean(d) / sqrt((1/J + n_eval/n_train) var(d)), J = 25, df = 24, 양측
+result:
+  ratio_8pct: full 0.250, revealed 3.079
+  se_factor_8pct: 3.279 (revealed SE / full SE)
+  t_full_needed_8pct: 6.768 (full 기준 |t|가 이 값 이상이어야 revealed 기준으로도 p < 0.05)
+  p_revealed_when_p_full_0.05_8pct: 0.535
+note: 실제 전이학습 결과의 판정 변화는 --transfer로 계산 (전이학습 결과 파일이 나온 뒤)

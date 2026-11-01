@@ -1,0 +1,11 @@
+step,model,n_train,n_train_a123,n_train_456,n_eval,mse,mae,rmse,group,featureset,max_depth
+0,separate,216,216,0,43,9.018573,2.388706,3.003094,A-123,F-free(+cat for pooled),6
+0,pooled,1065,216,849,43,9.089455,2.358353,3.014872,A-123,F-free(+cat for pooled),6
+1,separate,259,259,0,43,26.337016,3.874166,5.13196,A-123,F-free(+cat for pooled),6
+1,pooled,1422,259,1163,43,33.879794,4.380288,5.820635,A-123,F-free(+cat for pooled),6
+2,separate,302,302,0,43,10.949031,2.75402,3.308932,A-123,F-free(+cat for pooled),6
+2,pooled,1578,302,1276,43,7.662048,2.277634,2.768041,A-123,F-free(+cat for pooled),6
+3,separate,345,345,0,43,30.891469,4.415722,5.558009,A-123,F-free(+cat for pooled),6
+3,pooled,1945,345,1600,43,32.252727,4.393618,5.679148,A-123,F-free(+cat for pooled),6
+4,separate,388,388,0,43,12.517104,2.678713,3.537952,A-123,F-free(+cat for pooled),6
+4,pooled,2168,388,1780,43,9.542425,2.385098,3.089082,A-123,F-free(+cat for pooled),6
