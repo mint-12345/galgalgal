@@ -1,0 +1,18 @@
+date: 2026-11-01
+author: 전준혁
+script: src/xgb_thread_check.py
+purpose: XGBoost n_jobs에 따른 재현성 점검 (튜닝 아님, 3.2절 고정값 그대로)
+xgboost: 3.2.0
+params: n_estimators=400, max_depth=4, learning_rate=0.03, subsample=0.8, colsample_bytree=0.8, min_child_weight=3, objective='reg:squarederror', tree_method='hist', random_state=42
+n_jobs: [1, 2, 4, 8] (기준 4 = source_preds_v1·#6~#9 결과)
+input: data/processed/features_v1.csv + wafer_table.csv (train+val, is_outlier=0), folds_v1.csv
+pr20_check: |
+  PR #20 (explore/a123-run, ece0357) fit_sources()는 같은 456 행·같은 피처 113/36개(같은 순서)·같은 3.2절 값,
+  n_jobs만 2. source_models.fit_predict를 n_jobs=2로 돌린 A-123 예측이 PR #20과 4종 모두 비트 단위로 같았다
+  (임시 비교 스크립트로 확인, A-123 라벨 미사용). n_jobs=4인 source_preds_v1과는 최대 1.79~2.91 차이.
+result:
+  source_pred_max_abs_diff_vs4: 3.1198
+  source_pred_mean_abs_diff_vs4: 0.9386 (조합별 최댓값)
+  split_vs_pooled_verdict_stable: True
+  split_vs_pooled_p: n_jobs 1 p = 0.649, n_jobs 2 p = 0.677, n_jobs 4 p = 0.712, n_jobs 8 p = 0.649
+labels: train+val만. 소스 예측 비교에는 A-123 라벨 미사용. test·data/locked/ 사용 안 함

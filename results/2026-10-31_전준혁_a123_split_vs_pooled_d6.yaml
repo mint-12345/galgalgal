@@ -1,0 +1,28 @@
+date: 2026-10-31
+author: 전준혁
+script: src/a123_split_vs_pooled.py
+command: python src/a123_split_vs_pooled.py --depth 6
+preregistration: v0.2.1 3.2절 #17 (분리 대 통합), 민감도 트리 깊이 3/4/6
+input: data/processed/features_v1.csv + wafer_table.csv (MRR, t_start; train+val, is_outlier=0)
+folds: data/processed/folds_v1.csv 25 fold (주 평가)
+walkforward: data/processed/walkforward_v1.csv + walkforward_cutoffs_v1.csv (보조 평가 5단계)
+models:
+  separate: A-123 학습 쪽만, F-free 113, XGBRegressor(n_estimators=400, max_depth=6, learning_rate=0.03, subsample=0.8, colsample_bytree=0.8, min_child_weight=3, objective='reg:squarederror', tree_method='hist', random_state=42, n_jobs=4)
+  pooled: 세 그룹 학습 쪽 전체, F-free 113 + group·STAGE one-hot(고정 수준), XGBRegressor(n_estimators=400, max_depth=6, learning_rate=0.03, subsample=0.8, colsample_bytree=0.8, min_child_weight=3, objective='reg:squarederror', tree_method='hist', random_state=42, n_jobs=4)
+eval: A-123 평가 쪽만
+test: 보정 t-검정(Nadeau & Bengio 2003), 차이 = pooled − separate, J = 25, df = 24, 비율 = fold별 (A-123 평가 쪽 / A-123 학습 쪽) 평균
+rule: p < 0.05이면 평균이 낮은 쪽 우위, 아니면 기본값(분리) 유지. allzero 분해는 보고만
+walkforward_rule: 통합 456은 t_start < eval_start만. A-123 학습 라벨은 그 단계 train 전부
+flip_rule: 주 평가에서 유의하게 이긴 쪽이 전진 검증 5단계 중 3단계 미만에서 이기면 '뒤집힘' (5.5절 보조 판정 규칙을 준용한 해석, 3.2절에는 단계 수 기준이 명시되지 않음)
+labels: train+val만. test·data/locked/ 사용 안 함
+result:
+  mse_separate_mean: 7.0565
+  mse_pooled_mean: 7.2990
+  mean_diff_pooled_minus_separate: 0.2425
+  t: 0.3867
+  df: 24
+  p: 0.702379
+  ratio: 0.2500
+  verdict: 유의한 차이 없음 → 기본값(분리) 유지
+  walkforward_wins: {separate: 3, pooled: 2}
+  walkforward_flipped: None
