@@ -1,7 +1,7 @@
-"""A-123 전이학습 (preregistration.md v0.2.1, 5절) 주 평가 구현.
+"""A-123 전이학습 (preregistration.md 5절) 주 평가 구현.
 
 범위 (5.7-17 "필수"): folds_v1 25 fold 주 평가, 고정주기 공개, 공개 2/4/8/16/100%,
-T0~T3, 소스 S1(A-456)·S2(A-456+B-456), f_456 full·usage, 8% 주·2차 판정(S1·S2 합산), 90% 커버리지, ρ 분포.
+T0~T3, 소스 S1(A-456)·S2(A-456+B-456), f_456 full·usage, 8% 주·2차 판정, 90% 커버리지, ρ 분포.
 (전진 검증·무작위 공개·δ XGBoost·라벨 피처 실험은 이 파일 범위 밖)
 
 규칙 대응 (절 번호는 preregistration.md):
@@ -9,10 +9,14 @@ T0~T3, 소스 S1(A-456)·S2(A-456+B-456), f_456 full·usage, 8% 주·2차 판정
 - 공개: data/processed/reveal_masks_v1.csv (design=folds, method=fixed) (5.3, 5.7-7)
 - T0 공개 라벨 평균 / T1 GP 단독 / T2 f_456 + c / T3 ρ·f_456 + b + δGP (5.4)
 - ρ·b 최소제곱 → ρ를 [0, 2]로 자르면 b만 다시 추정 → 잔차에 δ GP (5.7-9)
-- f_456: XGBoost 고정 설정(3.2), 456 전체로 1회 학습, 결측은 NaN 그대로 (#27)
+- f_456 (5.4, 5.7-11): XGBoost 고정 설정(3.2), n_jobs=2 고정, 소스별 456 전체로 1회 학습, 결측은 NaN 그대로 (#27).
+  입력 full = features_v1 피처에서 EXCLUDE_FULL을 뺀 112개, usage = 소모품 카운터 36개
 - δ 입력: #26 ①~⑤, 5.7-8 / 커널·GP 설정: #28, 5.4, 5.7-14
 - GP 경고는 숨기지 않고 fold·모델별로 센다 (5.7-15)
-- 보정 t-검정: Nadeau & Bengio(2003), 평가/학습 비율은 실제 fold 크기 (5.7-16)
+- 보정 t-검정 (5.5, 5.7-16): cv_common.corrected_ttest, n_train = A-123 학습 쪽 전체(full)로 판정.
+  공개 라벨 수(revealed) 기준은 cv_common.ttest_ntrain_sensitivity로 병기만 한다
+- 판정 (5.5): 공개 8%, f_456 full, S1·S2 둘 다 (평균 차이 < 0, p < 0.05)일 때만 "효과 있음" (주·2차 동일)
+- 결과 파일: results/{날짜}_{이름}_FV1_a123_transfer_{내용}.csv + 같은 이름 .yaml (CLAUDE.md 12·14절)
 - test 데이터(data/locked 등)는 읽지 않는다 (1절)
 """
 from __future__ import annotations
@@ -20,7 +24,10 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import hashlib
+import json
+import os
 import platform
+import subprocess
 import sys
 import time
 import warnings
@@ -38,6 +45,9 @@ from sklearn.linear_model import LinearRegression
 import xgboost  # 없으면 여기서 멈춘다. 다른 모델로 대체하지 않음 (3.2 고정 설정)
 from xgboost import XGBRegressor
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import cv_common as cv  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "processed"
 P_FEATURES = DATA / "features_v1.csv"
@@ -46,12 +56,19 @@ P_FOLDS = DATA / "folds_v1.csv"
 P_MASKS = DATA / "reveal_masks_v1.csv"
 P_TABLE = DATA / "wafer_table.csv"
 RESULTS = ROOT / "results"
-AUTHOR = "성수빈"
+AUTHOR = "김혜연"
+TAG = "FV1"
+FEATURESET = "features_v1"
+TARGET_GROUP = "A-123"
 KEY = ["WAFER_ID", "STAGE"]
+
+# f_456 full 입력에서 빼는 피처 (5.4): 리셋 누락으로 값이 틀림 (#24). 수정본은 features_v2에서.
+EXCLUDE_FULL = ["since_POLISH_TABLE_w"]
+N_INPUT = {"full": 112, "usage": 36}
 
 RATIOS = [2, 4, 8, 16, 100]
 PRIMARY_RATIO = 8
-PRIMARY_MODE = "full"          # usage는 보고만 (6절, 2026-11-01 결정)
+PRIMARY_MODE = "full"          # usage는 보고만 (5.5)
 SOURCES = {"S1": ["A-456"], "S2": ["A-456", "B-456"]}
 MODES = ["full", "usage"]
 USAGE_FAMILY = "소모품 카운터"
@@ -61,36 +78,50 @@ DELTA_PAIR = ["P1_on", "allzero"]
 CORR_SKIP = 0.9
 P1_MIN_CLEAN = 10
 ISO_BELOW = 10
+ALPHA = 0.05
 Z90 = stats.norm.ppf(0.95)
+SEED = 42
+# xgboost는 subsample < 1이면 스레드 수에 따라 결과가 달라진다 (#23). 3.2 설정에 n_jobs만 고정해 덧붙인다.
+XGB_N_JOBS = 2
 XGB_PARAMS = dict(n_estimators=400, max_depth=4, learning_rate=0.03, subsample=0.8,
-                  colsample_bytree=0.8, min_child_weight=3, random_state=42, n_jobs=2)
+                  colsample_bytree=0.8, min_child_weight=3, random_state=SEED, n_jobs=XGB_N_JOBS)
+SEED_RULE = "f_456 random_state=42 / GP random_state=42+r (r = repeat*5+fold, 재시작 5회도 이 시드에서 시작)"
+OUT_CONTENTS = ["folds", "stats", "judgment", "rho"]
 
 for p in [P_FEATURES, P_FAMILIES, P_FOLDS, P_MASKS, P_TABLE]:
     assert "locked" not in str(p).lower() and "test" not in p.name.lower(), f"test 경로 금지: {p}"
 
 
 # ---------------------------------------------------------------- 데이터
+def input_columns(feat_columns):
+    """f_456 입력 (5.4): full = 계열표 순서의 features_v1 피처 − EXCLUDE_FULL, usage = 소모품 카운터 계열."""
+    fam = pd.read_csv(P_FAMILIES)
+    full = [c for c in fam["feature"] if c in feat_columns and c not in EXCLUDE_FULL]
+    usage = [c for c in fam.loc[fam["family"] == USAGE_FAMILY, "feature"] if c in feat_columns]
+    cols = {"full": full, "usage": usage}
+    for m, n in N_INPUT.items():
+        assert len(cols[m]) == n, f"f_456 {m} 입력 {len(cols[m])}개 (기대 {n})"
+    assert not set(EXCLUDE_FULL) & set(usage), "usage에 제외 피처가 있음"
+    return cols
+
+
 def load():
     feat = pd.read_csv(P_FEATURES)
     table = pd.read_csv(P_TABLE, usecols=KEY + ["MRR", "t_start"])
     assert "t_start" not in feat.columns and "MRR" not in feat.columns
     data = feat.merge(table, on=KEY, how="left", validate="one_to_one")
     assert data["MRR"].notna().all(), "MRR 결측 행 있음"
-    fam = pd.read_csv(P_FAMILIES)
-    feat_cols = [c for c in fam["feature"] if c in feat.columns]
-    usage_cols = [c for c in fam.loc[fam["family"] == USAGE_FAMILY, "feature"] if c in feat.columns]
-    assert len(feat_cols) >= 100, f"피처 수 이상: {len(feat_cols)}"
-    assert usage_cols, "usage 피처 0개"
+    cols = input_columns(feat.columns)
     for c in DELTA_SINGLES[1:] + DELTA_PAIR:
         assert c in data.columns, f"δ 후보 열 없음: {c}"
     folds = pd.read_csv(P_FOLDS)
     masks = pd.read_csv(P_MASKS)
     masks = masks[(masks["design"] == "folds") & (masks["method"] == "fixed")]
-    a = data[data["group"] == "A-123"].reset_index(drop=True)
+    a = data[data["group"] == TARGET_GROUP].reset_index(drop=True)
     assert len(a) == 431, f"A-123 행 수 {len(a)} (문서 431)"
     fa = folds.merge(a[KEY], on=KEY, how="inner")
     assert len(fa) == 431 * 5, f"A-123 fold 행 수 {len(fa)}"
-    return data, a, fa, masks, {"full": feat_cols, "usage": usage_cols}
+    return data, a, fa, masks, cols
 
 
 def fit_sources(data, cols):
@@ -179,7 +210,7 @@ def run_fold(tr, ev, pub, models, r):
     zero = ev["allzero"].to_numpy() == 1
     cols = select_delta(tr, pub)
     Xp, Xe = delta_matrices(tr, pub, ev, cols)
-    seed = 42 + r
+    seed = SEED + r
     t1, t1_sd, w1 = fit_gp(Xp, y, Xe, len(pub), seed)          # T1·T0는 소스와 무관
     base = dict(n_public=len(pub), n_public_clean=int((pub["allzero"] == 0).sum()),
                 n_train=len(tr), n_eval=len(ev), delta_cols=",".join(cols),
@@ -202,7 +233,7 @@ def run_fold(tr, ev, pub, models, r):
                 if msk.sum() == 0:
                     continue
                 e = ye[msk] - p[msk]
-                rec = dict(source=s, mode=m, model=name, subset=sub, n=int(msk.sum()),
+                rec = dict(source=s, input=m, model=name, subset=sub, n=int(msk.sum()),
                            mse=float(np.mean(e ** 2)), rmse=float(np.sqrt(np.mean(e ** 2))),
                            mae=float(np.mean(np.abs(e))), rho=rho, b=b,
                            gp_warn_t1=w1, gp_warn_t3=w3, **base)
@@ -212,92 +243,169 @@ def run_fold(tr, ev, pub, models, r):
     return out
 
 
-# ---------------------------------------------------------------- 검정 (5.7-16)
-def nb_test(d, n_te, n_tr):
-    J = len(d)
-    var = np.var(d, ddof=1) * (1 / J + n_te / n_tr)
-    if not var > 0:
-        return np.nan, np.nan
-    t = np.mean(d) / np.sqrt(var)
-    return float(t), float(2 * stats.t.sf(abs(t), J - 1))
-
-
+# ---------------------------------------------------------------- 검정 (5.5, 5.7-16)
 def summarize(R):
+    """fold별 MSE 차이를 cv_common.corrected_ttest로 검정 (n_train = 학습 쪽 전체).
+    revealed 기준(n_train = 공개 라벨 수)은 ttest_ntrain_sensitivity로 병기만 한다."""
     A = R[R["subset"] == "all"]
     rows = []
-    for (ratio, s, m), g in A.groupby(["ratio", "source", "mode"]):
-        P = g.pivot(index="r", columns="model", values="mse")
-        sz = g.drop_duplicates("r")
-        n_te, n_tr = sz["n_eval"].mean(), sz["n_train"].mean()
+    for (ratio, s, m), g in A.groupby(["ratio", "source", "input"]):
+        P = g.pivot(index="r", columns="model", values="mse").sort_index()
+        sz = g.drop_duplicates("r").set_index("r").loc[P.index]
+        n_tr, n_ev, n_pub = (sz[c].to_numpy(float) for c in ["n_train", "n_eval", "n_public"])
         for a, b, kind in [("T3", "T1", "주 판정"), ("T3", "T2", "2차 판정"), ("T2", "T1", "보고만")]:
             d = (P[a] - P[b]).to_numpy()
-            t, p = nb_test(d, n_te, n_tr)
+            full = cv.corrected_ttest(d, n_tr, n_ev)
+            rev = cv.ttest_ntrain_sensitivity(d, n_ev, n_tr, n_pub, alpha=ALPHA).set_index("n_train_basis").loc["revealed"]
             judged = ratio == PRIMARY_RATIO and m == PRIMARY_MODE and kind != "보고만"
-            rows.append(dict(ratio=ratio, source=s, mode=m, compare=f"{a}-{b}", kind=kind,
-                             primary=int(judged), J=len(d), mean_diff=float(d.mean()),
-                             wins=int((d < 0).sum()), t=t, p=p,
-                             passed=bool(p < 0.05 and d.mean() < 0) if judged else None,
-                             n_eval_mean=n_te, n_train_mean=n_tr))
+            rows.append(dict(ratio=ratio, source=s, input=m, compare=f"{a}-{b}", kind=kind,
+                             primary=int(judged), J=full["n_folds"], mean_diff=full["mean_diff"],
+                             sd_diff=full["sd_diff"], wins=int((d < 0).sum()),
+                             se=full["se"], t=full["t"], df=full["df"], p=full["p"], nb_ratio=full["ratio"],
+                             se_revealed=float(rev["se"]), t_revealed=float(rev["t"]), p_revealed=float(rev["p"]),
+                             nb_ratio_revealed=float(rev["ratio"]), significant_revealed=bool(rev["significant"]),
+                             passed=bool(full["p"] < ALPHA and full["mean_diff"] < 0) if judged else None,
+                             n_eval_mean=float(n_ev.mean()), n_train_mean=float(n_tr.mean()),
+                             n_public_mean=float(n_pub.mean())))
     return pd.DataFrame(rows)
 
 
 def judge(S):
-    """합산 판정 (5.5, 2026-11-01 결정): 8%, f_456 full, S1·S2 둘 다 통과해야 '효과 있음'.
-    하나만 통과하면 '소스에 따라 갈림', 둘 다 아니면 '효과 없음'. 갈림·없음이면 기본값 T1 유지.
-    usage 버전과 다른 비율은 보고만."""
+    """판정 (5.5): 8%, f_456 full, S1·S2 둘 다 (평균 차이 < 0, p < 0.05)일 때만 '효과 있음'.
+    하나만 통과하면 '소스에 따라 갈림', 둘 다 아니면 '효과 없음'. 두 경우 모두 기본값 T1 유지.
+    p는 full 기준. revealed 기준 p는 병기만 하고 판정에 쓰지 않는다."""
     out = []
     for compare, kind in [("T3-T1", "주 판정"), ("T3-T2", "2차 판정")]:
         g = S[(S["primary"] == 1) & (S["compare"] == compare)].set_index("source")
         assert set(g.index) == set(SOURCES), f"판정 대상 소스 누락: {list(g.index)}"
-        n_pass = int(sum(bool(g.loc[s_, "passed"]) for s_ in SOURCES))
-        verdict = {2: "효과 있음", 1: "소스에 따라 갈림 (기본값 T1 유지)", 0: "효과 없음 (기본값 T1 유지)"}[n_pass]
-        out.append(dict(kind=kind, compare=compare, ratio=PRIMARY_RATIO, mode=PRIMARY_MODE,
-                        S1_passed=bool(g.loc["S1", "passed"]), S2_passed=bool(g.loc["S2", "passed"]),
-                        verdict=verdict))
+        rec = dict(kind=kind, compare=compare, ratio=PRIMARY_RATIO, source="+".join(SOURCES), input=PRIMARY_MODE)
+        for s_ in SOURCES:
+            rec.update({f"{s_}_mean_diff": float(g.loc[s_, "mean_diff"]), f"{s_}_p": float(g.loc[s_, "p"]),
+                        f"{s_}_passed": bool(g.loc[s_, "passed"]), f"{s_}_p_revealed": float(g.loc[s_, "p_revealed"])})
+        n_pass = int(sum(rec[f"{s_}_passed"] for s_ in SOURCES))
+        rec["verdict"] = {2: "효과 있음", 1: "소스에 따라 갈림 (기본값 T1 유지)", 0: "효과 없음 (기본값 T1 유지)"}[n_pass]
+        out.append(rec)
     return pd.DataFrame(out)
 
 
 def rho_table(R):
-    g = R[(R["subset"] == "all") & (R["model"] == "T3")].groupby(["ratio", "source", "mode"])["rho"]
+    g = R[(R["subset"] == "all") & (R["model"] == "T3")].groupby(["ratio", "source", "input"])["rho"]
     return g.agg(["mean", "std", "min", "max"]).reset_index()
 
 
 # ---------------------------------------------------------------- 저장
-def out_paths():
+def tag_columns(df):
+    """모든 결과 csv 공통 열 (CLAUDE.md 12절): featureset, group, input, source를 앞에 둔다."""
+    df = df.copy()
+    df.insert(0, "featureset", FEATURESET)
+    df.insert(1, "group", TARGET_GROUP)
+    for i, c in enumerate(["input", "source"], start=2):
+        assert c in df.columns, f"{c} 열 없음"
+        df.insert(i, c, df.pop(c))
+    return df
+
+
+def out_paths(day):
+    """results/{날짜}_{이름}_FV1_a123_transfer_{내용}.csv. 하나라도 있으면 _v2, _v3 …로 (덮어쓰기 금지)."""
     RESULTS.mkdir(exist_ok=True)
-    stem = f"{dt.date.today():%Y-%m-%d}_{AUTHOR}_a123_transfer"
-    k = 1
-    while (RESULTS / f"{stem}.csv").exists():
+    base = f"{day:%Y-%m-%d}_{AUTHOR}_{TAG}_a123_transfer"
+    stem, k = base, 1
+    while any((RESULTS / f"{stem}_{c}{ext}").exists() for c in OUT_CONTENTS for ext in (".csv", ".yaml")):
         k += 1
-        stem = f"{dt.date.today():%Y-%m-%d}_{AUTHOR}_a123_transfer_v{k}"
-    return RESULTS / stem
+        stem = f"{base}_v{k}"
+    return {c: RESULTS / f"{stem}_{c}.csv" for c in OUT_CONTENTS}
 
 
 def sha(p):
     return hashlib.sha256(p.read_bytes()).hexdigest()[:16]
 
 
+def cpu_name():
+    try:
+        if sys.platform == "win32":
+            import winreg
+            key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"HARDWARE\DESCRIPTION\System\CentralProcessor\0")
+            return str(winreg.QueryValueEx(key, "ProcessorNameString")[0]).strip()
+        if Path("/proc/cpuinfo").exists():
+            for line in Path("/proc/cpuinfo").read_text().splitlines():
+                if line.startswith("model name"):
+                    return line.split(":", 1)[1].strip()
+        if sys.platform == "darwin":
+            return subprocess.run(["sysctl", "-n", "machdep.cpu.brand_string"],
+                                  capture_output=True, text=True).stdout.strip()
+    except Exception:
+        pass
+    return platform.processor() or "unknown"
+
+
+def git_state():
+    def run(*a):
+        try:
+            return subprocess.run(["git", *a], cwd=ROOT, capture_output=True, text=True).stdout.strip()
+        except Exception:
+            return ""
+    dirty = [ln for ln in run("status", "--porcelain").splitlines() if ln]
+    return {"commit": run("rev-parse", "HEAD") or "unknown", "branch": run("rev-parse", "--abbrev-ref", "HEAD"),
+            "uncommitted_files": len(dirty)}
+
+
+def environment():
+    return {"python": platform.python_version(), "numpy": np.__version__, "pandas": pd.__version__,
+            "scipy": scipy.__version__, "scikit-learn": sklearn.__version__, "xgboost": xgboost.__version__,
+            "cpu": cpu_name(), "cpu_count": os.cpu_count(), "os": platform.platform()}
+
+
 def write_yaml(path, info):
+    """한 단계 중첩까지. 값은 JSON 표기(YAML로도 유효)로 써서 특수문자를 안전하게 둔다."""
     lines = []
     for k, v in info.items():
         if isinstance(v, dict):
             lines.append(f"{k}:")
-            lines += [f"  {kk}: {vv}" for kk, vv in v.items()]
+            lines += [f"  {kk}: {json.dumps(vv, ensure_ascii=False)}" for kk, vv in v.items()]
         else:
-            lines.append(f"{k}: {v}")
+            lines.append(f"{k}: {json.dumps(v, ensure_ascii=False)}")
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+# ---------------------------------------------------------------- 실행 전 연결 점검 (성능 계산 없음)
+def check(data, a, fa, masks, cols):
+    """실제 데이터 연결 점검. 모델 학습·예측·오차 계산을 하지 않고 개수만 출력한다."""
+    print("행 수:", len(data), data["group"].value_counts().to_dict(), "/ A-123", len(a), "/ fold 행", len(fa))
+    print("f_456 입력 개수:", {m: len(c) for m, c in cols.items()}, "/ 제외:", EXCLUDE_FULL,
+          "/ full에 제외 피처 없음:", not set(EXCLUDE_FULL) & set(cols["full"]))
+    for s, groups in SOURCES.items():
+        src = data[data["group"].isin(groups)]
+        for m in MODES:
+            X = src[cols[m]]
+            print(f"  {s}·{m}: 학습 행 {len(src)}, 입력 열 {X.shape[1]}, MRR 빈 값 {int(src['MRR'].isna().sum())}, "
+                  f"입력 빈 값 있는 열 {int(X.isna().any().sum())}")
+    need = DELTA_SINGLES + DELTA_PAIR + KEY + ["MRR"]
+    print("A-123 δ 후보·키 열 빈 값:", {c: int(a[c].isna().sum()) for c in need if a[c].isna().any()} or "없음")
+    n_pub = {}
+    for ratio in RATIOS:
+        k = [len(split(a, fa, masks, r, ratio)[2]) for r in range(25)]
+        n_pub[ratio] = (min(k), max(k))
+    print("fold당 공개 장수(최소, 최대):", n_pub)
+    print("연결 점검 끝: 모델 학습·성능 계산 안 함")
 
 
 # ---------------------------------------------------------------- 실행
 MODEL_COLS: dict = {}
 
 
-def main():
+def main(argv=None):
     ap = argparse.ArgumentParser()
+    ap.add_argument("--check", action="store_true", help="실제 데이터 연결 점검만 (학습·성능 계산 없음)")
     ap.add_argument("--quick", action="store_true", help="r 0~1, 공개 8%만. 결과 저장·숫자 출력 없음")
-    args = ap.parse_args()
+    args = ap.parse_args(argv)
     t0 = time.time()
+    started = dt.datetime.now()
+    git = git_state()
     data, a, fa, masks, cols = load()
+    if args.check:
+        check(data, a, fa, masks, cols)
+        return
+    MODEL_COLS.clear()
     MODEL_COLS.update(cols)
     models = fit_sources(data, cols)
     rs = [0, 1] if args.quick else list(range(25))
@@ -327,31 +435,41 @@ def main():
         print("quick 끝: 결과 저장 안 함")
         return
 
-    S, RH = summarize(R), rho_table(R)
-    base = out_paths()
-    R.to_csv(base.with_suffix(".csv"), index=False)
-    S.to_csv(base.parent / f"{base.name}_stats.csv", index=False)
+    S = summarize(R)
     J = judge(S)
-    J.to_csv(base.parent / f"{base.name}_judgment.csv", index=False)
-    RH.to_csv(base.parent / f"{base.name}_rho.csv", index=False)
-    W = R[R["subset"] == "all"].drop_duplicates(["ratio", "r", "source", "mode"])
-    write_yaml(base.with_suffix(".yaml"), {
+    RH = rho_table(R)
+    paths = out_paths(started.date())
+    tables = {"folds": R, "stats": S, "judgment": J, "rho": RH}
+    for c, df in tables.items():
+        tag_columns(df).to_csv(paths[c], index=False, encoding="utf-8")
+    W = R[R["subset"] == "all"].drop_duplicates(["ratio", "r", "source", "input"])
+    info = {
         "experiment": "a123_transfer (preregistration 5절 주 평가)",
-        "author": AUTHOR, "date": f"{dt.datetime.now():%Y-%m-%d %H:%M}",
+        "author": AUTHOR, "tag": TAG, "featureset": FEATURESET, "group": TARGET_GROUP,
+        "run_started": f"{started:%Y-%m-%d %H:%M:%S}", "run_finished": f"{dt.datetime.now():%Y-%m-%d %H:%M:%S}",
         "runtime_sec": round(time.time() - t0),
+        "git": git,
+        "environment": environment(),
         "ratios": RATIOS, "folds": "folds_v1 25 (r = repeat*5+fold)", "reveal": "reveal_masks_v1 fixed",
-        "sources": SOURCES, "f456_modes": {m: len(c) for m, c in cols.items()}, "xgb_params": XGB_PARAMS,
-        "gp": "Constant(1e-2~1e2) x RBF(1e-2~1e2; 공개<10 등방성) + White(1e-3~10), restarts 5, seed 42+r, normalize_y",
+        "sources": SOURCES,
+        "f456": {"model": "XGBRegressor (3.2 고정 설정)", "params": XGB_PARAMS, "n_jobs": XGB_N_JOBS,
+                 "train": "소스별 456 전체 1회 학습, 결측 NaN 그대로",
+                 "inputs": {m: len(c) for m, c in cols.items()}, "exclude_full": EXCLUDE_FULL},
+        "seed_rule": SEED_RULE,
+        "gp": "Constant(1e-2~1e2) x RBF(1e-2~1e2; 공개<10 등방성) + White(1e-3~10), restarts 5, normalize_y",
         "gp_warnings": {"t1_folds_with_warning": int((W.groupby(["ratio", "r"])["gp_warn_t1"].first() > 0).sum()),
-                        "t3_fold_source_mode_with_warning": int((W["gp_warn_t3"] > 0).sum())},
-        "versions": {"python": platform.python_version(), "numpy": np.__version__, "pandas": pd.__version__,
-                     "scipy": scipy.__version__, "sklearn": sklearn.__version__, "xgboost": xgboost.__version__},
+                        "t3_fold_source_input_with_warning": int((W["gp_warn_t3"] > 0).sum())},
+        "ttest": "cv_common.corrected_ttest (Nadeau-Bengio), n_train = A-123 학습 쪽 전체로 판정. "
+                 "revealed(n_train = 공개 라벨 수)는 cv_common.ttest_ntrain_sensitivity로 병기, 판정에 안 씀",
+        "judgment_rule": "8%, f_456 full, S1·S2 둘 다 (평균 차이 < 0, p < 0.05)일 때만 효과 있음 / 하나만 통과면 "
+                         "소스에 따라 갈림 / 둘 다 아니면 효과 없음. 갈림·없음이면 기본값 T1. 주 판정 T3-T1, "
+                         "2차 판정 T3-T2 같은 규칙. usage는 보고만",
         "inputs_sha256_16": {p.name: sha(p) for p in [P_FEATURES, P_FAMILIES, P_FOLDS, P_MASKS, P_TABLE]},
-        "judgment_rule": "8%, f_456 full, S1·S2 모두 (평균 차이<0, 보정 p<0.05)이면 효과 있음 / 하나만 통과면 소스에 따라 갈림 / 둘 다 아니면 효과 없음. 갈림·없음이면 기본값 T1. 주 판정 T3-T1, 2차 판정 T3-T2 같은 규칙. usage는 보고만",
-        "outputs": {"folds": base.with_suffix(".csv").name, "stats": f"{base.name}_stats.csv",
-                    "judgment": f"{base.name}_judgment.csv", "rho": f"{base.name}_rho.csv"},
-    })
-    print(f"저장: {base.name}.csv / _stats.csv / _judgment.csv / _rho.csv / .yaml (숫자·판정은 파일에서 확인)")
+        "outputs": {c: p.name for c, p in paths.items()},
+    }
+    for c, p in paths.items():
+        write_yaml(p.with_suffix(".yaml"), {"this_file": p.name, **info})
+    print("저장: " + " / ".join(p.name for p in paths.values()) + " (+ 같은 이름 .yaml, 숫자·판정은 파일에서 확인)")
 
 
 if __name__ == "__main__":
