@@ -1,0 +1,25 @@
+diagnostic: since_POLISH_TABLE_w 음수 원인 확인
+author: 김혜연
+date: 2026-11-01
+output: results/diagnostics/2026-11-01_김혜연_since_negative.csv
+inputs:
+  - data/processed/features_v1.csv (since_* 열, group)
+  - data/processed/wafer_table.csv (start_/reset_/since_ 열, t_start, t_end, split, group. MRR 열은 읽지 않음)
+  - data/raw/{train,val,test}/CMP-*.csv (센서 행의 USAGE_OF_* 6열과 WAFER_ID, STAGE, TIMESTAMP, CHAMBER. 라벨 파일 미사용)
+not_used: MRR 라벨, test 라벨, data/locked/
+code: 일회성 확인 스크립트 (scratchpad, 커밋하지 않음). src/ 기존 코드 수정 없음
+record_types:
+  summary_features_v1: since_* 5열 x 그룹별 음수 수, NaN 수, 음수를 NaN으로 바꿨을 때 NaN 비율 (features_v1 2,401행)
+  negative_wafer: wafer_table에서 since_POLISH_TABLE_w < 0인 16장 (features_v1 14장 + test 센서 2장)과 원인 하락
+  undetected_drop: 스테이지별 t_start 순서에서 시작값이 내려갔지만 v1이 리셋으로 잡지 않은 25건
+rules:
+  v1_reset: src/aggregate.py add_reset_features. 스테이지별 t_start 순, 시작값 하락 > 스테이지 센서 범위 x 0.20 (A 70.67, B 69.19)
+  undetected_drop_class: 직전 같은 스테이지 웨이퍼 시작 ~ 해당 웨이퍼 시작 사이 장비 전체 센서 행에서 최대 행간 하락이 그 사이 최고값의 50% 이상이면 놓친 리셋, 아니면 되튐(e)
+  cause_a: 놓친 리셋 중 장비 전체 하락도 70 미만 (리셋 당시 카운터가 낮았음)
+  cause_a+d: 장비 전체 하락은 70 이상이나 스테이지별 계산이라 작은 하락만 보임
+  since_POLISH_TABLE_w_fix: 참고용 수정안 = v1 리셋 + 놓친 리셋 19건, 정의(시작값 - 마지막 리셋 웨이퍼 시작값)는 그대로. 확정안 아님
+results_short:
+  negative_features_v1: A-123 5, A-456 3, B-456 6 (다른 since_* 4열은 0)
+  undetected_drops: 25 = 놓친 리셋 19 (a 4, a+d 15) + 되튐 6
+  fix_resets: A 108 / B 98, 음수 0, 바뀌는 웨이퍼 190 (features_v1 159)
+  cross_check: PR #23 results/diagnostics/2026-11-01_전준혁_since_reset_audit.csv (놓친 리셋 19 / 되튐 6, 음수 16)와 일치
