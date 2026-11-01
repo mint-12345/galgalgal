@@ -1,4 +1,4 @@
-# Python 3.13.2 에서 pip freeze (직접 설치: pandas numpy scikit-learn xgboost matplotlib ipykernel pytest)
+# pip freeze on Python 3.13.2 (direct installs: pandas numpy scikit-learn xgboost matplotlib ipykernel pytest)
 asttokens==3.0.2
 cloudpickle==3.1.2
 colorama==0.4.6
@@ -46,4 +46,4 @@ traitlets==5.16.1
 typing_extensions==4.16.0
 tzdata==2026.4
 wcwidth==0.8.4
-xgboost==3.4.1
+xgboost==3.2.0
