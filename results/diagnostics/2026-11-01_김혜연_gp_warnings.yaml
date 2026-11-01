@@ -1,0 +1,71 @@
+experiment: "gp_warnings_a123 (A-123 전이학습 GP 경고 진단, 14.4)"
+author: "김혜연"
+group: "A-123"
+run_started: "2026-11-01 19:18:10"
+run_finished: "2026-11-01 19:19:07"
+runtime_sec: 57
+git:
+  commit: "fc7c73775774a03b3a6ab25d42accbcd886cc96f"
+  branch: "results/a123-transfer-main"
+  uncommitted_files: 1
+environment:
+  python: "3.13.2"
+  numpy: "2.5.3"
+  pandas: "3.0.6"
+  scipy: "1.18.1"
+  scikit-learn: "1.9.1"
+  xgboost: "3.2.0"
+  cpu: "12th Gen Intel(R) Core(TM) i7-12650H"
+  cpu_count: 16
+  os: "Windows-11-10.0.26200-SP0"
+  OPENBLAS_NUM_THREADS: "1"
+scope:
+  ratios: [2, 4, 8, 16]
+  folds: "folds_v1 25"
+  models: "T1, T3 (S1·S2 × full·usage)"
+  fits: 500
+same_as_main:
+  code: "src/a123_transfer.py (load, fit_sources, split, select_delta, run_fold, fit_gp) import"
+  f456_n_jobs: 2
+  xgboost: "3.2.0"
+  gp_seed: "f_456 random_state=42 / GP random_state=42+r (r = repeat*5+fold, 재시작 5회도 이 시드에서 시작)"
+bounds:
+  amplitude: [0.01, 100.0]
+  length_scale: [0.01, 100.0]
+  noise: [0.001, 10.0]
+bound_rule: "값 ≤ 하한×1.01 → 하한, 값 ≥ 상한×0.99 → 상한"
+units: "normalize_y=True → 진폭·잡음은 표준화된 MRR 단위, 길이척도는 표준화 입력 단위"
+reproduction_max_abs_diff:
+  2: {"mse": 7.105427357601002e-15, "rmse": 1.7763568394002505e-15, "mae": 8.881784197001252e-16, "rho": 9.020562075079397e-17, "b": 2.842170943040401e-14, "coverage90": 1.1102230246251565e-16, "gp_warn_t1": 0.0, "gp_warn_t3": 0.0}
+  4: {"mse": 3.552713678800501e-15, "rmse": 8.881784197001252e-16, "mae": 8.881784197001252e-16, "rho": 9.71445146547012e-17, "b": 2.842170943040401e-14, "coverage90": 1.1102230246251565e-16, "gp_warn_t1": 0.0, "gp_warn_t3": 0.0}
+  8: {"mse": 3.552713678800501e-15, "rmse": 8.881784197001252e-16, "mae": 8.881784197001252e-16, "rho": 8.326672684688674e-17, "b": 2.842170943040401e-14, "coverage90": 1.1102230246251565e-16, "gp_warn_t1": 0.0, "gp_warn_t3": 0.0}
+  16: {"mse": 3.552713678800501e-15, "rmse": 8.881784197001252e-16, "mae": 4.440892098500626e-16, "rho": 9.367506770274758e-17, "b": 2.842170943040401e-14, "coverage90": 1.1102230246251565e-16, "gp_warn_t1": 0.0, "gp_warn_t3": 0.0}
+reproduction_note: "folds.csv에 예측값이 없어 fold별 저장값(mse·rmse·mae·rho·b·coverage90·경고 수)으로 비교"
+warn_count_matches_main: true
+warn_type_counts:
+  The optimal value found for dimension # of parameter k#__k#__length_scale is close to the specified upper bound #. Increasing the bound and calling fit again may find a better value.: 506
+  The optimal value found for dimension # of parameter k#__noise_level is close to the specified lower bound #. Decreasing the bound and calling fit again may find a better value.: 141
+  The optimal value found for dimension # of parameter k#__k#__length_scale is close to the specified lower bound #. Decreasing the bound and calling fit again may find a better value.: 29
+  The optimal value found for dimension # of parameter k#__k#__constant_value is close to the specified lower bound #. Decreasing the bound and calling fit again may find a better value.: 4
+bounds_hit_counts:
+  잡음 하한: 141
+  길이척도 mean_POLISH_TABLE_s1 상한: 136
+  길이척도 mean_MEMBRANE_s1 상한: 96
+  길이척도 t_start 상한: 74
+  길이척도 allzero 상한: 72
+  길이척도 mean_DRESSER_s1 상한: 67
+  길이척도 P1_on 상한: 63
+  길이척도 (등방성) 하한: 19
+  진폭 하한: 4
+  길이척도 t_start 하한: 4
+  길이척도 mean_POLISH_TABLE_s1 하한: 4
+  길이척도 allzero 하한: 2
+input_main: "2026-11-01_김혜연_FV1_a123_transfer_folds.csv"
+inputs_sha256_16:
+  features_v1.csv: "31aefa89f84aa209"
+  feature_families_v1.csv: "91eae0447643cb16"
+  folds_v1.csv: "e4b364141b0bdaa9"
+  reveal_masks_v1.csv: "00d9ed3ef9436450"
+  wafer_table.csv: "3aaf498e8562d6e8"
+  2026-11-01_김혜연_FV1_a123_transfer_folds.csv: "c1613ab5a640b57f"
+output: "2026-11-01_김혜연_gp_warnings.csv"
