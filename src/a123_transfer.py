@@ -83,6 +83,8 @@ Z90 = stats.norm.ppf(0.95)
 SEED = 42
 # xgboost는 subsample < 1이면 스레드 수에 따라 결과가 달라진다 (#23). 3.2 설정에 n_jobs만 고정해 덧붙인다.
 XGB_N_JOBS = 2
+# 팀 기존 결과·source_preds_v1과 같은 버전 (5.7-11). 버전이 다르면 같은 설정이어도 예측이 달라진다.
+XGB_VERSION = "3.2.0"
 XGB_PARAMS = dict(n_estimators=400, max_depth=4, learning_rate=0.03, subsample=0.8,
                   colsample_bytree=0.8, min_child_weight=3, random_state=SEED, n_jobs=XGB_N_JOBS)
 SEED_RULE = "f_456 random_state=42 / GP random_state=42+r (r = repeat*5+fold, 재시작 5회도 이 시드에서 시작)"
@@ -398,6 +400,9 @@ def main(argv=None):
     ap.add_argument("--check", action="store_true", help="실제 데이터 연결 점검만 (학습·성능 계산 없음)")
     ap.add_argument("--quick", action="store_true", help="r 0~1, 공개 8%만. 결과 저장·숫자 출력 없음")
     args = ap.parse_args(argv)
+    if xgboost.__version__ != XGB_VERSION:
+        sys.exit(f"xgboost {xgboost.__version__}: {XGB_VERSION}가 필요하다 (5.7-11). "
+                 f"pip install xgboost=={XGB_VERSION}")
     t0 = time.time()
     started = dt.datetime.now()
     git = git_state()
