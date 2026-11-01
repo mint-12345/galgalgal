@@ -1,0 +1,43 @@
+experiment: "t2_decomposition_a123 (A-123 전이 T2 원인 분해, 공개 8%, 사후 분석, 14.4)"
+note: "판정(PR #25) 이후 원인 확인용. 판정에 쓰지 않음"
+author: "김혜연"
+group: "A-123"
+run_started: "2026-11-01 20:29:56"
+runtime_sec: 21
+git:
+  commit: "2dd84400c050c772abe68a09646a2caba3efa84f"
+  branch: "results/a123-transfer-main"
+  uncommitted_files: 4
+environment:
+  python: "3.13.2"
+  numpy: "2.5.3"
+  pandas: "3.0.6"
+  scipy: "1.18.1"
+  scikit-learn: "1.9.1"
+  xgboost: "3.2.0"
+  cpu: "12th Gen Intel(R) Core(TM) i7-12650H"
+  cpu_count: 16
+  os: "Windows-11-10.0.26200-SP0"
+  OPENBLAS_NUM_THREADS: "1"
+same_as_main:
+  code: "src/a123_transfer.py (load, fit_sources, split, run_fold) import"
+  f456_n_jobs: 2
+  xgboost: "3.2.0"
+  gp_seed: "f_456 random_state=42 / GP random_state=42+r (r = repeat*5+fold, 재시작 5회도 이 시드에서 시작)"
+ratio: 8
+folds: "folds_v1 25"
+reveal: "reveal_masks_v1 fixed"
+subsets: "clean = allzero 0, zero = allzero 1, all = 전체"
+row_types: "fold / fold_mean (25 fold 평균) / all_wafers (A-123 431장, f_456는 fold와 무관)"
+t2_decomposition: "rmse_T2^2 = t2_bias^2 + t2_err_sd^2 (ddof=0), t2_bias = mean(MRR - T2)"
+ideal_offset: "그 부분집합에서 mean(MRR - f_456). offset_c는 공개 라벨 전체로 추정한 T2의 c"
+reproduction_max_abs_diff_mse: 2.842170943040401e-14
+input_main: "2026-11-01_김혜연_FV1_a123_transfer_folds.csv"
+inputs_sha256_16:
+  features_v1.csv: "31aefa89f84aa209"
+  feature_families_v1.csv: "91eae0447643cb16"
+  folds_v1.csv: "e4b364141b0bdaa9"
+  reveal_masks_v1.csv: "00d9ed3ef9436450"
+  wafer_table.csv: "3aaf498e8562d6e8"
+  2026-11-01_김혜연_FV1_a123_transfer_folds.csv: "c1613ab5a640b57f"
+output: "2026-11-01_김혜연_t2_decomposition.csv"
