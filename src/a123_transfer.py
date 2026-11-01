@@ -1,7 +1,7 @@
 """A-123 전이학습 (preregistration.md v0.2.1, 5절) 주 평가 구현.
 
 범위 (5.7-17 "필수"): folds_v1 25 fold 주 평가, 고정주기 공개, 공개 2/4/8/16/100%,
-T0~T3, 소스 S1(A-456)·S2(A-456+B-456), f_456 full·usage, 8% 주·2차 판정, 90% 커버리지, ρ 분포.
+T0~T3, 소스 S1(A-456)·S2(A-456+B-456), f_456 full·usage, 8% 주·2차 판정(S1·S2 합산), 90% 커버리지, ρ 분포.
 (전진 검증·무작위 공개·δ XGBoost·라벨 피처 실험은 이 파일 범위 밖)
 
 규칙 대응 (절 번호는 preregistration.md):
@@ -51,6 +51,7 @@ KEY = ["WAFER_ID", "STAGE"]
 
 RATIOS = [2, 4, 8, 16, 100]
 PRIMARY_RATIO = 8
+PRIMARY_MODE = "full"          # usage는 보고만 (6절, 2026-11-01 결정)
 SOURCES = {"S1": ["A-456"], "S2": ["A-456", "B-456"]}
 MODES = ["full", "usage"]
 USAGE_FAMILY = "소모품 카운터"
@@ -231,12 +232,29 @@ def summarize(R):
         for a, b, kind in [("T3", "T1", "주 판정"), ("T3", "T2", "2차 판정"), ("T2", "T1", "보고만")]:
             d = (P[a] - P[b]).to_numpy()
             t, p = nb_test(d, n_te, n_tr)
-            eff = bool(ratio == PRIMARY_RATIO and kind != "보고만" and p < 0.05 and d.mean() < 0)
+            judged = ratio == PRIMARY_RATIO and m == PRIMARY_MODE and kind != "보고만"
             rows.append(dict(ratio=ratio, source=s, mode=m, compare=f"{a}-{b}", kind=kind,
-                             primary=int(ratio == PRIMARY_RATIO), J=len(d), mean_diff=float(d.mean()),
-                             wins=int((d < 0).sum()), t=t, p=p, effect=eff if ratio == PRIMARY_RATIO else None,
+                             primary=int(judged), J=len(d), mean_diff=float(d.mean()),
+                             wins=int((d < 0).sum()), t=t, p=p,
+                             passed=bool(p < 0.05 and d.mean() < 0) if judged else None,
                              n_eval_mean=n_te, n_train_mean=n_tr))
     return pd.DataFrame(rows)
+
+
+def judge(S):
+    """합산 판정 (5.5, 2026-11-01 결정): 8%, f_456 full, S1·S2 둘 다 통과해야 '효과 있음'.
+    하나만 통과하면 '소스에 따라 갈림', 둘 다 아니면 '효과 없음'. 갈림·없음이면 기본값 T1 유지.
+    usage 버전과 다른 비율은 보고만."""
+    out = []
+    for compare, kind in [("T3-T1", "주 판정"), ("T3-T2", "2차 판정")]:
+        g = S[(S["primary"] == 1) & (S["compare"] == compare)].set_index("source")
+        assert set(g.index) == set(SOURCES), f"판정 대상 소스 누락: {list(g.index)}"
+        n_pass = int(sum(bool(g.loc[s_, "passed"]) for s_ in SOURCES))
+        verdict = {2: "효과 있음", 1: "소스에 따라 갈림 (기본값 T1 유지)", 0: "효과 없음 (기본값 T1 유지)"}[n_pass]
+        out.append(dict(kind=kind, compare=compare, ratio=PRIMARY_RATIO, mode=PRIMARY_MODE,
+                        S1_passed=bool(g.loc["S1", "passed"]), S2_passed=bool(g.loc["S2", "passed"]),
+                        verdict=verdict))
+    return pd.DataFrame(out)
 
 
 def rho_table(R):
@@ -313,6 +331,8 @@ def main():
     base = out_paths()
     R.to_csv(base.with_suffix(".csv"), index=False)
     S.to_csv(base.parent / f"{base.name}_stats.csv", index=False)
+    J = judge(S)
+    J.to_csv(base.parent / f"{base.name}_judgment.csv", index=False)
     RH.to_csv(base.parent / f"{base.name}_rho.csv", index=False)
     W = R[R["subset"] == "all"].drop_duplicates(["ratio", "r", "source", "mode"])
     write_yaml(base.with_suffix(".yaml"), {
@@ -327,9 +347,11 @@ def main():
         "versions": {"python": platform.python_version(), "numpy": np.__version__, "pandas": pd.__version__,
                      "scipy": scipy.__version__, "sklearn": sklearn.__version__, "xgboost": xgboost.__version__},
         "inputs_sha256_16": {p.name: sha(p) for p in [P_FEATURES, P_FAMILIES, P_FOLDS, P_MASKS, P_TABLE]},
-        "outputs": {"folds": base.with_suffix(".csv").name, "stats": f"{base.name}_stats.csv", "rho": f"{base.name}_rho.csv"},
+        "judgment_rule": "8%, f_456 full, S1·S2 모두 (평균 차이<0, 보정 p<0.05)이면 효과 있음 / 하나만 통과면 소스에 따라 갈림 / 둘 다 아니면 효과 없음. 갈림·없음이면 기본값 T1. 주 판정 T3-T1, 2차 판정 T3-T2 같은 규칙. usage는 보고만",
+        "outputs": {"folds": base.with_suffix(".csv").name, "stats": f"{base.name}_stats.csv",
+                    "judgment": f"{base.name}_judgment.csv", "rho": f"{base.name}_rho.csv"},
     })
-    print(f"저장: {base.name}.csv / _stats.csv / _rho.csv / .yaml (숫자는 파일에서 확인)")
+    print(f"저장: {base.name}.csv / _stats.csv / _judgment.csv / _rho.csv / .yaml (숫자·판정은 파일에서 확인)")
 
 
 if __name__ == "__main__":
