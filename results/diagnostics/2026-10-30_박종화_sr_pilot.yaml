@@ -1,0 +1,13 @@
+date: 2026-10-30
+author: 박종화
+script: src/sr_pilot.py
+input: data/processed/features_v1.csv + wafer_table.csv(MRR) + 2026-10-30_박종화_sr_candidates.csv
+group: A-456
+seed: 42
+n_wafers_total: 983
+comparison: 각 niterations를 따로 실행 (같은 실행의 중간 값 아님)
+train_rmse: A-456 전체에 맞춘 학습 loss의 제곱근, fold 평가 RMSE 아님
+improvement_250_to_500: 0.000000
+improvement_500_to_1000: null
+decision: keep_500
+equations: 출력·저장하지 않음
