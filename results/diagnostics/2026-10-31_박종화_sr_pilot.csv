@@ -1,0 +1,3 @@
+﻿group,seed,niterations,fit_seconds,n_wafers,n_pareto,n_removed_exponent,train_loss_min,train_rmse_min,max_complexity
+A-456,42,250,69.8,940,16,0,18.264818,4.273735836478432,20
+A-456,42,500,145.1,940,16,0,18.253002,4.27235321573486,20
