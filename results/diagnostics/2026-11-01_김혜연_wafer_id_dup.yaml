@@ -1,0 +1,69 @@
+experiment: "wafer_id_dup (train+val WAFER_ID 중복 진단, 14.4)"
+author: "김혜연"
+run_started: "2026-11-01 20:29:14"
+runtime_sec: 0.4
+git:
+  commit: "2dd84400c050c772abe68a09646a2caba3efa84f"
+  branch: "results/a123-transfer-main"
+  uncommitted_files: 1
+environment:
+  python: "3.13.2"
+  numpy: "2.5.3"
+  pandas: "3.0.6"
+  scipy: "1.18.1"
+  scikit-learn: "1.9.1"
+  xgboost: "3.2.0"
+  cpu: "12th Gen Intel(R) Core(TM) i7-12650H"
+  cpu_count: 16
+  os: "Windows-11-10.0.26200-SP0"
+input: "wafer_table.csv (train·val 행, 키·시각·카운터 열만, MRR 미사용)"
+inputs_sha256_16:
+  wafer_table.csv: "3aaf498e8562d6e8"
+n_rows_train_val: 2405
+n_unique_wafer_id: 2000
+n_dup_ids: 405
+records_per_dup_id:
+  2: 405
+n_pairs: 405
+combo_counts:
+  A-456+B-456: 405
+combo_ordered_counts:
+  A-456 → B-456: 405
+split_pairs:
+  train→train: 282
+  val→train: 67
+  train→val: 48
+  val→val: 8
+gap_s_all:
+  median: 46959.33300000429
+  min: 22466.0
+  max: 649148.3330000043
+  p10: 32296.132800006868
+  p90: 81392.59980000259
+gap_def: "둘째 줄 t_start − 첫 줄 t_end (초), 음수 = 겹침"
+short_gap_rule_s: 600
+by_combo_ordered:
+  A-456 → B-456: {"n": 405, "gap_s": {"median": 46959.33300000429, "min": 22466.0, "max": 649148.3330000043, "p10": 32296.132800006868, "p90": 81392.59980000259}, "gap_le_600s": 0, "overlap": 0, "n_wafers_between_median": 29.0, "stage_order": {"A→B": 405}}
+counter_continuity:
+  BACKING_FILM: {"median": 387.5, "min": -10158.3333333, "max": 1951.6666666599995, "n_negative": 20}
+  DRESSER: {"median": 22.962962962999995, "min": -744.0740740742, "max": 288.5185185189, "n_negative": 14}
+  POLISH_TABLE: {"median": -14.814814814800002, "min": -315.555555556, "max": 317.03703703680003, "n_negative": 222}
+  DRESSER_TABLE: {"median": 16.0, "min": 6.25, "max": 195.0, "n_negative": 0}
+  MEMBRANE: {"median": 4.5948616600000065, "min": -120.45454545455, "max": 23.142292490100004, "n_negative": 20}
+  PSHEET: {"median": 116.25, "min": -3047.5, "max": 585.5, "n_negative": 20}
+counter_def: "cont_{U} = 둘째 줄 start_{U}_w − (첫 줄 start_{U}_w + delta_{U}_w)"
+gap_hours:
+  0.0: 6.24
+  0.1: 8.97
+  0.25: 10.52
+  0.5: 13.04
+  0.75: 17.05
+  0.9: 22.61
+  1.0: 180.32
+dresser_table_vs_gap:
+  machine_rate_per_hour: 1.0527250388239207
+  spearman_gap_vs_increase: 0.7947256668291712
+  spearman_p: 2.0616809532266056e-89
+  obs_over_expected_median: 1.1508868598209712
+  obs_over_expected_p25_p75: [0.9803790825260777, 1.3867973862494576]
+output: "2026-11-01_김혜연_wafer_id_dup.csv"
