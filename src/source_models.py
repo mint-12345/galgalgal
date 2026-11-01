@@ -1,5 +1,9 @@
 """전이학습 소스 모델 f_456의 A-123 예측값 (preregistration.md 3.2·5.1·5.2·5.4절).
 
+검증·참고용 (2026-11-01): 전이학습의 공식 f_456는 PR #20 `src/a123_transfer.py`의 `fit_sources()`가 직접 학습한다.
+이 스크립트와 학습 데이터·피처·하이퍼파라미터가 같고 `n_jobs`만 다르다(여기 4, PR #20은 2 → 예측이 다름).
+`cv_common.XGB_PARAMS["n_jobs"] = 2`로 두고 실행하면 PR #20 예측과 비트 단위로 같다 (`src/xgb_thread_check.py` 참고).
+
 - 모델: XGBoost, 3.2절 고정 하이퍼파라미터(`cv_common.XGB_PARAMS`). 튜닝하지 않는다.
 - 소스 (5.1): S1 = A-456 / S2 = A-456 + B-456. 라벨은 전부 쓴다(456은 전부 공개 가정).
 - 입력 (5.4 #27): `full` = F-free 113개 / `usage` = 소모품 카운터 36개 (`cv_common.feature_columns`).
@@ -147,7 +151,8 @@ def source_cv(data: pd.DataFrame, depth: int) -> pd.DataFrame:
             print(f"  CV {src_name} {fs_label}: RMSE "
                   + ", ".join(f"{g} {x:.3f}" for g, x in s.groupby("subset")["rmse"].mean().items()))
     res = pd.concat(rows, ignore_index=True)
-    res = res.rename(columns={"subset": "group", "r_id": "fold"})
+    # fold = 0~24 (r_id). 반복 안 번호(fold 0~4)는 r_id와 repeat로 정해지므로 뺀다 (열 이름 중복 방지)
+    res = res.drop(columns="fold").rename(columns={"subset": "group", "r_id": "fold"})
     return res[["group", "model", "featureset", "source", "max_depth", "fold", "repeat",
                 "mse", "mae", "rmse", "n_train", "n_eval"]]
 

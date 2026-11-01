@@ -216,6 +216,21 @@ def corrected_ttest(diff, n_train, n_eval) -> dict:
             "df": dof, "p": p, "n_folds": J, "ratio": ratio}
 
 
+def ttest_ntrain_sensitivity(diff, n_eval, n_train_full, n_revealed, alpha: float = 0.05) -> pd.DataFrame:
+    """전이학습용 민감도: 보정 비율의 n_train을 두 가지로 넣어 같은 차이를 검정한다.
+
+    - `full`: A-123 학습 쪽 전체 웨이퍼 수 (5.7절 16번 "실제 fold 크기"의 기본 해석, 주 판정은 이것)
+    - `revealed`: 그 fold에서 라벨이 공개된 웨이퍼 수 (모델이 실제로 라벨을 본 수, 더 보수적)
+    반환: 해석별 한 행 (`corrected_ttest` 결과 + `significant` = p < alpha이고 평균 차이 < 0).
+    판정이 두 해석에서 다르면 결과에 둘 다 적는다. 어느 쪽이 맞는지는 이 함수가 정하지 않는다.
+    """
+    rows = []
+    for basis, n_tr in (("full", n_train_full), ("revealed", n_revealed)):
+        t = corrected_ttest(diff, n_tr, n_eval)
+        rows.append({"n_train_basis": basis, **t, "significant": bool(t["p"] < alpha and t["mean_diff"] < 0)})
+    return pd.DataFrame(rows)
+
+
 def compare(scores: pd.DataFrame, model_a: str, model_b: str, *, subset: str = "all",
             metric: str = "mse", model_col: str = "model") -> dict:
     """`cv_evaluate` 결과를 모델별로 쌓은 표에서 두 모델을 fold(r_id)로 짝지어 보정 t-검정을 한다.

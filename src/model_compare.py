@@ -58,7 +58,8 @@ def main() -> None:
             tests.append(cv.compare(res, a, b, subset=sub, metric="mse"))
     tests = pd.DataFrame(tests)
 
-    res = res.rename(columns={"subset": "group", "r_id": "fold"}).assign(featureset="F-free+cat")
+    # fold = 0~24 (r_id). 반복 안 번호(fold 0~4)는 r_id와 repeat로 정해지므로 뺀다 (열 이름 중복 방지)
+    res = res.drop(columns="fold").rename(columns={"subset": "group", "r_id": "fold"}).assign(featureset="F-free+cat")
     res = res[["group", "model", "featureset", "fold", "repeat", "mse", "mae", "rmse", "n_train", "n_eval"]]
     res.round(6).to_csv(out, index=False, lineterminator="\n")
     tests.round(6).to_csv(tests_out, index=False, lineterminator="\n")

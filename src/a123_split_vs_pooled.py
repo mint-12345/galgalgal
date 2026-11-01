@@ -140,7 +140,8 @@ def main() -> None:
     else:
         flipped = None   # 주 평가가 유의하지 않으면 뒤집힐 결론이 없다
 
-    res = scores.rename(columns={"r_id": "fold"}).assign(group=TARGET, featureset="F-free(+cat for pooled)",
+    # fold = 0~24 (r_id). 반복 안 번호(fold 0~4)는 r_id와 repeat로 정해지므로 뺀다 (열 이름 중복 방지)
+    res = scores.drop(columns="fold").rename(columns={"r_id": "fold"}).assign(group=TARGET, featureset="F-free(+cat for pooled)",
                                                          max_depth=depth)
     res = res[["group", "model", "featureset", "max_depth", "fold", "repeat", "mse", "mae", "rmse",
                "n_train", "n_eval"]]
