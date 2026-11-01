@@ -54,6 +54,16 @@ def test_ttest_sign_and_degenerate_cases():
         cv.corrected_ttest([1.0, np.nan], 400, 100)
 
 
+def test_ntrain_sensitivity_two_bases():
+    d = -np.abs(DIFF) - 0.5                                    # 일관되게 음수인 차이
+    res = cv.ttest_ntrain_sensitivity(d, 86, 345, 28).set_index("n_train_basis")
+    assert res.loc["full", "p"] == pytest.approx(cv.corrected_ttest(d, 345, 86)["p"])
+    assert res.loc["revealed", "p"] == pytest.approx(cv.corrected_ttest(d, 28, 86)["p"])
+    assert res.loc["revealed", "ratio"] == pytest.approx(86 / 28)
+    assert res.loc["revealed", "p"] > res.loc["full", "p"]     # 공개 수 기준이 더 보수적
+    assert res["significant"].dtype == bool
+
+
 def test_compare_pairs_by_fold():
     rows = []
     for r in range(4):

@@ -1,0 +1,7 @@
+date: 2026-11-01
+author: 전준혁
+script: src/since_reset_check.py
+content: since_*_w 값이 리셋 누락 때문에 틀렸을 수 있는 웨이퍼 목록 (since_POLISH_TABLE_w만 해당)
+columns: variable, WAFER_ID, STAGE, split, group, t_start, start(웨이퍼 시작값), since_v1(집계표 값), reason(missed_reset@행번호 = 그 행에서 놓친 리셋 이후 / bounce), negative
+note: test 웨이퍼는 센서 집계값만 있다(라벨 없음). 행번호는 (STAGE, t_start) 정렬 기준
+

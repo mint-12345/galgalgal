@@ -1,0 +1,6 @@
+variable,n_reset_detected,n_unflagged_drop,n_restart,n_bounce,n_negative,n_affected,reset_A_detected_plus_restart,reset_B_detected_plus_restart,drop_rel_min,affected_test_A-123,affected_test_A-456,affected_test_B-456,affected_train_A-123,affected_train_A-456,affected_train_B-456,affected_val_A-123,affected_val_A-456,affected_val_B-456,negative_test_B-456,negative_train_A-123,negative_train_B-456,negative_val_A-456
+since_BACKING_FILM_w,10,0,0,0,0,0,5,5,,,,,,,,,,,,,,
+since_DRESSER_w,6,0,0,0,0,0,3,3,,,,,,,,,,,,,,
+since_POLISH_TABLE_w,187,25,19,6,16,197,110,96,-0.19825708061182304,2.0,17.0,15.0,17.0,64.0,54.0,1.0,18.0,9.0,2.0,5.0,6.0,3.0
+since_MEMBRANE_w,10,0,0,0,0,0,5,5,,,,,,,,,,,,,,
+since_PSHEET_w,10,0,0,0,0,0,5,5,,,,,,,,,,,,,,
