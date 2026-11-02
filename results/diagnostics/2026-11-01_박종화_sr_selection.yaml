@@ -1,0 +1,7 @@
+date: 2026-11-01
+author: 박종화
+script: src/sr_select.py
+code_commit: 193ccb9
+input: results/2026-11-01_박종화_FV1_sr_pareto.csv + data/processed/features_v1.csv + wafer_table.csv(MRR) + folds_v1.csv
+seed: 42
+note: 1-표준오차와 배율 1.00/1.02/1.05/1.10으로 고른 식 (preregistration 4.4). SR 재실행 없이 같은 후보에서 선택만 바꿈. 낙관적 값, 성능으로 보고하지 않음

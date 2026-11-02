@@ -1,0 +1,53 @@
+date: 2026-11-01
+author: 박종화
+script: src/sr_select.py
+input: results/2026-11-01_박종화_FV1_sr_pareto.csv
+featureset: features_v1
+note: folds_v1 오차는 식 선택에 쓴 데이터라 낙관적, 성능으로 보고하지 않음
+same_form_head_since_as_family: False
+A-456:
+  group: A-456
+  equation: (((sqrt(dur_POLISH_s1) * 53.625492) + (auc_PCHAMBER_s1 * (auc_MAIN_OUTER_s1 * (since_MEMBRANE_w + -54.234756)))) / (P1_on * mean_DRESSER_TABLE_s2)) + 74.887695
+  complexity: 18
+  at_max_complexity: False
+  mean_rmse: 4.239977928805292
+  n_wafers: 940
+  n_wafers_total: 983
+  n_pareto: 140
+  n_removed_exponent: 0
+  n_invalid_refit: 0
+  rmse_lr: 4.450518416882203
+  rmse_rf: 3.2767214275245973
+  worse_than_lr: False
+  p_vs_lr: 0.00943557393481247
+  main_terms: ['(((sqrt(dur_POLISH_s1) mul c) add (auc_PCHAMBER_s1 mul (auc_MAIN_OUTER_s1 mul (since_MEMBRANE_w add c)))) div (P1_on mul mean_DRESSER_TABLE_s2))']
+  main_signs_stable: True
+  n_intervals: 5
+  n_intervals_skipped: 0
+  form: ((((sqrt(dur_POLISH_s1) mul c) add (auc_PCHAMBER_s1 mul (auc_MAIN_OUTER_s1 mul (since_head add c)))) div (P1_on mul mean_DRESSER_TABLE_s2)) add c)
+  raw_form: ((((sqrt(dur_POLISH_s1) mul c) add (auc_PCHAMBER_s1 mul (auc_MAIN_OUTER_s1 mul (since_MEMBRANE_w add c)))) div (P1_on mul mean_DRESSER_TABLE_s2)) add c)
+  variables: ['P1_on', 'auc_MAIN_OUTER_s1', 'auc_PCHAMBER_s1', 'dur_POLISH_s1', 'mean_DRESSER_TABLE_s2', 'since_MEMBRANE_w']
+  cv_constants: [0.5855350550948034, 0.5296666647479797, 0.039707176317716836]
+B-456:
+  group: B-456
+  equation: ((((11.335403 - ((frac_hi / dur_POLISH_s1) - (auc_MAIN_OUTER_s1 * frac_hi))) ^ 1.806481) / auc_SLURRY_C_s1) + frac_hi) / auc_MAIN_OUTER_s1
+  complexity: 17
+  at_max_complexity: False
+  mean_rmse: 4.176730090466135
+  n_wafers: 951
+  n_wafers_total: 987
+  n_pareto: 141
+  n_removed_exponent: 0
+  n_invalid_refit: 1
+  rmse_lr: 5.066029725383169
+  rmse_rf: 3.44589719731678
+  worse_than_lr: False
+  p_vs_lr: 0.13476888496931144
+  main_terms: ['(((((c sub ((frac_hi div dur_POLISH_s1) sub (auc_MAIN_OUTER_s1 mul frac_hi))) pow c) div auc_SLURRY_C_s1) add frac_hi) div auc_MAIN_OUTER_s1)']
+  main_signs_stable: True
+  n_intervals: 5
+  n_intervals_skipped: 1
+  form: (((((c sub ((frac_hi div dur_POLISH_s1) sub (auc_MAIN_OUTER_s1 mul frac_hi))) pow c) div auc_SLURRY_C_s1) add frac_hi) div auc_MAIN_OUTER_s1)
+  raw_form: (((((c sub ((frac_hi div dur_POLISH_s1) sub (auc_MAIN_OUTER_s1 mul frac_hi))) pow c) div auc_SLURRY_C_s1) add frac_hi) div auc_MAIN_OUTER_s1)
+  variables: ['auc_MAIN_OUTER_s1', 'auc_SLURRY_C_s1', 'dur_POLISH_s1', 'frac_hi']
+  cv_constants: [0.26130359654853125, 0.08831056957557215]

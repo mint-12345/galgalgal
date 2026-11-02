@@ -1,0 +1,16 @@
+date: 2026-11-01
+author: 박종화
+script: src/sr_run.py
+input: data/processed/features_v1.csv + wafer_table.csv(MRR) + 2026-11-01_박종화_sr_candidates.csv
+featureset: features_v1
+groups: ['A-456', 'B-456']
+seeds: [42, 43, 44, 45, 46, 47, 48, 49, 50, 51]
+niterations: 500
+populations: 31
+population_size: 27
+maxsize: 20
+deterministic: true
+parallelism: serial
+blocked_loss: L(Inf)
+n_rows: 281
+n_removed_exponent: 0

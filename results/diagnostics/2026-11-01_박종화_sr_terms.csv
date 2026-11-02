@@ -1,0 +1,3 @@
+﻿term,rmse_without,ratio,is_main,group
+(((sqrt(dur_POLISH_s1) mul c) add (auc_PCHAMBER_s1 mul (auc_MAIN_OUTER_s1 mul (since_MEMBRANE_w add c)))) div (P1_on mul mean_DRESSER_TABLE_s2)),6.296373817079561,1.4850015549146278,True,A-456
+(((((c sub ((frac_hi div dur_POLISH_s1) sub (auc_MAIN_OUTER_s1 mul frac_hi))) pow c) div auc_SLURRY_C_s1) add frac_hi) div auc_MAIN_OUTER_s1),9.032924541268502,2.162678541734642,True,B-456
