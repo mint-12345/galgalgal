@@ -559,6 +559,7 @@ class Doc:
 
 # ---------------------------------------------------------------- 본문
 def build(out_dir_reports, out_dir_figs, out_dir_diag):
+    git = git_state()  # 출력 파일을 쓰기 전 상태
     F, S, J, RH, G, D, Y = load()
     R, verdict = all_tests(F, S, J)
     RD = rho_dist(F, RH)
@@ -970,7 +971,7 @@ def build(out_dir_reports, out_dir_figs, out_dir_diag):
     RC = pd.DataFrame([{"item": k, "reference": v, "recomputed": computed[k]} for k, v in REFERENCE])
     RC.to_csv(refcheck, index=False, encoding="utf-8")
     inputs = [*IN.values(), IN_YAML, *DIAG.values()]
-    common = {"author": AUTHOR, "git": git_state(),
+    common = {"author": AUTHOR, "git": git,
               "inputs_sha256_16": {p.name: sha(p) for p in inputs},
               "font": f"{FONTS['source'].name} → wght 400·700 고정 인스턴스 (fontTools), PDF Type 42 내장",
               "command": "python src/report_a123_transfer.py",
