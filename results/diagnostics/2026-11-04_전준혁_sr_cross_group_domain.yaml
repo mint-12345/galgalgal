@@ -1,0 +1,5 @@
+date: 2026-11-04
+author: 전준혁
+script: src/sr_cross_group.py
+content: 식별 정의역 문제 웨이퍼 수. fixed = 전체 웨이퍼 1회, refit = fold별 재적합 상수로 평가 쪽 점검한 합을 5로 나눈 값 (반복당 평균). missing = 상대 식 변수의 결측 웨이퍼 수
+columns: sqrt_neg, log_nonpos, div_zero, pow_neg_base(음수 밑 + 정수 아닌 지수), nonfinite(최종 예측 NaN/inf)

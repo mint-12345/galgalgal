@@ -1,0 +1,1501 @@
+﻿group,formula_from,model,label,scale,wafer_set,featureset,fold,mse,mae,rmse,n_train,n_eval,n_eval_nan,n_train_nan
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,0,21.332979,3.554214,4.618764,752,188,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,1,18.106714,3.367672,4.255198,754,186,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,2,16.035036,3.221578,4.004377,750,190,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,3,17.511098,3.354381,4.184626,752,188,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,4,17.144341,3.228052,4.140573,752,188,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,5,19.873935,3.47635,4.458019,754,186,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,6,17.761792,3.357656,4.214474,753,187,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,7,15.780586,3.026478,3.972479,750,190,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,8,16.697383,3.311304,4.086243,750,190,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,9,19.59687,3.490561,4.426835,753,187,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,10,17.136293,3.249294,4.139601,750,190,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,11,16.063491,3.22669,4.007929,755,185,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,12,18.090695,3.347323,4.253316,751,189,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,13,20.57844,3.524402,4.536346,750,190,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,14,18.287732,3.369871,4.276416,754,186,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,15,17.606339,3.327913,4.195991,753,187,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,16,19.959845,3.474538,4.467644,746,194,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,17,17.236928,3.300668,4.151738,755,185,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,18,19.22098,3.507348,4.384174,757,183,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,19,16.303621,3.120752,4.037774,749,191,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,20,20.561018,3.515761,4.534426,752,188,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,21,16.537303,3.123197,4.066608,751,189,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,22,16.515413,3.154859,4.063916,753,187,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,23,17.652043,3.470613,4.201433,747,193,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,own_sr,features_v1,24,18.667135,3.424388,4.320548,757,183,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,0,20.798232,3.495192,4.560508,752,188,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,1,17.986784,3.354476,4.241083,754,186,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,2,15.937249,3.219597,3.992148,750,190,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,3,17.468407,3.349108,4.179522,752,188,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,4,17.058943,3.211927,4.130247,752,188,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,5,19.707359,3.457647,4.439297,754,186,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,6,17.761249,3.357396,4.21441,753,187,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,7,15.6708,3.030912,3.958636,750,190,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,8,16.644324,3.304665,4.079746,750,190,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,9,19.508195,3.484019,4.416808,753,187,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,10,17.091425,3.250753,4.134178,750,190,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,11,16.034346,3.226113,4.004291,755,185,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,12,17.868245,3.330976,4.227085,751,189,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,13,20.212052,3.490073,4.495782,750,190,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,14,17.976964,3.32841,4.239925,754,186,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,15,17.551307,3.326299,4.189428,753,187,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,16,19.858792,3.47392,4.45632,746,194,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,17,17.073828,3.273412,4.132049,755,185,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,18,18.934057,3.475934,4.351328,757,183,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,19,15.793391,3.081628,3.97409,749,191,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,20,20.376663,3.49925,4.514052,752,188,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,21,16.34467,3.104527,4.042854,751,189,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,22,16.467264,3.150914,4.057988,753,187,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,23,17.492504,3.448108,4.182404,747,193,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,24,18.576182,3.425718,4.310009,757,183,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,0,135.770587,10.42567,11.652064,781,195,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,1,124.440839,10.171441,11.155305,781,195,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,2,131.165601,10.414923,11.452755,782,194,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,3,132.901351,10.557492,11.528285,779,197,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,4,134.220111,10.633591,11.58534,781,195,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,5,125.381409,10.032832,11.197384,781,195,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,6,145.36019,11.042521,12.056541,780,196,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,7,117.777214,9.851472,10.852521,781,195,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,8,132.877363,10.565723,11.527244,782,194,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,9,137.026049,10.708082,11.705813,780,196,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,10,123.761496,10.004397,11.124814,779,197,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,11,120.868882,10.006642,10.994038,783,193,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,12,131.028104,10.489882,11.446751,780,196,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,13,141.529588,10.818465,11.896621,780,196,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,14,141.298073,10.885173,11.886887,782,194,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,15,122.507484,10.030113,11.06831,782,194,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,16,140.483136,10.768358,11.852558,779,197,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,17,132.781702,10.512728,11.523094,782,194,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,18,137.852052,10.621972,11.741041,782,194,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,19,124.859211,10.268871,11.174042,779,197,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,20,134.970373,10.482197,11.617675,780,196,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,21,121.072687,10.037879,11.003303,781,195,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,22,130.784929,10.294672,11.436124,782,194,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,23,139.585397,10.897972,11.814626,780,196,0,0
+A-456,B-456,fixed,② 계수 고정,source,cross_natural,features_v1,24,132.038265,10.488419,11.49079,781,195,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,0,87.027452,7.899495,9.328851,781,195,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,1,74.961574,7.482526,8.658035,781,195,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,2,79.970062,7.688467,8.942598,782,194,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,3,82.554409,8.011423,9.085946,779,197,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,4,81.642769,7.822024,9.035639,781,195,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,5,76.586603,7.392104,8.751377,781,195,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,6,92.60654,8.36806,9.623229,780,196,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,7,72.362852,7.288812,8.506636,781,195,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,8,82.143469,8.008689,9.063303,782,194,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,9,82.417102,7.846927,9.078387,780,196,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,10,76.214368,7.492945,8.730084,779,197,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,11,73.714226,7.411905,8.585699,783,193,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,12,80.385177,7.789956,8.965778,780,196,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,13,88.343178,8.077937,9.399105,780,196,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,14,87.493695,8.133436,9.353806,782,194,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,15,75.275814,7.434573,8.676164,782,194,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,16,87.426101,8.082661,9.350193,779,197,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,17,82.337977,7.794934,9.074028,782,194,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,18,86.619917,8.03658,9.306982,782,194,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,19,74.524514,7.556835,8.632758,779,197,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,20,85.779402,7.931223,9.261717,780,196,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,21,73.072842,7.352332,8.548265,781,195,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,22,80.774977,7.623269,8.98749,782,194,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,23,85.853933,8.193628,9.26574,780,196,0,0
+A-456,B-456,fixed,② 계수 고정,target,cross_natural,features_v1,24,80.645779,7.802625,8.9803,781,195,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,0,27.878795,4.043366,5.280037,781,195,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,1,20.221547,3.546034,4.496837,781,195,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,2,21.736476,3.74781,4.662239,782,194,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,3,21.864143,3.640857,4.675911,779,197,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,4,21.684843,3.703578,4.656699,781,195,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,5,25.741336,3.987358,5.073592,781,195,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,6,23.297667,3.77437,4.826766,780,196,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,7,19.209375,3.470339,4.38285,781,195,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,8,21.50599,3.569135,4.637455,782,194,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,9,24.438815,3.945721,4.943563,780,196,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,10,23.524591,3.785513,4.850216,779,197,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,11,22.395687,3.718853,4.732408,783,193,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,12,21.400724,3.511045,4.626092,780,196,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,13,24.454347,3.887269,4.945134,780,196,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,14,22.039121,3.795437,4.694584,782,194,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,15,22.471193,3.686574,4.740379,782,194,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,16,24.888161,3.866386,4.988804,779,197,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,17,22.914073,3.845204,4.786865,782,194,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,18,24.285982,3.81294,4.928081,782,194,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,19,18.923868,3.469862,4.350157,779,197,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,20,25.829317,3.995479,5.082255,780,196,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,21,20.927766,3.585522,4.574687,781,195,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,22,22.76556,3.667174,4.771327,782,194,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,23,21.731388,3.669822,4.661694,780,196,0,0
+A-456,B-456,refit,③ 재학습,target,cross_natural,features_v1,24,23.214072,3.820596,4.818098,781,195,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,0,27.675999,4.051524,5.260798,781,195,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,1,20.217053,3.512155,4.496338,781,195,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,2,21.714747,3.743951,4.659908,782,194,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,3,21.831544,3.636851,4.672424,779,197,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,4,21.403483,3.697826,4.62639,781,195,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,5,25.257857,3.947358,5.02572,781,195,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,6,23.05661,3.769455,4.80173,780,196,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,7,19.489013,3.487702,4.414636,781,195,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,8,21.350653,3.554061,4.620677,782,194,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,9,24.400063,3.937596,4.939642,780,196,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,10,23.721592,3.777839,4.870482,779,197,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,11,21.879307,3.676864,4.677532,783,193,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,12,21.425185,3.528072,4.628735,780,196,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,13,24.136311,3.866873,4.912872,780,196,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,14,22.151464,3.801286,4.706534,782,194,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,15,22.253905,3.678247,4.717404,782,194,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,16,24.849171,3.863591,4.984894,779,197,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,17,22.763165,3.818292,4.771076,782,194,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,18,24.563048,3.842319,4.956112,782,194,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,19,18.556062,3.434059,4.307675,779,197,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,20,25.796801,3.980902,5.079055,780,196,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,21,20.614931,3.565262,4.540367,781,195,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,22,22.706484,3.665545,4.765132,782,194,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,23,21.695739,3.658061,4.657868,780,196,0,0
+A-456,B-456,refit,③ 재학습,source,cross_natural,features_v1,24,23.047378,3.817674,4.800768,781,195,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,0,21.332979,3.554214,4.618764,752,188,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,1,18.106714,3.367672,4.255198,754,186,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,2,16.035036,3.221578,4.004377,750,190,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,3,17.511098,3.354381,4.184626,752,188,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,4,17.144341,3.228052,4.140573,752,188,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,5,19.873935,3.47635,4.458019,754,186,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,6,17.761792,3.357656,4.214474,753,187,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,7,15.780586,3.026478,3.972479,750,190,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,8,16.697383,3.311304,4.086243,750,190,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,9,19.59687,3.490561,4.426835,753,187,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,10,17.136293,3.249294,4.139601,750,190,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,11,16.063491,3.22669,4.007929,755,185,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,12,18.090695,3.347323,4.253316,751,189,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,13,20.57844,3.524402,4.536346,750,190,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,14,18.287732,3.369871,4.276416,754,186,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,15,17.606339,3.327913,4.195991,753,187,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,16,19.959845,3.474538,4.467644,746,194,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,17,17.236928,3.300668,4.151738,755,185,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,18,19.22098,3.507348,4.384174,757,183,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,19,16.303621,3.120752,4.037774,749,191,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,20,20.561018,3.515761,4.534426,752,188,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,21,16.537303,3.123197,4.066608,751,189,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,22,16.515413,3.154859,4.063916,753,187,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,23,17.652043,3.470613,4.201433,747,193,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common,features_v1,24,18.667135,3.424388,4.320548,757,183,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,0,20.798232,3.495192,4.560508,752,188,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,1,17.986784,3.354476,4.241083,754,186,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,2,15.937249,3.219597,3.992148,750,190,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,3,17.468407,3.349108,4.179522,752,188,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,4,17.058943,3.211927,4.130247,752,188,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,5,19.707359,3.457647,4.439297,754,186,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,6,17.761249,3.357396,4.21441,753,187,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,7,15.6708,3.030912,3.958636,750,190,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,8,16.644324,3.304665,4.079746,750,190,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,9,19.508195,3.484019,4.416808,753,187,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,10,17.091425,3.250753,4.134178,750,190,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,11,16.034346,3.226113,4.004291,755,185,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,12,17.868245,3.330976,4.227085,751,189,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,13,20.212052,3.490073,4.495782,750,190,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,14,17.976964,3.32841,4.239925,754,186,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,15,17.551307,3.326299,4.189428,753,187,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,16,19.858792,3.47392,4.45632,746,194,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,17,17.073828,3.273412,4.132049,755,185,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,18,18.934057,3.475934,4.351328,757,183,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,19,15.793391,3.081628,3.97409,749,191,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,20,20.376663,3.49925,4.514052,752,188,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,21,16.34467,3.104527,4.042854,751,189,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,22,16.467264,3.150914,4.057988,753,187,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,23,17.492504,3.448108,4.182404,747,193,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,24,18.576182,3.425718,4.310009,757,183,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,0,133.600347,10.311958,11.558562,752,188,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,1,126.967,10.293579,11.267963,754,186,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,2,127.904207,10.282662,11.309474,750,190,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,3,127.280715,10.335259,11.281875,752,188,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,4,133.824316,10.602122,11.568246,752,188,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,5,123.311573,9.933461,11.104574,754,186,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,6,142.862,10.932097,11.952489,753,187,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,7,117.195467,9.826591,10.825686,750,190,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,8,133.495461,10.586683,11.554024,750,190,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,9,132.833419,10.549408,11.525338,753,187,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,10,123.018296,9.958442,11.091361,750,190,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,11,120.321147,9.984299,10.9691,755,185,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,12,128.650236,10.403474,11.342409,751,189,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,13,138.182308,10.694486,11.755097,750,190,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,14,139.354036,10.783758,11.804831,754,186,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,15,121.48143,9.995715,11.021861,753,187,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,16,139.63539,10.724364,11.816742,746,194,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,17,130.01748,10.392927,11.402521,755,185,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,18,134.352827,10.460825,11.591067,757,183,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,19,123.959047,10.243139,11.13369,749,191,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,20,133.999863,10.438066,11.575831,752,188,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,21,118.693697,9.936449,10.894664,751,189,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,22,128.301661,10.187519,11.327032,753,187,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,23,141.035235,10.967779,11.875826,747,193,0,0
+A-456,B-456,fixed,② 계수 고정,source,common,features_v1,24,127.240319,10.278659,11.280085,757,183,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,0,85.554343,7.798453,9.249559,752,188,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,1,76.863717,7.605238,8.767195,754,186,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,2,77.517933,7.559809,8.804427,750,190,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,3,78.720602,7.822232,8.872463,752,188,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,4,81.34127,7.786884,9.018939,752,188,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,5,75.215218,7.304216,8.672671,754,186,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,6,91.079801,8.27526,9.543574,753,187,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,7,71.836241,7.262966,8.475626,750,190,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,8,82.562274,8.028428,9.086378,750,190,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,9,79.375592,7.701275,8.909298,753,187,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,10,75.641686,7.449373,8.697223,750,190,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,11,73.322735,7.394031,8.56287,755,185,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,12,78.765132,7.719023,8.874972,751,189,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,13,86.007163,7.967423,9.274005,750,190,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,14,86.216718,8.040745,9.285296,754,186,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,15,74.594547,7.415218,8.636813,753,187,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,16,86.874507,8.043965,9.320649,746,194,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,17,80.332178,7.678322,8.962822,755,185,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,18,84.382379,7.89909,9.185988,757,183,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,19,73.793947,7.530696,8.59034,749,191,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,20,85.00238,7.89229,9.219674,752,188,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,21,71.421255,7.260528,8.45111,751,189,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,22,79.029234,7.524763,8.889839,753,187,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,23,86.892642,8.260178,9.321622,747,193,0,0
+A-456,B-456,fixed,② 계수 고정,target,common,features_v1,24,77.448611,7.61872,8.800489,757,183,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,0,30.257567,4.266869,5.500688,752,188,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,1,22.082467,3.634776,4.699199,754,186,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,2,23.438281,3.922263,4.84131,750,190,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,3,21.7295,3.622845,4.661491,752,188,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,4,22.749335,3.81933,4.769626,752,188,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,5,26.725921,4.023773,5.169712,754,186,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,6,25.268738,3.988613,5.026802,753,187,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,7,21.661869,3.689136,4.654231,750,190,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,8,23.053262,3.750984,4.801381,750,190,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,9,24.060421,3.861823,4.905142,753,187,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,10,25.457486,3.950859,5.045541,750,190,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,11,23.268999,3.805579,4.823795,755,185,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,12,23.193733,3.648992,4.815987,751,189,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,13,24.723721,3.891149,4.972295,750,190,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,14,23.937948,3.98976,4.892642,754,186,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,15,23.884127,3.877597,4.887139,753,187,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,16,26.927224,4.033461,5.189145,746,194,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,17,24.013441,3.911876,4.900351,755,185,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,18,26.094017,3.954687,5.10823,757,183,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,19,19.503438,3.486305,4.41627,749,191,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,20,27.91075,4.118449,5.283063,752,188,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,21,21.5028,3.702525,4.637111,751,189,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,22,25.098004,3.827288,5.009791,753,187,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,23,23.421518,3.822722,4.839578,747,193,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,24,22.598641,3.819547,4.753803,757,183,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,0,31.877699,4.393817,5.646034,752,188,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,1,23.468325,3.77912,4.844412,754,186,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,2,24.948985,4.053159,4.994896,750,190,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,3,23.638143,3.799335,4.861907,752,188,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,4,24.160416,3.971739,4.915325,752,188,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,5,28.865548,4.179012,5.372667,754,186,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,6,27.721075,4.15613,5.265081,753,187,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,7,23.735556,3.88061,4.871915,750,190,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,8,23.790478,3.82773,4.877548,750,190,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,9,24.568248,3.991588,4.956637,753,187,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,10,26.64703,4.071456,5.162076,750,190,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,11,25.096965,3.969489,5.009687,755,185,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,12,24.878109,3.837798,4.987796,751,189,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,13,26.271092,4.000641,5.125533,750,190,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,14,25.507983,4.130747,5.050543,754,186,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,15,25.910701,4.045944,5.090255,753,187,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,16,28.255259,4.124976,5.315568,746,194,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,17,25.820764,4.078074,5.081414,755,185,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,18,27.645094,4.105884,5.25786,757,183,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,19,20.646684,3.651109,4.543862,749,191,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,20,30.020963,4.257287,5.479139,752,188,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,21,23.433862,3.862252,4.840853,751,189,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,22,27.164347,4.075197,5.211943,753,187,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,23,24.533106,3.937378,4.953091,747,193,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,24,23.211295,3.891806,4.81781,757,183,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,0,27.696348,4.012271,5.262732,752,188,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,1,20.661834,3.585634,4.545529,754,186,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,2,20.73842,3.65007,4.553946,750,190,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,3,20.302808,3.519424,4.505864,752,188,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,4,21.773037,3.703143,4.666159,752,188,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,5,25.420841,3.947049,5.041908,754,186,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,6,22.74679,3.744014,4.76936,753,187,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,7,18.767516,3.409811,4.332149,750,190,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,8,22.05079,3.603897,4.695827,750,190,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,9,23.159508,3.843948,4.812433,753,187,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,10,23.424972,3.792767,4.839935,750,190,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,11,22.40557,3.694603,4.733452,755,185,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,12,20.525496,3.454218,4.530507,751,189,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,13,23.587608,3.795722,4.856708,750,190,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,14,21.706791,3.75127,4.659055,754,186,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,15,21.947743,3.659338,4.684842,753,187,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,16,24.970951,3.854371,4.997094,746,194,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,17,22.358991,3.815254,4.72853,755,185,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,18,23.544595,3.7365,4.852277,757,183,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,19,18.487309,3.406126,4.299687,749,191,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,20,25.479956,3.958041,5.047767,752,188,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,21,20.253276,3.545517,4.500364,751,189,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,22,22.073723,3.608,4.698268,753,187,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,23,22.358555,3.715526,4.728483,747,193,0,0
+A-456,B-456,refit,③ 재학습,target,common,features_v1,24,22.244834,3.711175,4.716443,757,183,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,0,27.576942,4.028003,5.251375,752,188,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,1,20.62457,3.556093,4.541428,754,186,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,2,20.779504,3.65012,4.558454,750,190,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,3,20.332399,3.519658,4.509146,752,188,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,4,21.547324,3.703083,4.641909,752,188,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,5,24.957063,3.907952,4.995704,754,186,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,6,22.539491,3.744048,4.747577,753,187,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,7,19.115301,3.433471,4.372105,750,190,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,8,21.909476,3.591411,4.680756,750,190,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,9,23.189362,3.843307,4.815533,753,187,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,10,23.69436,3.798794,4.867685,750,190,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,11,21.933956,3.655058,4.68337,755,185,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,12,20.580087,3.473437,4.536528,751,189,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,13,23.282127,3.777731,4.825156,750,190,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,14,21.895304,3.766777,4.679242,754,186,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,15,21.760883,3.655669,4.664856,753,187,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,16,24.987017,3.852118,4.998702,746,194,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,17,22.285467,3.795149,4.720749,755,185,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,18,23.897137,3.774018,4.88847,757,183,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,19,18.134695,3.378473,4.258485,749,191,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,20,25.529911,3.9503,5.052713,752,188,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,21,19.995096,3.535069,4.471588,751,189,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,22,22.058593,3.615695,4.696658,753,187,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,23,22.306572,3.705413,4.722983,747,193,0,0
+A-456,B-456,refit,③ 재학습,source,common,features_v1,24,22.151739,3.716277,4.706563,757,183,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,0,23.39399,3.777946,4.836733,752,188,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,1,22.39369,3.573059,4.732197,754,186,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,2,17.103582,3.299426,4.135648,750,190,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,3,18.967414,3.501658,4.355159,752,188,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,4,18.65042,3.38798,4.318613,752,188,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,5,22.708652,3.743248,4.76536,754,186,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,6,19.443197,3.510329,4.409444,753,187,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,7,21.17315,3.273303,4.601429,750,190,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,8,17.301614,3.341534,4.159521,750,190,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,9,20.284047,3.616273,4.503781,753,187,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,10,22.681559,3.642446,4.762516,750,190,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,11,18.280437,3.424421,4.275563,755,185,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,12,19.051193,3.420055,4.364767,751,189,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,13,22.13749,3.699315,4.705049,750,190,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,14,18.708397,3.408103,4.325321,754,186,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,15,20.36367,3.578855,4.512612,753,187,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,16,23.019214,3.633484,4.797834,746,194,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,17,19.273804,3.58154,4.390194,755,185,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,18,19.736182,3.539547,4.442542,757,183,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,19,16.778188,3.204427,4.096119,749,191,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,20,23.087276,3.759228,4.804922,752,188,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,21,18.436889,3.392944,4.29382,751,189,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,22,18.468182,3.277623,4.297462,753,187,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,23,20.356144,3.662686,4.511778,747,193,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,24,18.101324,3.411634,4.254565,757,183,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,0,26.453277,3.972305,5.143275,752,188,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,1,22.31916,3.793702,4.724316,754,186,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,2,20.260453,3.615041,4.501161,750,190,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,3,20.492169,3.608467,4.526828,752,188,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,4,21.355751,3.625558,4.621228,752,188,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,5,25.205309,3.983613,5.020489,754,186,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,6,21.985023,3.664794,4.688819,753,187,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,7,19.297466,3.420033,4.392888,750,190,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,8,21.919849,3.690615,4.681864,750,190,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,9,22.953137,3.871323,4.790943,753,187,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,10,23.680126,3.860042,4.866223,750,190,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,11,21.510189,3.712394,4.637908,755,185,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,12,19.273334,3.395897,4.390141,751,189,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,13,24.547021,3.93314,4.954495,750,190,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,14,21.662864,3.709323,4.654338,754,186,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,15,22.847291,3.763575,4.779884,753,187,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,16,24.553323,3.872875,4.955131,746,194,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,17,22.854708,3.870351,4.78066,755,185,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,18,22.897696,3.742804,4.785154,757,183,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,19,18.364636,3.376447,4.285398,749,191,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,20,25.618705,3.99346,5.061492,752,188,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,21,20.660737,3.602338,4.545408,751,189,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,22,20.60939,3.51174,4.539757,753,187,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,23,23.133004,3.894186,4.809678,747,193,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,24,21.252784,3.659503,4.610074,757,183,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,0,39.274474,4.81894,6.266935,752,188,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,1,42.399111,5.224197,6.51146,754,186,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,2,37.155027,4.85921,6.095492,750,190,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,3,38.445675,4.948756,6.200458,752,188,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,4,41.154462,4.878073,6.415174,752,188,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,5,45.324355,5.322002,6.732337,754,186,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,6,35.582311,4.696974,5.965091,753,187,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,7,36.559964,4.837579,6.046484,750,190,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,8,38.085905,4.81374,6.171378,750,190,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,9,43.155711,5.082368,6.569301,753,187,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,10,39.467492,4.897599,6.282316,750,190,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,11,39.739827,4.983833,6.303953,755,185,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,12,33.995237,4.532852,5.830543,751,189,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,13,48.269198,5.534903,6.947604,750,190,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,14,36.988114,4.795458,6.081785,754,186,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,15,37.770706,4.670847,6.145788,753,187,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,16,40.658516,5.066655,6.376403,746,194,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,17,45.551766,5.217985,6.749205,755,185,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,18,36.94723,4.976774,6.078423,757,183,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,19,37.596878,4.810379,6.131629,749,191,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,20,36.220026,4.906111,6.018308,752,188,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,21,42.737742,5.051791,6.537411,751,189,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,22,31.841593,4.386375,5.642836,753,187,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,23,48.966531,5.462012,6.997609,747,193,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common,features_v1,24,39.834064,4.986391,6.311423,757,183,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,0,20.309528,3.477827,4.506609,450,120,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,1,18.349246,3.385208,4.283602,451,119,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,2,16.243537,3.205493,4.030327,455,115,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,3,18.449876,3.541391,4.295332,459,111,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,4,20.425237,3.563312,4.519429,465,105,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,5,21.652206,3.689829,4.653193,458,112,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,6,19.286282,3.49969,4.391615,449,121,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,7,15.342677,2.9998,3.916973,447,123,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,8,17.253185,3.401078,4.153695,457,113,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,9,20.803458,3.620357,4.561081,469,101,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,10,15.569737,3.240409,3.945851,449,121,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,11,18.101256,3.415107,4.254557,467,103,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,12,19.716134,3.447711,4.440285,449,121,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,13,22.86824,3.812523,4.782075,452,118,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,14,17.625189,3.251386,4.198236,463,107,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,15,19.151194,3.524809,4.376208,447,123,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,16,19.611246,3.440651,4.428459,455,115,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,17,18.281861,3.418391,4.275729,456,114,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,18,20.527279,3.622189,4.530704,462,108,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,19,15.646361,3.105076,3.955548,460,110,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,20,21.804244,3.637331,4.669501,447,123,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,21,18.777723,3.326735,4.333327,448,122,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,22,13.86558,3.006242,3.723651,451,119,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,23,20.158796,3.755888,4.489855,463,107,0,0
+A-456,A-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,24,19.495995,3.46598,4.415427,471,99,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,0,20.012357,3.417487,4.473517,450,120,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,1,18.257676,3.381849,4.2729,451,119,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,2,16.034549,3.207721,4.004316,455,115,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,3,18.350673,3.501622,4.283768,459,111,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,4,20.288481,3.517912,4.504274,465,105,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,5,20.996863,3.627082,4.582233,458,112,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,6,19.340145,3.473347,4.397743,449,121,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,7,15.520247,3.0048,3.939574,447,123,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,8,17.15446,3.37373,4.141794,457,113,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,9,20.258259,3.585712,4.500918,469,101,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,10,15.71884,3.239447,3.964699,449,121,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,11,18.278463,3.428298,4.275332,467,103,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,12,19.098002,3.353266,4.370126,449,121,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,13,22.3745,3.772317,4.730169,452,118,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,14,17.286207,3.210475,4.157668,463,107,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,15,19.244661,3.486999,4.386874,447,123,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,16,19.701278,3.456497,4.438612,455,115,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,17,17.796193,3.346572,4.218553,456,114,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,18,20.290133,3.606263,4.504457,462,108,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,19,15.749945,3.110031,3.96862,460,110,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,20,21.513239,3.586001,4.638237,447,123,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,21,18.815261,3.325176,4.337656,448,122,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,22,13.949869,3.014709,3.734952,451,119,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,23,19.526635,3.686733,4.418895,463,107,0,0
+A-456,A-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,24,19.134952,3.42936,4.374352,471,99,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,0,124.617517,10.008936,11.163222,450,120,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,1,128.712565,10.31399,11.345156,451,119,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,2,118.731998,9.889018,10.896421,455,115,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,3,119.488871,10.061408,10.931097,459,111,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,4,129.597653,10.306627,11.384096,465,105,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,5,117.94789,9.725535,10.860382,458,112,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,6,135.196617,10.541239,11.627408,449,121,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,7,110.488825,9.549427,10.511366,447,123,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,8,127.333112,10.348649,11.284197,457,113,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,9,131.172019,10.455047,11.453035,469,101,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,10,113.91388,9.608149,10.673045,449,121,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,11,108.915102,9.454511,10.43624,467,103,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,12,131.297753,10.419576,11.458523,449,121,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,13,132.149759,10.447024,11.495641,452,118,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,14,133.771595,10.605309,11.565967,463,107,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,15,122.416419,9.93781,11.064195,447,123,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,16,121.791241,10.035566,11.035907,455,115,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,17,126.141255,10.2253,11.231262,456,114,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,18,127.298022,10.22421,11.282642,462,108,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,19,123.678125,10.166787,11.121067,460,110,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,20,116.803076,9.735592,10.807547,447,123,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,21,117.220848,9.834006,10.826858,448,122,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,22,115.204715,9.768304,10.733346,451,119,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,23,141.771078,10.843042,11.906766,463,107,0,0
+A-456,B-456,fixed,② 계수 고정,source,common_noshared,features_v1,24,133.833405,10.553801,11.568639,471,99,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,0,78.44348,7.550822,8.856832,450,120,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,1,78.25567,7.634241,8.846224,451,119,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,2,72.313053,7.315815,8.503708,455,115,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,3,72.540465,7.602271,8.517069,459,111,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,4,80.974299,7.689875,8.998572,465,105,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,5,71.379062,7.195463,8.448613,458,112,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,6,84.531059,7.927557,9.194077,449,121,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,7,67.756397,7.03128,8.231427,447,123,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,8,79.753999,7.923223,8.930509,457,113,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,9,79.475094,7.741416,8.91488,469,101,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,10,68.217091,7.113493,8.259364,449,121,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,11,65.608018,6.948682,8.099878,467,103,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,12,84.019749,7.917813,9.166229,449,121,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,13,79.560541,7.763465,8.919672,452,118,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,14,84.387935,8.005513,9.186291,463,107,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,15,77.314717,7.497095,8.792879,447,123,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,16,74.60234,7.468942,8.637265,455,115,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,17,78.561787,7.647361,8.863509,456,114,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,18,77.546658,7.652445,8.806058,462,108,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,19,74.326132,7.52588,8.62126,460,110,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,20,72.501465,7.293102,8.514779,447,123,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,21,71.755973,7.247647,8.47089,448,122,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,22,68.40728,7.180929,8.270869,451,119,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,23,89.112637,8.26982,9.439949,463,107,0,0
+A-456,B-456,fixed,② 계수 고정,target,common_noshared,features_v1,24,83.318273,7.944598,9.127884,471,99,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,0,27.295234,4.106062,5.224484,450,120,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,1,24.085678,3.782704,4.907716,451,119,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,2,23.015062,3.935556,4.797402,455,115,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,3,19.932837,3.488429,4.464621,459,111,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,4,25.56024,4.116854,5.055714,465,105,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,5,25.925435,4.052726,5.091703,458,112,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,6,26.455403,4.084318,5.143482,449,121,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,7,20.52825,3.581517,4.530811,447,123,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,8,22.440566,3.834062,4.737147,457,113,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,9,25.343419,3.932483,5.034225,469,101,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,10,22.900254,3.807153,4.785421,449,121,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,11,23.529441,3.859751,4.850716,467,103,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,12,26.902265,4.032285,5.186739,449,121,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,13,24.336759,3.944424,4.93323,452,118,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,14,22.666637,3.818247,4.760949,463,107,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,15,25.908864,4.115752,5.090075,447,123,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,16,23.700819,3.805206,4.868349,455,115,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,17,24.787171,4.012914,4.978672,456,114,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,18,24.4399,3.85032,4.943673,462,108,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,19,20.930139,3.61699,4.574947,460,110,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,20,25.729016,3.951264,5.072378,447,123,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,21,22.357293,3.809195,4.72835,448,122,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,22,20.590383,3.536695,4.537663,451,119,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,23,28.661998,4.30405,5.35369,463,107,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,24,23.506883,3.891316,4.84839,471,99,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,0,28.783171,4.245414,5.364995,450,120,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,1,25.248115,3.875573,5.02475,451,119,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,2,24.901442,4.066235,4.990134,455,115,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,3,21.42149,3.562426,4.628336,459,111,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,4,27.707852,4.318768,5.263825,465,105,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,5,28.059475,4.190727,5.29712,458,112,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,6,28.517928,4.155515,5.340218,449,121,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,7,22.804111,3.779052,4.775365,447,123,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,8,23.39211,3.933232,4.836539,457,113,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,9,25.85146,4.059573,5.084433,469,101,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,10,24.278922,3.900493,4.927365,449,121,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,11,25.121585,3.979034,5.012144,467,103,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,12,29.316943,4.276508,5.414512,449,121,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,13,24.490795,3.911551,4.948818,452,118,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,14,25.346945,4.027882,5.034575,463,107,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,15,28.266445,4.266932,5.31662,447,123,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,16,25.041666,3.89472,5.004165,455,115,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,17,26.922134,4.177511,5.188654,456,114,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,18,25.39635,3.920531,5.039479,462,108,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,19,22.148043,3.770728,4.706171,460,110,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,20,28.049266,4.069078,5.296156,447,123,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,21,24.91455,3.996688,4.991448,448,122,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,22,21.821632,3.727263,4.671363,451,119,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,23,29.86621,4.414493,5.464999,463,107,0,0
+A-456,B-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,24,24.073267,3.915757,4.906452,471,99,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,0,26.075332,3.930472,5.106401,450,120,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,1,21.884172,3.649246,4.678052,451,119,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,2,19.683064,3.613382,4.43656,455,115,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,3,18.894474,3.455407,4.346777,459,111,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,4,24.072476,4.025068,4.906371,465,105,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,5,25.84251,4.081911,5.083553,458,112,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,6,23.730719,3.847486,4.871419,449,121,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,7,17.871187,3.355572,4.227433,447,123,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,8,21.262835,3.646676,4.611164,457,113,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,9,22.943304,3.811199,4.789917,469,101,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,10,20.396186,3.591892,4.516214,449,121,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,11,22.856495,3.808321,4.780847,467,103,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,12,23.528377,3.776834,4.850606,449,121,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,13,23.762485,3.905267,4.874678,452,118,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,14,20.824634,3.615918,4.563402,463,107,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,15,24.047859,3.90382,4.903862,447,123,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,16,21.736038,3.615789,4.662192,455,115,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,17,23.06335,3.934668,4.802432,456,114,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,18,21.933814,3.664005,4.683355,462,108,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,19,19.387043,3.498938,4.403072,460,110,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,20,23.882622,3.840112,4.886985,447,123,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,21,20.511827,3.61405,4.528998,448,122,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,22,17.767004,3.354045,4.215092,451,119,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,23,26.685452,4.157808,5.165796,463,107,0,0
+A-456,B-456,refit,③ 재학습,target,common_noshared,features_v1,24,24.188392,3.842803,4.91817,471,99,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,0,25.877638,3.927108,5.087007,450,120,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,1,22.088625,3.641349,4.699854,451,119,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,2,19.847879,3.627507,4.455096,455,115,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,3,19.044598,3.47138,4.364012,459,111,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,4,23.845906,4.018,4.883227,465,105,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,5,25.184816,4.013763,5.018448,458,112,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,6,23.636018,3.884853,4.861689,449,121,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,7,18.142538,3.350113,4.259406,447,123,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,8,21.340151,3.658494,4.61954,457,113,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,9,23.391243,3.8376,4.836449,469,101,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,10,20.822768,3.617132,4.563197,449,121,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,11,22.606738,3.777527,4.754654,467,103,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,12,23.599374,3.796708,4.857919,449,121,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,13,23.797008,3.922406,4.878218,452,118,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,14,20.575725,3.583244,4.536047,463,107,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,15,23.731491,3.890714,4.871498,447,123,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,16,22.119878,3.617947,4.703177,455,115,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,17,23.039917,3.913219,4.799991,456,114,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,18,22.519468,3.712893,4.745468,462,108,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,19,19.026731,3.491371,4.361964,460,110,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,20,24.023084,3.842632,4.901335,447,123,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,21,20.340305,3.604945,4.510023,448,122,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,22,18.141541,3.388756,4.259289,451,119,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,23,26.814734,4.152593,5.178295,463,107,0,0
+A-456,B-456,refit,③ 재학습,source,common_noshared,features_v1,24,23.866408,3.825263,4.885326,471,99,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,0,22.390112,3.69451,4.731819,450,120,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,1,20.553719,3.524991,4.533621,451,119,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,2,17.82,3.419929,4.221374,455,115,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,3,19.88967,3.620746,4.459784,459,111,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,4,22.391986,3.801966,4.732017,465,105,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,5,24.65598,4.003962,4.965479,458,112,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,6,20.948598,3.609448,4.576964,449,121,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,7,20.656467,3.342824,4.544939,447,123,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,8,18.404083,3.506616,4.289998,457,113,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,9,20.748042,3.664578,4.555002,469,101,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,10,19.859929,3.548434,4.456448,449,121,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,11,20.11242,3.626331,4.484687,467,103,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,12,21.849614,3.646299,4.674357,449,121,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,13,23.918842,3.922081,4.890689,452,118,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,14,18.278627,3.350046,4.275351,463,107,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,15,22.739977,3.814857,4.768645,447,123,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,16,26.527191,3.749208,5.150455,455,115,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,17,20.771858,3.725222,4.557615,456,114,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,18,19.797399,3.577411,4.449427,462,108,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,19,18.604695,3.40888,4.313316,460,110,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,20,24.392921,3.850871,4.938919,447,123,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,21,20.602393,3.598981,4.538986,448,122,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,22,15.114227,3.094006,3.887702,451,119,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,23,24.722387,4.066801,4.972161,463,107,0,0
+A-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,24,20.018588,3.569492,4.474214,471,99,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,0,23.777157,3.797309,4.876183,450,120,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,1,21.941079,3.732426,4.684131,451,119,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,2,18.289034,3.480145,4.276568,455,115,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,3,20.03075,3.520069,4.475573,459,111,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,4,23.480784,3.821909,4.845697,465,105,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,5,26.263204,4.170119,5.124764,458,112,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,6,21.963136,3.636118,4.686484,449,121,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,7,19.337372,3.368157,4.397428,447,123,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,8,20.478896,3.629754,4.525361,457,113,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,9,21.027856,3.69018,4.585614,469,101,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,10,19.60489,3.562782,4.427741,449,121,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,11,21.208323,3.777546,4.605249,467,103,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,12,21.655701,3.652755,4.653569,449,121,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,13,25.462669,3.930885,5.046055,452,118,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,14,19.257428,3.445074,4.388329,463,107,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,15,23.42732,3.87935,4.840178,447,123,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,16,23.719405,3.662727,4.870257,455,115,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,17,22.144517,3.817213,4.705796,456,114,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,18,20.265384,3.595739,4.501709,462,108,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,19,21.919644,3.602515,4.681842,460,110,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,20,23.166038,3.758594,4.813111,447,123,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,21,20.593083,3.622764,4.53796,448,122,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,22,16.742764,3.236451,4.091792,451,119,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,23,25.635763,4.156169,5.063177,463,107,0,0
+A-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,24,21.381682,3.636139,4.624033,471,99,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,0,41.815086,4.996485,6.466459,450,120,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,1,42.864887,5.322355,6.547128,451,119,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,2,34.853016,4.585782,5.903644,455,115,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,3,42.93592,5.187532,6.552551,459,111,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,4,42.881085,4.801976,6.548365,465,105,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,5,57.750869,6.10318,7.599399,458,112,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,6,34.223698,4.525951,5.850102,449,121,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,7,39.126709,4.982327,6.255135,447,123,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,8,36.363241,4.633112,6.030194,457,113,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,9,38.654672,4.708141,6.217288,469,101,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,10,35.547555,4.600627,5.962177,449,121,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,11,43.215356,5.112114,6.573839,467,103,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,12,35.283086,4.552916,5.939957,449,121,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,13,53.356249,5.780187,7.304536,452,118,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,14,38.775089,4.945878,6.226965,463,107,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,15,41.042481,4.856192,6.406441,447,123,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,16,42.012213,5.213289,6.481683,455,115,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,17,50.216496,5.380082,7.08636,456,114,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,18,37.337097,4.985471,6.110409,462,108,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,19,35.243138,4.545298,5.936593,460,110,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,20,36.53402,4.91972,6.044338,447,123,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,21,42.899316,4.990408,6.549757,448,122,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,22,31.742307,4.423096,5.634031,451,119,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,23,54.972831,5.707733,7.414367,463,107,0,0
+A-456,A-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,24,43.907167,5.121249,6.626248,471,99,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,0,17.527714,3.400705,4.186611,759,192,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,1,17.176223,3.305595,4.144421,757,194,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,2,14.615561,3.068963,3.82303,760,191,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,3,20.287317,3.68567,4.504144,767,184,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,4,17.931453,3.288552,4.234555,761,190,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,5,17.264462,3.285178,4.155053,759,192,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,6,16.126147,3.255754,4.015737,761,190,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,7,17.072907,3.367463,4.131937,764,187,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,8,16.57266,3.301486,4.070953,760,191,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,9,20.215166,3.511226,4.496128,760,191,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,10,17.093744,3.240036,4.134458,762,189,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,11,16.999794,3.371784,4.123081,760,191,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,12,16.690323,3.31458,4.085379,761,190,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,13,16.786453,3.230619,4.097127,761,190,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,14,19.636432,3.567943,4.431301,760,191,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,15,19.470373,3.628274,4.412525,758,193,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,16,16.897217,3.35951,4.110622,759,192,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,17,16.395062,3.234531,4.049082,764,187,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,18,17.07168,3.202368,4.131789,759,192,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,19,17.407782,3.302457,4.172263,764,187,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,20,16.952445,3.299663,4.117335,759,192,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,21,16.691523,3.246434,4.085526,763,188,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,22,18.560108,3.411523,4.308144,762,189,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,23,18.070048,3.47374,4.250888,758,193,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,own_sr,features_v1,24,17.190658,3.29831,4.146162,762,189,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,0,17.502393,3.397911,4.183586,759,192,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,1,17.105024,3.296636,4.135822,757,194,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,2,14.591151,3.064355,3.819837,760,191,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,3,20.103445,3.672346,4.483687,767,184,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,4,17.850657,3.279541,4.225004,761,190,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,5,17.251886,3.279351,4.153539,759,192,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,6,16.094493,3.253723,4.011794,761,190,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,7,16.99463,3.35909,4.122454,764,187,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,8,16.566098,3.302295,4.070147,760,191,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,9,20.12548,3.504354,4.486143,760,191,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,10,17.055807,3.23559,4.129868,762,189,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,11,16.992919,3.371636,4.122247,760,191,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,12,16.659066,3.31159,4.081552,761,190,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,13,16.785509,3.230274,4.097012,761,190,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,14,19.543132,3.547639,4.420762,760,191,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,15,19.455845,3.625448,4.410878,758,193,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,16,16.839856,3.345883,4.103639,759,192,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,17,16.306351,3.218026,4.038112,764,187,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,18,17.054732,3.202738,4.129737,759,192,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,19,17.349606,3.300774,4.165286,764,187,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,20,16.891508,3.286862,4.109928,759,192,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,21,16.669541,3.2451,4.082835,763,188,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,22,18.413046,3.412603,4.291043,762,189,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,23,17.992944,3.46178,4.241809,758,193,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,own_sr,features_v1,24,17.072252,3.28995,4.131858,762,189,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,0,78.037826,7.466179,8.833902,759,192,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,1,82.864541,7.83802,9.102996,757,194,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,2,75.089304,7.481553,8.665408,760,191,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,3,71.961343,7.21795,8.483003,767,184,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,4,89.431112,8.110868,9.456802,761,190,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,5,76.197247,7.527613,8.729103,759,192,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,6,82.597126,7.751159,9.088296,761,190,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,7,75.775946,7.497722,8.704938,764,187,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,8,82.223104,7.734496,9.067696,760,191,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,9,80.815701,7.616974,8.989755,760,191,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,10,72.61884,7.282526,8.521669,762,189,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,11,76.660084,7.386207,8.755574,760,191,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,12,78.550643,7.666721,8.86288,761,190,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,13,88.268869,8.224453,9.395151,761,190,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,14,81.524057,7.569323,9.029067,760,191,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,15,75.319568,7.207182,8.678685,758,193,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,16,75.800883,7.41678,8.70637,759,192,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,17,85.894346,8.091148,9.26792,764,187,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,18,86.406399,7.976807,9.295504,759,192,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,19,74.284073,7.447205,8.618821,764,187,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,20,80.681227,7.757221,8.982273,759,192,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,21,79.410414,7.615646,8.911252,763,188,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,22,76.726956,7.452536,8.759392,762,189,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,23,68.663999,7.043422,8.286374,758,193,0,0
+B-456,A-456,fixed,② 계수 고정,source,cross_natural,features_v1,24,92.382747,8.270841,9.611594,762,189,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,0,75.44622,7.306487,8.685978,759,192,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,1,80.088972,7.597214,8.949244,757,194,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,2,73.912822,7.331047,8.597257,760,191,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,3,71.418577,7.128859,8.450951,767,184,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,4,88.749705,8.047204,9.420706,761,190,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,5,75.405262,7.466569,8.68362,759,192,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,6,80.703936,7.538636,8.983537,761,190,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,7,74.110446,7.33701,8.608742,764,187,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,8,79.865501,7.617172,8.93675,760,191,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,9,79.681799,7.459638,8.926466,760,191,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,10,72.320025,7.253723,8.504118,762,189,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,11,74.496488,7.198206,8.631135,760,191,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,12,77.439156,7.518168,8.799952,761,190,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,13,85.678977,8.065684,9.256294,761,190,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,14,79.863805,7.38676,8.936655,760,191,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,15,73.118241,7.108238,8.55092,758,193,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,16,74.444415,7.344439,8.628118,759,192,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,17,85.396721,7.911067,9.241035,764,187,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,18,83.049911,7.766732,9.113172,759,192,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,19,73.924214,7.299516,8.597919,764,187,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,20,79.694605,7.626692,8.927184,759,192,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,21,77.015226,7.440982,8.775832,763,188,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,22,76.900289,7.45018,8.769281,762,189,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,23,69.479777,7.00993,8.335453,758,193,0,0
+B-456,A-456,fixed,② 계수 고정,target,cross_natural,features_v1,24,86.877078,7.901503,9.320787,762,189,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,0,25.76474,3.962234,5.075898,759,192,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,1,25.754375,3.925232,5.074877,757,194,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,2,25.429033,3.610539,5.042721,760,191,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,3,25.581453,4.00063,5.057811,767,184,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,4,27.49455,3.922065,5.243525,761,190,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,5,25.994251,3.665307,5.098456,759,192,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,6,23.035861,3.695664,4.799569,761,190,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,7,23.90676,3.809533,4.889454,764,187,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,8,27.969259,4.017447,5.288597,760,191,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,9,29.306146,4.233611,5.413515,760,191,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,10,23.244935,3.659203,4.8213,762,189,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,11,27.674077,3.989017,5.260616,760,191,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,12,22.344143,3.775415,4.726959,761,190,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,13,24.642555,3.838152,4.964127,761,190,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,14,31.98757,4.147194,5.655755,760,191,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,15,27.260145,4.084443,5.221125,758,193,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,16,25.195699,3.638811,5.019532,759,192,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,17,24.647573,3.850311,4.964632,764,187,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,18,30.479912,4.140828,5.520862,759,192,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,19,22.519507,3.742295,4.745472,764,187,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,20,25.928471,3.609814,5.092001,759,192,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,21,25.096974,3.863969,5.009688,763,188,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,22,24.828338,3.8502,4.982804,762,189,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,23,27.250328,4.064696,5.220185,758,193,0,0
+B-456,A-456,refit,③ 재학습,target,cross_natural,features_v1,24,28.378886,4.158186,5.327184,762,189,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,0,26.24649,4.00329,5.123133,759,192,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,1,26.161395,3.965902,5.114821,757,194,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,2,25.950147,3.66709,5.094129,760,191,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,3,26.024026,4.014684,5.101375,767,184,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,4,27.749463,3.95918,5.267776,761,190,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,5,26.140777,3.676998,5.112805,759,192,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,6,23.416447,3.734202,4.839054,761,190,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,7,24.461261,3.851221,4.945833,764,187,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,8,28.467649,4.053228,5.335508,760,191,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,9,29.812418,4.286642,5.460075,760,191,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,10,23.730147,3.685181,4.87136,762,189,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,11,28.089793,4.027954,5.29998,760,191,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,12,22.848755,3.8155,4.780037,761,190,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,13,25.15568,3.874638,5.015544,761,190,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,14,32.2067,4.188008,5.675095,760,191,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,15,27.870764,4.122764,5.279277,758,193,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,16,25.533852,3.667848,5.053103,759,192,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,17,25.127178,3.895828,5.012702,764,187,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,18,30.901785,4.182236,5.558937,759,192,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,19,22.80303,3.776123,4.775252,764,187,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,20,26.320525,3.649871,5.130353,759,192,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,21,25.354307,3.877362,5.035306,763,188,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,22,25.171548,3.897086,5.017126,762,189,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,23,27.608459,4.073847,5.254375,758,193,0,0
+B-456,A-456,refit,③ 재학습,source,cross_natural,features_v1,24,29.222579,4.237071,5.405791,762,189,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,0,17.527714,3.400705,4.186611,759,192,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,1,17.176223,3.305595,4.144421,757,194,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,2,14.615561,3.068963,3.82303,760,191,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,3,20.287317,3.68567,4.504144,767,184,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,4,17.931453,3.288552,4.234555,761,190,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,5,17.264462,3.285178,4.155053,759,192,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,6,16.126147,3.255754,4.015737,761,190,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,7,17.072907,3.367463,4.131937,764,187,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,8,16.57266,3.301486,4.070953,760,191,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,9,20.215166,3.511226,4.496128,760,191,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,10,17.093744,3.240036,4.134458,762,189,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,11,16.999794,3.371784,4.123081,760,191,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,12,16.690323,3.31458,4.085379,761,190,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,13,16.786453,3.230619,4.097127,761,190,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,14,19.636432,3.567943,4.431301,760,191,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,15,19.470373,3.628274,4.412525,758,193,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,16,16.897217,3.35951,4.110622,759,192,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,17,16.395062,3.234531,4.049082,764,187,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,18,17.07168,3.202368,4.131789,759,192,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,19,17.407782,3.302457,4.172263,764,187,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,20,16.952445,3.299663,4.117335,759,192,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,21,16.691523,3.246434,4.085526,763,188,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,22,18.560108,3.411523,4.308144,762,189,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,23,18.070048,3.47374,4.250888,758,193,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common,features_v1,24,17.190658,3.29831,4.146162,762,189,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,0,17.502393,3.397911,4.183586,759,192,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,1,17.105024,3.296636,4.135822,757,194,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,2,14.591151,3.064355,3.819837,760,191,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,3,20.103445,3.672346,4.483687,767,184,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,4,17.850657,3.279541,4.225004,761,190,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,5,17.251886,3.279351,4.153539,759,192,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,6,16.094493,3.253723,4.011794,761,190,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,7,16.99463,3.35909,4.122454,764,187,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,8,16.566098,3.302295,4.070147,760,191,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,9,20.12548,3.504354,4.486143,760,191,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,10,17.055807,3.23559,4.129868,762,189,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,11,16.992919,3.371636,4.122247,760,191,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,12,16.659066,3.31159,4.081552,761,190,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,13,16.785509,3.230274,4.097012,761,190,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,14,19.543132,3.547639,4.420762,760,191,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,15,19.455845,3.625448,4.410878,758,193,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,16,16.839856,3.345883,4.103639,759,192,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,17,16.306351,3.218026,4.038112,764,187,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,18,17.054732,3.202738,4.129737,759,192,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,19,17.349606,3.300774,4.165286,764,187,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,20,16.891508,3.286862,4.109928,759,192,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,21,16.669541,3.2451,4.082835,763,188,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,22,18.413046,3.412603,4.291043,762,189,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,23,17.992944,3.46178,4.241809,758,193,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common,features_v1,24,17.072252,3.28995,4.131858,762,189,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,0,78.037826,7.466179,8.833902,759,192,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,1,82.864541,7.83802,9.102996,757,194,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,2,75.089304,7.481553,8.665408,760,191,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,3,71.961343,7.21795,8.483003,767,184,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,4,89.431112,8.110868,9.456802,761,190,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,5,76.197247,7.527613,8.729103,759,192,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,6,82.597126,7.751159,9.088296,761,190,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,7,75.775946,7.497722,8.704938,764,187,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,8,82.223104,7.734496,9.067696,760,191,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,9,80.815701,7.616974,8.989755,760,191,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,10,72.61884,7.282526,8.521669,762,189,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,11,76.660084,7.386207,8.755574,760,191,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,12,78.550643,7.666721,8.86288,761,190,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,13,88.268869,8.224453,9.395151,761,190,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,14,81.524057,7.569323,9.029067,760,191,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,15,75.319568,7.207182,8.678685,758,193,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,16,75.800883,7.41678,8.70637,759,192,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,17,85.894346,8.091148,9.26792,764,187,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,18,86.406399,7.976807,9.295504,759,192,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,19,74.284073,7.447205,8.618821,764,187,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,20,80.681227,7.757221,8.982273,759,192,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,21,79.410414,7.615646,8.911252,763,188,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,22,76.726956,7.452536,8.759392,762,189,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,23,68.663999,7.043422,8.286374,758,193,0,0
+B-456,A-456,fixed,② 계수 고정,source,common,features_v1,24,92.382747,8.270841,9.611594,762,189,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,0,75.44622,7.306487,8.685978,759,192,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,1,80.088972,7.597214,8.949244,757,194,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,2,73.912822,7.331047,8.597257,760,191,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,3,71.418577,7.128859,8.450951,767,184,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,4,88.749705,8.047204,9.420706,761,190,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,5,75.405262,7.466569,8.68362,759,192,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,6,80.703936,7.538636,8.983537,761,190,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,7,74.110446,7.33701,8.608742,764,187,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,8,79.865501,7.617172,8.93675,760,191,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,9,79.681799,7.459638,8.926466,760,191,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,10,72.320025,7.253723,8.504118,762,189,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,11,74.496488,7.198206,8.631135,760,191,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,12,77.439156,7.518168,8.799952,761,190,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,13,85.678977,8.065684,9.256294,761,190,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,14,79.863805,7.38676,8.936655,760,191,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,15,73.118241,7.108238,8.55092,758,193,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,16,74.444415,7.344439,8.628118,759,192,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,17,85.396721,7.911067,9.241035,764,187,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,18,83.049911,7.766732,9.113172,759,192,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,19,73.924214,7.299516,8.597919,764,187,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,20,79.694605,7.626692,8.927184,759,192,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,21,77.015226,7.440982,8.775832,763,188,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,22,76.900289,7.45018,8.769281,762,189,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,23,69.479777,7.00993,8.335453,758,193,0,0
+B-456,A-456,fixed,② 계수 고정,target,common,features_v1,24,86.877078,7.901503,9.320787,762,189,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,0,30.182131,4.308056,5.493827,759,192,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,1,30.233993,4.21293,5.498545,757,194,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,2,27.910225,3.97997,5.283013,760,191,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,3,28.605843,4.230782,5.348443,767,184,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,4,33.100473,4.314975,5.753301,761,190,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,5,28.393483,3.941915,5.328554,759,192,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,6,28.950962,4.138033,5.38061,761,190,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,7,24.298297,3.912635,4.92933,764,187,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,8,34.478278,4.47712,5.871821,760,191,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,9,33.642797,4.547936,5.800241,760,191,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,10,25.922114,4.073253,5.091376,762,189,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,11,31.41237,4.212533,5.604674,760,191,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,12,26.473737,4.100692,5.145264,761,190,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,13,30.949894,4.230053,5.563263,761,190,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,14,35.274106,4.452888,5.939201,760,191,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,15,28.600926,4.232859,5.347983,758,193,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,16,29.267449,4.107798,5.40994,759,192,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,17,30.745771,4.412202,5.544887,764,187,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,18,35.170808,4.34703,5.930498,759,192,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,19,26.077649,3.948965,5.106628,764,187,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,20,29.252653,4.00061,5.408572,759,192,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,21,28.232554,4.074217,5.313432,763,188,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,22,31.490064,4.341938,5.611601,762,189,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,23,28.237478,4.12076,5.313895,758,193,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common,features_v1,24,33.19194,4.527819,5.761245,762,189,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,0,31.764195,4.53281,5.635973,759,192,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,1,31.011513,4.331704,5.568798,757,194,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,2,29.391936,4.270582,5.421433,760,191,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,3,32.071762,4.537699,5.663194,767,184,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,4,34.495546,4.624446,5.873291,761,190,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,5,31.09632,4.272938,5.576407,759,192,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,6,31.327446,4.442867,5.597093,761,190,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,7,25.869953,4.073538,5.086251,764,187,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,8,35.113701,4.69846,5.925681,760,191,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,9,34.848027,4.775547,5.903222,760,191,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,10,28.543953,4.276096,5.342654,762,189,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,11,33.006822,4.512484,5.745156,760,191,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,12,28.526775,4.295609,5.341046,761,190,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,13,32.012758,4.409671,5.657982,761,190,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,14,36.477172,4.801426,6.039633,760,191,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,15,30.238495,4.459687,5.498954,758,193,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,16,30.697689,4.364865,5.540549,759,192,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,17,33.252668,4.758479,5.766513,764,187,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,18,35.293547,4.467428,5.940837,759,192,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,19,28.975497,4.247767,5.382889,764,187,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,20,31.020969,4.272427,5.569647,759,192,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,21,30.061438,4.359557,5.482831,763,188,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,22,33.477181,4.582817,5.785947,762,189,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,23,31.825931,4.46545,5.641448,758,193,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common,features_v1,24,32.402311,4.624632,5.692303,762,189,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,0,25.76474,3.962234,5.075898,759,192,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,1,25.754375,3.925232,5.074877,757,194,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,2,25.429033,3.610539,5.042721,760,191,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,3,25.581453,4.00063,5.057811,767,184,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,4,27.49455,3.922065,5.243525,761,190,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,5,25.994251,3.665307,5.098456,759,192,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,6,23.035861,3.695664,4.799569,761,190,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,7,23.90676,3.809533,4.889454,764,187,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,8,27.969259,4.017447,5.288597,760,191,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,9,29.306146,4.233611,5.413515,760,191,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,10,23.244935,3.659203,4.8213,762,189,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,11,27.674077,3.989017,5.260616,760,191,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,12,22.344143,3.775415,4.726959,761,190,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,13,24.642555,3.838152,4.964127,761,190,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,14,31.98757,4.147194,5.655755,760,191,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,15,27.260145,4.084443,5.221125,758,193,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,16,25.195699,3.638811,5.019532,759,192,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,17,24.647573,3.850311,4.964632,764,187,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,18,30.479912,4.140828,5.520862,759,192,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,19,22.519507,3.742295,4.745472,764,187,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,20,25.928471,3.609814,5.092001,759,192,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,21,25.096974,3.863969,5.009688,763,188,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,22,24.828338,3.8502,4.982804,762,189,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,23,27.250328,4.064696,5.220185,758,193,0,0
+B-456,A-456,refit,③ 재학습,target,common,features_v1,24,28.378886,4.158186,5.327184,762,189,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,0,26.24649,4.00329,5.123133,759,192,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,1,26.161395,3.965902,5.114821,757,194,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,2,25.950147,3.66709,5.094129,760,191,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,3,26.024026,4.014684,5.101375,767,184,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,4,27.749463,3.95918,5.267776,761,190,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,5,26.140777,3.676998,5.112805,759,192,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,6,23.416447,3.734202,4.839054,761,190,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,7,24.461261,3.851221,4.945833,764,187,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,8,28.467649,4.053228,5.335508,760,191,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,9,29.812418,4.286642,5.460075,760,191,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,10,23.730147,3.685181,4.87136,762,189,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,11,28.089793,4.027954,5.29998,760,191,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,12,22.848755,3.8155,4.780037,761,190,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,13,25.15568,3.874638,5.015544,761,190,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,14,32.2067,4.188008,5.675095,760,191,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,15,27.870764,4.122764,5.279277,758,193,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,16,25.533852,3.667848,5.053103,759,192,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,17,25.127178,3.895828,5.012702,764,187,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,18,30.901785,4.182236,5.558937,759,192,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,19,22.80303,3.776123,4.775252,764,187,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,20,26.320525,3.649871,5.130353,759,192,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,21,25.354307,3.877362,5.035306,763,188,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,22,25.171548,3.897086,5.017126,762,189,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,23,27.608459,4.073847,5.254375,758,193,0,0
+B-456,A-456,refit,③ 재학습,source,common,features_v1,24,29.222579,4.237071,5.405791,762,189,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,0,18.069365,3.475414,4.250808,759,192,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,1,20.157152,3.590589,4.489672,757,194,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,2,37.462652,3.370616,6.120674,760,191,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,3,21.934693,3.860922,4.683449,767,184,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,4,20.429465,3.530616,4.519897,761,190,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,5,40.854476,3.736438,6.391751,759,192,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,6,17.175703,3.375445,4.144358,761,190,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,7,18.24068,3.517432,4.270911,764,187,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,8,20.613365,3.53114,4.540194,760,191,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,9,21.788839,3.725086,4.667852,760,191,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,10,19.266415,3.481955,4.389352,762,189,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,11,19.936074,3.614847,4.464983,760,191,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,12,17.989212,3.41178,4.241369,761,190,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,13,18.611128,3.460954,4.314062,761,190,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,14,46.255162,3.965891,6.801115,760,191,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,15,20.503093,3.695281,4.528034,758,193,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,16,38.71357,3.698177,6.222023,759,192,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,17,17.855508,3.392628,4.225578,764,187,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,18,21.749186,3.573114,4.663602,759,192,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,19,19.758205,3.502197,4.44502,764,187,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,20,40.406164,3.617125,6.356584,759,192,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,21,17.95053,3.387778,4.236807,763,188,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,22,21.959063,3.741419,4.68605,762,189,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,23,20.538492,3.679308,4.531941,758,193,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,24,19.113083,3.460185,4.371851,762,189,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,0,21.014315,3.70176,4.584137,759,192,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,1,22.397037,3.695861,4.732551,757,194,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,2,39.576201,3.485139,6.290962,760,191,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,3,22.202954,3.84788,4.712001,767,184,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,4,20.891504,3.621099,4.570722,761,190,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,5,42.908536,3.864642,6.550461,759,192,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,6,20.366694,3.60864,4.512947,761,190,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,7,19.798173,3.584346,4.449514,764,187,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,8,21.837298,3.740864,4.673039,760,191,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,9,21.729469,3.659596,4.661488,760,191,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,10,20.655156,3.563085,4.544794,762,189,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,11,20.932618,3.659551,4.575218,760,191,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,12,19.523711,3.559635,4.418564,761,190,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,13,19.299056,3.537995,4.393069,761,190,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,14,51.799009,4.199385,7.197153,760,191,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,15,22.712797,3.823956,4.765794,758,193,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,16,38.967557,3.586319,6.2424,759,192,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,17,20.123331,3.671939,4.485904,764,187,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,18,22.993349,3.658551,4.795138,759,192,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,19,21.869555,3.672304,4.67649,764,187,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,20,44.173784,3.760444,6.646336,759,192,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,21,21.059014,3.718327,4.58901,763,188,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,22,21.125827,3.602872,4.596284,762,189,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,23,23.507737,3.886743,4.848478,758,193,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common,features_v1,24,19.629111,3.550449,4.430475,762,189,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,0,83.086171,7.505661,9.115162,759,192,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,1,83.883154,7.419305,9.158775,757,194,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,2,78.447714,7.065093,8.857071,760,191,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,3,85.560052,7.409861,9.249868,767,184,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,4,78.122066,7.42682,8.838669,761,190,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,5,80.019195,7.293043,8.945345,759,192,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,6,93.349233,7.812606,9.661741,761,190,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,7,72.676903,6.698275,8.525075,764,187,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,8,79.524261,7.402816,8.917638,760,191,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,9,82.129824,7.548149,9.062551,760,191,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,10,80.639451,7.394847,8.979947,762,189,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,11,84.52293,7.351858,9.193635,760,191,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,12,76.284325,7.213126,8.73409,761,190,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,13,82.939578,7.369901,9.107117,761,190,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,14,83.723211,7.453701,9.150039,760,191,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,15,81.56571,7.147312,9.031374,758,193,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,16,77.722436,7.240029,8.816033,759,192,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,17,91.248107,7.91627,9.552387,764,187,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,18,76.568914,7.20958,8.750366,759,192,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,19,81.253712,7.286685,9.014084,764,187,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,20,79.020478,7.329069,8.889346,759,192,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,21,81.519245,7.283779,9.028801,763,188,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,22,76.81295,7.1365,8.7643,762,189,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,23,85.016305,7.345616,9.220429,758,193,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common,features_v1,24,85.734127,7.680607,9.259272,762,189,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,0,16.547263,3.355602,4.067833,444,119,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,1,17.883903,3.41135,4.228936,442,121,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,2,15.042877,3.099335,3.878515,452,111,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,3,17.758253,3.455023,4.214054,457,106,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,4,18.387531,3.282972,4.288068,457,106,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,5,18.176013,3.394574,4.263334,452,111,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,6,15.240778,3.139624,3.903944,442,121,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,7,16.383677,3.30255,4.047676,444,119,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,8,15.013013,3.180713,3.874663,452,111,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,9,20.93214,3.601245,4.575166,462,101,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,10,18.850987,3.289918,4.341772,446,117,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,11,16.299457,3.399796,4.037259,459,104,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,12,14.498193,3.096622,3.807649,443,120,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,13,16.122417,3.165599,4.015273,448,115,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,14,19.381644,3.649059,4.402459,456,107,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,15,18.300675,3.544117,4.277929,437,126,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,16,14.388318,3.128769,3.793194,452,111,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,17,15.695368,3.149752,3.961738,452,111,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,18,18.604323,3.341907,4.313273,453,110,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,19,17.845277,3.348591,4.224367,458,105,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,20,16.177981,3.260389,4.022186,440,123,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,21,17.098434,3.198804,4.135025,443,120,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,22,20.163263,3.561735,4.490352,447,116,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,23,17.48912,3.422609,4.182,457,106,0,0
+B-456,B-456,refit,① 자기 식 재적합,target,common_noshared,features_v1,24,14.279716,3.135383,3.778851,465,98,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,0,16.235829,3.318589,4.029371,444,119,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,1,17.747307,3.396103,4.212755,442,121,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,2,14.98557,3.087099,3.87112,452,111,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,3,17.546823,3.440048,4.188893,457,106,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,4,18.201569,3.269707,4.26633,457,106,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,5,18.158937,3.384239,4.26133,452,111,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,6,14.921051,3.105797,3.862778,442,121,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,7,16.430401,3.308599,4.053443,444,119,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,8,15.047091,3.181777,3.879058,452,111,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,9,20.650311,3.578119,4.544261,462,101,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,10,18.883695,3.29137,4.345537,446,117,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,11,16.240044,3.397874,4.029894,459,104,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,12,14.198439,3.062389,3.768082,443,120,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,13,16.119443,3.1635,4.014903,448,115,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,14,19.404766,3.644712,4.405084,456,107,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,15,18.268231,3.530016,4.274135,437,126,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,16,14.305069,3.1337,3.782204,452,111,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,17,15.54162,3.136696,3.942286,452,111,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,18,18.632005,3.34653,4.316481,453,110,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,19,17.78967,3.341221,4.21778,458,105,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,20,16.194751,3.264599,4.02427,440,123,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,21,17.055615,3.194421,4.129844,443,120,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,22,19.387027,3.494593,4.40307,447,116,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,23,17.394131,3.411189,4.170627,457,106,0,0
+B-456,B-456,fixed,참고: 자기 식 계수 고정(표본 내),target,common_noshared,features_v1,24,14.295044,3.141914,3.780879,465,98,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,0,83.646821,7.767775,9.145864,444,119,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,1,85.650332,8.000152,9.254746,442,121,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,2,74.192694,7.551475,8.613518,452,111,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,3,68.81549,7.244484,8.29551,457,106,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,4,97.149427,8.519585,9.856441,457,106,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,5,77.238782,7.65799,8.78856,452,111,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,6,86.613274,7.990504,9.306625,442,121,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,7,74.686178,7.457005,8.642117,444,119,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,8,91.440286,8.385455,9.562441,452,111,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,9,79.743507,7.589422,8.929922,462,101,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,10,75.550961,7.495315,8.692006,446,117,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,11,81.451562,7.742495,9.025052,459,104,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,12,78.979029,7.722486,8.887015,443,120,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,13,85.289759,8.171436,9.235245,448,115,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,14,89.243939,7.971999,9.446901,456,107,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,15,75.879978,7.332543,8.710911,437,126,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,16,75.447702,7.537788,8.686064,452,111,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,17,85.500341,8.147549,9.246639,452,111,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,18,95.925535,8.340587,9.794158,453,110,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,19,77.784889,7.801442,8.819574,458,105,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,20,81.662821,7.963247,9.036748,440,123,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,21,81.340309,7.793766,9.018886,443,120,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,22,83.377791,7.743009,9.131144,447,116,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,23,71.506574,7.265707,8.456156,457,106,0,0
+B-456,A-456,fixed,② 계수 고정,source,common_noshared,features_v1,24,92.73926,8.352075,9.630123,465,98,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,0,81.221676,7.638126,9.012307,444,119,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,1,82.240815,7.699529,9.068672,442,121,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,2,74.706735,7.529633,8.643306,452,111,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,3,69.036697,7.20729,8.308832,457,106,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,4,97.956702,8.605338,9.897308,457,106,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,5,77.46339,7.647606,8.801329,452,111,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,6,83.972147,7.797802,9.163632,442,121,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,7,73.288893,7.327835,8.560893,444,119,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,8,90.026137,8.310692,9.48821,452,111,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,9,80.563569,7.580102,8.975721,462,101,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,10,75.181045,7.481863,8.6707,446,117,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,11,80.563938,7.61494,8.975742,459,104,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,12,78.466433,7.588154,8.858128,443,120,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,13,83.212052,8.066921,9.122064,448,115,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,14,88.31847,7.914969,9.397791,456,107,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,15,75.00388,7.281739,8.660478,437,126,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,16,75.028171,7.49933,8.66188,452,111,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,17,84.628464,8.024982,9.199373,452,111,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,18,91.728291,8.115701,9.577489,453,110,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,19,79.502653,7.800791,8.916426,458,105,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,20,80.73373,7.833616,8.985195,440,123,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,21,77.735815,7.571625,8.816792,443,120,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,22,82.754647,7.757402,9.096958,447,116,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,23,74.051771,7.385283,8.605334,457,106,0,0
+B-456,A-456,fixed,② 계수 고정,target,common_noshared,features_v1,24,90.843801,8.139585,9.531201,465,98,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,0,33.781029,4.474655,5.812145,444,119,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,1,28.745168,4.158676,5.361452,442,121,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,2,20.943296,3.754936,4.576385,452,111,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,3,25.471176,3.949516,5.046898,457,106,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,4,36.149808,4.335298,6.012471,457,106,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,5,24.311951,3.815209,4.930715,452,111,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,6,26.412899,3.999525,5.139348,442,121,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,7,24.966995,4.007467,4.996698,444,119,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,8,35.241591,4.33829,5.936463,452,111,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,9,35.349762,4.57036,5.945567,462,101,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,10,22.627571,3.778018,4.756845,446,117,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,11,32.115213,4.19873,5.667029,459,104,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,12,27.01537,4.150547,5.197631,443,120,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,13,28.572477,3.917118,5.345323,448,115,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,14,35.501035,4.673113,5.958275,456,107,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,15,27.987449,4.150452,5.290317,437,126,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,16,23.984768,3.915038,4.897425,452,111,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,17,29.807944,4.322282,5.459665,452,111,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,18,42.078284,4.718139,6.486778,453,110,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,19,20.916574,3.534095,4.573464,458,105,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,20,22.059182,3.791747,4.69672,440,123,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,21,26.600242,3.858306,5.157542,443,120,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,22,38.606142,4.673132,6.213384,447,116,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,23,26.231646,3.925937,5.121684,457,106,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,source,common_noshared,features_v1,24,32.712418,4.513967,5.719477,465,98,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,0,35.241291,4.673965,5.936438,444,119,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,1,29.345226,4.29979,5.417123,442,121,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,2,24.253722,4.079922,4.924807,452,111,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,3,29.950619,4.317608,5.472716,457,106,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,4,38.315406,4.746671,6.189944,457,106,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,5,28.012526,4.1821,5.292686,452,111,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,6,29.775002,4.408292,5.456648,442,121,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,7,26.729039,4.14244,5.170013,444,119,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,8,35.886212,4.59147,5.99051,452,111,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,9,37.192927,4.813797,6.0986,462,101,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,10,25.888326,4.037328,5.088057,446,117,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,11,34.277677,4.574027,5.854714,459,104,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,12,30.117924,4.435689,5.48798,443,120,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,13,29.985564,4.131357,5.475908,448,115,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,14,36.991155,4.959425,6.082035,456,107,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,15,31.011523,4.517036,5.568799,437,126,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,16,27.156159,4.20391,5.211157,452,111,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,17,32.019798,4.648341,5.658604,452,111,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,18,41.107404,4.770645,6.411506,453,110,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,19,25.058145,3.90767,5.005811,458,105,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,20,25.244377,4.085054,5.024378,440,123,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,21,28.325737,4.202117,5.322193,443,120,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,22,40.206865,4.859444,6.340888,447,116,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,23,30.739581,4.330737,5.544329,457,106,0,0
+B-456,A-456,fixed+b,②+b 계수 고정+절편,target,common_noshared,features_v1,24,33.022657,4.669406,5.746534,465,98,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,0,27.804652,4.086346,5.273012,444,119,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,1,26.245287,3.97387,5.123015,442,121,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,2,18.281337,3.351206,4.275668,452,111,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,3,20.995129,3.653531,4.582044,457,106,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,4,29.341097,3.950117,5.416742,457,106,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,5,23.014202,3.630688,4.797312,452,111,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,6,19.071043,3.376714,4.36704,442,121,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,7,24.233177,3.939389,4.92272,444,119,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,8,27.646998,3.965088,5.258041,452,111,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,9,30.260942,4.219565,5.500995,462,101,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,10,22.201023,3.473277,4.711796,446,117,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,11,27.478123,4.066739,5.241958,459,104,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,12,21.215967,3.713471,4.606079,443,120,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,13,22.330476,3.563734,4.725513,448,115,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,14,30.080718,4.286422,5.484589,456,107,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,15,25.902134,3.930558,5.089414,437,126,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,16,18.253794,3.394722,4.272446,452,111,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,17,22.653146,3.70073,4.759532,452,111,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,18,36.924505,4.520727,6.076554,453,110,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,19,19.59486,3.527749,4.426608,458,105,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,20,19.356916,3.427269,4.39965,440,123,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,21,25.129189,3.723722,5.012902,443,120,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,22,30.047796,4.224275,5.481587,447,116,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,23,25.808331,3.979049,5.08019,457,106,0,0
+B-456,A-456,refit,③ 재학습,target,common_noshared,features_v1,24,24.964526,3.904285,4.996451,465,98,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,0,28.115926,4.10336,5.302445,444,119,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,1,26.568812,3.997843,5.154494,442,121,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,2,18.760593,3.392744,4.33135,452,111,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,3,21.200683,3.644989,4.60442,457,106,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,4,29.170371,3.960153,5.40096,457,106,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,5,23.010985,3.615104,4.796977,452,111,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,6,19.302869,3.392209,4.393503,442,121,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,7,24.765207,3.998462,4.976465,444,119,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,8,27.809899,3.983467,5.273509,452,111,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,9,30.458581,4.238503,5.518929,462,101,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,10,22.469595,3.479309,4.74021,446,117,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,11,27.675674,4.113543,5.260767,459,104,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,12,21.605073,3.745435,4.648126,443,120,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,13,22.536016,3.564202,4.747211,448,115,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,14,30.238441,4.302477,5.498949,456,107,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,15,26.359773,3.956915,5.134177,437,126,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,16,18.568408,3.401977,4.309108,452,111,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,17,22.844969,3.723057,4.779641,452,111,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,18,37.224617,4.558914,6.101198,453,110,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,19,19.504786,3.541859,4.416422,458,105,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,20,19.679568,3.452824,4.436166,440,123,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,21,25.240161,3.720177,5.023959,443,120,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,22,30.190016,4.250257,5.494544,447,116,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,23,26.160286,3.999737,5.114713,457,106,0,0
+B-456,A-456,refit,③ 재학습,source,common_noshared,features_v1,24,25.187595,3.938319,5.018724,465,98,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,0,17.833625,3.390458,4.222988,444,119,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,1,19.491054,3.502511,4.414867,442,121,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,2,13.926608,2.869923,3.731837,452,111,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,3,19.245455,3.494496,4.386964,457,106,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,4,17.987957,3.316625,4.241221,457,106,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,5,19.478366,3.510988,4.41343,452,111,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,6,15.565558,3.095632,3.945321,442,121,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,7,16.442013,3.288001,4.054875,444,119,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,8,16.905068,3.214359,4.111577,452,111,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,9,19.751782,3.489451,4.444298,462,101,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,10,18.132496,3.190925,4.258227,446,117,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,11,16.694812,3.402071,4.085929,459,104,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,12,15.447477,3.135568,3.930328,443,120,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,13,16.441024,3.205781,4.054753,448,115,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,14,21.491527,3.736732,4.635895,456,107,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,15,19.172708,3.517756,4.378665,437,126,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,16,14.268539,3.035901,3.777372,452,111,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,17,16.029634,3.114811,4.003703,452,111,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,18,18.329351,3.367364,4.281279,453,110,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,19,19.256971,3.434244,4.388277,458,105,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,20,16.078599,3.23735,4.009813,440,123,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,21,18.449691,3.301893,4.29531,443,120,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,22,20.51466,3.570197,4.529311,447,116,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,23,17.473059,3.370585,4.180079,457,106,0,0
+B-456,B-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,24,15.013895,3.106062,3.874777,465,98,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,0,20.099255,3.568443,4.483219,444,119,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,1,21.964465,3.661057,4.686626,442,121,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,2,13.517937,2.861703,3.676675,452,111,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,3,19.623002,3.456479,4.429786,457,106,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,4,19.261953,3.384541,4.388844,457,106,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,5,21.240092,3.592959,4.608697,452,111,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,6,17.691895,3.232927,4.206173,442,121,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,7,16.408185,3.211294,4.050702,444,119,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,8,18.82879,3.333165,4.339215,452,111,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,9,20.605167,3.624442,4.539292,462,101,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,10,17.28724,3.026071,4.157793,446,117,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,11,17.488121,3.316515,4.18188,459,104,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,12,18.354931,3.371529,4.284266,443,120,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,13,16.901895,3.3094,4.111191,448,115,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,14,25.018951,4.007067,5.001895,456,107,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,15,19.503909,3.485804,4.416323,437,126,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,16,14.829892,3.012599,3.85096,452,111,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,17,17.928168,3.287627,4.234167,452,111,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,18,19.79879,3.386765,4.449583,453,110,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,19,21.710717,3.70464,4.659476,458,105,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,20,17.830042,3.401196,4.222563,440,123,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,21,20.264329,3.418504,4.501592,443,120,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,22,21.200239,3.491492,4.604372,447,116,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,23,18.286367,3.458668,4.276256,457,106,0,0
+B-456,A-456,lr_vars,참고: 같은 변수 선형회귀,target,common_noshared,features_v1,24,16.236114,3.183528,4.029406,465,98,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,0,89.454288,7.758078,9.458028,444,119,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,1,80.93123,7.278424,8.996179,442,121,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,2,81.33727,6.994854,9.018718,452,111,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,3,91.811421,7.425452,9.581828,457,106,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,4,86.620516,7.601559,9.307014,457,106,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,5,81.730754,7.267915,9.040506,452,111,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,6,103.628885,8.095467,10.179827,442,121,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,7,75.640992,6.74222,8.697183,444,119,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,8,77.707742,7.157293,8.815199,452,111,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,9,89.009894,7.729855,9.434506,462,101,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,10,87.252276,7.471546,9.340893,446,117,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,11,85.780444,7.325486,9.261773,459,104,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,12,86.243791,7.596167,9.286754,443,120,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,13,83.032143,7.178979,9.112197,448,115,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,14,85.530755,7.387539,9.248284,456,107,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,15,94.268835,7.656419,9.709214,437,126,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,16,83.762112,7.391166,9.152164,452,111,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,17,89.727605,7.685618,9.472466,452,111,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,18,80.889814,7.2108,8.993876,453,110,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,19,78.116906,6.988104,8.838377,458,105,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,20,79.088184,7.217878,8.893154,440,123,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,21,84.460226,7.329899,9.190224,443,120,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,22,83.710096,7.31387,9.149322,447,116,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,23,93.274059,7.487609,9.65785,457,106,0,0
+B-456,B-456,mean,참고: 학습 쪽 평균,target,common_noshared,features_v1,24,89.724747,7.711347,9.472315,465,98,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,0,21.332979,3.554214,4.618764,752,188,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,1,18.106714,3.367672,4.255198,754,186,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,2,16.035036,3.221578,4.004377,750,190,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,3,17.511098,3.354381,4.184626,752,188,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,4,17.144341,3.228052,4.140573,752,188,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,5,19.873935,3.47635,4.458019,754,186,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,6,17.761792,3.357656,4.214474,753,187,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,7,15.780586,3.026478,3.972479,750,190,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,8,16.697383,3.311304,4.086243,750,190,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,9,19.59687,3.490561,4.426835,753,187,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,10,17.136293,3.249294,4.139601,750,190,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,11,16.063491,3.22669,4.007929,755,185,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,12,18.090695,3.347323,4.253316,751,189,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,13,20.57844,3.524402,4.536346,750,190,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,14,18.287732,3.369871,4.276416,754,186,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,15,17.606339,3.327913,4.195991,753,187,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,16,19.959845,3.474538,4.467644,746,194,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,17,17.236928,3.300668,4.151738,755,185,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,18,19.22098,3.507348,4.384174,757,183,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,19,16.303621,3.120752,4.037774,749,191,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,20,20.561018,3.515761,4.534426,752,188,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,21,16.537303,3.123197,4.066608,751,189,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,22,16.515413,3.154859,4.063916,753,187,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,23,17.652043,3.470613,4.201433,747,193,0,0
+A-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,24,18.667135,3.424388,4.320548,757,183,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,0,27.696348,4.012271,5.262732,752,188,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,1,20.661834,3.585634,4.545529,754,186,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,2,20.73842,3.65007,4.553946,750,190,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,3,20.302808,3.519424,4.505864,752,188,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,4,21.773037,3.703143,4.666159,752,188,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,5,25.420841,3.947049,5.041908,754,186,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,6,22.74679,3.744014,4.76936,753,187,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,7,18.767516,3.409811,4.332149,750,190,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,8,22.05079,3.603897,4.695827,750,190,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,9,23.159508,3.843948,4.812433,753,187,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,10,23.424972,3.792767,4.839935,750,190,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,11,22.40557,3.694603,4.733452,755,185,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,12,20.525496,3.454218,4.530507,751,189,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,13,23.587608,3.795722,4.856708,750,190,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,14,21.706791,3.75127,4.659055,754,186,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,15,21.947743,3.659338,4.684842,753,187,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,16,24.970951,3.854371,4.997094,746,194,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,17,22.358991,3.815254,4.72853,755,185,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,18,23.544595,3.7365,4.852277,757,183,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,19,18.487309,3.406126,4.299687,749,191,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,20,25.479956,3.958041,5.047767,752,188,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,21,20.253276,3.545517,4.500364,751,189,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,22,22.073723,3.608,4.698268,753,187,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,23,22.358555,3.715526,4.728483,747,193,0,0
+A-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,24,22.244834,3.711175,4.716443,757,183,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,0,17.527714,3.400705,4.186611,759,192,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,1,17.176223,3.305595,4.144421,757,194,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,2,14.615561,3.068963,3.82303,760,191,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,3,20.287317,3.68567,4.504144,767,184,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,4,17.931453,3.288552,4.234555,761,190,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,5,17.264462,3.285178,4.155053,759,192,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,6,16.126147,3.255754,4.015737,761,190,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,7,17.072907,3.367463,4.131937,764,187,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,8,16.57266,3.301486,4.070953,760,191,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,9,20.215166,3.511226,4.496128,760,191,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,10,17.093744,3.240036,4.134458,762,189,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,11,16.999794,3.371784,4.123081,760,191,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,12,16.690323,3.31458,4.085379,761,190,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,13,16.786453,3.230619,4.097127,761,190,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,14,19.636432,3.567943,4.431301,760,191,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,15,19.470373,3.628274,4.412525,758,193,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,16,16.897217,3.35951,4.110622,759,192,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,17,16.395062,3.234531,4.049082,764,187,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,18,17.07168,3.202368,4.131789,759,192,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,19,17.407782,3.302457,4.172263,764,187,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,20,16.952445,3.299663,4.117335,759,192,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,21,16.691523,3.246434,4.085526,763,188,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,22,18.560108,3.411523,4.308144,762,189,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,23,18.070048,3.47374,4.250888,758,193,0,0
+B-456,B-456,refit,max_nfev=2000,target,common_nfev,features_v1,24,17.190658,3.29831,4.146162,762,189,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,0,25.76474,3.962234,5.075898,759,192,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,1,25.754375,3.925232,5.074877,757,194,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,2,25.429033,3.610539,5.042721,760,191,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,3,25.581453,4.00063,5.057811,767,184,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,4,27.49455,3.922065,5.243525,761,190,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,5,25.994251,3.665307,5.098456,759,192,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,6,23.035861,3.695664,4.799569,761,190,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,7,23.90676,3.809533,4.889454,764,187,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,8,27.969259,4.017447,5.288597,760,191,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,9,29.306146,4.233611,5.413515,760,191,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,10,23.244935,3.659203,4.8213,762,189,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,11,27.674077,3.989017,5.260616,760,191,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,12,22.344143,3.775415,4.726959,761,190,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,13,24.642555,3.838152,4.964127,761,190,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,14,31.98757,4.147194,5.655755,760,191,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,15,27.260145,4.084443,5.221125,758,193,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,16,25.195699,3.638811,5.019532,759,192,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,17,24.647573,3.850311,4.964632,764,187,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,18,30.479912,4.140828,5.520862,759,192,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,19,22.519507,3.742295,4.745472,764,187,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,20,25.928471,3.609814,5.092001,759,192,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,21,25.096974,3.863969,5.009688,763,188,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,22,24.828338,3.8502,4.982804,762,189,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,23,27.250328,4.064696,5.220185,758,193,0,0
+B-456,A-456,refit,max_nfev=2000,target,common_nfev,features_v1,24,28.378886,4.158186,5.327184,762,189,0,0
