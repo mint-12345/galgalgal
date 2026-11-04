@@ -1,0 +1,77 @@
+this_file: "2026-11-04_김혜연_FV1_a123_transfer_random_folds.csv"
+experiment: "a123_transfer 무작위 공개 (preregistration 5.3 보조 결과)"
+author: "김혜연"
+tag: "FV1"
+featureset: "features_v1"
+group: "A-123"
+run_started: "2026-11-04 13:44:43"
+run_finished: "2026-11-04 14:29:32"
+runtime_sec: 2690
+git:
+  commit: "c5e91381b20c99d52bc2f960039717c5e4e24b75"
+  branch: "results/a123-transfer-aux"
+  uncommitted_files: 0
+environment:
+  python: "3.13.2"
+  numpy: "2.5.3"
+  pandas: "3.0.6"
+  scipy: "1.18.1"
+  scikit-learn: "1.9.1"
+  xgboost: "3.2.0"
+  cpu: "12th Gen Intel(R) Core(TM) i7-12650H"
+  cpu_count: 16
+  os: "Windows-11-10.0.26200-SP0"
+threads_blas:
+  OMP_NUM_THREADS: "(설정 안 됨)"
+  MKL_NUM_THREADS: "(설정 안 됨)"
+  OPENBLAS_NUM_THREADS: "(설정 안 됨)"
+  numpy_blas: "scipy-openblas 0.3.34.106.0"
+  numpy_lapack: "scipy-openblas 0.3.34.106.0"
+command: "python src/a123_transfer.py --method random"
+sources:
+  S1: ["A-456"]
+  S2: ["A-456", "B-456"]
+f456:
+  model: "XGBRegressor (3.2 고정 설정)"
+  params: {"n_estimators": 400, "max_depth": 4, "learning_rate": 0.03, "subsample": 0.8, "colsample_bytree": 0.8, "min_child_weight": 3, "random_state": 42, "n_jobs": 2}
+  n_jobs: 2
+  inputs: {"full": 112, "usage": 36}
+  exclude_full: ["since_POLISH_TABLE_w"]
+same_as_main: "모델 T0~T3, δ 입력 규칙, GP 커널·설정, f_456 설정은 주 평가와 같은 함수 (select_delta, fit_gp, run_fold)"
+seed_rule: "f_456 random_state=42 / GP random_state=42+r (r = repeat*5+fold, 재시작 5회도 이 시드에서 시작)"
+decided_after_main_judgment:
+  date: "2026-11-04"
+  when: "주 판정 이후, 보조 평가 실행 전 결정 (preregistration.md 미반영, 팀 동의 후 변경 이력에 추가 예정)"
+  1_sources: "보조 판정은 f_456 full 기준 소스별로 T3<T1 단계 수를 센다. S1·S2 중 하나라도 3개 미만이면 '보조 평가에서 뒤집힘'"
+  2_main_no_effect: "주 판정이 '효과 없음'이므로 보조 판정은 단계 수와 규칙 해당 여부만 적고, 어느 경우든 기본값 T1 유지"
+  3_walkforward_method: "보조 판정은 8% 고정주기(r = 5×단계). 8% 무작위(시드 42+단계)는 참고로 함께 실행, 다른 비율은 실행 안 함"
+  4_lower: "'T3가 T1보다 낮다' = 그 단계 평가 쪽(43장) MSE가 엄격히 작음. 단계별 차이는 표본이 작아 참고용"
+inputs_sha256_16:
+  features_v1.csv: "31aefa89f84aa209"
+  feature_families_v1.csv: "91eae0447643cb16"
+  folds_v1.csv: "e4b364141b0bdaa9"
+  reveal_masks_v1.csv: "00d9ed3ef9436450"
+  wafer_table.csv: "3aaf498e8562d6e8"
+  walkforward_v1.csv: "041916b59fe38e78"
+  walkforward_cutoffs_v1.csv: "b414e3ed870b8a24"
+  2026-11-01_김혜연_FV1_a123_transfer_folds.csv: "7dfb8e4a55f05bc5"
+reveal: "reveal_masks_v1 design=folds method=random (시드 42 + r, 장수는 고정주기와 같음)"
+folds: "folds_v1 25 (r = repeat*5+fold)"
+ratios: [2, 4, 8, 16, 100]
+ttest: "8% T3-T1 등 보정 t-검정은 참고용 (판정에 안 씀, stats의 primary=0)"
+regression_check:
+  rule: "연속값(mse, rmse, mae, rho, b, coverage90) |차이| ≤ 1e-12 + 1e-10×|저장값| (numpy.isclose 방식), 이산값(n, gp_warn_t1, gp_warn_t3, n_public, n_public_clean, n_train, n_eval, p1_on_included, iso_kernel, delta_cols, ρ가 0·2 경계에 붙었는지) 정확히 일치. 모든 비율·①② 같은 기준"
+  history: "1) 비트 단위 일치로 시작 → ① r=0 8%에서 최대 1.42e-14 차이로 멈춤. 2) 연속값 절대 차이 ≤ 1e-12로 변경 → 8% r=0,1은 통과, ① r=0 100%에서 mse 3.51e-11, rmse 5.57e-12, mae 1.07e-11 차이로 멈춤. 3) |차이| ≤ 1e-12 + 1e-10×|저장값| (상대 기준)으로 변경 → 8% r=0,1과 100% r=0은 통과, ① r=1 100%의 6행(T3·usage S1·S2)이 상대 최대 8.95e-6으로 멈춤. 4) 원인 확인(GP 최적화 멈춤 위치 차이) 후 판단 규칙 A: 이 6행은 GP 최적화 재현 한계로 기록(상대 1e-4 이하면 통과), ②는 같은 실행의 고정주기 100%와 비트 단위 비교로 변경. 모두 2026-11-04 결정"
+  reproducibility: "공개 2~16%는 1e-14 수준(11/01 GP 경고 진단), 100%는 약 1e-11 수준까지 재현됨(2026-11-04 확인)"
+  1_main_r01: "통과: 주 평가 8%·100%의 r=0,1 192행 (그중 6행은 GP 최적화 재현 한계로 기록)"
+  1_max_diff: {"mse": {"abs": 3.51e-11, "rel": 3.54e-12}, "rmse": {"abs": 5.57e-12, "rel": 1.77e-12}, "mae": {"abs": 1.07e-11, "rel": 4.36e-12}, "rho": {"abs": 9.71e-17, "rel": 5.25e-14}, "b": {"abs": 2.84e-14, "rel": 1.95e-16}, "coverage90": {"abs": 1.11e-16, "rel": 1.63e-16}}
+  1_gp_repro_limit: {"note": "GP 최적화 재현 한계(상대 약 1e-5): 주 평가 100% r=1의 T3·usage(S1·S2) 6행. 원인 확인(2026-11-04, 저장 없음) 결과 같은 재시작 회차(1)가 선택되고 로그 주변우도 차이는 약 4e-9(S1 -392.2280640308 대 -392.2280640268), 길이척도 3개가 상한 100에 붙은 평평한 우도면에서 나머지 길이척도가 약간 다른 지점에서 멈춤(13.204 대 13.215). δ 입력·장수·경고 수 등 이산값은 같음. OPENBLAS_NUM_THREADS=1로 다시 계산하면 이 6행도 저장값과 1.4e-14 안에서 같았다", "rule": "이 행은 상대 차이 ≤ 0.0001면 통과, 이산값은 정확히 일치", "rows": 6, "keys": ["T3 S1 usage", "T3 S2 usage"], "max_rel": {"mse": 8.95e-06, "rmse": 4.47e-06, "mae": 3.4e-06, "rho": 1.87e-16, "b": 0.0, "coverage90": 1.23e-16}, "max_abs": {"mse": 4.23e-05, "rmse": 9.73e-06, "mae": 5.99e-06, "rho": 5.55e-17, "b": 0.0, "coverage90": 1.11e-16}}
+  2_method: "같은 실행 안에서 새로 계산한 고정주기 100%(25 fold)와 무작위 100%를 비트 단위로 비교 (2026-11-04 판단 규칙 A로 변경. 이전에는 저장된 주 평가 100%와 비교)"
+  2_random100_eq_fixed100_same_run: "통과: 1200행 비트 단위 일치"
+gp_warnings:
+  t1_total: 192
+  t3_total: 773
+outputs:
+  folds: "2026-11-04_김혜연_FV1_a123_transfer_random_folds.csv"
+  stats: "2026-11-04_김혜연_FV1_a123_transfer_random_stats.csv"
+  rho: "2026-11-04_김혜연_FV1_a123_transfer_random_rho.csv"
