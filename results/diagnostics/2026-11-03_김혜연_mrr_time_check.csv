@@ -1,0 +1,995 @@
+section,group,subset,trim,time_def,variable,n,n_zero_time,stat,value,ci_lo,ci_hi,note
+cv,A-456,전체,none,,,983,0,cv_mrr,0.091641,,,
+cv,A-456,전체,none,,,983,0,mean_mrr,72.9454,,,
+corr,A-456,전체,none,dur_s1,,983,0,spearman,-0.497817,-0.543429,-0.449275,
+corr,A-456,전체,none,dur_s1,,983,0,pearson,-0.186442,-0.2461,-0.125376,
+cv,A-456,전체,none,dur_s1,,983,0,median_time,184,,,
+cv,A-456,전체,none,dur_s1,,983,0,cv_mrr,0.091641,,,
+cv,A-456,전체,none,dur_s1,,983,0,cv_time,0.120753,,,
+cv,A-456,전체,none,dur_s1,,983,0,cv_removal,0.129303,,,
+cv,A-456,전체,none,dur_s1,,983,0,cv_ratio_removal_to_mrr,1.41097,,,
+loglog,A-456,전체,none,dur_s1,,983,0,b,-0.405163,-0.48845,-0.321877,
+loglog,A-456,전체,none,dur_s1,,983,0,r2,0.0850024,,,
+loglog_ctrl,A-456,전체,none,dur_s1,,983,0,b_ctrl,-0.140846,-0.20542,-0.076271,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체,none,dur_s1,,983,0,r2_ctrl_only,0.495656,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체,none,dur_s1,,983,0,r2_ctrl_full,0.504966,,,사후 추가 (결과를 본 뒤)
+resid_corr,A-456,전체,none,dur_s1,start_DRESSER_TABLE_w,983,0,spearman_rank1,0.420956,0.368118,0.471083,
+resid_corr,A-456,전체,none,dur_s1,start_DRESSER_w,983,0,spearman_rank2,-0.386007,-0.437963,-0.33148,
+resid_corr,A-456,전체,none,dur_s1,since_DRESSER_w,861,0,spearman_rank3,-0.239155,-0.301155,-0.175141,
+resid_corr,A-456,전체,none,dur_s1,delta_POLISH_TABLE_w,983,0,spearman_rank4,-0.143271,-0.203971,-0.0814739,
+resid_corr,A-456,전체,none,dur_s1,delta_BACKING_FILM_w,983,0,spearman_rank5,-0.136005,-0.196858,-0.0741086,
+resid_corr,A-456,전체,none,dur_s1,delta_PSHEET_w,983,0,spearman_rank6,-0.129138,-0.19013,-0.0671536,
+resid_corr,A-456,전체,none,dur_s1,delta_MEMBRANE_w,983,0,spearman_rank7,-0.122879,-0.183993,-0.0608194,
+resid_corr,A-456,전체,none,dur_s1,since_MEMBRANE_w,948,0,spearman_rank8,0.0938152,0.0303249,0.156551,
+resid_corr,A-456,전체,none,dur_s1,since_PSHEET_w,948,0,spearman_rank9,0.0937884,0.0302979,0.156525,
+resid_corr,A-456,전체,none,dur_s1,since_BACKING_FILM_w,948,0,spearman_rank10,0.0937749,0.0302844,0.156512,
+corr,A-456,전체,p01_p99,dur_s1,,963,0,spearman,-0.493237,-0.539596,-0.443895,
+corr,A-456,전체,p01_p99,dur_s1,,963,0,pearson,-0.500767,-0.546647,-0.451889,
+cv,A-456,전체,p01_p99,dur_s1,,963,0,median_time,184,,,
+cv,A-456,전체,p01_p99,dur_s1,,963,0,cv_mrr,0.0910677,,,
+cv,A-456,전체,p01_p99,dur_s1,,963,0,cv_time,0.0336868,,,
+cv,A-456,전체,p01_p99,dur_s1,,963,0,cv_removal,0.0808092,,,
+cv,A-456,전체,p01_p99,dur_s1,,963,0,cv_ratio_removal_to_mrr,0.887353,,,
+loglog,A-456,전체,p01_p99,dur_s1,,963,0,b,-1.38187,-1.53553,-1.22822,
+loglog,A-456,전체,p01_p99,dur_s1,,963,0,r2,0.244777,,,
+loglog_ctrl,A-456,전체,p01_p99,dur_s1,,963,0,b_ctrl,-0.62634,-0.769919,-0.482761,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체,p01_p99,dur_s1,,963,0,r2_ctrl_only,0.488298,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체,p01_p99,dur_s1,,963,0,r2_ctrl_full,0.524791,,,사후 추가 (결과를 본 뒤)
+resid_corr,A-456,전체,p01_p99,dur_s1,start_DRESSER_w,963,0,spearman_rank1,-0.38985,-0.442134,-0.334925,
+resid_corr,A-456,전체,p01_p99,dur_s1,since_DRESSER_w,846,0,spearman_rank2,-0.273452,-0.334685,-0.209918,
+resid_corr,A-456,전체,p01_p99,dur_s1,start_DRESSER_TABLE_w,963,0,spearman_rank3,0.264115,0.204352,0.321917,
+resid_corr,A-456,전체,p01_p99,dur_s1,since_MEMBRANE_w,930,0,spearman_rank4,0.148372,0.0848971,0.210648,
+resid_corr,A-456,전체,p01_p99,dur_s1,since_PSHEET_w,930,0,spearman_rank5,0.148351,0.0848756,0.210627,
+resid_corr,A-456,전체,p01_p99,dur_s1,since_BACKING_FILM_w,930,0,spearman_rank6,0.148335,0.0848592,0.210611,
+resid_corr,A-456,전체,p01_p99,dur_s1,start_BACKING_FILM_w,963,0,spearman_rank7,0.0592985,-0.00388941,0.122015,
+resid_corr,A-456,전체,p01_p99,dur_s1,start_MEMBRANE_w,963,0,spearman_rank8,0.0592985,-0.00388941,0.122015,
+resid_corr,A-456,전체,p01_p99,dur_s1,start_PSHEET_w,963,0,spearman_rank9,0.0592985,-0.00388941,0.122015,
+resid_corr,A-456,전체,p01_p99,dur_s1,delta_POLISH_TABLE_w,963,0,spearman_rank10,-0.0481953,-0.111031,0.0150238,
+corr,A-456,전체,none,n_press,,983,0,spearman,-0.288301,-0.344615,-0.229918,
+corr,A-456,전체,none,n_press,,983,0,pearson,-0.0539235,-0.116059,0.00863265,
+cv,A-456,전체,none,n_press,,983,0,median_time,300,,,
+cv,A-456,전체,none,n_press,,983,0,cv_mrr,0.091641,,,
+cv,A-456,전체,none,n_press,,983,0,cv_time,0.272284,,,
+cv,A-456,전체,none,n_press,,983,0,cv_removal,0.283455,,,
+cv,A-456,전체,none,n_press,,983,0,cv_ratio_removal_to_mrr,3.0931,,,
+loglog,A-456,전체,none,n_press,,983,0,b,-0.0148339,-0.034133,0.0044652,
+loglog,A-456,전체,none,n_press,,983,0,r2,0.00231382,,,
+loglog_ctrl,A-456,전체,none,n_press,,983,0,b_ctrl,0.000118238,-0.0138739,0.0141104,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체,none,n_press,,983,0,r2_ctrl_only,0.495656,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체,none,n_press,,983,0,r2_ctrl_full,0.495127,,,사후 추가 (결과를 본 뒤)
+resid_corr,A-456,전체,none,n_press,start_DRESSER_TABLE_w,983,0,spearman_rank1,0.463532,0.412974,0.511242,
+resid_corr,A-456,전체,none,n_press,start_DRESSER_w,983,0,spearman_rank2,-0.390483,-0.442213,-0.336164,
+resid_corr,A-456,전체,none,n_press,since_DRESSER_w,861,0,spearman_rank3,-0.237866,-0.299912,-0.173816,
+resid_corr,A-456,전체,none,n_press,delta_POLISH_TABLE_w,983,0,spearman_rank4,-0.118243,-0.179444,-0.0561313,
+resid_corr,A-456,전체,none,n_press,delta_BACKING_FILM_w,983,0,spearman_rank5,-0.110682,-0.172019,-0.0484905,
+resid_corr,A-456,전체,none,n_press,delta_PSHEET_w,983,0,spearman_rank6,-0.105297,-0.166726,-0.0430529,
+resid_corr,A-456,전체,none,n_press,delta_MEMBRANE_w,983,0,spearman_rank7,-0.0996233,-0.161147,-0.0373288,
+resid_corr,A-456,전체,none,n_press,since_MEMBRANE_w,948,0,spearman_rank8,0.0769247,0.0133186,0.139911,
+resid_corr,A-456,전체,none,n_press,since_PSHEET_w,948,0,spearman_rank9,0.0768972,0.0132909,0.139884,
+resid_corr,A-456,전체,none,n_press,since_BACKING_FILM_w,948,0,spearman_rank10,0.0768838,0.0132775,0.139871,
+corr,A-456,전체,p01_p99,n_press,,967,0,spearman,-0.279068,-0.336195,-0.219894,
+corr,A-456,전체,p01_p99,n_press,,967,0,pearson,-0.0427817,-0.10554,0.0203156,
+cv,A-456,전체,p01_p99,n_press,,967,0,median_time,300,,,
+cv,A-456,전체,p01_p99,n_press,,967,0,cv_mrr,0.0913432,,,
+cv,A-456,전체,p01_p99,n_press,,967,0,cv_time,0.265795,,,
+cv,A-456,전체,p01_p99,n_press,,967,0,cv_removal,0.278298,,,
+cv,A-456,전체,p01_p99,n_press,,967,0,cv_ratio_removal_to_mrr,3.04672,,,
+loglog,A-456,전체,p01_p99,n_press,,967,0,b,-0.0118896,-0.0315864,0.00780715,
+loglog,A-456,전체,p01_p99,n_press,,967,0,r2,0.00145202,,,
+loglog_ctrl,A-456,전체,p01_p99,n_press,,967,0,b_ctrl,0.00284465,-0.0114681,0.0171574,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체,p01_p99,n_press,,967,0,r2_ctrl_only,0.492646,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체,p01_p99,n_press,,967,0,r2_ctrl_full,0.492726,,,사후 추가 (결과를 본 뒤)
+resid_corr,A-456,전체,p01_p99,n_press,start_DRESSER_TABLE_w,967,0,spearman_rank1,0.455747,0.404322,0.504301,
+resid_corr,A-456,전체,p01_p99,n_press,start_DRESSER_w,967,0,spearman_rank2,-0.390877,-0.443003,-0.336117,
+resid_corr,A-456,전체,p01_p99,n_press,since_DRESSER_w,850,0,spearman_rank3,-0.241895,-0.304191,-0.177539,
+resid_corr,A-456,전체,p01_p99,n_press,delta_POLISH_TABLE_w,967,0,spearman_rank4,-0.114162,-0.175939,-0.0514906,
+resid_corr,A-456,전체,p01_p99,n_press,delta_BACKING_FILM_w,967,0,spearman_rank5,-0.110543,-0.172385,-0.0478344,
+resid_corr,A-456,전체,p01_p99,n_press,delta_PSHEET_w,967,0,spearman_rank6,-0.104583,-0.166527,-0.0418159,
+resid_corr,A-456,전체,p01_p99,n_press,delta_MEMBRANE_w,967,0,spearman_rank7,-0.0972134,-0.15928,-0.0343816,
+resid_corr,A-456,전체,p01_p99,n_press,since_MEMBRANE_w,936,0,spearman_rank8,0.0746747,0.0106473,0.138092,
+resid_corr,A-456,전체,p01_p99,n_press,since_PSHEET_w,936,0,spearman_rank9,0.0746464,0.0106187,0.138064,
+resid_corr,A-456,전체,p01_p99,n_press,since_BACKING_FILM_w,936,0,spearman_rank10,0.0746329,0.0106052,0.138051,
+corr,A-456,전체,none,dur_w,,983,0,spearman,-0.454673,-0.502902,-0.40362,
+corr,A-456,전체,none,dur_w,,983,0,pearson,-0.0211299,-0.0835466,0.0414519,
+cv,A-456,전체,none,dur_w,,983,0,median_time,359.333,,,
+cv,A-456,전체,none,dur_w,,983,0,cv_mrr,0.091641,,,
+cv,A-456,전체,none,dur_w,,983,0,cv_time,2.30832,,,
+cv,A-456,전체,none,dur_w,,983,0,cv_removal,2.21578,,,
+cv,A-456,전체,none,dur_w,,983,0,cv_ratio_removal_to_mrr,24.179,,,
+loglog,A-456,전체,none,dur_w,,983,0,b,-0.0350677,-0.0639957,-0.0061396,
+loglog,A-456,전체,none,dur_w,,983,0,r2,0.00573557,,,
+loglog_ctrl,A-456,전체,none,dur_w,,983,0,b_ctrl,-0.0210301,-0.0418806,-0.000179529,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체,none,dur_w,,983,0,r2_ctrl_only,0.495656,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체,none,dur_w,,983,0,r2_ctrl_full,0.497149,,,사후 추가 (결과를 본 뒤)
+resid_corr,A-456,전체,none,dur_w,start_DRESSER_TABLE_w,983,0,spearman_rank1,0.4684,0.418119,0.51582,
+resid_corr,A-456,전체,none,dur_w,start_DRESSER_w,983,0,spearman_rank2,-0.38835,-0.440188,-0.333932,
+resid_corr,A-456,전체,none,dur_w,since_DRESSER_w,861,0,spearman_rank3,-0.235214,-0.297353,-0.17109,
+resid_corr,A-456,전체,none,dur_w,delta_POLISH_TABLE_w,983,0,spearman_rank4,-0.15733,-0.217715,-0.0957448,
+resid_corr,A-456,전체,none,dur_w,delta_BACKING_FILM_w,983,0,spearman_rank5,-0.151195,-0.21172,-0.089514,
+resid_corr,A-456,전체,none,dur_w,delta_PSHEET_w,983,0,spearman_rank6,-0.145836,-0.20648,-0.0840755,
+resid_corr,A-456,전체,none,dur_w,delta_MEMBRANE_w,983,0,spearman_rank7,-0.137682,-0.1985,-0.0758075,
+resid_corr,A-456,전체,none,dur_w,since_MEMBRANE_w,948,0,spearman_rank8,0.0667847,0.00312656,0.129904,
+resid_corr,A-456,전체,none,dur_w,since_PSHEET_w,948,0,spearman_rank9,0.0667563,0.00309813,0.129876,
+resid_corr,A-456,전체,none,dur_w,since_BACKING_FILM_w,948,0,spearman_rank10,0.0667433,0.00308502,0.129863,
+corr,A-456,전체,p01_p99,dur_w,,965,0,spearman,-0.455376,-0.504,-0.403874,
+corr,A-456,전체,p01_p99,dur_w,,965,0,pearson,-0.0974285,-0.159555,-0.0345331,
+cv,A-456,전체,p01_p99,dur_w,,965,0,median_time,359.333,,,
+cv,A-456,전체,p01_p99,dur_w,,965,0,cv_mrr,0.0918002,,,
+cv,A-456,전체,p01_p99,dur_w,,965,0,cv_time,0.117326,,,
+cv,A-456,전체,p01_p99,dur_w,,965,0,cv_removal,0.140452,,,
+cv,A-456,전체,p01_p99,dur_w,,965,0,cv_ratio_removal_to_mrr,1.52997,,,
+loglog,A-456,전체,p01_p99,dur_w,,965,0,b,-0.146133,-0.218492,-0.0737742,
+loglog,A-456,전체,p01_p99,dur_w,,965,0,r2,0.016049,,,
+loglog_ctrl,A-456,전체,p01_p99,dur_w,,965,0,b_ctrl,-0.0769831,-0.129692,-0.0242738,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체,p01_p99,dur_w,,965,0,r2_ctrl_only,0.49381,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체,p01_p99,dur_w,,965,0,r2_ctrl_full,0.497533,,,사후 추가 (결과를 본 뒤)
+resid_corr,A-456,전체,p01_p99,dur_w,start_DRESSER_TABLE_w,965,0,spearman_rank1,0.463921,0.412902,0.512038,
+resid_corr,A-456,전체,p01_p99,dur_w,start_DRESSER_w,965,0,spearman_rank2,-0.380936,-0.43362,-0.325657,
+resid_corr,A-456,전체,p01_p99,dur_w,since_DRESSER_w,844,0,spearman_rank3,-0.223499,-0.286658,-0.158406,
+resid_corr,A-456,전체,p01_p99,dur_w,delta_POLISH_TABLE_w,965,0,spearman_rank4,-0.145693,-0.206898,-0.0833512,
+resid_corr,A-456,전체,p01_p99,dur_w,delta_BACKING_FILM_w,965,0,spearman_rank5,-0.143368,-0.204625,-0.0809934,
+resid_corr,A-456,전체,p01_p99,dur_w,delta_PSHEET_w,965,0,spearman_rank6,-0.137328,-0.198713,-0.0748687,
+resid_corr,A-456,전체,p01_p99,dur_w,delta_MEMBRANE_w,965,0,spearman_rank7,-0.128481,-0.190047,-0.0659072,
+resid_corr,A-456,전체,p01_p99,dur_w,since_MEMBRANE_w,931,0,spearman_rank8,0.0777471,0.0135645,0.141292,
+resid_corr,A-456,전체,p01_p99,dur_w,since_PSHEET_w,931,0,spearman_rank9,0.077724,0.0135413,0.141269,
+resid_corr,A-456,전체,p01_p99,dur_w,since_BACKING_FILM_w,931,0,spearman_rank10,0.0777164,0.0135337,0.141261,
+cv,A-456,전체(플래그 제외),none,,,982,0,cv_mrr,0.0916648,,,
+cv,A-456,전체(플래그 제외),none,,,982,0,mean_mrr,72.94,,,
+corr,A-456,전체(플래그 제외),none,dur_s1,,982,0,spearman,-0.498046,-0.543666,-0.449492,
+corr,A-456,전체(플래그 제외),none,dur_s1,,982,0,pearson,-0.186418,-0.246107,-0.125321,
+cv,A-456,전체(플래그 제외),none,dur_s1,,982,0,median_time,184,,,
+cv,A-456,전체(플래그 제외),none,dur_s1,,982,0,cv_mrr,0.0916648,,,
+cv,A-456,전체(플래그 제외),none,dur_s1,,982,0,cv_time,0.120812,,,
+cv,A-456,전체(플래그 제외),none,dur_s1,,982,0,cv_removal,0.129362,,,
+cv,A-456,전체(플래그 제외),none,dur_s1,,982,0,cv_ratio_removal_to_mrr,1.41125,,,
+loglog,A-456,전체(플래그 제외),none,dur_s1,,982,0,b,-0.405017,-0.488321,-0.321713,
+loglog,A-456,전체(플래그 제외),none,dur_s1,,982,0,r2,0.084993,,,
+loglog_ctrl,A-456,전체(플래그 제외),none,dur_s1,,982,0,b_ctrl,-0.140732,-0.205314,-0.0761507,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체(플래그 제외),none,dur_s1,,982,0,r2_ctrl_only,0.495761,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체(플래그 제외),none,dur_s1,,982,0,r2_ctrl_full,0.505062,,,사후 추가 (결과를 본 뒤)
+corr,A-456,전체(플래그 제외),p01_p99,dur_s1,,962,0,spearman,-0.493458,-0.539827,-0.444104,
+corr,A-456,전체(플래그 제외),p01_p99,dur_s1,,962,0,pearson,-0.500758,-0.546662,-0.451854,
+cv,A-456,전체(플래그 제외),p01_p99,dur_s1,,962,0,median_time,184,,,
+cv,A-456,전체(플래그 제외),p01_p99,dur_s1,,962,0,cv_mrr,0.0910918,,,
+cv,A-456,전체(플래그 제외),p01_p99,dur_s1,,962,0,cv_time,0.0337032,,,
+cv,A-456,전체(플래그 제외),p01_p99,dur_s1,,962,0,cv_removal,0.0808287,,,
+cv,A-456,전체(플래그 제외),p01_p99,dur_s1,,962,0,cv_ratio_removal_to_mrr,0.887332,,,
+loglog,A-456,전체(플래그 제외),p01_p99,dur_s1,,962,0,b,-1.38146,-1.53515,-1.22777,
+loglog,A-456,전체(플래그 제외),p01_p99,dur_s1,,962,0,r2,0.244777,,,
+loglog_ctrl,A-456,전체(플래그 제외),p01_p99,dur_s1,,962,0,b_ctrl,-0.625946,-0.769544,-0.482347,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체(플래그 제외),p01_p99,dur_s1,,962,0,r2_ctrl_only,0.488406,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체(플래그 제외),p01_p99,dur_s1,,962,0,r2_ctrl_full,0.524875,,,사후 추가 (결과를 본 뒤)
+corr,A-456,전체(플래그 제외),none,n_press,,982,0,spearman,-0.287331,-0.343711,-0.228886,
+corr,A-456,전체(플래그 제외),none,n_press,,982,0,pearson,-0.0528022,-0.114981,0.00978904,
+cv,A-456,전체(플래그 제외),none,n_press,,982,0,median_time,300,,,
+cv,A-456,전체(플래그 제외),none,n_press,,982,0,cv_mrr,0.0916648,,,
+cv,A-456,전체(플래그 제외),none,n_press,,982,0,cv_time,0.272011,,,
+cv,A-456,전체(플래그 제외),none,n_press,,982,0,cv_removal,0.283269,,,
+cv,A-456,전체(플래그 제외),none,n_press,,982,0,cv_ratio_removal_to_mrr,3.09027,,,
+loglog,A-456,전체(플래그 제외),none,n_press,,982,0,b,-0.0144928,-0.0338193,0.00483373,
+loglog,A-456,전체(플래그 제외),none,n_press,,982,0,r2,0.00220486,,,
+loglog_ctrl,A-456,전체(플래그 제외),none,n_press,,982,0,b_ctrl,0.000331357,-0.013672,0.0143347,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체(플래그 제외),none,n_press,,982,0,r2_ctrl_only,0.495761,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체(플래그 제외),none,n_press,,982,0,r2_ctrl_full,0.495762,,,사후 추가 (결과를 본 뒤)
+corr,A-456,전체(플래그 제외),p01_p99,n_press,,966,0,spearman,-0.278054,-0.335249,-0.218817,
+corr,A-456,전체(플래그 제외),p01_p99,n_press,,966,0,pearson,-0.0416132,-0.104414,0.0215184,
+cv,A-456,전체(플래그 제외),p01_p99,n_press,,966,0,median_time,300,,,
+cv,A-456,전체(플래그 제외),p01_p99,n_press,,966,0,cv_mrr,0.0913678,,,
+cv,A-456,전체(플래그 제외),p01_p99,n_press,,966,0,cv_time,0.265512,,,
+cv,A-456,전체(플래그 제외),p01_p99,n_press,,966,0,cv_removal,0.278104,,,
+cv,A-456,전체(플래그 제외),p01_p99,n_press,,966,0,cv_ratio_removal_to_mrr,3.04379,,,
+loglog,A-456,전체(플래그 제외),p01_p99,n_press,,966,0,b,-0.0115309,-0.0312566,0.00819484,
+loglog,A-456,전체(플래그 제외),p01_p99,n_press,,966,0,r2,0.00136326,,,
+loglog_ctrl,A-456,전체(플래그 제외),p01_p99,n_press,,966,0,b_ctrl,0.00317709,-0.0111551,0.0175093,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체(플래그 제외),p01_p99,n_press,,966,0,r2_ctrl_only,0.492742,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체(플래그 제외),p01_p99,n_press,,966,0,r2_ctrl_full,0.492842,,,사후 추가 (결과를 본 뒤)
+corr,A-456,전체(플래그 제외),none,dur_w,,982,0,spearman,-0.453985,-0.502278,-0.402867,
+corr,A-456,전체(플래그 제외),none,dur_w,,982,0,pearson,-0.0209448,-0.0833944,0.0416687,
+cv,A-456,전체(플래그 제외),none,dur_w,,982,0,median_time,359.333,,,
+cv,A-456,전체(플래그 제외),none,dur_w,,982,0,cv_mrr,0.0916648,,,
+cv,A-456,전체(플래그 제외),none,dur_w,,982,0,cv_time,2.30814,,,
+cv,A-456,전체(플래그 제외),none,dur_w,,982,0,cv_removal,2.2157,,,
+cv,A-456,전체(플래그 제외),none,dur_w,,982,0,cv_ratio_removal_to_mrr,24.1718,,,
+loglog,A-456,전체(플래그 제외),none,dur_w,,982,0,b,-0.0342055,-0.0633173,-0.00509373,
+loglog,A-456,전체(플래그 제외),none,dur_w,,982,0,r2,0.00539571,,,
+loglog_ctrl,A-456,전체(플래그 제외),none,dur_w,,982,0,b_ctrl,-0.0202013,-0.0411908,0.00078807,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체(플래그 제외),none,dur_w,,982,0,r2_ctrl_only,0.495761,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체(플래그 제외),none,dur_w,,982,0,r2_ctrl_full,0.497076,,,사후 추가 (결과를 본 뒤)
+corr,A-456,전체(플래그 제외),p01_p99,dur_w,,962,0,spearman,-0.46087,-0.509242,-0.409596,
+corr,A-456,전체(플래그 제외),p01_p99,dur_w,,962,0,pearson,-0.0986927,-0.160895,-0.0357093,
+cv,A-456,전체(플래그 제외),p01_p99,dur_w,,962,0,median_time,359.333,,,
+cv,A-456,전체(플래그 제외),p01_p99,dur_w,,962,0,cv_mrr,0.0917628,,,
+cv,A-456,전체(플래그 제외),p01_p99,dur_w,,962,0,cv_time,0.117412,,,
+cv,A-456,전체(플래그 제외),p01_p99,dur_w,,962,0,cv_removal,0.140396,,,
+cv,A-456,전체(플래그 제외),p01_p99,dur_w,,962,0,cv_ratio_removal_to_mrr,1.52999,,,
+loglog,A-456,전체(플래그 제외),p01_p99,dur_w,,962,0,b,-0.148094,-0.220493,-0.0756943,
+loglog,A-456,전체(플래그 제외),p01_p99,dur_w,,962,0,r2,0.016508,,,
+loglog_ctrl,A-456,전체(플래그 제외),p01_p99,dur_w,,962,0,b_ctrl,-0.0783857,-0.131124,-0.0256471,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체(플래그 제외),p01_p99,dur_w,,962,0,r2_ctrl_only,0.494054,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,전체(플래그 제외),p01_p99,dur_w,,962,0,r2_ctrl_full,0.49796,,,사후 추가 (결과를 본 뒤)
+cv,A-456,ch56_step=0 (짧은 무리),none,,,334,0,cv_mrr,0.0929606,,,
+cv,A-456,ch56_step=0 (짧은 무리),none,,,334,0,mean_mrr,72.9446,,,
+corr,A-456,ch56_step=0 (짧은 무리),none,dur_s1,,334,0,spearman,-0.561889,-0.631146,-0.483744,
+corr,A-456,ch56_step=0 (짧은 무리),none,dur_s1,,334,0,pearson,-0.181355,-0.283159,-0.0755101,
+cv,A-456,ch56_step=0 (짧은 무리),none,dur_s1,,334,0,median_time,183.5,,,
+cv,A-456,ch56_step=0 (짧은 무리),none,dur_s1,,334,0,cv_mrr,0.0929606,,,
+cv,A-456,ch56_step=0 (짧은 무리),none,dur_s1,,334,0,cv_time,0.194868,,,
+cv,A-456,ch56_step=0 (짧은 무리),none,dur_s1,,334,0,cv_removal,0.181663,,,
+cv,A-456,ch56_step=0 (짧은 무리),none,dur_s1,,334,0,cv_ratio_removal_to_mrr,1.9542,,,
+loglog,A-456,ch56_step=0 (짧은 무리),none,dur_s1,,334,0,b,-0.263357,-0.36372,-0.162993,
+loglog,A-456,ch56_step=0 (짧은 무리),none,dur_s1,,334,0,r2,0.0742921,,,
+loglog_ctrl,A-456,ch56_step=0 (짧은 무리),none,dur_s1,,334,0,b_ctrl,-0.0886122,-0.166169,-0.0110552,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=0 (짧은 무리),none,dur_s1,,334,0,r2_ctrl_only,0.50207,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=0 (짧은 무리),none,dur_s1,,334,0,r2_ctrl_full,0.509671,,,사후 추가 (결과를 본 뒤)
+corr,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,327,0,spearman,-0.556768,-0.627343,-0.477121,
+corr,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,327,0,pearson,-0.539325,-0.611986,-0.457636,
+cv,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,327,0,median_time,183.334,,,
+cv,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,327,0,cv_mrr,0.0927052,,,
+cv,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,327,0,cv_time,0.0346003,,,
+cv,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,327,0,cv_removal,0.080698,,,
+cv,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,327,0,cv_ratio_removal_to_mrr,0.870481,,,
+loglog,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,327,0,b,-1.46973,-1.72525,-1.21421,
+loglog,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,327,0,r2,0.282634,,,
+loglog_ctrl,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,327,0,b_ctrl,-0.625427,-0.879209,-0.371645,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,327,0,r2_ctrl_only,0.501351,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,327,0,r2_ctrl_full,0.535675,,,사후 추가 (결과를 본 뒤)
+corr,A-456,ch56_step=0 (짧은 무리),none,n_press,,334,0,spearman,-0.461776,-0.542221,-0.372943,
+corr,A-456,ch56_step=0 (짧은 무리),none,n_press,,334,0,pearson,-0.136624,-0.240414,-0.0297456,
+cv,A-456,ch56_step=0 (짧은 무리),none,n_press,,334,0,median_time,156,,,
+cv,A-456,ch56_step=0 (짧은 무리),none,n_press,,334,0,cv_mrr,0.0929606,,,
+cv,A-456,ch56_step=0 (짧은 무리),none,n_press,,334,0,cv_time,0.11916,,,
+cv,A-456,ch56_step=0 (짧은 무리),none,n_press,,334,0,cv_removal,0.143812,,,
+cv,A-456,ch56_step=0 (짧은 무리),none,n_press,,334,0,cv_ratio_removal_to_mrr,1.54702,,,
+loglog,A-456,ch56_step=0 (짧은 무리),none,n_press,,334,0,b,-0.147285,-0.243028,-0.051541,
+loglog,A-456,ch56_step=0 (짧은 무리),none,n_press,,334,0,r2,0.0268416,,,
+loglog_ctrl,A-456,ch56_step=0 (짧은 무리),none,n_press,,334,0,b_ctrl,-0.0677206,-0.138077,0.00263588,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=0 (짧은 무리),none,n_press,,334,0,r2_ctrl_only,0.50207,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=0 (짧은 무리),none,n_press,,334,0,r2_ctrl_full,0.507498,,,사후 추가 (결과를 본 뒤)
+corr,A-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,326,0,spearman,-0.480267,-0.559694,-0.392098,
+corr,A-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,326,0,pearson,-0.155827,-0.26005,-0.0480147,
+cv,A-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,326,0,median_time,156,,,
+cv,A-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,326,0,cv_mrr,0.0930525,,,
+cv,A-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,326,0,cv_time,0.107203,,,
+cv,A-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,326,0,cv_removal,0.13345,,,
+cv,A-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,326,0,cv_ratio_removal_to_mrr,1.43414,,,
+loglog,A-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,326,0,b,-0.184022,-0.291303,-0.0767404,
+loglog,A-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,326,0,r2,0.0339539,,,
+loglog_ctrl,A-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,326,0,b_ctrl,-0.0868499,-0.167171,-0.00652921,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,326,0,r2_ctrl_only,0.499183,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,326,0,r2_ctrl_full,0.506207,,,사후 추가 (결과를 본 뒤)
+corr,A-456,ch56_step=0 (짧은 무리),none,dur_w,,334,0,spearman,-0.497376,-0.57405,-0.412055,
+corr,A-456,ch56_step=0 (짧은 무리),none,dur_w,,334,0,pearson,-0.0311841,-0.138037,0.0763861,
+cv,A-456,ch56_step=0 (짧은 무리),none,dur_w,,334,0,median_time,358,,,
+cv,A-456,ch56_step=0 (짧은 무리),none,dur_w,,334,0,cv_mrr,0.0929606,,,
+cv,A-456,ch56_step=0 (짧은 무리),none,dur_w,,334,0,cv_time,3.3926,,,
+cv,A-456,ch56_step=0 (짧은 무리),none,dur_w,,334,0,cv_removal,3.27193,,,
+cv,A-456,ch56_step=0 (짧은 무리),none,dur_w,,334,0,cv_ratio_removal_to_mrr,35.1969,,,
+loglog,A-456,ch56_step=0 (짧은 무리),none,dur_w,,334,0,b,-0.0254602,-0.0586554,0.00773508,
+loglog,A-456,ch56_step=0 (짧은 무리),none,dur_w,,334,0,r2,0.00680979,,,
+loglog_ctrl,A-456,ch56_step=0 (짧은 무리),none,dur_w,,334,0,b_ctrl,-0.017713,-0.0419024,0.00647643,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=0 (짧은 무리),none,dur_w,,334,0,r2_ctrl_only,0.50207,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=0 (짧은 무리),none,dur_w,,334,0,r2_ctrl_full,0.505227,,,사후 추가 (결과를 본 뒤)
+corr,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,326,0,spearman,-0.521242,-0.596115,-0.437382,
+corr,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,326,0,pearson,-0.121883,-0.227496,-0.013436,
+cv,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,326,0,median_time,358,,,
+cv,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,326,0,cv_mrr,0.0928307,,,
+cv,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,326,0,cv_time,0.224418,,,
+cv,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,326,0,cv_removal,0.224527,,,
+cv,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,326,0,cv_ratio_removal_to_mrr,2.41867,,,
+loglog,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,326,0,b,-0.0991609,-0.172257,-0.026065,
+loglog,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,326,0,r2,0.0215106,,,
+loglog_ctrl,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,326,0,b_ctrl,-0.0431725,-0.0972889,0.0109439,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,326,0,r2_ctrl_only,0.503172,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,326,0,r2_ctrl_full,0.506998,,,사후 추가 (결과를 본 뒤)
+cv,A-456,ch56_step=1 (긴 무리),none,,,649,0,cv_mrr,0.0910267,,,
+cv,A-456,ch56_step=1 (긴 무리),none,,,649,0,mean_mrr,72.9458,,,
+corr,A-456,ch56_step=1 (긴 무리),none,dur_s1,,649,0,spearman,-0.461485,-0.519979,-0.398684,
+corr,A-456,ch56_step=1 (긴 무리),none,dur_s1,,649,0,pearson,-0.323346,-0.390587,-0.252672,
+cv,A-456,ch56_step=1 (긴 무리),none,dur_s1,,649,0,median_time,184,,,
+cv,A-456,ch56_step=1 (긴 무리),none,dur_s1,,649,0,cv_mrr,0.0910267,,,
+cv,A-456,ch56_step=1 (긴 무리),none,dur_s1,,649,0,cv_time,0.0486986,,,
+cv,A-456,ch56_step=1 (긴 무리),none,dur_s1,,649,0,cv_removal,0.0909117,,,
+cv,A-456,ch56_step=1 (긴 무리),none,dur_s1,,649,0,cv_ratio_removal_to_mrr,0.998737,,,
+loglog,A-456,ch56_step=1 (긴 무리),none,dur_s1,,649,0,b,-0.768583,-0.920984,-0.616182,
+loglog,A-456,ch56_step=1 (긴 무리),none,dur_s1,,649,0,r2,0.131623,,,
+loglog_ctrl,A-456,ch56_step=1 (긴 무리),none,dur_s1,,649,0,b_ctrl,-0.306681,-0.430826,-0.182535,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=1 (긴 무리),none,dur_s1,,649,0,r2_ctrl_only,0.497958,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=1 (긴 무리),none,dur_s1,,649,0,r2_ctrl_full,0.51576,,,사후 추가 (결과를 본 뒤)
+corr,A-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,635,0,spearman,-0.455724,-0.51526,-0.391812,
+corr,A-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,635,0,pearson,-0.479793,-0.537532,-0.417576,
+cv,A-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,635,0,median_time,184,,,
+cv,A-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,635,0,cv_mrr,0.0902166,,,
+cv,A-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,635,0,cv_time,0.0330197,,,
+cv,A-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,635,0,cv_removal,0.0808884,,,
+cv,A-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,635,0,cv_ratio_removal_to_mrr,0.896602,,,
+loglog,A-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,635,0,b,-1.34123,-1.53532,-1.14714,
+loglog,A-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,635,0,r2,0.225346,,,
+loglog_ctrl,A-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,635,0,b_ctrl,-0.639669,-0.815321,-0.464018,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,635,0,r2_ctrl_only,0.487585,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,635,0,r2_ctrl_full,0.526243,,,사후 추가 (결과를 본 뒤)
+corr,A-456,ch56_step=1 (긴 무리),none,n_press,,649,0,spearman,-0.541541,-0.593755,-0.484784,
+corr,A-456,ch56_step=1 (긴 무리),none,n_press,,649,0,pearson,-0.24083,-0.312008,-0.166963,
+cv,A-456,ch56_step=1 (긴 무리),none,n_press,,649,0,median_time,305,,,
+cv,A-456,ch56_step=1 (긴 무리),none,n_press,,649,0,cv_mrr,0.0910267,,,
+cv,A-456,ch56_step=1 (긴 무리),none,n_press,,649,0,cv_time,0.0594626,,,
+cv,A-456,ch56_step=1 (긴 무리),none,n_press,,649,0,cv_removal,0.0959452,,,
+cv,A-456,ch56_step=1 (긴 무리),none,n_press,,649,0,cv_ratio_removal_to_mrr,1.05403,,,
+loglog,A-456,ch56_step=1 (긴 무리),none,n_press,,649,0,b,-0.526137,-0.666777,-0.385496,
+loglog,A-456,ch56_step=1 (긴 무리),none,n_press,,649,0,r2,0.0769847,,,
+loglog_ctrl,A-456,ch56_step=1 (긴 무리),none,n_press,,649,0,b_ctrl,-0.261549,-0.369265,-0.153833,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=1 (긴 무리),none,n_press,,649,0,r2_ctrl_only,0.497958,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=1 (긴 무리),none,n_press,,649,0,r2_ctrl_full,0.515179,,,사후 추가 (결과를 본 뒤)
+corr,A-456,ch56_step=1 (긴 무리),p01_p99,n_press,,636,0,spearman,-0.549244,-0.601312,-0.492531,
+corr,A-456,ch56_step=1 (긴 무리),p01_p99,n_press,,636,0,pearson,-0.449941,-0.50985,-0.385688,
+cv,A-456,ch56_step=1 (긴 무리),p01_p99,n_press,,636,0,median_time,305,,,
+cv,A-456,ch56_step=1 (긴 무리),p01_p99,n_press,,636,0,cv_mrr,0.0906777,,,
+cv,A-456,ch56_step=1 (긴 무리),p01_p99,n_press,,636,0,cv_time,0.0306,,,
+cv,A-456,ch56_step=1 (긴 무리),p01_p99,n_press,,636,0,cv_removal,0.0823519,,,
+cv,A-456,ch56_step=1 (긴 무리),p01_p99,n_press,,636,0,cv_ratio_removal_to_mrr,0.908182,,,
+loglog,A-456,ch56_step=1 (긴 무리),p01_p99,n_press,,636,0,b,-1.30842,-1.52027,-1.09658,
+loglog,A-456,ch56_step=1 (긴 무리),p01_p99,n_press,,636,0,r2,0.188325,,,
+loglog_ctrl,A-456,ch56_step=1 (긴 무리),p01_p99,n_press,,636,0,b_ctrl,-0.53021,-0.71763,-0.34279,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=1 (긴 무리),p01_p99,n_press,,636,0,r2_ctrl_only,0.500665,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=1 (긴 무리),p01_p99,n_press,,636,0,r2_ctrl_full,0.52408,,,사후 추가 (결과를 본 뒤)
+corr,A-456,ch56_step=1 (긴 무리),none,dur_w,,649,0,spearman,-0.436612,-0.496877,-0.372156,
+corr,A-456,ch56_step=1 (긴 무리),none,dur_w,,649,0,pearson,-0.0458568,-0.122386,0.0312146,
+cv,A-456,ch56_step=1 (긴 무리),none,dur_w,,649,0,median_time,360,,,
+cv,A-456,ch56_step=1 (긴 무리),none,dur_w,,649,0,cv_mrr,0.0910267,,,
+cv,A-456,ch56_step=1 (긴 무리),none,dur_w,,649,0,cv_time,0.233206,,,
+cv,A-456,ch56_step=1 (긴 무리),none,dur_w,,649,0,cv_removal,0.248574,,,
+cv,A-456,ch56_step=1 (긴 무리),none,dur_w,,649,0,cv_ratio_removal_to_mrr,2.73079,,,
+loglog,A-456,ch56_step=1 (긴 무리),none,dur_w,,649,0,b,-0.0710383,-0.133414,-0.00866291,
+loglog,A-456,ch56_step=1 (긴 무리),none,dur_w,,649,0,r2,0.00767066,,,
+loglog_ctrl,A-456,ch56_step=1 (긴 무리),none,dur_w,,649,0,b_ctrl,-0.0417446,-0.0865991,0.00310985,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=1 (긴 무리),none,dur_w,,649,0,r2_ctrl_only,0.497958,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=1 (긴 무리),none,dur_w,,649,0,r2_ctrl_full,0.500565,,,사후 추가 (결과를 본 뒤)
+corr,A-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,635,0,spearman,-0.437817,-0.498637,-0.372708,
+corr,A-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,635,0,pearson,-0.181362,-0.255561,-0.105038,
+cv,A-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,635,0,median_time,360,,,
+cv,A-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,635,0,cv_mrr,0.0915753,,,
+cv,A-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,635,0,cv_time,0.0439446,,,
+cv,A-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,635,0,cv_removal,0.0955086,,,
+cv,A-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,635,0,cv_ratio_removal_to_mrr,1.04295,,,
+loglog,A-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,635,0,b,-0.580087,-0.777004,-0.38317,
+loglog,A-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,635,0,r2,0.0502112,,,
+loglog_ctrl,A-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,635,0,b_ctrl,-0.185661,-0.333623,-0.0376991,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,635,0,r2_ctrl_only,0.500105,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,635,0,r2_ctrl_full,0.504905,,,사후 추가 (결과를 본 뒤)
+cv,B-456,전체,none,,,987,0,cv_mrr,0.115282,,,
+cv,B-456,전체,none,,,987,0,mean_mrr,79.9122,,,
+corr,B-456,전체,none,dur_s1,,987,0,spearman,-0.75089,-0.776889,-0.722336,
+corr,B-456,전체,none,dur_s1,,987,0,pearson,-0.0613294,-0.123258,0.00107493,
+cv,B-456,전체,none,dur_s1,,987,0,median_time,188,,,
+cv,B-456,전체,none,dur_s1,,987,0,cv_mrr,0.115282,,,
+cv,B-456,전체,none,dur_s1,,987,0,cv_time,0.83734,,,
+cv,B-456,전체,none,dur_s1,,987,0,cv_removal,0.774054,,,
+cv,B-456,전체,none,dur_s1,,987,0,cv_ratio_removal_to_mrr,6.71443,,,
+loglog,B-456,전체,none,dur_s1,,987,0,b,-0.236381,-0.289624,-0.183138,
+loglog,B-456,전체,none,dur_s1,,987,0,r2,0.071546,,,
+loglog_ctrl,B-456,전체,none,dur_s1,,987,0,b_ctrl,-0.122833,-0.158531,-0.0871342,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체,none,dur_s1,,987,0,r2_ctrl_only,0.583652,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체,none,dur_s1,,987,0,r2_ctrl_full,0.600857,,,사후 추가 (결과를 본 뒤)
+resid_corr,B-456,전체,none,dur_s1,start_DRESSER_TABLE_w,987,0,spearman_rank1,0.602041,0.560706,0.640384,
+resid_corr,B-456,전체,none,dur_s1,start_DRESSER_w,987,0,spearman_rank2,-0.310046,-0.365377,-0.252531,
+resid_corr,B-456,전체,none,dur_s1,delta_PSHEET_w,987,0,spearman_rank3,-0.246025,-0.303762,-0.186488,
+resid_corr,B-456,전체,none,dur_s1,delta_BACKING_FILM_w,987,0,spearman_rank4,-0.24096,-0.298866,-0.181285,
+resid_corr,B-456,전체,none,dur_s1,delta_MEMBRANE_w,987,0,spearman_rank5,-0.23675,-0.294795,-0.176964,
+resid_corr,B-456,전체,none,dur_s1,delta_POLISH_TABLE_w,987,0,spearman_rank6,-0.231268,-0.289491,-0.171341,
+resid_corr,B-456,전체,none,dur_s1,since_DRESSER_w,874,0,spearman_rank7,-0.127358,-0.192049,-0.0615644,
+resid_corr,B-456,전체,none,dur_s1,start_POLISH_TABLE_w,987,0,spearman_rank8,-0.0948799,-0.156354,-0.0326732,
+resid_corr,B-456,전체,none,dur_s1,start_BACKING_FILM_w,987,0,spearman_rank9,-0.0793542,-0.141056,-0.0170384,
+resid_corr,B-456,전체,none,dur_s1,start_MEMBRANE_w,987,0,spearman_rank10,-0.0793542,-0.141056,-0.0170384,
+corr,B-456,전체,p01_p99,dur_s1,,969,0,spearman,-0.757933,-0.783511,-0.72979,
+corr,B-456,전체,p01_p99,dur_s1,,969,0,pearson,-0.779391,-0.802956,-0.753393,
+cv,B-456,전체,p01_p99,dur_s1,,969,0,median_time,188,,,
+cv,B-456,전체,p01_p99,dur_s1,,969,0,cv_mrr,0.114451,,,
+cv,B-456,전체,p01_p99,dur_s1,,969,0,cv_time,0.042883,,,
+cv,B-456,전체,p01_p99,dur_s1,,969,0,cv_removal,0.0882211,,,
+cv,B-456,전체,p01_p99,dur_s1,,969,0,cv_ratio_removal_to_mrr,0.77082,,,
+loglog,B-456,전체,p01_p99,dur_s1,,969,0,b,-2.18745,-2.29843,-2.07648,
+loglog,B-456,전체,p01_p99,dur_s1,,969,0,r2,0.607433,,,
+loglog_ctrl,B-456,전체,p01_p99,dur_s1,,969,0,b_ctrl,-1.42083,-1.54411,-1.29756,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체,p01_p99,dur_s1,,969,0,r2_ctrl_only,0.585103,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체,p01_p99,dur_s1,,969,0,r2_ctrl_full,0.728633,,,사후 추가 (결과를 본 뒤)
+resid_corr,B-456,전체,p01_p99,dur_s1,start_DRESSER_w,969,0,spearman_rank1,-0.312753,-0.368472,-0.254794,
+resid_corr,B-456,전체,p01_p99,dur_s1,start_DRESSER_TABLE_w,969,0,spearman_rank2,0.252787,0.192881,0.310816,
+resid_corr,B-456,전체,p01_p99,dur_s1,since_DRESSER_w,859,0,spearman_rank3,-0.206736,-0.269894,-0.141807,
+resid_corr,B-456,전체,p01_p99,dur_s1,start_POLISH_TABLE_w,969,0,spearman_rank4,-0.136358,-0.197638,-0.0740163,
+resid_corr,B-456,전체,p01_p99,dur_s1,since_POLISH_TABLE_w,965,0,spearman_rank5,-0.112071,-0.173949,-0.0493122,리셋 누락 오류 열 (CLAUDE.md 5.5)
+resid_corr,B-456,전체,p01_p99,dur_s1,delta_PSHEET_w,969,0,spearman_rank6,-0.0764127,-0.138723,-0.0135003,
+resid_corr,B-456,전체,p01_p99,dur_s1,delta_BACKING_FILM_w,969,0,spearman_rank7,-0.0736853,-0.136031,-0.0107579,
+resid_corr,B-456,전체,p01_p99,dur_s1,delta_MEMBRANE_w,969,0,spearman_rank8,-0.0705303,-0.132917,-0.00758662,
+resid_corr,B-456,전체,p01_p99,dur_s1,delta_POLISH_TABLE_w,969,0,spearman_rank9,-0.0578976,-0.120436,0.00509831,
+resid_corr,B-456,전체,p01_p99,dur_s1,delta_DRESSER_w,969,0,spearman_rank10,-0.0537829,-0.116366,0.00922571,
+corr,B-456,전체,none,n_press,,987,0,spearman,-0.392229,-0.443768,-0.338104,
+corr,B-456,전체,none,n_press,,987,0,pearson,-0.098981,-0.160391,-0.0368081,
+cv,B-456,전체,none,n_press,,987,0,median_time,305,,,
+cv,B-456,전체,none,n_press,,987,0,cv_mrr,0.115282,,,
+cv,B-456,전체,none,n_press,,987,0,cv_time,0.367857,,,
+cv,B-456,전체,none,n_press,,987,0,cv_removal,0.360027,,,
+cv,B-456,전체,none,n_press,,987,0,cv_ratio_removal_to_mrr,3.12301,,,
+loglog,B-456,전체,none,n_press,,987,0,b,-0.0408972,-0.0650263,-0.0167682,
+loglog,B-456,전체,none,n_press,,987,0,r2,0.0111067,,,
+loglog_ctrl,B-456,전체,none,n_press,,987,0,b_ctrl,-0.0156136,-0.0316049,0.000377699,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체,none,n_press,,987,0,r2_ctrl_only,0.583652,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체,none,n_press,,987,0,r2_ctrl_full,0.583812,,,사후 추가 (결과를 본 뒤)
+resid_corr,B-456,전체,none,n_press,start_DRESSER_TABLE_w,987,0,spearman_rank1,0.601536,0.560162,0.639916,
+resid_corr,B-456,전체,none,n_press,start_DRESSER_w,987,0,spearman_rank2,-0.309353,-0.364713,-0.251814,
+resid_corr,B-456,전체,none,n_press,delta_PSHEET_w,987,0,spearman_rank3,-0.173838,-0.233703,-0.11266,
+resid_corr,B-456,전체,none,n_press,delta_BACKING_FILM_w,987,0,spearman_rank4,-0.169416,-0.229391,-0.108159,
+resid_corr,B-456,전체,none,n_press,delta_MEMBRANE_w,987,0,spearman_rank5,-0.168186,-0.228191,-0.106907,
+resid_corr,B-456,전체,none,n_press,delta_POLISH_TABLE_w,987,0,spearman_rank6,-0.164078,-0.224182,-0.102729,
+resid_corr,B-456,전체,none,n_press,since_DRESSER_w,874,0,spearman_rank7,-0.128432,-0.1931,-0.0626518,
+resid_corr,B-456,전체,none,n_press,start_POLISH_TABLE_w,987,0,spearman_rank8,-0.0948863,-0.156361,-0.0326796,
+resid_corr,B-456,전체,none,n_press,start_BACKING_FILM_w,987,0,spearman_rank9,-0.0851093,-0.14673,-0.0228304,
+resid_corr,B-456,전체,none,n_press,start_MEMBRANE_w,987,0,spearman_rank10,-0.0851093,-0.14673,-0.0228304,
+corr,B-456,전체,p01_p99,n_press,,971,0,spearman,-0.378729,-0.431363,-0.323525,
+corr,B-456,전체,p01_p99,n_press,,971,0,pearson,-0.0901156,-0.152165,-0.0273583,
+cv,B-456,전체,p01_p99,n_press,,971,0,median_time,305,,,
+cv,B-456,전체,p01_p99,n_press,,971,0,cv_mrr,0.114607,,,
+cv,B-456,전체,p01_p99,n_press,,971,0,cv_time,0.242084,,,
+cv,B-456,전체,p01_p99,n_press,,971,0,cv_removal,0.26024,,,
+cv,B-456,전체,p01_p99,n_press,,971,0,cv_ratio_removal_to_mrr,2.27072,,,
+loglog,B-456,전체,p01_p99,n_press,,971,0,b,-0.0334984,-0.0600071,-0.00698965,
+loglog,B-456,전체,p01_p99,n_press,,971,0,r2,0.00630638,,,
+loglog_ctrl,B-456,전체,p01_p99,n_press,,971,0,b_ctrl,-0.00942845,-0.0269108,0.00805391,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체,p01_p99,n_press,,971,0,r2_ctrl_only,0.585268,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체,p01_p99,n_press,,971,0,r2_ctrl_full,0.584299,,,사후 추가 (결과를 본 뒤)
+resid_corr,B-456,전체,p01_p99,n_press,start_DRESSER_TABLE_w,971,0,spearman_rank1,0.604883,0.563411,0.643315,
+resid_corr,B-456,전체,p01_p99,n_press,start_DRESSER_w,971,0,spearman_rank2,-0.299598,-0.355804,-0.241232,
+resid_corr,B-456,전체,p01_p99,n_press,delta_PSHEET_w,971,0,spearman_rank3,-0.175688,-0.235992,-0.114036,
+resid_corr,B-456,전체,p01_p99,n_press,delta_BACKING_FILM_w,971,0,spearman_rank4,-0.171631,-0.232038,-0.109906,
+resid_corr,B-456,전체,p01_p99,n_press,delta_MEMBRANE_w,971,0,spearman_rank5,-0.170022,-0.230469,-0.108268,
+resid_corr,B-456,전체,p01_p99,n_press,delta_POLISH_TABLE_w,971,0,spearman_rank6,-0.166261,-0.226802,-0.104441,
+resid_corr,B-456,전체,p01_p99,n_press,since_DRESSER_w,863,0,spearman_rank7,-0.121899,-0.187112,-0.0556163,
+resid_corr,B-456,전체,p01_p99,n_press,start_POLISH_TABLE_w,971,0,spearman_rank8,-0.0922553,-0.154272,-0.0295142,
+resid_corr,B-456,전체,p01_p99,n_press,start_BACKING_FILM_w,971,0,spearman_rank9,-0.0902074,-0.152256,-0.0274508,
+resid_corr,B-456,전체,p01_p99,n_press,start_MEMBRANE_w,971,0,spearman_rank10,-0.0902074,-0.152256,-0.0274508,
+corr,B-456,전체,none,dur_w,,987,0,spearman,-0.682007,-0.71402,-0.647148,
+corr,B-456,전체,none,dur_w,,987,0,pearson,-0.0369583,-0.0991299,0.0255007,
+cv,B-456,전체,none,dur_w,,987,0,median_time,364,,,
+cv,B-456,전체,none,dur_w,,987,0,cv_mrr,0.115282,,,
+cv,B-456,전체,none,dur_w,,987,0,cv_time,0.702515,,,
+cv,B-456,전체,none,dur_w,,987,0,cv_removal,0.678701,,,
+cv,B-456,전체,none,dur_w,,987,0,cv_ratio_removal_to_mrr,5.8873,,,
+loglog,B-456,전체,none,dur_w,,987,0,b,-0.0559099,-0.0941331,-0.0176867,
+loglog,B-456,전체,none,dur_w,,987,0,r2,0.00829535,,,
+loglog_ctrl,B-456,전체,none,dur_w,,987,0,b_ctrl,-0.0299672,-0.0549566,-0.0049778,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체,none,dur_w,,987,0,r2_ctrl_only,0.583652,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체,none,dur_w,,987,0,r2_ctrl_full,0.584602,,,사후 추가 (결과를 본 뒤)
+resid_corr,B-456,전체,none,dur_w,start_DRESSER_TABLE_w,987,0,spearman_rank1,0.613203,0.572717,0.650704,
+resid_corr,B-456,전체,none,dur_w,start_DRESSER_w,987,0,spearman_rank2,-0.301698,-0.357371,-0.24389,
+resid_corr,B-456,전체,none,dur_w,delta_PSHEET_w,987,0,spearman_rank3,-0.246835,-0.304545,-0.18732,
+resid_corr,B-456,전체,none,dur_w,delta_BACKING_FILM_w,987,0,spearman_rank4,-0.241683,-0.299566,-0.182028,
+resid_corr,B-456,전체,none,dur_w,delta_MEMBRANE_w,987,0,spearman_rank5,-0.237368,-0.295393,-0.177598,
+resid_corr,B-456,전체,none,dur_w,delta_POLISH_TABLE_w,987,0,spearman_rank6,-0.234046,-0.292179,-0.17419,
+resid_corr,B-456,전체,none,dur_w,since_DRESSER_w,874,0,spearman_rank7,-0.116539,-0.18145,-0.0506172,
+resid_corr,B-456,전체,none,dur_w,start_POLISH_TABLE_w,987,0,spearman_rank8,-0.0961381,-0.157593,-0.0339415,
+resid_corr,B-456,전체,none,dur_w,start_BACKING_FILM_w,987,0,spearman_rank9,-0.082494,-0.144152,-0.0201978,
+resid_corr,B-456,전체,none,dur_w,start_MEMBRANE_w,987,0,spearman_rank10,-0.082494,-0.144152,-0.0201978,
+corr,B-456,전체,p01_p99,dur_w,,967,0,spearman,-0.694657,-0.72591,-0.660542,
+corr,B-456,전체,p01_p99,dur_w,,967,0,pearson,-0.192322,-0.252306,-0.130866,
+cv,B-456,전체,p01_p99,dur_w,,967,0,median_time,364,,,
+cv,B-456,전체,p01_p99,dur_w,,967,0,cv_mrr,0.115572,,,
+cv,B-456,전체,p01_p99,dur_w,,967,0,cv_time,0.0912001,,,
+cv,B-456,전체,p01_p99,dur_w,,967,0,cv_removal,0.13485,,,
+cv,B-456,전체,p01_p99,dur_w,,967,0,cv_ratio_removal_to_mrr,1.1668,,,
+loglog,B-456,전체,p01_p99,dur_w,,967,0,b,-0.476235,-0.586139,-0.36633,
+loglog,B-456,전체,p01_p99,dur_w,,967,0,r2,0.0697092,,,
+loglog_ctrl,B-456,전체,p01_p99,dur_w,,967,0,b_ctrl,-0.138511,-0.214425,-0.0625982,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체,p01_p99,dur_w,,967,0,r2_ctrl_only,0.588929,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체,p01_p99,dur_w,,967,0,r2_ctrl_full,0.593004,,,사후 추가 (결과를 본 뒤)
+resid_corr,B-456,전체,p01_p99,dur_w,start_DRESSER_TABLE_w,967,0,spearman_rank1,0.584188,0.541073,0.624241,
+resid_corr,B-456,전체,p01_p99,dur_w,start_DRESSER_w,967,0,spearman_rank2,-0.299019,-0.355363,-0.240511,
+resid_corr,B-456,전체,p01_p99,dur_w,delta_PSHEET_w,967,0,spearman_rank3,-0.223541,-0.282601,-0.162793,
+resid_corr,B-456,전체,p01_p99,dur_w,delta_BACKING_FILM_w,967,0,spearman_rank4,-0.218898,-0.278103,-0.158036,
+resid_corr,B-456,전체,p01_p99,dur_w,delta_MEMBRANE_w,967,0,spearman_rank5,-0.214567,-0.273905,-0.153603,
+resid_corr,B-456,전체,p01_p99,dur_w,delta_POLISH_TABLE_w,967,0,spearman_rank6,-0.212064,-0.271477,-0.151041,
+resid_corr,B-456,전체,p01_p99,dur_w,since_DRESSER_w,854,0,spearman_rank7,-0.127174,-0.192617,-0.0606057,
+resid_corr,B-456,전체,p01_p99,dur_w,start_BACKING_FILM_w,967,0,spearman_rank8,-0.103238,-0.165205,-0.0404586,
+resid_corr,B-456,전체,p01_p99,dur_w,start_MEMBRANE_w,967,0,spearman_rank9,-0.103238,-0.165205,-0.0404586,
+resid_corr,B-456,전체,p01_p99,dur_w,start_PSHEET_w,967,0,spearman_rank10,-0.103238,-0.165205,-0.0404586,
+cv,B-456,전체(플래그 제외),none,,,983,0,cv_mrr,0.115369,,,
+cv,B-456,전체(플래그 제외),none,,,983,0,mean_mrr,79.9113,,,
+corr,B-456,전체(플래그 제외),none,dur_s1,,983,0,spearman,-0.753526,-0.779334,-0.725165,
+corr,B-456,전체(플래그 제외),none,dur_s1,,983,0,pearson,-0.347815,-0.401608,-0.29163,
+cv,B-456,전체(플래그 제외),none,dur_s1,,983,0,median_time,188,,,
+cv,B-456,전체(플래그 제외),none,dur_s1,,983,0,cv_mrr,0.115369,,,
+cv,B-456,전체(플래그 제외),none,dur_s1,,983,0,cv_time,0.0944461,,,
+cv,B-456,전체(플래그 제외),none,dur_s1,,983,0,cv_removal,0.128496,,,
+cv,B-456,전체(플래그 제외),none,dur_s1,,983,0,cv_ratio_removal_to_mrr,1.11378,,,
+loglog,B-456,전체(플래그 제외),none,dur_s1,,983,0,b,-0.560678,-0.641338,-0.480017,
+loglog,B-456,전체(플래그 제외),none,dur_s1,,983,0,r2,0.159433,,,
+loglog_ctrl,B-456,전체(플래그 제외),none,dur_s1,,983,0,b_ctrl,-0.257939,-0.315588,-0.20029,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체(플래그 제외),none,dur_s1,,983,0,r2_ctrl_only,0.588007,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체(플래그 제외),none,dur_s1,,983,0,r2_ctrl_full,0.616814,,,사후 추가 (결과를 본 뒤)
+corr,B-456,전체(플래그 제외),p01_p99,dur_s1,,965,0,spearman,-0.760202,-0.78562,-0.732222,
+corr,B-456,전체(플래그 제외),p01_p99,dur_s1,,965,0,pearson,-0.779701,-0.803283,-0.753678,
+cv,B-456,전체(플래그 제외),p01_p99,dur_s1,,965,0,median_time,188,,,
+cv,B-456,전체(플래그 제외),p01_p99,dur_s1,,965,0,cv_mrr,0.114236,,,
+cv,B-456,전체(플래그 제외),p01_p99,dur_s1,,965,0,cv_time,0.0427698,,,
+cv,B-456,전체(플래그 제외),p01_p99,dur_s1,,965,0,cv_removal,0.0880391,,,
+cv,B-456,전체(플래그 제외),p01_p99,dur_s1,,965,0,cv_ratio_removal_to_mrr,0.770677,,,
+loglog,B-456,전체(플래그 제외),p01_p99,dur_s1,,965,0,b,-2.18844,-2.29964,-2.07723,
+loglog,B-456,전체(플래그 제외),p01_p99,dur_s1,,965,0,r2,0.607639,,,
+loglog_ctrl,B-456,전체(플래그 제외),p01_p99,dur_s1,,965,0,b_ctrl,-1.41592,-1.53909,-1.29274,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체(플래그 제외),p01_p99,dur_s1,,965,0,r2_ctrl_only,0.588308,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체(플래그 제외),p01_p99,dur_s1,,965,0,r2_ctrl_full,0.730619,,,사후 추가 (결과를 본 뒤)
+corr,B-456,전체(플래그 제외),none,n_press,,983,0,spearman,-0.393529,-0.445104,-0.339352,
+corr,B-456,전체(플래그 제외),none,n_press,,983,0,pearson,-0.113046,-0.174341,-0.0508786,
+cv,B-456,전체(플래그 제외),none,n_press,,983,0,median_time,305,,,
+cv,B-456,전체(플래그 제외),none,n_press,,983,0,cv_mrr,0.115369,,,
+cv,B-456,전체(플래그 제외),none,n_press,,983,0,cv_time,0.247665,,,
+cv,B-456,전체(플래그 제외),none,n_press,,983,0,cv_removal,0.263752,,,
+cv,B-456,전체(플래그 제외),none,n_press,,983,0,cv_ratio_removal_to_mrr,2.28616,,,
+loglog,B-456,전체(플래그 제외),none,n_press,,983,0,b,-0.0415685,-0.0668791,-0.0162579,
+loglog,B-456,전체(플래그 제외),none,n_press,,983,0,r2,0.0104773,,,
+loglog_ctrl,B-456,전체(플래그 제외),none,n_press,,983,0,b_ctrl,-0.0110536,-0.0277515,0.00564427,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체(플래그 제외),none,n_press,,983,0,r2_ctrl_only,0.588007,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체(플래그 제외),none,n_press,,983,0,r2_ctrl_full,0.5872,,,사후 추가 (결과를 본 뒤)
+corr,B-456,전체(플래그 제외),p01_p99,n_press,,968,0,spearman,-0.375307,-0.428191,-0.319861,
+corr,B-456,전체(플래그 제외),p01_p99,n_press,,968,0,pearson,-0.0861101,-0.148315,-0.0232263,
+cv,B-456,전체(플래그 제외),p01_p99,n_press,,968,0,median_time,305,,,
+cv,B-456,전체(플래그 제외),p01_p99,n_press,,968,0,cv_mrr,0.114308,,,
+cv,B-456,전체(플래그 제외),p01_p99,n_press,,968,0,cv_time,0.24221,,,
+cv,B-456,전체(플래그 제외),p01_p99,n_press,,968,0,cv_removal,0.260584,,,
+cv,B-456,전체(플래그 제외),p01_p99,n_press,,968,0,cv_ratio_removal_to_mrr,2.27966,,,
+loglog,B-456,전체(플래그 제외),p01_p99,n_press,,968,0,b,-0.0318609,-0.0583358,-0.0053861,
+loglog,B-456,전체(플래그 제외),p01_p99,n_press,,968,0,r2,0.00574061,,,
+loglog_ctrl,B-456,전체(플래그 제외),p01_p99,n_press,,968,0,b_ctrl,-0.00865729,-0.0261314,0.00881683,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체(플래그 제외),p01_p99,n_press,,968,0,r2_ctrl_only,0.584299,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체(플래그 제외),p01_p99,n_press,,968,0,r2_ctrl_full,0.583282,,,사후 추가 (결과를 본 뒤)
+corr,B-456,전체(플래그 제외),none,dur_w,,983,0,spearman,-0.684866,-0.716702,-0.650182,
+corr,B-456,전체(플래그 제외),none,dur_w,,983,0,pearson,-0.0280558,-0.0904243,0.0345318,
+cv,B-456,전체(플래그 제외),none,dur_w,,983,0,median_time,364,,,
+cv,B-456,전체(플래그 제외),none,dur_w,,983,0,cv_mrr,0.115369,,,
+cv,B-456,전체(플래그 제외),none,dur_w,,983,0,cv_time,0.374912,,,
+cv,B-456,전체(플래그 제외),none,dur_w,,983,0,cv_removal,0.402802,,,
+cv,B-456,전체(플래그 제외),none,dur_w,,983,0,cv_ratio_removal_to_mrr,3.49142,,,
+loglog,B-456,전체(플래그 제외),none,dur_w,,983,0,b,-0.0907625,-0.142816,-0.0387085,
+loglog,B-456,전체(플래그 제외),none,dur_w,,983,0,r2,0.0117937,,,
+loglog_ctrl,B-456,전체(플래그 제외),none,dur_w,,983,0,b_ctrl,-0.0304329,-0.0644164,0.00355061,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체(플래그 제외),none,dur_w,,983,0,r2_ctrl_only,0.588007,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체(플래그 제외),none,dur_w,,983,0,r2_ctrl_full,0.587792,,,사후 추가 (결과를 본 뒤)
+corr,B-456,전체(플래그 제외),p01_p99,dur_w,,963,0,spearman,-0.698603,-0.729578,-0.664768,
+corr,B-456,전체(플래그 제외),p01_p99,dur_w,,963,0,pearson,-0.262463,-0.320325,-0.202649,
+cv,B-456,전체(플래그 제외),p01_p99,dur_w,,963,0,median_time,364,,,
+cv,B-456,전체(플래그 제외),p01_p99,dur_w,,963,0,cv_mrr,0.115594,,,
+cv,B-456,전체(플래그 제외),p01_p99,dur_w,,963,0,cv_time,0.0667806,,,
+cv,B-456,전체(플래그 제외),p01_p99,dur_w,,963,0,cv_removal,0.119187,,,
+cv,B-456,전체(플래그 제외),p01_p99,dur_w,,963,0,cv_ratio_removal_to_mrr,1.03109,,,
+loglog,B-456,전체(플래그 제외),p01_p99,dur_w,,963,0,b,-0.777193,-0.914876,-0.63951,
+loglog,B-456,전체(플래그 제외),p01_p99,dur_w,,963,0,r2,0.113234,,,
+loglog_ctrl,B-456,전체(플래그 제외),p01_p99,dur_w,,963,0,b_ctrl,-0.302726,-0.39934,-0.206111,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체(플래그 제외),p01_p99,dur_w,,963,0,r2_ctrl_only,0.589141,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,전체(플래그 제외),p01_p99,dur_w,,963,0,r2_ctrl_full,0.603456,,,사후 추가 (결과를 본 뒤)
+cv,B-456,ch56_step=0 (짧은 무리),none,,,291,0,cv_mrr,0.118163,,,
+cv,B-456,ch56_step=0 (짧은 무리),none,,,291,0,mean_mrr,80.2932,,,
+corr,B-456,ch56_step=0 (짧은 무리),none,dur_s1,,291,0,spearman,-0.735586,-0.784237,-0.677944,
+corr,B-456,ch56_step=0 (짧은 무리),none,dur_s1,,291,0,pearson,-0.217066,-0.323962,-0.104698,
+cv,B-456,ch56_step=0 (짧은 무리),none,dur_s1,,291,0,median_time,188,,,
+cv,B-456,ch56_step=0 (짧은 무리),none,dur_s1,,291,0,cv_mrr,0.118163,,,
+cv,B-456,ch56_step=0 (짧은 무리),none,dur_s1,,291,0,cv_time,0.137503,,,
+cv,B-456,ch56_step=0 (짧은 무리),none,dur_s1,,291,0,cv_removal,0.174545,,,
+cv,B-456,ch56_step=0 (짧은 무리),none,dur_s1,,291,0,cv_ratio_removal_to_mrr,1.47714,,,
+loglog,B-456,ch56_step=0 (짧은 무리),none,dur_s1,,291,0,b,-0.256939,-0.363673,-0.150205,
+loglog,B-456,ch56_step=0 (짧은 무리),none,dur_s1,,291,0,r2,0.0720791,,,
+loglog_ctrl,B-456,ch56_step=0 (짧은 무리),none,dur_s1,,291,0,b_ctrl,-0.11987,-0.191627,-0.048114,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=0 (짧은 무리),none,dur_s1,,291,0,r2_ctrl_only,0.59395,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=0 (짧은 무리),none,dur_s1,,291,0,r2_ctrl_full,0.608921,,,사후 추가 (결과를 본 뒤)
+corr,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,285,0,spearman,-0.756563,-0.802231,-0.702091,
+corr,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,285,0,pearson,-0.771368,-0.814553,-0.719681,
+cv,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,285,0,median_time,188,,,
+cv,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,285,0,cv_mrr,0.117424,,,
+cv,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,285,0,cv_time,0.0444519,,,
+cv,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,285,0,cv_removal,0.0907826,,,
+cv,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,285,0,cv_ratio_removal_to_mrr,0.77312,,,
+loglog,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,285,0,b,-2.13071,-2.33668,-1.92474,
+loglog,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,285,0,r2,0.594343,,,
+loglog_ctrl,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,285,0,b_ctrl,-1.34414,-1.57492,-1.11336,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,285,0,r2_ctrl_only,0.588964,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_s1,,285,0,r2_ctrl_full,0.72086,,,사후 추가 (결과를 본 뒤)
+corr,B-456,ch56_step=0 (짧은 무리),none,n_press,,291,0,spearman,-0.55721,-0.631718,-0.472501,
+corr,B-456,ch56_step=0 (짧은 무리),none,n_press,,291,0,pearson,-0.205229,-0.312828,-0.0924284,
+cv,B-456,ch56_step=0 (짧은 무리),none,n_press,,291,0,median_time,162,,,
+cv,B-456,ch56_step=0 (짧은 무리),none,n_press,,291,0,cv_mrr,0.118163,,,
+cv,B-456,ch56_step=0 (짧은 무리),none,n_press,,291,0,cv_time,0.144192,,,
+cv,B-456,ch56_step=0 (짧은 무리),none,n_press,,291,0,cv_removal,0.172772,,,
+cv,B-456,ch56_step=0 (짧은 무리),none,n_press,,291,0,cv_ratio_removal_to_mrr,1.46215,,,
+loglog,B-456,ch56_step=0 (짧은 무리),none,n_press,,291,0,b,-0.1517,-0.235323,-0.0680772,
+loglog,B-456,ch56_step=0 (짧은 무리),none,n_press,,291,0,r2,0.042249,,,
+loglog_ctrl,B-456,ch56_step=0 (짧은 무리),none,n_press,,291,0,b_ctrl,-0.0587428,-0.114744,-0.00274214,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=0 (짧은 무리),none,n_press,,291,0,r2_ctrl_only,0.59395,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=0 (짧은 무리),none,n_press,,291,0,r2_ctrl_full,0.599981,,,사후 추가 (결과를 본 뒤)
+corr,B-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,287,0,spearman,-0.566623,-0.640392,-0.482496,
+corr,B-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,287,0,pearson,-0.214142,-0.321941,-0.100862,
+cv,B-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,287,0,median_time,162,,,
+cv,B-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,287,0,cv_mrr,0.118406,,,
+cv,B-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,287,0,cv_time,0.132249,,,
+cv,B-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,287,0,cv_removal,0.161785,,,
+cv,B-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,287,0,cv_ratio_removal_to_mrr,1.36636,,,
+loglog,B-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,287,0,b,-0.257194,-0.37372,-0.140669,
+loglog,B-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,287,0,r2,0.0621126,,,
+loglog_ctrl,B-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,287,0,b_ctrl,-0.0953113,-0.175611,-0.0150116,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,287,0,r2_ctrl_only,0.592958,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=0 (짧은 무리),p01_p99,n_press,,287,0,r2_ctrl_full,0.600747,,,사후 추가 (결과를 본 뒤)
+corr,B-456,ch56_step=0 (짧은 무리),none,dur_w,,291,0,spearman,-0.677518,-0.735224,-0.610062,
+corr,B-456,ch56_step=0 (짧은 무리),none,dur_w,,291,0,pearson,0.0172737,-0.0979019,0.131993,
+cv,B-456,ch56_step=0 (짧은 무리),none,dur_w,,291,0,median_time,362.666,,,
+cv,B-456,ch56_step=0 (짧은 무리),none,dur_w,,291,0,cv_mrr,0.118163,,,
+cv,B-456,ch56_step=0 (짧은 무리),none,dur_w,,291,0,cv_time,0.496041,,,
+cv,B-456,ch56_step=0 (짧은 무리),none,dur_w,,291,0,cv_removal,0.549499,,,
+cv,B-456,ch56_step=0 (짧은 무리),none,dur_w,,291,0,cv_ratio_removal_to_mrr,4.65033,,,
+loglog,B-456,ch56_step=0 (짧은 무리),none,dur_w,,291,0,b,-0.0333869,-0.108105,0.0413309,
+loglog,B-456,ch56_step=0 (짧은 무리),none,dur_w,,291,0,r2,0.00266923,,,
+loglog_ctrl,B-456,ch56_step=0 (짧은 무리),none,dur_w,,291,0,b_ctrl,-0.00617457,-0.0547333,0.0423842,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=0 (짧은 무리),none,dur_w,,291,0,r2_ctrl_only,0.59395,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=0 (짧은 무리),none,dur_w,,291,0,r2_ctrl_full,0.594041,,,사후 추가 (결과를 본 뒤)
+corr,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,285,0,spearman,-0.688898,-0.745421,-0.622539,
+corr,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,285,0,pearson,-0.0757902,-0.190302,0.0407557,
+cv,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,285,0,median_time,362.666,,,
+cv,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,285,0,cv_mrr,0.118275,,,
+cv,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,285,0,cv_time,0.127671,,,
+cv,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,285,0,cv_removal,0.176432,,,
+cv,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,285,0,cv_ratio_removal_to_mrr,1.49171,,,
+loglog,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,285,0,b,-0.205263,-0.366372,-0.0441538,
+loglog,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,285,0,r2,0.0217404,,,
+loglog_ctrl,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,285,0,b_ctrl,-0.0795817,-0.186618,0.0274547,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,285,0,r2_ctrl_only,0.598277,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=0 (짧은 무리),p01_p99,dur_w,,285,0,r2_ctrl_full,0.601369,,,사후 추가 (결과를 본 뒤)
+cv,B-456,ch56_step=1 (긴 무리),none,,,696,0,cv_mrr,0.114066,,,
+cv,B-456,ch56_step=1 (긴 무리),none,,,696,0,mean_mrr,79.7528,,,
+corr,B-456,ch56_step=1 (긴 무리),none,dur_s1,,696,0,spearman,-0.755255,-0.785483,-0.721431,
+corr,B-456,ch56_step=1 (긴 무리),none,dur_s1,,696,0,pearson,-0.060878,-0.134585,0.0134986,
+cv,B-456,ch56_step=1 (긴 무리),none,dur_s1,,696,0,median_time,188,,,
+cv,B-456,ch56_step=1 (긴 무리),none,dur_s1,,696,0,cv_mrr,0.114066,,,
+cv,B-456,ch56_step=1 (긴 무리),none,dur_s1,,696,0,cv_time,0.982495,,,
+cv,B-456,ch56_step=1 (긴 무리),none,dur_s1,,696,0,cv_removal,0.907791,,,
+cv,B-456,ch56_step=1 (긴 무리),none,dur_s1,,696,0,cv_ratio_removal_to_mrr,7.95848,,,
+loglog,B-456,ch56_step=1 (긴 무리),none,dur_s1,,696,0,b,-0.228454,-0.289979,-0.166929,
+loglog,B-456,ch56_step=1 (긴 무리),none,dur_s1,,696,0,r2,0.0711373,,,
+loglog_ctrl,B-456,ch56_step=1 (긴 무리),none,dur_s1,,696,0,b_ctrl,-0.122641,-0.163874,-0.0814082,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=1 (긴 무리),none,dur_s1,,696,0,r2_ctrl_only,0.581318,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=1 (긴 무리),none,dur_s1,,696,0,r2_ctrl_full,0.601113,,,사후 추가 (결과를 본 뒤)
+corr,B-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,682,0,spearman,-0.756376,-0.786774,-0.722318,
+corr,B-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,682,0,pearson,-0.784632,-0.811882,-0.753971,
+cv,B-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,682,0,median_time,188,,,
+cv,B-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,682,0,cv_mrr,0.113284,,,
+cv,B-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,682,0,cv_time,0.0419456,,,
+cv,B-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,682,0,cv_removal,0.0872641,,,
+cv,B-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,682,0,cv_ratio_removal_to_mrr,0.770312,,,
+loglog,B-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,682,0,b,-2.23695,-2.36976,-2.10415,
+loglog,B-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,682,0,r2,0.616646,,,
+loglog_ctrl,B-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,682,0,b_ctrl,-1.47505,-1.62252,-1.32759,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,682,0,r2_ctrl_only,0.583736,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=1 (긴 무리),p01_p99,dur_s1,,682,0,r2_ctrl_full,0.73517,,,사후 추가 (결과를 본 뒤)
+corr,B-456,ch56_step=1 (긴 무리),none,n_press,,696,0,spearman,-0.651071,-0.691909,-0.606081,
+corr,B-456,ch56_step=1 (긴 무리),none,n_press,,696,0,pearson,-0.108098,-0.18096,-0.0340559,
+cv,B-456,ch56_step=1 (긴 무리),none,n_press,,696,0,median_time,309,,,
+cv,B-456,ch56_step=1 (긴 무리),none,n_press,,696,0,cv_mrr,0.114066,,,
+cv,B-456,ch56_step=1 (긴 무리),none,n_press,,696,0,cv_time,0.279038,,,
+cv,B-456,ch56_step=1 (긴 무리),none,n_press,,696,0,cv_removal,0.268339,,,
+cv,B-456,ch56_step=1 (긴 무리),none,n_press,,696,0,cv_ratio_removal_to_mrr,2.35249,,,
+loglog,B-456,ch56_step=1 (긴 무리),none,n_press,,696,0,b,-0.230311,-0.311043,-0.149579,
+loglog,B-456,ch56_step=1 (긴 무리),none,n_press,,696,0,r2,0.0432503,,,
+loglog_ctrl,B-456,ch56_step=1 (긴 무리),none,n_press,,696,0,b_ctrl,-0.12141,-0.175336,-0.0674842,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=1 (긴 무리),none,n_press,,696,0,r2_ctrl_only,0.581318,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=1 (긴 무리),none,n_press,,696,0,r2_ctrl_full,0.591556,,,사후 추가 (결과를 본 뒤)
+corr,B-456,ch56_step=1 (긴 무리),p01_p99,n_press,,682,0,spearman,-0.674725,-0.71365,-0.631646,
+corr,B-456,ch56_step=1 (긴 무리),p01_p99,n_press,,682,0,pearson,-0.608168,-0.65341,-0.558598,
+cv,B-456,ch56_step=1 (긴 무리),p01_p99,n_press,,682,0,median_time,309,,,
+cv,B-456,ch56_step=1 (긴 무리),p01_p99,n_press,,682,0,cv_mrr,0.113664,,,
+cv,B-456,ch56_step=1 (긴 무리),p01_p99,n_press,,682,0,cv_time,0.0331769,,,
+cv,B-456,ch56_step=1 (긴 무리),p01_p99,n_press,,682,0,cv_removal,0.0984521,,,
+cv,B-456,ch56_step=1 (긴 무리),p01_p99,n_press,,682,0,cv_ratio_removal_to_mrr,0.866166,,,
+loglog,B-456,ch56_step=1 (긴 무리),p01_p99,n_press,,682,0,b,-2.12958,-2.34455,-1.91462,
+loglog,B-456,ch56_step=1 (긴 무리),p01_p99,n_press,,682,0,r2,0.357492,,,
+loglog_ctrl,B-456,ch56_step=1 (긴 무리),p01_p99,n_press,,682,0,b_ctrl,-1.068,-1.25478,-0.881225,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=1 (긴 무리),p01_p99,n_press,,682,0,r2_ctrl_only,0.58659,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=1 (긴 무리),p01_p99,n_press,,682,0,r2_ctrl_full,0.650688,,,사후 추가 (결과를 본 뒤)
+corr,B-456,ch56_step=1 (긴 무리),none,dur_w,,696,0,spearman,-0.685442,-0.722932,-0.643928,
+corr,B-456,ch56_step=1 (긴 무리),none,dur_w,,696,0,pearson,-0.0525593,-0.126381,0.0218416,
+cv,B-456,ch56_step=1 (긴 무리),none,dur_w,,696,0,median_time,364.334,,,
+cv,B-456,ch56_step=1 (긴 무리),none,dur_w,,696,0,cv_mrr,0.114066,,,
+cv,B-456,ch56_step=1 (긴 무리),none,dur_w,,696,0,cv_time,0.770755,,,
+cv,B-456,ch56_step=1 (긴 무리),none,dur_w,,696,0,cv_removal,0.725941,,,
+cv,B-456,ch56_step=1 (긴 무리),none,dur_w,,696,0,cv_ratio_removal_to_mrr,6.36422,,,
+loglog,B-456,ch56_step=1 (긴 무리),none,dur_w,,696,0,b,-0.0644471,-0.108961,-0.0199327,
+loglog,B-456,ch56_step=1 (긴 무리),none,dur_w,,696,0,r2,0.0115088,,,
+loglog_ctrl,B-456,ch56_step=1 (긴 무리),none,dur_w,,696,0,b_ctrl,-0.0390318,-0.0682497,-0.009814,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=1 (긴 무리),none,dur_w,,696,0,r2_ctrl_only,0.581318,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=1 (긴 무리),none,dur_w,,696,0,r2_ctrl_full,0.584112,,,사후 추가 (결과를 본 뒤)
+corr,B-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,682,0,spearman,-0.692715,-0.729835,-0.651523,
+corr,B-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,682,0,pearson,-0.264636,-0.333093,-0.193403,
+cv,B-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,682,0,median_time,364.334,,,
+cv,B-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,682,0,cv_mrr,0.114242,,,
+cv,B-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,682,0,cv_time,0.0725286,,,
+cv,B-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,682,0,cv_removal,0.117574,,,
+cv,B-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,682,0,cv_ratio_removal_to_mrr,1.02917,,,
+loglog,B-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,682,0,b,-0.697665,-0.848693,-0.546636,
+loglog,B-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,682,0,r2,0.107923,,,
+loglog_ctrl,B-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,682,0,b_ctrl,-0.24625,-0.353337,-0.139163,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,682,0,r2_ctrl_only,0.587485,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,B-456,ch56_step=1 (긴 무리),p01_p99,dur_w,,682,0,r2_ctrl_full,0.598183,,,사후 추가 (결과를 본 뒤)
+cv,A-123,전체,none,,,431,0,cv_mrr,0.0259682,,,
+cv,A-123,전체,none,,,431,0,mean_mrr,151.213,,,
+corr,A-123,전체,none,dur_s1,,431,0,spearman,-0.314577,-0.39723,-0.226862,
+corr,A-123,전체,none,dur_s1,,431,0,pearson,-0.2857,-0.370167,-0.196548,
+cv,A-123,전체,none,dur_s1,,431,0,median_time,145.667,,,
+cv,A-123,전체,none,dur_s1,,431,0,cv_mrr,0.0259682,,,
+cv,A-123,전체,none,dur_s1,,431,0,cv_time,0.0611976,,,
+cv,A-123,전체,none,dur_s1,,431,0,cv_removal,0.059557,,,
+cv,A-123,전체,none,dur_s1,,431,0,cv_ratio_removal_to_mrr,2.29346,,,
+loglog,A-123,전체,none,dur_s1,,431,0,b,-0.0959675,-0.129975,-0.0619598,
+loglog,A-123,전체,none,dur_s1,,431,0,r2,0.0669128,,,
+loglog_ctrl,A-123,전체,none,dur_s1,,431,0,b_ctrl,-0.0214653,-0.0558046,0.012874,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체,none,dur_s1,,431,0,r2_ctrl_only,0.263479,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체,none,dur_s1,,431,0,r2_ctrl_full,0.266103,,,사후 추가 (결과를 본 뒤)
+resid_corr,A-123,전체,none,dur_s1,start_DRESSER_TABLE_w,431,0,spearman_rank1,0.356967,0.271672,0.436699,
+resid_corr,A-123,전체,none,dur_s1,since_PSHEET_w,420,0,spearman_rank2,0.352786,0.266082,0.433828,
+resid_corr,A-123,전체,none,dur_s1,since_BACKING_FILM_w,420,0,spearman_rank3,0.352779,0.266075,0.433821,
+resid_corr,A-123,전체,none,dur_s1,since_MEMBRANE_w,420,0,spearman_rank4,0.352779,0.266075,0.433821,
+resid_corr,A-123,전체,none,dur_s1,start_BACKING_FILM_w,431,0,spearman_rank5,0.316817,0.229221,0.399324,
+resid_corr,A-123,전체,none,dur_s1,start_MEMBRANE_w,431,0,spearman_rank6,0.316817,0.229221,0.399324,
+resid_corr,A-123,전체,none,dur_s1,start_PSHEET_w,431,0,spearman_rank7,0.316817,0.229221,0.399324,
+resid_corr,A-123,전체,none,dur_s1,start_DRESSER_w,431,0,spearman_rank8,-0.210227,-0.298751,-0.118116,
+resid_corr,A-123,전체,none,dur_s1,since_POLISH_TABLE_w,428,0,spearman_rank9,0.0587558,-0.0362328,0.152692,리셋 누락 오류 열 (CLAUDE.md 5.5)
+resid_corr,A-123,전체,none,dur_s1,start_POLISH_TABLE_w,431,0,spearman_rank10,0.0403567,-0.0543063,0.134301,
+corr,A-123,전체,p01_p99,dur_s1,,421,0,spearman,-0.318263,-0.401619,-0.229676,
+corr,A-123,전체,p01_p99,dur_s1,,421,0,pearson,-0.311583,-0.395382,-0.222641,
+cv,A-123,전체,p01_p99,dur_s1,,421,0,median_time,145.667,,,
+cv,A-123,전체,p01_p99,dur_s1,,421,0,cv_mrr,0.0258017,,,
+cv,A-123,전체,p01_p99,dur_s1,,421,0,cv_time,0.050413,,,
+cv,A-123,전체,p01_p99,dur_s1,,421,0,cv_removal,0.0489495,,,
+cv,A-123,전체,p01_p99,dur_s1,,421,0,cv_ratio_removal_to_mrr,1.89714,,,
+loglog,A-123,전체,p01_p99,dur_s1,,421,0,b,-0.160089,-0.206897,-0.11328,
+loglog,A-123,전체,p01_p99,dur_s1,,421,0,r2,0.0973582,,,
+loglog_ctrl,A-123,전체,p01_p99,dur_s1,,421,0,b_ctrl,-0.0196664,-0.0724318,0.0330989,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체,p01_p99,dur_s1,,421,0,r2_ctrl_only,0.277478,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체,p01_p99,dur_s1,,421,0,r2_ctrl_full,0.278419,,,사후 추가 (결과를 본 뒤)
+resid_corr,A-123,전체,p01_p99,dur_s1,since_PSHEET_w,410,0,spearman_rank1,0.328352,0.239108,0.412095,
+resid_corr,A-123,전체,p01_p99,dur_s1,since_BACKING_FILM_w,410,0,spearman_rank2,0.328347,0.239103,0.41209,
+resid_corr,A-123,전체,p01_p99,dur_s1,since_MEMBRANE_w,410,0,spearman_rank3,0.328347,0.239103,0.41209,
+resid_corr,A-123,전체,p01_p99,dur_s1,start_DRESSER_TABLE_w,421,0,spearman_rank4,0.304554,0.215247,0.388809,
+resid_corr,A-123,전체,p01_p99,dur_s1,start_BACKING_FILM_w,421,0,spearman_rank5,0.292208,0.202284,0.377245,
+resid_corr,A-123,전체,p01_p99,dur_s1,start_MEMBRANE_w,421,0,spearman_rank6,0.292208,0.202284,0.377245,
+resid_corr,A-123,전체,p01_p99,dur_s1,start_PSHEET_w,421,0,spearman_rank7,0.292208,0.202284,0.377245,
+resid_corr,A-123,전체,p01_p99,dur_s1,start_DRESSER_w,421,0,spearman_rank8,-0.202794,-0.292693,-0.10934,
+resid_corr,A-123,전체,p01_p99,dur_s1,since_POLISH_TABLE_w,418,0,spearman_rank9,0.0554579,-0.0406735,0.150572,리셋 누락 오류 열 (CLAUDE.md 5.5)
+resid_corr,A-123,전체,p01_p99,dur_s1,start_POLISH_TABLE_w,421,0,spearman_rank10,0.0437455,-0.0520445,0.138738,
+corr,A-123,전체,none,n_press,,203,228,spearman,0.10723,-0.0309367,0.241376,
+corr,A-123,전체,none,n_press,,203,228,pearson,0.126855,-0.0110478,0.260022,
+cv,A-123,전체,none,n_press,,203,228,median_time,143,,,
+cv,A-123,전체,none,n_press,,203,228,cv_mrr,0.0258744,,,
+cv,A-123,전체,none,n_press,,203,228,cv_time,0.538437,,,
+cv,A-123,전체,none,n_press,,203,228,cv_removal,0.541183,,,
+cv,A-123,전체,none,n_press,,203,228,cv_ratio_removal_to_mrr,20.9157,,,
+loglog,A-123,전체,none,n_press,,203,228,b,0.0035832,-0.00024725,0.00741365,
+loglog,A-123,전체,none,n_press,,203,228,r2,0.0166455,,,
+loglog_ctrl,A-123,전체,none,n_press,,203,228,b_ctrl,0.00445937,0.001317,0.00760174,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체,none,n_press,,203,228,r2_ctrl_only,0.344911,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체,none,n_press,,203,228,r2_ctrl_full,0.370317,,,사후 추가 (결과를 본 뒤)
+resid_corr,A-123,전체,none,n_press,start_DRESSER_TABLE_w,203,228,spearman_rank1,0.544626,0.439909,0.634731,
+resid_corr,A-123,전체,none,n_press,since_BACKING_FILM_w,198,228,spearman_rank2,0.500176,0.38778,0.597916,
+resid_corr,A-123,전체,none,n_press,since_MEMBRANE_w,198,228,spearman_rank3,0.500176,0.38778,0.597916,
+resid_corr,A-123,전체,none,n_press,since_PSHEET_w,198,228,spearman_rank4,0.500176,0.38778,0.597916,
+resid_corr,A-123,전체,none,n_press,start_BACKING_FILM_w,203,228,spearman_rank5,0.464069,0.34864,0.565631,
+resid_corr,A-123,전체,none,n_press,start_MEMBRANE_w,203,228,spearman_rank6,0.464069,0.34864,0.565631,
+resid_corr,A-123,전체,none,n_press,start_PSHEET_w,203,228,spearman_rank7,0.464069,0.34864,0.565631,
+resid_corr,A-123,전체,none,n_press,start_DRESSER_w,203,228,spearman_rank8,-0.283918,-0.405763,-0.152157,
+resid_corr,A-123,전체,none,n_press,since_POLISH_TABLE_w,202,228,spearman_rank9,0.173628,0.0364503,0.304383,리셋 누락 오류 열 (CLAUDE.md 5.5)
+resid_corr,A-123,전체,none,n_press,start_POLISH_TABLE_w,203,228,spearman_rank10,0.123371,-0.0145869,0.256719,
+corr,A-123,전체,p01_p99,n_press,,198,228,spearman,0.0950443,-0.0449935,0.231419,
+corr,A-123,전체,p01_p99,n_press,,198,228,pearson,0.113738,-0.0261174,0.249227,
+cv,A-123,전체,p01_p99,n_press,,198,228,median_time,141.5,,,
+cv,A-123,전체,p01_p99,n_press,,198,228,cv_mrr,0.0258968,,,
+cv,A-123,전체,p01_p99,n_press,,198,228,cv_time,0.526007,,,
+cv,A-123,전체,p01_p99,n_press,,198,228,cv_removal,0.528609,,,
+cv,A-123,전체,p01_p99,n_press,,198,228,cv_ratio_removal_to_mrr,20.4122,,,
+loglog,A-123,전체,p01_p99,n_press,,198,228,b,0.00370257,-0.000783776,0.00818892,
+loglog,A-123,전체,p01_p99,n_press,,198,228,r2,0.0133355,,,
+loglog_ctrl,A-123,전체,p01_p99,n_press,,198,228,b_ctrl,0.00399849,0.000324751,0.00767223,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체,p01_p99,n_press,,198,228,r2_ctrl_only,0.355074,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체,p01_p99,n_press,,198,228,r2_ctrl_full,0.370412,,,사후 추가 (결과를 본 뒤)
+resid_corr,A-123,전체,p01_p99,n_press,start_DRESSER_TABLE_w,198,228,spearman_rank1,0.556503,0.452148,0.645829,
+resid_corr,A-123,전체,p01_p99,n_press,since_BACKING_FILM_w,193,228,spearman_rank2,0.494982,0.380332,0.59465,
+resid_corr,A-123,전체,p01_p99,n_press,since_MEMBRANE_w,193,228,spearman_rank3,0.494982,0.380332,0.59465,
+resid_corr,A-123,전체,p01_p99,n_press,since_PSHEET_w,193,228,spearman_rank4,0.494982,0.380332,0.59465,
+resid_corr,A-123,전체,p01_p99,n_press,start_BACKING_FILM_w,198,228,spearman_rank5,0.458332,0.340663,0.561865,
+resid_corr,A-123,전체,p01_p99,n_press,start_MEMBRANE_w,198,228,spearman_rank6,0.458332,0.340663,0.561865,
+resid_corr,A-123,전체,p01_p99,n_press,start_PSHEET_w,198,228,spearman_rank7,0.458332,0.340663,0.561865,
+resid_corr,A-123,전체,p01_p99,n_press,start_DRESSER_w,198,228,spearman_rank8,-0.2773,-0.401227,-0.143404,
+resid_corr,A-123,전체,p01_p99,n_press,since_POLISH_TABLE_w,197,228,spearman_rank9,0.165833,0.0266555,0.298704,리셋 누락 오류 열 (CLAUDE.md 5.5)
+resid_corr,A-123,전체,p01_p99,n_press,start_POLISH_TABLE_w,198,228,spearman_rank10,0.117889,-0.021913,0.253168,
+corr,A-123,전체,none,dur_w,,431,0,spearman,-0.306697,-0.389859,-0.218573,
+corr,A-123,전체,none,dur_w,,431,0,pearson,-0.0770634,-0.17028,0.0175201,
+cv,A-123,전체,none,dur_w,,431,0,median_time,292,,,
+cv,A-123,전체,none,dur_w,,431,0,cv_mrr,0.0259682,,,
+cv,A-123,전체,none,dur_w,,431,0,cv_time,0.48931,,,
+cv,A-123,전체,none,dur_w,,431,0,cv_removal,0.479272,,,
+cv,A-123,전체,none,dur_w,,431,0,cv_ratio_removal_to_mrr,18.4561,,,
+loglog,A-123,전체,none,dur_w,,431,0,b,-0.0136572,-0.0265738,-0.000740617,
+loglog,A-123,전체,none,dur_w,,431,0,r2,0.00996714,,,
+loglog_ctrl,A-123,전체,none,dur_w,,431,0,b_ctrl,-0.0108186,-0.0221378,0.000500679,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체,none,dur_w,,431,0,r2_ctrl_only,0.263479,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체,none,dur_w,,431,0,r2_ctrl_full,0.269587,,,사후 추가 (결과를 본 뒤)
+resid_corr,A-123,전체,none,dur_w,start_DRESSER_TABLE_w,431,0,spearman_rank1,0.452213,0.37372,0.524275,
+resid_corr,A-123,전체,none,dur_w,since_PSHEET_w,420,0,spearman_rank2,0.401435,0.317962,0.478732,
+resid_corr,A-123,전체,none,dur_w,since_BACKING_FILM_w,420,0,spearman_rank3,0.401426,0.317953,0.478724,
+resid_corr,A-123,전체,none,dur_w,since_MEMBRANE_w,420,0,spearman_rank4,0.401426,0.317953,0.478724,
+resid_corr,A-123,전체,none,dur_w,start_BACKING_FILM_w,431,0,spearman_rank5,0.364094,0.279241,0.443304,
+resid_corr,A-123,전체,none,dur_w,start_MEMBRANE_w,431,0,spearman_rank6,0.364094,0.279241,0.443304,
+resid_corr,A-123,전체,none,dur_w,start_PSHEET_w,431,0,spearman_rank7,0.364094,0.279241,0.443304,
+resid_corr,A-123,전체,none,dur_w,start_DRESSER_w,431,0,spearman_rank8,-0.208889,-0.297476,-0.116737,
+resid_corr,A-123,전체,none,dur_w,delta_POLISH_TABLE_w,431,0,spearman_rank9,-0.0598927,-0.15348,0.0347599,
+resid_corr,A-123,전체,none,dur_w,delta_MEMBRANE_w,431,0,spearman_rank10,-0.0576991,-0.15133,0.0369583,
+corr,A-123,전체,p01_p99,dur_w,,421,0,spearman,-0.288142,-0.37343,-0.198022,
+corr,A-123,전체,p01_p99,dur_w,,421,0,pearson,-0.0832927,-0.177452,0.0123782,
+cv,A-123,전체,p01_p99,dur_w,,421,0,median_time,292,,,
+cv,A-123,전체,p01_p99,dur_w,,421,0,cv_mrr,0.0257152,,,
+cv,A-123,전체,p01_p99,dur_w,,421,0,cv_time,0.125,,,
+cv,A-123,전체,p01_p99,dur_w,,421,0,cv_removal,0.124094,,,
+cv,A-123,전체,p01_p99,dur_w,,421,0,cv_ratio_removal_to_mrr,4.82572,,,
+loglog,A-123,전체,p01_p99,dur_w,,421,0,b,-0.0325615,-0.0619681,-0.00315489,
+loglog,A-123,전체,p01_p99,dur_w,,421,0,r2,0.0111797,,,
+loglog_ctrl,A-123,전체,p01_p99,dur_w,,421,0,b_ctrl,-0.00967643,-0.0356548,0.0163019,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체,p01_p99,dur_w,,421,0,r2_ctrl_only,0.264013,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체,p01_p99,dur_w,,421,0,r2_ctrl_full,0.264967,,,사후 추가 (결과를 본 뒤)
+resid_corr,A-123,전체,p01_p99,dur_w,start_DRESSER_TABLE_w,421,0,spearman_rank1,0.445399,0.36538,0.518884,
+resid_corr,A-123,전체,p01_p99,dur_w,since_PSHEET_w,410,0,spearman_rank2,0.390067,0.304731,0.46919,
+resid_corr,A-123,전체,p01_p99,dur_w,since_BACKING_FILM_w,410,0,spearman_rank3,0.390057,0.304721,0.469181,
+resid_corr,A-123,전체,p01_p99,dur_w,since_MEMBRANE_w,410,0,spearman_rank4,0.390057,0.304721,0.469181,
+resid_corr,A-123,전체,p01_p99,dur_w,start_BACKING_FILM_w,421,0,spearman_rank5,0.352238,0.265607,0.433226,
+resid_corr,A-123,전체,p01_p99,dur_w,start_MEMBRANE_w,421,0,spearman_rank6,0.352238,0.265607,0.433226,
+resid_corr,A-123,전체,p01_p99,dur_w,start_PSHEET_w,421,0,spearman_rank7,0.352238,0.265607,0.433226,
+resid_corr,A-123,전체,p01_p99,dur_w,start_DRESSER_w,421,0,spearman_rank8,-0.213378,-0.302775,-0.120258,
+resid_corr,A-123,전체,p01_p99,dur_w,since_POLISH_TABLE_w,418,0,spearman_rank9,0.0623124,-0.0338048,0.157287,리셋 누락 오류 열 (CLAUDE.md 5.5)
+resid_corr,A-123,전체,p01_p99,dur_w,delta_POLISH_TABLE_w,421,0,spearman_rank10,-0.0562739,-0.151034,0.039511,
+cv,A-123,센서 정상,none,,,166,0,cv_mrr,0.0269178,,,
+cv,A-123,센서 정상,none,,,166,0,mean_mrr,150.774,,,
+corr,A-123,센서 정상,none,dur_s1,,166,0,spearman,-0.349602,-0.476547,-0.208377,
+corr,A-123,센서 정상,none,dur_s1,,166,0,pearson,-0.356531,-0.482642,-0.215937,
+cv,A-123,센서 정상,none,dur_s1,,166,0,median_time,147.167,,,
+cv,A-123,센서 정상,none,dur_s1,,166,0,cv_mrr,0.0269178,,,
+cv,A-123,센서 정상,none,dur_s1,,166,0,cv_time,0.0550967,,,
+cv,A-123,센서 정상,none,dur_s1,,166,0,cv_removal,0.0520659,,,
+cv,A-123,센서 정상,none,dur_s1,,166,0,cv_ratio_removal_to_mrr,1.93425,,,
+loglog,A-123,센서 정상,none,dur_s1,,166,0,b,-0.173712,-0.243623,-0.103801,
+loglog,A-123,센서 정상,none,dur_s1,,166,0,r2,0.127989,,,
+loglog_ctrl,A-123,센서 정상,none,dur_s1,,166,0,b_ctrl,0.000104929,-0.0773666,0.0775764,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,센서 정상,none,dur_s1,,166,0,r2_ctrl_only,0.390013,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,센서 정상,none,dur_s1,,166,0,r2_ctrl_full,0.390013,,,사후 추가 (결과를 본 뒤)
+corr,A-123,센서 정상,p01_p99,dur_s1,,163,0,spearman,-0.364795,-0.490983,-0.223614,
+corr,A-123,센서 정상,p01_p99,dur_s1,,163,0,pearson,-0.376361,-0.501091,-0.236312,
+cv,A-123,센서 정상,p01_p99,dur_s1,,163,0,median_time,147,,,
+cv,A-123,센서 정상,p01_p99,dur_s1,,163,0,cv_mrr,0.0270942,,,
+cv,A-123,센서 정상,p01_p99,dur_s1,,163,0,cv_time,0.0531706,,,
+cv,A-123,센서 정상,p01_p99,dur_s1,,163,0,cv_removal,0.0499051,,,
+cv,A-123,센서 정상,p01_p99,dur_s1,,163,0,cv_ratio_removal_to_mrr,1.84191,,,
+loglog,A-123,센서 정상,p01_p99,dur_s1,,163,0,b,-0.191607,-0.264561,-0.118654,
+loglog,A-123,센서 정상,p01_p99,dur_s1,,163,0,r2,0.14317,,,
+loglog_ctrl,A-123,센서 정상,p01_p99,dur_s1,,163,0,b_ctrl,-0.0122328,-0.0924873,0.0680217,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,센서 정상,p01_p99,dur_s1,,163,0,r2_ctrl_only,0.395796,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,센서 정상,p01_p99,dur_s1,,163,0,r2_ctrl_full,0.39614,,,사후 추가 (결과를 본 뒤)
+corr,A-123,센서 정상,none,n_press,,166,0,spearman,0.155715,0.00347547,0.300899,
+corr,A-123,센서 정상,none,n_press,,166,0,pearson,0.162707,0.0106499,0.30741,
+cv,A-123,센서 정상,none,n_press,,166,0,median_time,166.5,,,
+cv,A-123,센서 정상,none,n_press,,166,0,cv_mrr,0.0269178,,,
+cv,A-123,센서 정상,none,n_press,,166,0,cv_time,0.417679,,,
+cv,A-123,센서 정상,none,n_press,,166,0,cv_removal,0.420763,,,
+cv,A-123,센서 정상,none,n_press,,166,0,cv_ratio_removal_to_mrr,15.6314,,,
+loglog,A-123,센서 정상,none,n_press,,166,0,b,0.00890346,0.00172356,0.0160834,
+loglog,A-123,센서 정상,none,n_press,,166,0,r2,0.0352674,,,
+loglog_ctrl,A-123,센서 정상,none,n_press,,166,0,b_ctrl,0.00496952,-0.00101295,0.010952,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,센서 정상,none,n_press,,166,0,r2_ctrl_only,0.390013,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,센서 정상,none,n_press,,166,0,r2_ctrl_full,0.40021,,,사후 추가 (결과를 본 뒤)
+corr,A-123,센서 정상,p01_p99,n_press,,162,0,spearman,0.131602,-0.0230618,0.280113,
+corr,A-123,센서 정상,p01_p99,n_press,,162,0,pearson,0.133432,-0.0211999,0.281829,
+cv,A-123,센서 정상,p01_p99,n_press,,162,0,median_time,166.5,,,
+cv,A-123,센서 정상,p01_p99,n_press,,162,0,cv_mrr,0.0267685,,,
+cv,A-123,센서 정상,p01_p99,n_press,,162,0,cv_time,0.404048,,,
+cv,A-123,센서 정상,p01_p99,n_press,,162,0,cv_removal,0.407192,,,
+cv,A-123,센서 정상,p01_p99,n_press,,162,0,cv_ratio_removal_to_mrr,15.2116,,,
+loglog,A-123,센서 정상,p01_p99,n_press,,162,0,b,0.00708322,-0.000715773,0.0148822,
+loglog,A-123,센서 정상,p01_p99,n_press,,162,0,r2,0.019711,,,
+loglog_ctrl,A-123,센서 정상,p01_p99,n_press,,162,0,b_ctrl,0.00384669,-0.00267874,0.0103721,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,센서 정상,p01_p99,n_press,,162,0,r2_ctrl_only,0.382976,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,센서 정상,p01_p99,n_press,,162,0,r2_ctrl_full,0.388352,,,사후 추가 (결과를 본 뒤)
+corr,A-123,센서 정상,none,dur_w,,166,0,spearman,-0.319634,-0.450045,-0.175876,
+corr,A-123,센서 정상,none,dur_w,,166,0,pearson,-0.0606009,-0.210975,0.0925752,
+cv,A-123,센서 정상,none,dur_w,,166,0,median_time,294.833,,,
+cv,A-123,센서 정상,none,dur_w,,166,0,cv_mrr,0.0269178,,,
+cv,A-123,센서 정상,none,dur_w,,166,0,cv_time,0.675597,,,
+cv,A-123,센서 정상,none,dur_w,,166,0,cv_removal,0.66329,,,
+cv,A-123,센서 정상,none,dur_w,,166,0,cv_ratio_removal_to_mrr,24.6413,,,
+loglog,A-123,센서 정상,none,dur_w,,166,0,b,-0.00729534,-0.0254737,0.0108831,
+loglog,A-123,센서 정상,none,dur_w,,166,0,r2,0.00381422,,,
+loglog_ctrl,A-123,센서 정상,none,dur_w,,166,0,b_ctrl,-0.0113203,-0.0261255,0.00348485,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,센서 정상,none,dur_w,,166,0,r2_ctrl_only,0.390013,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,센서 정상,none,dur_w,,166,0,r2_ctrl_full,0.398743,,,사후 추가 (결과를 본 뒤)
+corr,A-123,센서 정상,p01_p99,dur_w,,162,0,spearman,-0.293551,-0.428357,-0.145962,
+corr,A-123,센서 정상,p01_p99,dur_w,,162,0,pearson,0.0535817,-0.101452,0.206075,
+cv,A-123,센서 정상,p01_p99,dur_w,,162,0,median_time,294.833,,,
+cv,A-123,센서 정상,p01_p99,dur_w,,162,0,cv_mrr,0.0263233,,,
+cv,A-123,센서 정상,p01_p99,dur_w,,162,0,cv_time,0.0659108,,,
+cv,A-123,센서 정상,p01_p99,dur_w,,162,0,cv_removal,0.0758824,,,
+cv,A-123,센서 정상,p01_p99,dur_w,,162,0,cv_ratio_removal_to_mrr,2.88271,,,
+loglog,A-123,센서 정상,p01_p99,dur_w,,162,0,b,0.0015496,-0.0758943,0.0789935,
+loglog,A-123,센서 정상,p01_p99,dur_w,,162,0,r2,9.75956e-06,,,
+loglog_ctrl,A-123,센서 정상,p01_p99,dur_w,,162,0,b_ctrl,0.0813882,0.0186583,0.144118,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,센서 정상,p01_p99,dur_w,,162,0,r2_ctrl_only,0.397965,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,센서 정상,p01_p99,dur_w,,162,0,r2_ctrl_full,0.422355,,,사후 추가 (결과를 본 뒤)
+cv,A-123,전체-0,none,,,265,0,cv_mrr,0.0252426,,,
+cv,A-123,전체-0,none,,,265,0,mean_mrr,151.488,,,
+corr,A-123,전체-0,none,dur_s1,,265,0,spearman,-0.25987,-0.36882,-0.143877,
+corr,A-123,전체-0,none,dur_s1,,265,0,pearson,-0.230392,-0.341412,-0.113031,
+cv,A-123,전체-0,none,dur_s1,,265,0,median_time,144.333,,,
+cv,A-123,전체-0,none,dur_s1,,265,0,cv_mrr,0.0252426,,,
+cv,A-123,전체-0,none,dur_s1,,265,0,cv_time,0.0636572,,,
+cv,A-123,전체-0,none,dur_s1,,265,0,cv_removal,0.0632585,,,
+cv,A-123,전체-0,none,dur_s1,,265,0,cv_ratio_removal_to_mrr,2.50602,,,
+loglog,A-123,전체-0,none,dur_s1,,265,0,b,-0.0669059,-0.106076,-0.0277361,
+loglog,A-123,전체-0,none,dur_s1,,265,0,r2,0.0412366,,,
+loglog_ctrl,A-123,전체-0,none,dur_s1,,265,0,b_ctrl,-0.0282222,-0.0676675,0.0112231,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체-0,none,dur_s1,,265,0,r2_ctrl_only,0.185024,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체-0,none,dur_s1,,265,0,r2_ctrl_full,0.19129,,,사후 추가 (결과를 본 뒤)
+corr,A-123,전체-0,p01_p99,dur_s1,,260,0,spearman,-0.248789,-0.35956,-0.131103,
+corr,A-123,전체-0,p01_p99,dur_s1,,260,0,pearson,-0.230335,-0.342394,-0.111814,
+cv,A-123,전체-0,p01_p99,dur_s1,,260,0,median_time,144.167,,,
+cv,A-123,전체-0,p01_p99,dur_s1,,260,0,cv_mrr,0.0248968,,,
+cv,A-123,전체-0,p01_p99,dur_s1,,260,0,cv_time,0.048209,,,
+cv,A-123,전체-0,p01_p99,dur_s1,,260,0,cv_removal,0.0488264,,,
+cv,A-123,전체-0,p01_p99,dur_s1,,260,0,cv_ratio_removal_to_mrr,1.96115,,,
+loglog,A-123,전체-0,p01_p99,dur_s1,,260,0,b,-0.118644,-0.180548,-0.0567391,
+loglog,A-123,전체-0,p01_p99,dur_s1,,260,0,r2,0.0523197,,,
+loglog_ctrl,A-123,전체-0,p01_p99,dur_s1,,260,0,b_ctrl,-0.0227841,-0.0935868,0.0480187,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체-0,p01_p99,dur_s1,,260,0,r2_ctrl_only,0.192837,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체-0,p01_p99,dur_s1,,260,0,r2_ctrl_full,0.194109,,,사후 추가 (결과를 본 뒤)
+corr,A-123,전체-0,none,n_press,,37,228,spearman,0.0187359,-0.307148,0.340687,
+corr,A-123,전체-0,none,n_press,,37,228,pearson,-0.00753529,-0.330747,0.317258,
+cv,A-123,전체-0,none,n_press,,37,228,median_time,55,,,
+cv,A-123,전체-0,none,n_press,,37,228,cv_mrr,0.0208594,,,
+cv,A-123,전체-0,none,n_press,,37,228,cv_time,0.643682,,,
+cv,A-123,전체-0,none,n_press,,37,228,cv_removal,0.641758,,,
+cv,A-123,전체-0,none,n_press,,37,228,cv_ratio_removal_to_mrr,30.7659,,,
+loglog,A-123,전체-0,none,n_press,,37,228,b,0.0025051,-0.00326525,0.00827546,
+loglog,A-123,전체-0,none,n_press,,37,228,r2,0.02171,,,
+loglog_ctrl,A-123,전체-0,none,n_press,,37,228,b_ctrl,0.00437147,-0.00158713,0.0103301,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체-0,none,n_press,,37,228,r2_ctrl_only,0.224969,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체-0,none,n_press,,37,228,r2_ctrl_full,0.276223,,,사후 추가 (결과를 본 뒤)
+corr,A-123,전체-0,p01_p99,n_press,,36,228,spearman,-0.0230462,-0.34894,0.30782,
+corr,A-123,전체-0,p01_p99,n_press,,36,228,pearson,-0.0449073,-0.368013,0.287876,
+cv,A-123,전체-0,p01_p99,n_press,,36,228,median_time,52.5,,,
+cv,A-123,전체-0,p01_p99,n_press,,36,228,cv_mrr,0.021015,,,
+cv,A-123,전체-0,p01_p99,n_press,,36,228,cv_time,0.643706,,,
+cv,A-123,전체-0,p01_p99,n_press,,36,228,cv_removal,0.640423,,,
+cv,A-123,전체-0,p01_p99,n_press,,36,228,cv_ratio_removal_to_mrr,30.4745,,,
+loglog,A-123,전체-0,p01_p99,n_press,,36,228,b,0.00223715,-0.00367466,0.00814896,
+loglog,A-123,전체-0,p01_p99,n_press,,36,228,r2,0.0170964,,,
+loglog_ctrl,A-123,전체-0,p01_p99,n_press,,36,228,b_ctrl,0.00494317,-0.00127051,0.0111569,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체-0,p01_p99,n_press,,36,228,r2_ctrl_only,0.216633,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체-0,p01_p99,n_press,,36,228,r2_ctrl_full,0.278806,,,사후 추가 (결과를 본 뒤)
+corr,A-123,전체-0,none,dur_w,,265,0,spearman,-0.264063,-0.372703,-0.148283,
+corr,A-123,전체-0,none,dur_w,,265,0,pearson,-0.107242,-0.224835,0.0134301,
+cv,A-123,전체-0,none,dur_w,,265,0,median_time,290.334,,,
+cv,A-123,전체-0,none,dur_w,,265,0,cv_mrr,0.0252426,,,
+cv,A-123,전체-0,none,dur_w,,265,0,cv_time,0.297787,,,
+cv,A-123,전체-0,none,dur_w,,265,0,cv_removal,0.292076,,,
+cv,A-123,전체-0,none,dur_w,,265,0,cv_ratio_removal_to_mrr,11.5707,,,
+loglog,A-123,전체-0,none,dur_w,,265,0,b,-0.0202979,-0.0390679,-0.00152794,
+loglog,A-123,전체-0,none,dur_w,,265,0,r2,0.0169472,,,
+loglog_ctrl,A-123,전체-0,none,dur_w,,265,0,b_ctrl,-0.0126627,-0.0302608,0.00493542,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체-0,none,dur_w,,265,0,r2_ctrl_only,0.185024,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체-0,none,dur_w,,265,0,r2_ctrl_full,0.191364,,,사후 추가 (결과를 본 뒤)
+corr,A-123,전체-0,p01_p99,dur_w,,259,0,spearman,-0.23916,-0.350822,-0.120793,
+corr,A-123,전체-0,p01_p99,dur_w,,259,0,pearson,-0.126233,-0.244362,-0.0044119,
+cv,A-123,전체-0,p01_p99,dur_w,,259,0,median_time,290.334,,,
+cv,A-123,전체-0,p01_p99,dur_w,,259,0,cv_mrr,0.0249703,,,
+cv,A-123,전체-0,p01_p99,dur_w,,259,0,cv_time,0.150855,,,
+cv,A-123,전체-0,p01_p99,dur_w,,259,0,cv_removal,0.14653,,,
+cv,A-123,전체-0,p01_p99,dur_w,,259,0,cv_ratio_removal_to_mrr,5.86816,,,
+loglog,A-123,전체-0,p01_p99,dur_w,,259,0,b,-0.03611,-0.0671763,-0.00504365,
+loglog,A-123,전체-0,p01_p99,dur_w,,259,0,r2,0.019979,,,
+loglog_ctrl,A-123,전체-0,p01_p99,dur_w,,259,0,b_ctrl,-0.0226061,-0.0516106,0.00639832,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체-0,p01_p99,dur_w,,259,0,r2_ctrl_only,0.182858,,,사후 추가 (결과를 본 뒤)
+loglog_ctrl,A-123,전체-0,p01_p99,dur_w,,259,0,r2_ctrl_full,0.190473,,,사후 추가 (결과를 본 뒤)

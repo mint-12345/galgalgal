@@ -1,0 +1,21 @@
+date: 2026-11-03
+author: 김혜연
+script: src/diagnostics/mrr_time_check.py
+purpose: 탐색 분석 (판정용 아님). SR 결과를 본 뒤 설계. 다음 연구 방향을 정하기 위한 확인
+question: MRR 변동이 연마 시간 효과(목표 두께에서 멈춤)로 얼마나 설명되는가
+input: data/processed/features_v1.csv (키·group·dur_POLISH_s1·ch56_step·allzero) + data/processed/wafer_table.csv (t_start·t_end·플래그·start_/delta_/since_ 카운터, MRR 열은 읽지 않음) + data/raw/{train,val} 센서 + data/raw/labels/CMP-{training,validation}-removalrate.csv
+locked: data/locked/, test 센서·라벨은 열지 않았다
+wafers: train+val, 이상치 4장(MRR > 400) 제외 = features_v1 2401행
+time_defs: {'dur_s1': 'dur_POLISH_s1 (첫 챔버 체류, 초)', 'n_press': '압력 > 0 행 수 (웨이퍼 전체)', 'dur_w': '웨이퍼 전체 길이 t_end − t_start (초)'}
+n_press: 압력 6개 중 하나라도 > 0인 행 수, 완전 중복 행 제거 후 (ch56_step과 같은 정의, 재계산해 일치 확인)
+removal: 추정 연마량 = MRR × T (T의 단위 그대로)
+cv: 표본 표준편차(ddof=1) / 평균. cv_ratio_removal_to_mrr = CV(연마량) / CV(MRR)
+loglog: log(MRR) = a + b*log(T), OLS. CI = 고전 표준오차 × t(n-2) 0.975 분위수 (Cornish-Fisher 근사). b≈-1 연마량 일정, b≈0 시간과 무관
+corr_ci: Fisher z 정규근사 95%
+subsets: 그룹 전체 / 전체(플래그 제외: flag_long_trace·flag_incomplete_chamber) / A-123 센서 정상·전체-0 / 456 ch56_step 0·1
+resid_corr: 그룹 '전체' 회귀 잔차와 카운터 17열의 스피어만 상관, |rho| 상위 10. since_ NaN(첫 리셋 이전)은 그 열에서만 뺌. since_POLISH_TABLE_w는 리셋 누락 오류 열 (note 표시). 참고용
+post_hoc: 첫 실행 결과를 본 뒤 추가. trim=p01_p99 (부분집단·정의마다 T의 1%~99% 백분위수 밖 제외), loglog_ctrl (통제 변수 ['t_start', 'start_BACKING_FILM_w', 'start_DRESSER_w', 'start_POLISH_TABLE_w', 'start_DRESSER_TABLE_w', 'start_MEMBRANE_w', 'start_PSHEET_w'], z-score, 2026-10-14 mrr_time_beta와 같은 통제)
+ci_caveat: 고전 OLS CI는 웨이퍼 독립 가정. 같은 WAFER_ID의 A·B 짝·시간 자기상관 미반영 → CI가 좁게 나올 수 있음
+n_zero_time: T <= 0이라 그 정의에서 빠진 웨이퍼 수
+seed: 42 (난수 사용 없음)
+note: 진단 결과 (14.4). 판정·모델 입력에 쓰지 않는다

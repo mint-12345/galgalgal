@@ -1,0 +1,18 @@
+this_file: 2026-11-04_김혜연_mrr_time_check_report.pdf
+purpose: mrr_time_check(PR #28) 결과 PDF. 사후 진단 분석, 사전 확정 문서의 판정에는 쓰지 않음
+author: 김혜연
+pages: 5
+git_commit: d6d9d873e05db46661fc7619f4f3911b077aebcc
+git_branch: diag/mrr-time
+git_uncommitted_files: 0
+inputs_sha256_16:
+  2026-11-03_김혜연_mrr_time_check.csv: c797aeeb766178fb
+  2026-11-03_김혜연_mrr_time_check.yaml: f7afcfea342ca0cc
+  2026-11-04_김혜연_mrr_time_check.md: 5222063b830f0bdc
+  2026-11-04_김혜연_mrr_time_scatter_ch4.png: c486e34fb3ec515a
+  2026-11-04_김혜연_mrr_time_ch56_groups.png: 0a757572e8c30683
+  2026-11-04_김혜연_mrr_time_cv_ratio.png: 669800dc7834eb7a
+environment: "python 3.13.2 · numpy 2.5.3 · pandas 3.0.6 · matplotlib 3.11.2"
+font: NotoSansKR-VF.ttf → wght 400·700 고정 인스턴스 (fontTools), PDF Type 42 내장
+command: python src/diagnostics/report_mrr_time_check.py
+md_check: md 요약 숫자 37/38개가 csv 재계산값과 같음
