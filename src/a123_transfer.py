@@ -426,18 +426,25 @@ def check(data, a, fa, masks, cols):
 
 
 # ---------------------------------------------------------------- 보조 평가 (2026-11-04 추가)
-# 회귀 확인 기준 (2026-11-04 팀 결정): 연속값은 절대 차이 ≤ 1e-12, 이산값은 정확히 같아야 통과.
-# 주 평가는 처음부터 1e-14 수준까지만 재현된다 (11/01 GP 경고 진단과 같음. BLAS 스레드에 따른 끝자리 차이로 추정)
+# 회귀 확인 기준 (2026-11-04 팀 결정): 연속값은 |차이| ≤ CMP_ATOL + CMP_RTOL × |저장값| (numpy.isclose와 같은 방식),
+# 이산값은 정확히 같아야 통과. 모든 비율·①②에 같은 기준.
+# 경위: 비트 단위 → 절대 1e-12 → 상대 기준. 공개 2~16%는 1e-14 수준(11/01 진단), 100%는 약 1e-11 수준까지 재현된다.
+# BLAS 스레드에 따른 끝자리 차이로 추정
 CMP_CONT = ["mse", "rmse", "mae", "rho", "b", "coverage90"]
 CMP_DISC = ["n", "gp_warn_t1", "gp_warn_t3", "n_public", "n_public_clean", "n_train", "n_eval",
             "p1_on_included", "iso_kernel"]
 CMP_ATOL = 1e-12
+CMP_RTOL = 1e-10
+CMP_HISTORY = ("1) 비트 단위 일치로 시작 → ① r=0 8%에서 최대 1.42e-14 차이로 멈춤. "
+               "2) 연속값 절대 차이 ≤ 1e-12로 변경 → 8% r=0,1은 통과, ① r=0 100%에서 mse 3.51e-11, rmse 5.57e-12, "
+               "mae 1.07e-11 차이로 멈춤. 3) |차이| ≤ 1e-12 + 1e-10×|저장값| (상대 기준)으로 변경. 모두 2026-11-04 결정")
+REPRO_NOTE = "공개 2~16%는 1e-14 수준(11/01 GP 경고 진단), 100%는 약 1e-11 수준까지 재현됨(2026-11-04 확인)"
 RHO_BOUNDS = (0.0, 2.0)
 
 
 def compare_rows(new, old, where):
     """new·old 결과 행을 (source, input, model, subset[, r])로 짝지어 비교한다. 기준을 넘으면 멈춘다.
-    반환: (행 수, 연속값 열별 최대 절대 차이)."""
+    반환: (행 수, 연속값 열별 {"abs": 최대 절대 차이, "rel": 최대 상대 차이(|차이|/|저장값|)})."""
     keys = ["source", "input", "model", "subset"] + (["r"] if "r" in new.columns and "r" in old.columns else [])
     m = new.merge(old, on=keys, how="outer", suffixes=("_new", "_old"), indicator=True)
     if (m["_merge"] != "both").any() or len(m) != len(new):
@@ -447,10 +454,14 @@ def compare_rows(new, old, where):
         a, b = m[f"{c}_new"].astype(float), m[f"{c}_old"].astype(float)
         if not (a.isna() == b.isna()).all():
             bad.append(f"{c}: 빈 값 위치가 다름")
-        d = float((a - b).abs().max(skipna=True)) if (a.notna() & b.notna()).any() else 0.0
-        diffs[c] = d
-        if d > CMP_ATOL:
-            bad.append(f"{c}: 최대 차이 {d:.3g} > {CMP_ATOL:g}")
+        both = a.notna() & b.notna()
+        ad = (a - b).abs()[both]
+        rel = (ad / b[both].abs()).replace(np.inf, np.nan)
+        diffs[c] = {"abs": float(ad.max()) if len(ad) else 0.0,
+                    "rel": float(rel.max()) if rel.notna().any() else 0.0}
+        over = ad > CMP_ATOL + CMP_RTOL * b[both].abs()
+        if over.any():
+            bad.append(f"{c}: {int(over.sum())}행이 기준 초과 (최대 절대 {diffs[c]['abs']:.3g}, 최대 상대 {diffs[c]['rel']:.3g})")
     for c in CMP_DISC:
         a, b = m[f"{c}_new"], m[f"{c}_old"]
         if not ((a == b) | (a.isna() & b.isna())).all():
@@ -466,7 +477,11 @@ def compare_rows(new, old, where):
 
 
 def merge_diffs(*ds):
-    return {c: max(d[c] for d in ds) for c in CMP_CONT}
+    return {c: {k: max(d[c][k] for d in ds) for k in ("abs", "rel")} for c in CMP_CONT}
+
+
+def diff_text(d):
+    return "최대 절대 {:.3g}, 최대 상대 {:.3g}".format(max(v["abs"] for v in d.values()), max(v["rel"] for v in d.values()))
 
 
 def blas_info():
@@ -482,7 +497,7 @@ def blas_info():
 
 
 def regression_check(a, fa, models, saved):
-    """① 코드 수정 후 기본 경로(folds·fixed)로 r = 0, 1을 다시 계산해 주 평가 결과와 같은지 (기준은 CMP_ATOL)."""
+    """① 코드 수정 후 기본 경로(folds·fixed)로 8%·100%의 r = 0, 1을 다시 계산해 주 평가 결과와 같은지 (CMP_ATOL·CMP_RTOL)."""
     M = pd.read_csv(P_MASKS)
     M = M[(M["design"] == "folds") & (M["method"] == "fixed")]
     n, ds = 0, []
@@ -504,8 +519,7 @@ def main_random(t0, started, git):
     models = fit_sources(data, cols)
     saved = pd.read_csv(P_MAIN_FOLDS)
     n1, d1 = regression_check(a, fa, models, saved)
-    print(f"회귀 확인 ① 통과: 주 평가 r = 0, 1 (8%, 100%) {n1}행, 연속값 최대 차이 "
-          f"{max(d1.values()):.3g} ≤ {CMP_ATOL:g}, 이산값 일치", flush=True)
+    print(f"회귀 확인 ① 통과: 주 평가 r = 0, 1 (8%, 100%) {n1}행, 연속값 {diff_text(d1)}, 이산값 일치", flush=True)
     rec = []
     n2, d2 = 0, {}
     for ratio in [100] + [x for x in RATIOS if x != 100]:      # 100%를 먼저 해서 ②를 일찍 확인
@@ -518,8 +532,7 @@ def main_random(t0, started, git):
         if ratio == 100:
             new = pd.DataFrame([x for x in rec if x["ratio"] == 100])
             n2, d2 = compare_rows(new, saved[saved["ratio"] == 100], "② 무작위 100% = 주 평가 100%")
-            print(f"회귀 확인 ② 통과: 무작위 100% {n2}행, 연속값 최대 차이 {max(d2.values()):.3g} "
-                  f"≤ {CMP_ATOL:g}, 이산값 일치", flush=True)
+            print(f"회귀 확인 ② 통과: 무작위 100% {n2}행, 연속값 {diff_text(d2)}, 이산값 일치", flush=True)
     R = pd.DataFrame(rec).sort_values(["ratio", "r", "source", "input", "model", "subset"], kind="stable")
     S = summarize(R, judged_ok=False, kind_suffix=" (참고: 무작위 공개, 판정에 안 씀)")
     RH = rho_table(R)
@@ -532,14 +545,14 @@ def main_random(t0, started, git):
         "folds": "folds_v1 25 (r = repeat*5+fold)", "ratios": RATIOS,
         "ttest": "8% T3-T1 등 보정 t-검정은 참고용 (판정에 안 씀, stats의 primary=0)",
         "regression_check": {
-            "rule": f"연속값({', '.join(CMP_CONT)}) 절대 차이 ≤ {CMP_ATOL:g}, 이산값({', '.join(CMP_DISC)}, delta_cols, "
-                    "ρ가 0·2 경계에 붙었는지) 정확히 일치. 2026-11-04 결정",
-            "note": "주 평가는 처음부터 1e-14 수준까지만 재현됨 (11/01 GP 경고 진단과 같음). 첫 시도(비트 단위 기준)는 "
-                    "① r=0 8%에서 최대 1.42e-14 차이로 멈췄다",
-            "1_main_r01": f"통과: 주 평가 r=0,1 (8%, 100%) {n1}행",
-            "1_max_abs_diff": {c: float(f"{v:.3g}") for c, v in d1.items()},
+            "rule": f"연속값({', '.join(CMP_CONT)}) |차이| ≤ {CMP_ATOL:g} + {CMP_RTOL:g}×|저장값| (numpy.isclose 방식), "
+                    f"이산값({', '.join(CMP_DISC)}, delta_cols, ρ가 0·2 경계에 붙었는지) 정확히 일치. 모든 비율·①② 같은 기준",
+            "history": CMP_HISTORY,
+            "reproducibility": REPRO_NOTE,
+            "1_main_r01": f"통과: 주 평가 8%·100%의 r=0,1 {n1}행",
+            "1_max_diff": {c: {k: float(f"{v:.3g}") for k, v in dd.items()} for c, dd in d1.items()},
             "2_random100_eq_main100": f"통과: {n2}행",
-            "2_max_abs_diff": {c: float(f"{v:.3g}") for c, v in d2.items()}},
+            "2_max_diff": {c: {k: float(f"{v:.3g}") for k, v in dd.items()} for c, dd in d2.items()}},
         "gp_warnings": {"t1_total": int(W.groupby(["ratio", "r"])["gp_warn_t1"].first().sum()),
                         "t3_total": int(W["gp_warn_t3"].sum())},
         "outputs": {c: p.name for c, p in paths.items()},
