@@ -1,0 +1,17 @@
+﻿featureset,group,model,mse,mae,rmse,n_eval,n_eval_nan,fold,n_train
+features_v1,A-456,joint_sr_holdout,25.690046,3.927589,5.068535,188,0.0,0,
+features_v1,B-456,joint_sr_holdout,19.469563,3.584819,4.412433,192,0.0,0,
+features_v1,A-456,lr_group_jointvars,25.086073,3.919388,5.0086,188,0.0,0,752.0
+features_v1,B-456,lr_group_jointvars,19.605564,3.671567,4.427817,192,0.0,0,759.0
+features_v1,A-456,lr_common_jointvars,28.137746,4.111623,5.304502,188,0.0,0,752.0
+features_v1,B-456,lr_common_jointvars,19.804475,3.686765,4.450222,192,0.0,0,759.0
+features_v1,A-456,mean_jointvars,39.274474,4.81894,6.266935,188,0.0,0,752.0
+features_v1,B-456,mean_jointvars,83.086171,7.505661,9.115162,192,0.0,0,759.0
+features_v1,A-456,individual_sr_holdout,23.374353,3.800608,4.834703,188,0.0,0,
+features_v1,A-456,lr_group_10cands,23.472027,3.815784,4.844794,188,0.0,0,
+features_v1,B-456,individual_sr_holdout,18.876781,3.550488,4.344742,192,0.0,0,
+features_v1,B-456,lr_group_10cands,18.824893,3.532937,4.338766,192,0.0,0,
+features_v1,A-456,joint_fullsearch_reference,24.849294,3.860599,4.984907,188,,0,
+features_v1,B-456,joint_fullsearch_reference,18.528067,3.475799,4.304424,192,,0,
+features_v1,A-456,formal_sr_fullsearch_reference,21.332979,3.554214,4.618764,188,,0,
+features_v1,B-456,formal_sr_fullsearch_reference,17.527714,3.400705,4.186611,192,,0,

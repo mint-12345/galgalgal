@@ -187,7 +187,7 @@ def cmd_evaluate(args):
                          "mse": r["mse"], "mae": r["mae"], "n_eval": r["n_eval"]})
     res = pd.DataFrame(rows)
     res.insert(0, "featureset", sj.FEATURESET)
-    res.insert(1, "fold", OUTER)
+    res["fold"] = OUTER
     res.round(6).to_csv(out, index=False, encoding="utf-8-sig")
     print(res.pivot_table(index="model", columns="group", values="rmse").round(4))
     print(json.dumps(picks, ensure_ascii=False, indent=1))
