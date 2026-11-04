@@ -1,0 +1,19 @@
+﻿equation,mean,sd,se,complexity,seeds,loss,failed,featureset
+auc_MAIN_OUTER_s1,4.926278,0.541511,0.108302,1,"42,43,44,45,46,47,48,49,50,51",24.303493,False,features_v1
+auc_MAIN_OUTER_s1 * auc_SLURRY_C_s1,4.705605,0.369885,0.073977,3,"42,43,45,46,47",22.17118,False,features_v1
+auc_MAIN_OUTER_s1 * (auc_SLURRY_C_s1 * auc_PCHAMBER_s1),4.609445,0.313501,0.0627,5,48,21.279451,False,features_v1
+(auc_MAIN_OUTER_s1 * auc_RETAINER_s1) - log(auc_RETAINER_s1),4.608411,0.131895,0.026379,6,50,21.197346,False,features_v1
+(auc_SLURRY_C_s1 * (auc_MAIN_OUTER_s1 * auc_PCHAMBER_s1)) * auc_MAIN_OUTER_s1,4.573638,0.255607,0.051121,7,46,20.93803,False,features_v1
+((auc_SLURRY_C_s1 * auc_MAIN_OUTER_s1) * auc_RETAINER_s1) - log(auc_RETAINER_s1),4.53159,0.144103,0.028821,8,50,20.561878,False,features_v1
+log(auc_MAIN_OUTER_s1 * auc_SLURRY_C_s1) * (log(P1_on) - auc_RETAINER_s1),4.486294,0.137875,0.027575,9,45,20.343357,False,features_v1
+(((auc_PCHAMBER_s1 * auc_SLURRY_C_s1) * auc_RETAINER_s1) * auc_MAIN_OUTER_s1) - log(auc_RETAINER_s1),4.483123,0.163053,0.032611,10,50,20.093172,False,features_v1
+log(auc_MAIN_OUTER_s1 * (auc_PCHAMBER_s1 * auc_SLURRY_C_s1)) * (log(P1_on) - auc_RETAINER_s1),4.433682,0.158489,0.031698,11,45,19.904613,False,features_v1
+auc_SLURRY_C_s1 * (((auc_RETAINER_s1 * auc_MAIN_OUTER_s1) * auc_PCHAMBER_s1) - (P1_on * log(auc_RETAINER_s1))),4.462198,0.154285,0.030857,12,50,19.871029,False,features_v1
+(log(P1_on) - auc_RETAINER_s1) * log((auc_SLURRY_C_s1 * (auc_PCHAMBER_s1 - -0.057716344)) * auc_MAIN_OUTER_s1),4.3991,0.163924,0.032785,13,45,19.431398,False,features_v1
+(log(auc_MAIN_OUTER_s1) / P1_on) - (log((auc_MAIN_OUTER_s1 / auc_PCHAMBER_s1) / auc_PCHAMBER_s1) * log(auc_PCHAMBER_s1)),4.456149,0.132673,0.026535,14,43,19.859507,False,features_v1
+((log(P1_on) / auc_SLURRY_C_s1) - auc_RETAINER_s1) * log((auc_MAIN_OUTER_s1 * (auc_PCHAMBER_s1 - -0.057716344)) * auc_SLURRY_C_s1),4.383726,0.159247,0.031849,15,45,19.344618,False,features_v1
+((log(P1_on) / sqrt(dur_POLISH_s1)) - auc_RETAINER_s1) * log((auc_PCHAMBER_s1 - -0.057716344) * (auc_MAIN_OUTER_s1 * auc_SLURRY_C_s1)),4.385347,0.159796,0.031959,16,45,19.34088,False,features_v1
+((log(mean_DRESSER_TABLE_s2 / std_POLISH_TABLE_s1) / auc_SLURRY_C_s1) - auc_RETAINER_s1) * log(((auc_PCHAMBER_s1 - -0.057716344) * auc_MAIN_OUTER_s1) * auc_SLURRY_C_s1),4.394104,0.154383,0.030877,17,45,19.295727,False,features_v1
+(log(auc_PCHAMBER_s1) * log((auc_PCHAMBER_s1 * auc_PCHAMBER_s1) / P1_on)) + ((auc_MAIN_OUTER_s1 * auc_SLURRY_C_s1) * sqrt(auc_MAIN_OUTER_s1 * auc_PCHAMBER_s1)),4.415359,0.145964,0.029193,18,50,19.489632,False,features_v1
+(((0.5756947 - (auc_RETAINER_s1 / sqrt(mean_DRESSER_TABLE_s2))) * 4.2199965) * log(((auc_MAIN_OUTER_s1 * auc_MAIN_OUTER_s1) * auc_SLURRY_C_s1) * auc_PCHAMBER_s1)) / auc_SLURRY_C_s1,4.384031,0.139826,0.027965,19,45,19.216412,False,features_v1
+exp(auc_SLURRY_C_s1 + auc_MAIN_OUTER_s1) + (P1_on * (((auc_PCHAMBER_s1 / dur_POLISH_s1) * ((2.088549 / auc_MAIN_OUTER_s1) / auc_SLURRY_C_s1)) + -2.3600082)),4.368952,0.15487,0.030974,20,51,19.108925,False,features_v1

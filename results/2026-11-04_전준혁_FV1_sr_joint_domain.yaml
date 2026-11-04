@@ -1,0 +1,110 @@
+nature: 사후 후속 실험(계획 커밋 3949cb4 이후 실행). 정식 SR 판정은 바꾸지 않음. folds_v1 오차는 식 선택에 쓴 데이터라 낙관적
+date_run: 2026-11-05
+author: 전준혁
+plan: docs/plans/2026-11-04_joint_sr_plan.md (3949cb4)
+code_commit: 225977b (+작업 중 변경)
+labels: wafer_table.csv MRR, train+val, is_outlier=0 (정식 SR과 같은 출처). data/raw가 이 PC에 없어 load_labels()는 쓰지 못함. test·data/locked/ 사용 안 함
+inputs_sha256_16: 
+  features_v1.csv: 31aefa89f84aa209
+  wafer_table.csv: aec5f21f5bcc6c83
+  folds_v1.csv: e4b364141b0bdaa9
+  2026-11-01_박종화_sr_candidates.csv: 31065a4ecc409c44
+  2026-11-01_박종화_FV1_sr_pareto.csv: 0febd322ffa487c0
+  2026-11-01_박종화_sr_selection.csv: 0c3a12e943cd47a9
+env: 
+  python: 3.12.10
+  numpy: 2.5.4
+  pandas: 3.1.0
+  scipy: 1.18.1
+  sklearn: 1.9.1
+  platform: Windows-11-10.0.26200-SP0
+  workers: 6
+  pysr: 2.7.2
+  juliacall: 0.9.36
+runtime_sec: 16
+stage: 2단계: 공동 SR (TemplateExpressionSpec a[g]·f(x14) + b[g]) 선택·판정·추가 보고
+search: 
+  spec: TemplateExpressionSpec(combine='a[g] * f(14개) + b[g]', expressions=['f'], parameters={a: 2, b: 2})
+  settings: 정식 sr_run과 같음: 시드 42~51, niterations 500, populations 31, population_size 27, maxsize 20(f), + − × ÷ ^ exp log sqrt, ^ 지수 상수·|지수|≤3 탐색 중 차단(템플릿 f 트리 검사), 중첩 금지, 복잡도 가중치 exp·log 3 sqrt·^ 2, deterministic, serial
+  parallel_runs: 시드 2개씩 5개 프로세스 동시 실행(각 시드는 독립·결정적이라 순차 실행과 같음)
+  julia: Julia 1.11.9, SymbolicRegression 2.7.2, PythonCall 0.9.36, PYTHON_JULIACALL_THREADS=1
+  fit_seconds: 
+    42: 987.8
+    47: 943.6
+    43: 960.3
+    48: 931.4
+    44: 938.4
+    49: 926.8
+    45: 980.3
+    50: 935.0
+    46: 984.7
+    51: 1032.6
+  n_rows: 1891
+  n_pareto_rows: 120
+  n_removed_exponent_posthoc: 0
+  n_unique_f: 100
+  n_failed_refit: 0
+scale: 합산 |중앙값| (주). 민감도: 테이블별 |중앙값|, fold 학습 쪽 합산 |중앙값|
+selection: fold 지표 = 두 테이블 평가 RMSE 평균. 복잡도별 최저, 1-표준오차(SE = sd/√25), 민감도 배율 1.00/1.02/1.05/1.10
+final_f: (log(P1_on) - auc_RETAINER_s1) * log((auc_SLURRY_C_s1 * (auc_PCHAMBER_s1 - -0.057716344)) * auc_MAIN_OUTER_s1)
+final_complexity: 13
+judgment: 
+  verdict: 공통 형태 없음
+  lower_than_ga: 
+    A-456: False
+    B-456: False
+  within_1se_of_formal: 
+    A-456: False
+    B-456: False
+  rmse_joint_minus_formal: 
+    A-456: 0.24746113762137867
+    B-456: 0.13403047180676975
+  se_formal: 
+    A-456: 0.03702897976517492
+    B-456: 0.03099444925700299
+judgment_noshared_reference: 
+  verdict: 공통 형태 없음 (경계: B-456 RMSE 차이 0.046 대 SE 0.043)
+  lower_than_ga: 
+    A-456: False
+    B-456: False
+  within_1se_of_formal: 
+    A-456: False
+    B-456: False
+  rmse_joint_minus_formal: 
+    A-456: 0.20332041161336267
+    B-456: 0.0457071650219687
+  se_formal: 
+    A-456: 0.05221922763483604
+    B-456: 0.04250189510652718
+coefs_full_fit: 
+  theta: [-0.08970885216096706]
+  a: [34.50576656478068, 42.30508504487198]
+  b: [76.55024747392935, 87.03500648899252]
+  nfev: 4
+interval_stability: 
+  A-456: 
+    n_intervals_used: 5
+    n_skipped: 0
+    a_cv: 0.42044133675519635
+    b_cv: 0.02351015642943469
+    a_sign_same: True
+  B-456: 
+    n_intervals_used: 4
+    n_skipped: 1
+    a_cv: 0.03270243482344673
+    b_cv: 0.0038159163269817983
+    a_sign_same: True
+outputs: 
+  pareto: 2026-11-04_전준혁_FV1_sr_joint_pareto.csv
+  curve: 2026-11-04_전준혁_FV1_sr_joint_curve.csv
+  selection: 2026-11-04_전준혁_FV1_sr_joint_selection.csv
+  compare: 2026-11-04_전준혁_FV1_sr_joint_compare.csv
+  tests: 2026-11-04_전준혁_FV1_sr_joint_tests.csv
+  judgment: 2026-11-04_전준혁_FV1_sr_joint_judgment.csv
+  coefs: 2026-11-04_전준혁_FV1_sr_joint_coefs.csv
+  stability: 2026-11-04_전준혁_FV1_sr_joint_stability.csv
+  sensitivity: 2026-11-04_전준혁_FV1_sr_joint_sensitivity.csv
+  domain: 2026-11-04_전준혁_FV1_sr_joint_domain.csv
+  nested: 2026-11-04_전준혁_FV1_sr_joint_nested.csv
+elapsed_select_sec: 15
+file: 2026-11-04_전준혁_FV1_sr_joint_domain.csv

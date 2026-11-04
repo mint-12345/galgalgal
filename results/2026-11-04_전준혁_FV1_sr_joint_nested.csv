@@ -1,0 +1,6 @@
+﻿outer,picked_1se,picked_complexity,picked_is_final,picked_rmse_A-456,picked_rmse_B-456,final_rmse_A-456,final_rmse_B-456,lr_group_rmse_A-456,lr_group_rmse_B-456,formal_sr_rmse_A-456,formal_sr_rmse_B-456
+0,log(auc_MAIN_OUTER_s1 * (auc_PCHAMBER_s1 * auc_SLURRY_C_s1)) * (log(P1_on) - auc_RETAINER_s1),11,False,5.017439,4.408764,4.984907,4.304424,4.985646,4.383483,4.618764,4.186611
+1,(((auc_PCHAMBER_s1 * auc_SLURRY_C_s1) * auc_RETAINER_s1) * auc_MAIN_OUTER_s1) - log(auc_RETAINER_s1),10,False,4.393237,4.504729,4.342012,4.416963,4.387378,4.546333,4.255198,4.144421
+2,auc_SLURRY_C_s1 * ((auc_PCHAMBER_s1 * auc_MAIN_OUTER_s1) * (17.971033 - sqrt(frac_hi))),10,False,4.263874,5.021341,4.260839,3.988909,4.209779,6.251027,4.004377,3.82303
+3,(auc_SLURRY_C_s1 * ((auc_MAIN_OUTER_s1 * auc_RETAINER_s1) * auc_PCHAMBER_s1)) - log(auc_RETAINER_s1),10,False,4.389848,4.736653,4.330602,4.538031,4.387569,4.737095,4.184626,4.504144
+4,log(auc_MAIN_OUTER_s1 * (auc_PCHAMBER_s1 * auc_SLURRY_C_s1)) * (log(P1_on) - auc_RETAINER_s1),11,False,4.4956,4.366113,4.499906,4.308681,4.615127,4.41843,4.140573,4.234555

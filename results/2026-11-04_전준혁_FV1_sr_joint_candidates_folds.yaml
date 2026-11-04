@@ -1,0 +1,11 @@
+file: 2026-11-04_전준혁_FV1_sr_joint_candidates_folds.csv
+describes: 2단계 후보 f 100개의 fold별 공동 재적합 결과 (선택 곡선의 원자료). 설정·환경은 2026-11-04_전준혁_FV1_sr_joint_selection.yaml 과 같음
+nature: 사후 후속 실험(계획 커밋 3949cb4 이후 실행). 정식 SR 판정은 바꾸지 않음. folds_v1 오차는 식 선택에 쓴 데이터라 낙관적
+date_run: 2026-11-05
+author: 전준혁
+plan: docs/plans/2026-11-04_joint_sr_plan.md (3949cb4)
+code_commit: 225977b (+작업 중 변경)
+labels: wafer_table.csv MRR, train+val, is_outlier=0 (정식 SR과 같은 출처). data/raw가 이 PC에 없어 load_labels()는 쓰지 못함. test·data/locked/ 사용 안 함
+stage: 2단계: 공동 SR (TemplateExpressionSpec a[g]·f(x14) + b[g]) 선택·판정·추가 보고
+scale: 합산 |중앙값| (주). 민감도: 테이블별 |중앙값|, fold 학습 쪽 합산 |중앙값|
+selection: fold 지표 = 두 테이블 평가 RMSE 평균. 복잡도별 최저, 1-표준오차(SE = sd/√25), 민감도 배율 1.00/1.02/1.05/1.10

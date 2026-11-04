@@ -1,0 +1,6 @@
+﻿rule,limit,equation,mean,sd,se,complexity,seeds,loss,failed,featureset
+1se,4.399926,(log(P1_on) - auc_RETAINER_s1) * log((auc_SLURRY_C_s1 * (auc_PCHAMBER_s1 - -0.057716344)) * auc_MAIN_OUTER_s1),4.3991,0.163924,0.032785,13,45,19.431398,False,features_v1
+x1.00,4.368952,exp(auc_SLURRY_C_s1 + auc_MAIN_OUTER_s1) + (P1_on * (((auc_PCHAMBER_s1 / dur_POLISH_s1) * ((2.088549 / auc_MAIN_OUTER_s1) / auc_SLURRY_C_s1)) + -2.3600082)),4.368952,0.15487,0.030974,20,51,19.108925,False,features_v1
+x1.02,4.456331,log(auc_MAIN_OUTER_s1 * (auc_PCHAMBER_s1 * auc_SLURRY_C_s1)) * (log(P1_on) - auc_RETAINER_s1),4.433682,0.158489,0.031698,11,45,19.904613,False,features_v1
+x1.05,4.5874,(auc_SLURRY_C_s1 * (auc_MAIN_OUTER_s1 * auc_PCHAMBER_s1)) * auc_MAIN_OUTER_s1,4.573638,0.255607,0.051121,7,46,20.93803,False,features_v1
+x1.10,4.805848,auc_MAIN_OUTER_s1 * auc_SLURRY_C_s1,4.705605,0.369885,0.073977,3,"42,43,45,46,47",22.17118,False,features_v1
