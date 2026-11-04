@@ -2,7 +2,8 @@
 
 범위 (5.7-17 "필수"): folds_v1 25 fold 주 평가, 고정주기 공개, 공개 2/4/8/16/100%,
 T0~T3, 소스 S1(A-456)·S2(A-456+B-456), f_456 full·usage, 8% 주·2차 판정, 90% 커버리지, ρ 분포.
-(전진 검증·무작위 공개·δ XGBoost·라벨 피처 실험은 이 파일 범위 밖)
+보조 평가 (5.7-17 "2차 면담 전", 2026-11-04 추가): --design walkforward(전진 검증 5단계, 8%) / --method random(무작위 공개).
+기본값(folds, fixed)은 주 평가 그대로다. (δ XGBoost·라벨 피처 실험은 이 파일 범위 밖)
 
 규칙 대응 (절 번호는 preregistration.md):
 - 분할: 같은 repeat 안에서 eval = fold==f, train = fold!=f, r = repeat*5 + fold (5.7-1)
@@ -55,6 +56,10 @@ P_FAMILIES = DATA / "feature_families_v1.csv"
 P_FOLDS = DATA / "folds_v1.csv"
 P_MASKS = DATA / "reveal_masks_v1.csv"
 P_TABLE = DATA / "wafer_table.csv"
+P_WF = DATA / "walkforward_v1.csv"
+P_WF_CUT = DATA / "walkforward_cutoffs_v1.csv"
+# 보조 평가 회귀 확인용: 주 평가 결과 (덮어쓰지 않고 읽기만)
+P_MAIN_FOLDS = ROOT / "results" / "2026-11-01_김혜연_FV1_a123_transfer_folds.csv"
 RESULTS = ROOT / "results"
 AUTHOR = "김혜연"
 TAG = "FV1"
@@ -89,8 +94,19 @@ XGB_PARAMS = dict(n_estimators=400, max_depth=4, learning_rate=0.03, subsample=0
                   colsample_bytree=0.8, min_child_weight=3, random_state=SEED, n_jobs=XGB_N_JOBS)
 SEED_RULE = "f_456 random_state=42 / GP random_state=42+r (r = repeat*5+fold, 재시작 5회도 이 시드에서 시작)"
 OUT_CONTENTS = ["folds", "stats", "judgment", "rho"]
+WF_STEPS = 5
+WF_MIN_WINS = 3
+# 보조 평가 규칙 중 사전 확정 문서에 없던 4가지. 주 판정 결과를 본 뒤, 보조 평가 실행 전에 정했다.
+AUX_DECIDED = {
+    "date": "2026-11-04",
+    "when": "주 판정 이후, 보조 평가 실행 전 결정 (preregistration.md 미반영, 팀 동의 후 변경 이력에 추가 예정)",
+    "1_sources": "보조 판정은 f_456 full 기준 소스별로 T3<T1 단계 수를 센다. S1·S2 중 하나라도 3개 미만이면 '보조 평가에서 뒤집힘'",
+    "2_main_no_effect": "주 판정이 '효과 없음'이므로 보조 판정은 단계 수와 규칙 해당 여부만 적고, 어느 경우든 기본값 T1 유지",
+    "3_walkforward_method": "보조 판정은 8% 고정주기(r = 5×단계). 8% 무작위(시드 42+단계)는 참고로 함께 실행, 다른 비율은 실행 안 함",
+    "4_lower": "'T3가 T1보다 낮다' = 그 단계 평가 쪽(43장) MSE가 엄격히 작음. 단계별 차이는 표본이 작아 참고용",
+}
 
-for p in [P_FEATURES, P_FAMILIES, P_FOLDS, P_MASKS, P_TABLE]:
+for p in [P_FEATURES, P_FAMILIES, P_FOLDS, P_MASKS, P_TABLE, P_WF, P_WF_CUT]:
     assert "locked" not in str(p).lower() and "test" not in p.name.lower(), f"test 경로 금지: {p}"
 
 
@@ -107,7 +123,7 @@ def input_columns(feat_columns):
     return cols
 
 
-def load():
+def load(design="folds", method="fixed"):
     feat = pd.read_csv(P_FEATURES)
     table = pd.read_csv(P_TABLE, usecols=KEY + ["MRR", "t_start"])
     assert "t_start" not in feat.columns and "MRR" not in feat.columns
@@ -118,7 +134,7 @@ def load():
         assert c in data.columns, f"δ 후보 열 없음: {c}"
     folds = pd.read_csv(P_FOLDS)
     masks = pd.read_csv(P_MASKS)
-    masks = masks[(masks["design"] == "folds") & (masks["method"] == "fixed")]
+    masks = masks[(masks["design"] == design) & (masks["method"].isin([method] if isinstance(method, str) else method))]
     a = data[data["group"] == TARGET_GROUP].reset_index(drop=True)
     assert len(a) == 431, f"A-123 행 수 {len(a)} (문서 431)"
     fa = folds.merge(a[KEY], on=KEY, how="inner")
@@ -126,10 +142,13 @@ def load():
     return data, a, fa, masks, cols
 
 
-def fit_sources(data, cols):
+def fit_sources(data, cols, before=None):
+    """before가 있으면 t_start < before인 456 웨이퍼만 쓴다 (전진 검증, 5.2 #21·5.7-5)."""
     models = {}
     for s, groups in SOURCES.items():
         src = data[data["group"].isin(groups)]
+        if before is not None:
+            src = src[src["t_start"] < before]
         for m in MODES:
             mdl = XGBRegressor(**XGB_PARAMS)
             mdl.fit(src[cols[m]].to_numpy(float), src["MRR"].to_numpy(float))  # NaN 그대로 (#27)
@@ -150,6 +169,18 @@ def split(a, fa, masks, r, ratio):
     assert set(map(tuple, mk.values)) <= ktr, f"공개 웨이퍼가 학습 쪽 밖: r={r}"
     pub = tr.merge(mk, on=KEY)
     return tr, ev, pub
+
+
+def split_walkforward(a, wf, masks, step, ratio, method):
+    """전진 검증 (5.2, 5.7-4·5): 학습 = role train, 평가 = role eval. 공개는 그 단계 학습 쪽에서만."""
+    w = wf[wf["step"] == step]
+    tr = a.merge(w.loc[w["role"] == "train", KEY], on=KEY)
+    ev = a.merge(w.loc[w["role"] == "eval", KEY], on=KEY)
+    assert set(map(tuple, tr[KEY].values)).isdisjoint(set(map(tuple, ev[KEY].values))), f"누수: step={step}"
+    assert tr["t_start"].max() < ev["t_start"].min(), f"시간 순서 위반: step={step}"
+    mk = masks[(masks["step"] == step) & (masks["ratio"] == ratio) & (masks["method"] == method)][KEY].drop_duplicates()
+    assert len(mk) > 0 and set(map(tuple, mk.values)) <= set(map(tuple, tr[KEY].values)), f"공개 마스크: step={step}"
+    return tr, ev, tr.merge(mk, on=KEY)
 
 
 # ---------------------------------------------------------------- δ 입력 (#26)
@@ -206,13 +237,13 @@ def fit_gp(Xp, y, Xe, n_pub, seed):
 
 
 # ---------------------------------------------------------------- 한 fold
-def run_fold(tr, ev, pub, models, r):
+def run_fold(tr, ev, pub, models, r, seed=None):
     y = pub["MRR"].to_numpy(float)
     ye = ev["MRR"].to_numpy(float)
     zero = ev["allzero"].to_numpy() == 1
     cols = select_delta(tr, pub)
     Xp, Xe = delta_matrices(tr, pub, ev, cols)
-    seed = SEED + r
+    seed = SEED + r if seed is None else seed      # 전진 검증은 42 + 단계 (5.7-14)
     t1, t1_sd, w1 = fit_gp(Xp, y, Xe, len(pub), seed)          # T1·T0는 소스와 무관
     base = dict(n_public=len(pub), n_public_clean=int((pub["allzero"] == 0).sum()),
                 n_train=len(tr), n_eval=len(ev), delta_cols=",".join(cols),
@@ -246,7 +277,7 @@ def run_fold(tr, ev, pub, models, r):
 
 
 # ---------------------------------------------------------------- 검정 (5.5, 5.7-16)
-def summarize(R):
+def summarize(R, judged_ok=True, kind_suffix=""):
     """fold별 MSE 차이를 cv_common.corrected_ttest로 검정 (n_train = 학습 쪽 전체).
     revealed 기준(n_train = 공개 라벨 수)은 ttest_ntrain_sensitivity로 병기만 한다."""
     A = R[R["subset"] == "all"]
@@ -259,8 +290,8 @@ def summarize(R):
             d = (P[a] - P[b]).to_numpy()
             full = cv.corrected_ttest(d, n_tr, n_ev)
             rev = cv.ttest_ntrain_sensitivity(d, n_ev, n_tr, n_pub, alpha=ALPHA).set_index("n_train_basis").loc["revealed"]
-            judged = ratio == PRIMARY_RATIO and m == PRIMARY_MODE and kind != "보고만"
-            rows.append(dict(ratio=ratio, source=s, input=m, compare=f"{a}-{b}", kind=kind,
+            judged = judged_ok and ratio == PRIMARY_RATIO and m == PRIMARY_MODE and kind != "보고만"
+            rows.append(dict(ratio=ratio, source=s, input=m, compare=f"{a}-{b}", kind=kind + kind_suffix,
                              primary=int(judged), J=full["n_folds"], mean_diff=full["mean_diff"],
                              sd_diff=full["sd_diff"], wins=int((d < 0).sum()),
                              se=full["se"], t=full["t"], df=full["df"], p=full["p"], nb_ratio=full["ratio"],
@@ -307,15 +338,15 @@ def tag_columns(df):
     return df
 
 
-def out_paths(day):
-    """results/{날짜}_{이름}_FV1_a123_transfer_{내용}.csv. 하나라도 있으면 _v2, _v3 …로 (덮어쓰기 금지)."""
+def out_paths(day, mode="", contents=OUT_CONTENTS):
+    """results/{날짜}_{이름}_FV1_a123_transfer[_{mode}]_{내용}.csv. 하나라도 있으면 _v2, _v3 …로 (덮어쓰기 금지)."""
     RESULTS.mkdir(exist_ok=True)
-    base = f"{day:%Y-%m-%d}_{AUTHOR}_{TAG}_a123_transfer"
+    base = f"{day:%Y-%m-%d}_{AUTHOR}_{TAG}_a123_transfer" + (f"_{mode}" if mode else "")
     stem, k = base, 1
-    while any((RESULTS / f"{stem}_{c}{ext}").exists() for c in OUT_CONTENTS for ext in (".csv", ".yaml")):
+    while any((RESULTS / f"{stem}_{c}{ext}").exists() for c in contents for ext in (".csv", ".yaml")):
         k += 1
         stem = f"{base}_v{k}"
-    return {c: RESULTS / f"{stem}_{c}.csv" for c in OUT_CONTENTS}
+    return {c: RESULTS / f"{stem}_{c}.csv" for c in contents}
 
 
 def sha(p):
@@ -394,6 +425,177 @@ def check(data, a, fa, masks, cols):
     print("연결 점검 끝: 모델 학습·성능 계산 안 함")
 
 
+# ---------------------------------------------------------------- 보조 평가 (2026-11-04 추가)
+CMP_NUM = ["n", "mse", "rmse", "mae", "rho", "b", "coverage90", "gp_warn_t1", "gp_warn_t3",
+           "n_public", "n_public_clean", "n_train", "n_eval", "p1_on_included", "iso_kernel"]
+
+
+def compare_rows(new, old, where):
+    """new·old 결과 행을 (source, input, model, subset[, r])로 짝지어 비트 단위로 같은지 본다. 다르면 멈춘다."""
+    keys = ["source", "input", "model", "subset"] + (["r"] if "r" in new.columns and "r" in old.columns else [])
+    m = new.merge(old, on=keys, how="outer", suffixes=("_new", "_old"), indicator=True)
+    if (m["_merge"] != "both").any() or len(m) != len(new):
+        raise SystemExit(f"회귀 확인 실패 ({where}): 행 짝이 맞지 않는다 ({int((m['_merge'] != 'both').sum())}행)")
+    bad = []
+    for c in CMP_NUM:
+        a, b = m[f"{c}_new"].astype(float), m[f"{c}_old"].astype(float)
+        same = (a == b) | (a.isna() & b.isna())
+        if not same.all():
+            bad.append(f"{c}: {int((~same).sum())}행, 최대 차이 {float((a - b).abs().max()):.3g}")
+    if not (m["delta_cols_new"] == m["delta_cols_old"]).all():
+        bad.append("delta_cols")
+    if bad:
+        raise SystemExit(f"회귀 확인 실패 ({where}): " + " / ".join(bad) + " → 실행을 멈춘다")
+    return len(m)
+
+
+def regression_check(a, fa, models, saved):
+    """① 코드 수정 후 기본 경로(folds·fixed)로 r = 0, 1을 다시 계산해 주 평가 결과와 비트 단위로 같은지."""
+    M = pd.read_csv(P_MASKS)
+    M = M[(M["design"] == "folds") & (M["method"] == "fixed")]
+    n = 0
+    for ratio in (PRIMARY_RATIO, 100):
+        for r in (0, 1):
+            tr, ev, pub = split(a, fa, M, r, ratio)
+            new = pd.DataFrame(run_fold(tr, ev, pub, models, r)).assign(r=r)
+            n += compare_rows(new, saved[(saved["ratio"] == ratio) & (saved["r"] == r)], f"① r={r}, {ratio}%")
+    return n
+
+
+def main_random(t0, started, git):
+    """무작위 공개 (5.3, 5.7-3): folds 25개, 시드 42 + r 마스크. 모델·δ·GP·f_456은 주 평가와 같다."""
+    data, a, fa, masks, cols = load("folds", "random")
+    MODEL_COLS.clear()
+    MODEL_COLS.update(cols)
+    models = fit_sources(data, cols)
+    saved = pd.read_csv(P_MAIN_FOLDS)
+    n1 = regression_check(a, fa, models, saved)
+    print(f"회귀 확인 ① 통과: 주 평가 r = 0, 1 (8%, 100%) {n1}행이 비트 단위로 같다", flush=True)
+    rec = []
+    n2 = 0
+    for ratio in [100] + [x for x in RATIOS if x != 100]:      # 100%를 먼저 해서 ②를 일찍 확인
+        for r in range(25):
+            tr, ev, pub = split(a, fa, masks, r, ratio)
+            for row in run_fold(tr, ev, pub, models, r):
+                row.update(ratio=ratio, r=r, repeat=r // 5, fold=r % 5, method="random")
+                rec.append(row)
+        print(f"무작위 공개 {ratio}% 완료 ({time.time() - t0:.0f}초)", flush=True)
+        if ratio == 100:
+            new = pd.DataFrame([x for x in rec if x["ratio"] == 100])
+            n2 = compare_rows(new, saved[saved["ratio"] == 100], "② 무작위 100% = 주 평가 100%")
+            print(f"회귀 확인 ② 통과: 무작위 100% {n2}행이 주 평가 100%와 비트 단위로 같다", flush=True)
+    R = pd.DataFrame(rec).sort_values(["ratio", "r", "source", "input", "model", "subset"], kind="stable")
+    S = summarize(R, judged_ok=False, kind_suffix=" (참고: 무작위 공개, 판정에 안 씀)")
+    RH = rho_table(R)
+    paths = out_paths(started.date(), "random", ["folds", "stats", "rho"])
+    for c, df in {"folds": R, "stats": S, "rho": RH}.items():
+        tag_columns(df).to_csv(paths[c], index=False, encoding="utf-8")
+    W = R[R["subset"] == "all"].drop_duplicates(["ratio", "r", "source", "input"])
+    info = aux_info("a123_transfer 무작위 공개 (preregistration 5.3 보조 결과)", t0, started, git, cols) | {
+        "reveal": "reveal_masks_v1 design=folds method=random (시드 42 + r, 장수는 고정주기와 같음)",
+        "folds": "folds_v1 25 (r = repeat*5+fold)", "ratios": RATIOS,
+        "ttest": "8% T3-T1 등 보정 t-검정은 참고용 (판정에 안 씀, stats의 primary=0)",
+        "regression_check": {"1_main_r01": f"통과: 주 평가 r=0,1 (8%, 100%) {n1}행 비트 단위 일치",
+                             "2_random100_eq_main100": f"통과: {n2}행 비트 단위 일치"},
+        "gp_warnings": {"t1_total": int(W.groupby(["ratio", "r"])["gp_warn_t1"].first().sum()),
+                        "t3_total": int(W["gp_warn_t3"].sum())},
+        "outputs": {c: p.name for c, p in paths.items()},
+    }
+    for c, pth in paths.items():
+        write_yaml(pth.with_suffix(".yaml"), {"this_file": pth.name, **info})
+    print("저장: " + " / ".join(pth.name for pth in paths.values()) + f" ({time.time() - t0:.0f}초)")
+
+
+def wf_judge(R):
+    """보조 판정 (5.5 + 2026-11-04 결정 1·2·4): 8%, f_456 full, 소스별 T3 MSE < T1 MSE인 단계 수."""
+    rows = []
+    for method in ["fixed", "random"]:
+        A = R[(R["subset"] == "all") & (R["input"] == PRIMARY_MODE) & (R["method"] == method)]
+        rec = dict(method=method, role="보조 판정" if method == "fixed" else "참고 (판정에 안 씀)",
+                   ratio=PRIMARY_RATIO, input=PRIMARY_MODE, source="+".join(SOURCES))
+        for s_ in SOURCES:
+            P = A[A["source"] == s_].pivot(index="step", columns="model", values="mse").sort_index()
+            assert list(P.index) == list(range(WF_STEPS))
+            d = (P["T3"] - P["T1"]).to_numpy()
+            rec[f"{s_}_wins"] = int((d < 0).sum())
+            rec[f"{s_}_steps_T3_lower"] = ",".join(str(k) for k in P.index[d < 0])
+            rec[f"{s_}_diff_by_step"] = ",".join(f"{x:.4f}" for x in d)
+        hit = any(rec[f"{s_}_wins"] < WF_MIN_WINS for s_ in SOURCES)
+        rec["rule_hit"] = bool(hit)
+        rec["verdict"] = ("보조 평가에서 뒤집힘 (기본값 T1 유지)" if hit else
+                          "뒤집히지 않음: S1·S2 모두 T3<T1 단계 3개 이상. 주 판정 '효과 없음'이므로 기본값 T1 유지")
+        rows.append(rec)
+    return pd.DataFrame(rows)
+
+
+def main_walkforward(t0, started, git):
+    """전진 검증 (5.2, 5.5, 5.7-4·5·14): 5단계, 8%. 단계마다 456은 t_start < eval_start만으로 f_456 재학습."""
+    data, a, fa, masks, cols = load("walkforward", ["fixed", "random"])
+    MODEL_COLS.clear()
+    MODEL_COLS.update(cols)
+    wf = pd.read_csv(P_WF)
+    cut = pd.read_csv(P_WF_CUT).set_index("step")
+    rec = []
+    for step in range(WF_STEPS):
+        before = float(cut.loc[step, "eval_start"])
+        models = fit_sources(data, cols, before=before)
+        n456 = {s_: int((data["group"].isin(g) & (data["t_start"] < before)).sum()) for s_, g in SOURCES.items()}
+        for method in ["fixed", "random"]:
+            tr, ev, pub = split_walkforward(a, wf, masks, step, PRIMARY_RATIO, method)
+            assert len(tr) == cut.loc[step, "n_train"] and len(ev) == cut.loc[step, "n_eval"]
+            mu, sd = tr["t_start"].mean(), tr["t_start"].std(ddof=0)
+            ext = dict(step=step, method=method, ratio=PRIMARY_RATIO, r=5 * step, eval_start=before,
+                       t_eval_z_min=float((ev["t_start"].min() - mu) / sd),
+                       t_eval_z_max=float((ev["t_start"].max() - mu) / sd),
+                       t_train_z_max=float((tr["t_start"].max() - mu) / sd))
+            for row in run_fold(tr, ev, pub, models, 5 * step, seed=SEED + step):
+                row.update(ext, n_456=n456[row["source"]])
+                rec.append(row)
+        print(f"전진 검증 단계 {step} 완료 ({time.time() - t0:.0f}초)", flush=True)
+    R = pd.DataFrame(rec)
+    J = wf_judge(R)
+    paths = out_paths(started.date(), "walkforward", ["steps", "judgment"])
+    for c, df in {"steps": R, "judgment": J}.items():
+        tag_columns(df).to_csv(paths[c], index=False, encoding="utf-8")
+    W = R[R["subset"] == "all"].drop_duplicates(["step", "method", "source", "input"])
+    info = aux_info("a123_transfer 전진 검증 (preregistration 5.2 보조 평가, 5.5 보조 판정)", t0, started, git, cols) | {
+        "walkforward": "walkforward_v1 5단계 (학습 216/259/302/345/388, 평가 43장씩), walkforward_cutoffs_v1",
+        "reveal": "reveal_masks_v1 design=walkforward, 8%. fixed = 고정주기 r=5*단계 (판정), random = 시드 42+단계 (참고)",
+        "source_time_rule": "단계마다 456 중 t_start < eval_start 웨이퍼만으로 f_456 재학습 (5.2 #21, 5.7-5)",
+        "gp_seed": "42 + 단계 (5.7-14), 재시작 5회도 이 시드에서",
+        "judgment_rule": "단계 평가 쪽 MSE가 T3 < T1인 단계 수를 소스별로 센다(f_456 full). S1·S2 중 하나라도 3개 미만이면 "
+                         "'보조 평가에서 뒤집힘'. 어느 경우든 기본값 T1 유지",
+        "caveat": "단계별 평가는 43장이라 단계별 T3-T1 차이는 참고용. 평가 쪽 t_start는 학습 범위 밖(외삽)이라 GP가 평균으로 "
+                  "돌아갈 수 있다 (5.5 해석 주의). t_eval_z_* 열 = 학습 쪽 t_start 기준 표준화 값",
+        "gp_warnings": {"t1_total": int(W.groupby(["step", "method"])["gp_warn_t1"].first().sum()),
+                        "t3_total": int(W["gp_warn_t3"].sum())},
+        "outputs": {c: p.name for c, p in paths.items()},
+    }
+    for c, pth in paths.items():
+        write_yaml(pth.with_suffix(".yaml"), {"this_file": pth.name, **info})
+    print("저장: " + " / ".join(pth.name for pth in paths.values()) + f" ({time.time() - t0:.0f}초)")
+
+
+def aux_info(experiment, t0, started, git, cols):
+    return {
+        "experiment": experiment,
+        "author": AUTHOR, "tag": TAG, "featureset": FEATURESET, "group": TARGET_GROUP,
+        "run_started": f"{started:%Y-%m-%d %H:%M:%S}", "run_finished": f"{dt.datetime.now():%Y-%m-%d %H:%M:%S}",
+        "runtime_sec": round(time.time() - t0),
+        "git": git,
+        "environment": environment() | {"OPENBLAS_NUM_THREADS": os.environ.get("OPENBLAS_NUM_THREADS", "")},
+        "command": "python src/a123_transfer.py " + " ".join(sys.argv[1:]),
+        "sources": SOURCES,
+        "f456": {"model": "XGBRegressor (3.2 고정 설정)", "params": XGB_PARAMS, "n_jobs": XGB_N_JOBS,
+                 "inputs": {m: len(c) for m, c in cols.items()}, "exclude_full": EXCLUDE_FULL},
+        "same_as_main": "모델 T0~T3, δ 입력 규칙, GP 커널·설정, f_456 설정은 주 평가와 같은 함수 (select_delta, fit_gp, run_fold)",
+        "seed_rule": SEED_RULE,
+        "decided_after_main_judgment": AUX_DECIDED,
+        "inputs_sha256_16": {p.name: sha(p) for p in [P_FEATURES, P_FAMILIES, P_FOLDS, P_MASKS, P_TABLE, P_WF,
+                                                       P_WF_CUT, P_MAIN_FOLDS]},
+    }
+
+
 # ---------------------------------------------------------------- 실행
 MODEL_COLS: dict = {}
 
@@ -402,6 +604,10 @@ def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true", help="실제 데이터 연결 점검만 (학습·성능 계산 없음)")
     ap.add_argument("--quick", action="store_true", help="r 0~1, 공개 8%만. 결과 저장·숫자 출력 없음")
+    ap.add_argument("--design", choices=["folds", "walkforward"], default="folds",
+                    help="walkforward = 전진 검증 보조 평가 (8%%, 고정주기 판정 + 무작위 참고)")
+    ap.add_argument("--method", choices=["fixed", "random"], default="fixed",
+                    help="folds에서 random = 무작위 공개 보조 결과 (회귀 확인 ①② 포함)")
     args = ap.parse_args(argv)
     if xgboost.__version__ != XGB_VERSION:
         sys.exit(f"xgboost {xgboost.__version__}: {XGB_VERSION}가 필요하다 (5.7-11). "
@@ -409,6 +615,10 @@ def main(argv=None):
     t0 = time.time()
     started = dt.datetime.now()
     git = git_state()
+    if args.design == "walkforward":
+        return main_walkforward(t0, started, git)
+    if args.method == "random":
+        return main_random(t0, started, git)
     data, a, fa, masks, cols = load()
     if args.check:
         check(data, a, fa, masks, cols)
