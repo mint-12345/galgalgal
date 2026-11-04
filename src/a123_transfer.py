@@ -341,9 +341,12 @@ def cpu_name():
 
 
 def git_state():
+    # git 출력은 UTF-8로 읽는다. text=True(로캘 cp949)로 읽으면 한글 파일명이 있을 때 해독이 실패해
+    # stdout이 비고 uncommitted_files가 0으로 잘못 기록됐다 (PR #29에서 발견)
     def run(*a):
         try:
-            return subprocess.run(["git", *a], cwd=ROOT, capture_output=True, text=True).stdout.strip()
+            return subprocess.run(["git", "-c", "core.quotepath=false", *a], cwd=ROOT, capture_output=True,
+                                  encoding="utf-8", errors="replace").stdout.strip()
         except Exception:
             return ""
     dirty = [ln for ln in run("status", "--porcelain").splitlines() if ln]
