@@ -426,40 +426,74 @@ def check(data, a, fa, masks, cols):
 
 
 # ---------------------------------------------------------------- 보조 평가 (2026-11-04 추가)
-CMP_NUM = ["n", "mse", "rmse", "mae", "rho", "b", "coverage90", "gp_warn_t1", "gp_warn_t3",
-           "n_public", "n_public_clean", "n_train", "n_eval", "p1_on_included", "iso_kernel"]
+# 회귀 확인 기준 (2026-11-04 팀 결정): 연속값은 절대 차이 ≤ 1e-12, 이산값은 정확히 같아야 통과.
+# 주 평가는 처음부터 1e-14 수준까지만 재현된다 (11/01 GP 경고 진단과 같음. BLAS 스레드에 따른 끝자리 차이로 추정)
+CMP_CONT = ["mse", "rmse", "mae", "rho", "b", "coverage90"]
+CMP_DISC = ["n", "gp_warn_t1", "gp_warn_t3", "n_public", "n_public_clean", "n_train", "n_eval",
+            "p1_on_included", "iso_kernel"]
+CMP_ATOL = 1e-12
+RHO_BOUNDS = (0.0, 2.0)
 
 
 def compare_rows(new, old, where):
-    """new·old 결과 행을 (source, input, model, subset[, r])로 짝지어 비트 단위로 같은지 본다. 다르면 멈춘다."""
+    """new·old 결과 행을 (source, input, model, subset[, r])로 짝지어 비교한다. 기준을 넘으면 멈춘다.
+    반환: (행 수, 연속값 열별 최대 절대 차이)."""
     keys = ["source", "input", "model", "subset"] + (["r"] if "r" in new.columns and "r" in old.columns else [])
     m = new.merge(old, on=keys, how="outer", suffixes=("_new", "_old"), indicator=True)
     if (m["_merge"] != "both").any() or len(m) != len(new):
         raise SystemExit(f"회귀 확인 실패 ({where}): 행 짝이 맞지 않는다 ({int((m['_merge'] != 'both').sum())}행)")
-    bad = []
-    for c in CMP_NUM:
+    bad, diffs = [], {}
+    for c in CMP_CONT:
         a, b = m[f"{c}_new"].astype(float), m[f"{c}_old"].astype(float)
-        same = (a == b) | (a.isna() & b.isna())
-        if not same.all():
-            bad.append(f"{c}: {int((~same).sum())}행, 최대 차이 {float((a - b).abs().max()):.3g}")
+        if not (a.isna() == b.isna()).all():
+            bad.append(f"{c}: 빈 값 위치가 다름")
+        d = float((a - b).abs().max(skipna=True)) if (a.notna() & b.notna()).any() else 0.0
+        diffs[c] = d
+        if d > CMP_ATOL:
+            bad.append(f"{c}: 최대 차이 {d:.3g} > {CMP_ATOL:g}")
+    for c in CMP_DISC:
+        a, b = m[f"{c}_new"], m[f"{c}_old"]
+        if not ((a == b) | (a.isna() & b.isna())).all():
+            bad.append(f"{c}(이산): {int((a != b).sum())}행 다름")
     if not (m["delta_cols_new"] == m["delta_cols_old"]).all():
-        bad.append("delta_cols")
+        bad.append("delta_cols(이산) 다름")
+    for bound in RHO_BOUNDS:                                    # ρ가 경계에 붙었는지 (이산)
+        if not ((m["rho_new"] == bound) == (m["rho_old"] == bound)).all():
+            bad.append(f"ρ = {bound:g} 경계 여부(이산) 다름")
     if bad:
         raise SystemExit(f"회귀 확인 실패 ({where}): " + " / ".join(bad) + " → 실행을 멈춘다")
-    return len(m)
+    return len(m), diffs
+
+
+def merge_diffs(*ds):
+    return {c: max(d[c] for d in ds) for c in CMP_CONT}
+
+
+def blas_info():
+    """이번 실행의 스레드 환경 변수와 numpy BLAS 종류 (기록만, 고정하지 않음)."""
+    out = {k: os.environ.get(k, "(설정 안 됨)") for k in ["OMP_NUM_THREADS", "MKL_NUM_THREADS", "OPENBLAS_NUM_THREADS"]}
+    try:
+        cfg = np.show_config(mode="dicts")["Build Dependencies"]
+        out["numpy_blas"] = f"{cfg['blas'].get('name', '?')} {cfg['blas'].get('version', '')}".strip()
+        out["numpy_lapack"] = f"{cfg['lapack'].get('name', '?')} {cfg['lapack'].get('version', '')}".strip()
+    except Exception as e:  # numpy 구성 정보 형식이 다르면 기록만 실패로 남긴다
+        out["numpy_blas"] = f"확인 실패: {e}"
+    return out
 
 
 def regression_check(a, fa, models, saved):
-    """① 코드 수정 후 기본 경로(folds·fixed)로 r = 0, 1을 다시 계산해 주 평가 결과와 비트 단위로 같은지."""
+    """① 코드 수정 후 기본 경로(folds·fixed)로 r = 0, 1을 다시 계산해 주 평가 결과와 같은지 (기준은 CMP_ATOL)."""
     M = pd.read_csv(P_MASKS)
     M = M[(M["design"] == "folds") & (M["method"] == "fixed")]
-    n = 0
+    n, ds = 0, []
     for ratio in (PRIMARY_RATIO, 100):
         for r in (0, 1):
             tr, ev, pub = split(a, fa, M, r, ratio)
             new = pd.DataFrame(run_fold(tr, ev, pub, models, r)).assign(r=r)
-            n += compare_rows(new, saved[(saved["ratio"] == ratio) & (saved["r"] == r)], f"① r={r}, {ratio}%")
-    return n
+            k, d = compare_rows(new, saved[(saved["ratio"] == ratio) & (saved["r"] == r)], f"① r={r}, {ratio}%")
+            n += k
+            ds.append(d)
+    return n, merge_diffs(*ds)
 
 
 def main_random(t0, started, git):
@@ -469,10 +503,11 @@ def main_random(t0, started, git):
     MODEL_COLS.update(cols)
     models = fit_sources(data, cols)
     saved = pd.read_csv(P_MAIN_FOLDS)
-    n1 = regression_check(a, fa, models, saved)
-    print(f"회귀 확인 ① 통과: 주 평가 r = 0, 1 (8%, 100%) {n1}행이 비트 단위로 같다", flush=True)
+    n1, d1 = regression_check(a, fa, models, saved)
+    print(f"회귀 확인 ① 통과: 주 평가 r = 0, 1 (8%, 100%) {n1}행, 연속값 최대 차이 "
+          f"{max(d1.values()):.3g} ≤ {CMP_ATOL:g}, 이산값 일치", flush=True)
     rec = []
-    n2 = 0
+    n2, d2 = 0, {}
     for ratio in [100] + [x for x in RATIOS if x != 100]:      # 100%를 먼저 해서 ②를 일찍 확인
         for r in range(25):
             tr, ev, pub = split(a, fa, masks, r, ratio)
@@ -482,8 +517,9 @@ def main_random(t0, started, git):
         print(f"무작위 공개 {ratio}% 완료 ({time.time() - t0:.0f}초)", flush=True)
         if ratio == 100:
             new = pd.DataFrame([x for x in rec if x["ratio"] == 100])
-            n2 = compare_rows(new, saved[saved["ratio"] == 100], "② 무작위 100% = 주 평가 100%")
-            print(f"회귀 확인 ② 통과: 무작위 100% {n2}행이 주 평가 100%와 비트 단위로 같다", flush=True)
+            n2, d2 = compare_rows(new, saved[saved["ratio"] == 100], "② 무작위 100% = 주 평가 100%")
+            print(f"회귀 확인 ② 통과: 무작위 100% {n2}행, 연속값 최대 차이 {max(d2.values()):.3g} "
+                  f"≤ {CMP_ATOL:g}, 이산값 일치", flush=True)
     R = pd.DataFrame(rec).sort_values(["ratio", "r", "source", "input", "model", "subset"], kind="stable")
     S = summarize(R, judged_ok=False, kind_suffix=" (참고: 무작위 공개, 판정에 안 씀)")
     RH = rho_table(R)
@@ -495,8 +531,15 @@ def main_random(t0, started, git):
         "reveal": "reveal_masks_v1 design=folds method=random (시드 42 + r, 장수는 고정주기와 같음)",
         "folds": "folds_v1 25 (r = repeat*5+fold)", "ratios": RATIOS,
         "ttest": "8% T3-T1 등 보정 t-검정은 참고용 (판정에 안 씀, stats의 primary=0)",
-        "regression_check": {"1_main_r01": f"통과: 주 평가 r=0,1 (8%, 100%) {n1}행 비트 단위 일치",
-                             "2_random100_eq_main100": f"통과: {n2}행 비트 단위 일치"},
+        "regression_check": {
+            "rule": f"연속값({', '.join(CMP_CONT)}) 절대 차이 ≤ {CMP_ATOL:g}, 이산값({', '.join(CMP_DISC)}, delta_cols, "
+                    "ρ가 0·2 경계에 붙었는지) 정확히 일치. 2026-11-04 결정",
+            "note": "주 평가는 처음부터 1e-14 수준까지만 재현됨 (11/01 GP 경고 진단과 같음). 첫 시도(비트 단위 기준)는 "
+                    "① r=0 8%에서 최대 1.42e-14 차이로 멈췄다",
+            "1_main_r01": f"통과: 주 평가 r=0,1 (8%, 100%) {n1}행",
+            "1_max_abs_diff": {c: float(f"{v:.3g}") for c, v in d1.items()},
+            "2_random100_eq_main100": f"통과: {n2}행",
+            "2_max_abs_diff": {c: float(f"{v:.3g}") for c, v in d2.items()}},
         "gp_warnings": {"t1_total": int(W.groupby(["ratio", "r"])["gp_warn_t1"].first().sum()),
                         "t3_total": int(W["gp_warn_t3"].sum())},
         "outputs": {c: p.name for c, p in paths.items()},
@@ -583,7 +626,8 @@ def aux_info(experiment, t0, started, git, cols):
         "run_started": f"{started:%Y-%m-%d %H:%M:%S}", "run_finished": f"{dt.datetime.now():%Y-%m-%d %H:%M:%S}",
         "runtime_sec": round(time.time() - t0),
         "git": git,
-        "environment": environment() | {"OPENBLAS_NUM_THREADS": os.environ.get("OPENBLAS_NUM_THREADS", "")},
+        "environment": environment(),
+        "threads_blas": blas_info(),
         "command": "python src/a123_transfer.py " + " ".join(sys.argv[1:]),
         "sources": SOURCES,
         "f456": {"model": "XGBRegressor (3.2 고정 설정)", "params": XGB_PARAMS, "n_jobs": XGB_N_JOBS,
