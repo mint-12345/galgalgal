@@ -1,0 +1,23 @@
+this_file: "2026-11-04_김혜연_FV1_a123_transfer_report.pdf"
+experiment: "a123_transfer 결과 PDF 보고서 (preregistration 5절)"
+pages: 7
+figures: ["2026-11-04_김혜연_FV1_a123_transfer_report_fig1_rmse.png", "2026-11-04_김혜연_FV1_a123_transfer_report_fig2_rho.png", "2026-11-04_김혜연_FV1_a123_transfer_report_fig3_coverage.png"]
+refcheck: "2026-11-04_김혜연_a123_transfer_report_refcheck.csv"
+not_run: ["전진 검증 보조 판정", "무작위 공개", "δ XGBoost", "라벨 피처 보조 실험(5.6)"]
+checks: "T0·T1 소스 무관 / t-검정·판정 = stats·judgment csv (1e-9) / ρ = rho csv / GP 경고 건수 진단 = 주 결과 / 모든 글자 폰트 포함"
+author: "김혜연"
+git:
+  commit: "04bc3d6cef271da8e8dea3d5ad96e468e28d4dc4"
+  branch: "report/a123-transfer-pdf"
+  uncommitted_files: 0
+inputs_sha256_16:
+  2026-11-01_김혜연_FV1_a123_transfer_folds.csv: "7dfb8e4a55f05bc5"
+  2026-11-01_김혜연_FV1_a123_transfer_stats.csv: "f9f9440edcc82f24"
+  2026-11-01_김혜연_FV1_a123_transfer_judgment.csv: "3470640216c47ef7"
+  2026-11-01_김혜연_FV1_a123_transfer_rho.csv: "eb3a364f4e395bc1"
+  2026-11-01_김혜연_FV1_a123_transfer_folds.yaml: "30bc6e797d95da13"
+  2026-11-01_김혜연_gp_warnings.csv: "ce148273b1f87b94"
+  2026-11-01_김혜연_t2_decomposition.csv: "17d83e587a8c2518"
+font: "NotoSansKR-VF.ttf → wght 400·700 고정 인스턴스 (fontTools), PDF Type 42 내장"
+command: "python src/report_a123_transfer.py"
+matplotlib: "3.11.2"

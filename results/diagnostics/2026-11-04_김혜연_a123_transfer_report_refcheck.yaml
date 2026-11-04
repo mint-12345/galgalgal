@@ -1,0 +1,19 @@
+this_file: "2026-11-04_김혜연_a123_transfer_report_refcheck.csv"
+experiment: "a123_transfer 보고서 참고값 대조 (14.4)"
+note: "reference = 작성 요청에 적힌 대조용 값, recomputed = 결과 파일에서 다시 계산한 값. 보고서는 recomputed를 쓴다"
+author: "김혜연"
+git:
+  commit: "04bc3d6cef271da8e8dea3d5ad96e468e28d4dc4"
+  branch: "report/a123-transfer-pdf"
+  uncommitted_files: 0
+inputs_sha256_16:
+  2026-11-01_김혜연_FV1_a123_transfer_folds.csv: "7dfb8e4a55f05bc5"
+  2026-11-01_김혜연_FV1_a123_transfer_stats.csv: "f9f9440edcc82f24"
+  2026-11-01_김혜연_FV1_a123_transfer_judgment.csv: "3470640216c47ef7"
+  2026-11-01_김혜연_FV1_a123_transfer_rho.csv: "eb3a364f4e395bc1"
+  2026-11-01_김혜연_FV1_a123_transfer_folds.yaml: "30bc6e797d95da13"
+  2026-11-01_김혜연_gp_warnings.csv: "ce148273b1f87b94"
+  2026-11-01_김혜연_t2_decomposition.csv: "17d83e587a8c2518"
+font: "NotoSansKR-VF.ttf → wght 400·700 고정 인스턴스 (fontTools), PDF Type 42 내장"
+command: "python src/report_a123_transfer.py"
+matplotlib: "3.11.2"
