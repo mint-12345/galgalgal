@@ -1,0 +1,7 @@
+date: 2026-11-01
+author: 박종화
+script: src/sr_select.py
+code_commit: 193ccb9
+input: results/2026-11-01_박종화_FV1_sr_pareto.csv + data/processed/features_v1.csv + wafer_table.csv(MRR) + folds_v1.csv
+seed: 42
+note: 헤드 부품 리셋 구간별 최종 식 상수 재적합의 부호. 임계 20%, 최소 웨이퍼 max(10, 2 x (상수 수 + 1)) (preregistration 4.6, 4.8 9번). 상수 변동계수는 sr_folds.yaml에 있음

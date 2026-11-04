@@ -1,0 +1,7 @@
+date: 2026-11-01
+author: 박종화
+script: src/sr_select.py
+code_commit: 193ccb9
+input: results/2026-11-01_박종화_FV1_sr_pareto.csv + data/processed/features_v1.csv + wafer_table.csv(MRR) + folds_v1.csv
+seed: 42
+note: 복잡도별 folds_v1 오차가 가장 낮은 식. 상수는 fold마다 재적합, 표준오차는 ddof=1 / sqrt(25) (preregistration 4.4, 4.8 6번). 식 선택에 쓴 데이터라 낙관적, 성능으로 보고하지 않음
