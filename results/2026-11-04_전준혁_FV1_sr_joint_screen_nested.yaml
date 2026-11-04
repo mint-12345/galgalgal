@@ -1,0 +1,27 @@
+nature: 사후 후속 실험(계획 커밋 3949cb4 이후 실행). 정식 SR 판정은 바꾸지 않음. folds_v1 오차는 식 선택에 쓴 데이터라 낙관적
+date_run: 2026-11-05
+author: 전준혁
+plan: docs/plans/2026-11-04_joint_sr_plan.md (3949cb4)
+code_commit: 3949cb4 (+작업 중 변경)
+labels: wafer_table.csv MRR, train+val, is_outlier=0 (정식 SR과 같은 출처). data/raw가 이 PC에 없어 load_labels()는 쓰지 못함. test·data/locked/ 사용 안 함
+inputs_sha256_16: 
+  features_v1.csv: 31aefa89f84aa209
+  wafer_table.csv: aec5f21f5bcc6c83
+  folds_v1.csv: e4b364141b0bdaa9
+  2026-11-01_박종화_sr_candidates.csv: 31065a4ecc409c44
+  2026-11-01_박종화_FV1_sr_pareto.csv: 0febd322ffa487c0
+  2026-11-01_박종화_sr_selection.csv: 0c3a12e943cd47a9
+env: 
+  python: 3.12.10
+  numpy: 2.5.4
+  pandas: 3.1.0
+  scipy: 1.18.1
+  sklearn: 1.9.1
+  platform: Windows-11-10.0.26200-SP0
+  workers: 6
+  pysr: 2.7.2
+  juliacall: 0.9.36
+runtime_sec: 62
+stage: 1단계 부분 중첩 검증: folds_v1 반복 0의 바깥 fold 5개마다 바깥 학습 쪽 안의 4-fold로 241개 식 중 하나를 고르고 바깥 평가 쪽에서 채점. 파레토 식은 전체 데이터로 찾은 것이라 완전한 독립 검증 아님
+selection_metric: 안쪽 4-fold의 (A RMSE + B RMSE)/2 평균
+compare: 같은 바깥 fold의 전체 25-fold 1위 식, 고른 식과 같은 변수의 (가) 테이블별 선형회귀

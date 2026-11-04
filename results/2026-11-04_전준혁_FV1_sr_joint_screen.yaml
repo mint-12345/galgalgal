@@ -1,0 +1,38 @@
+nature: 사후 후속 실험(계획 커밋 3949cb4 이후 실행). 정식 SR 판정은 바꾸지 않음. folds_v1 오차는 식 선택에 쓴 데이터라 낙관적
+date_run: 2026-11-05
+author: 전준혁
+plan: docs/plans/2026-11-04_joint_sr_plan.md (3949cb4)
+code_commit: 3949cb4 (+작업 중 변경)
+labels: wafer_table.csv MRR, train+val, is_outlier=0 (정식 SR과 같은 출처). data/raw가 이 PC에 없어 load_labels()는 쓰지 못함. test·data/locked/ 사용 안 함
+inputs_sha256_16: 
+  features_v1.csv: 31aefa89f84aa209
+  wafer_table.csv: aec5f21f5bcc6c83
+  folds_v1.csv: e4b364141b0bdaa9
+  2026-11-01_박종화_sr_candidates.csv: 31065a4ecc409c44
+  2026-11-01_박종화_FV1_sr_pareto.csv: 0febd322ffa487c0
+  2026-11-01_박종화_sr_selection.csv: 0c3a12e943cd47a9
+env: 
+  python: 3.12.10
+  numpy: 2.5.4
+  pandas: 3.1.0
+  scipy: 1.18.1
+  sklearn: 1.9.1
+  platform: Windows-11-10.0.26200-SP0
+  workers: 8
+  pysr: 2.7.2
+  juliacall: 0.9.36
+runtime_sec: 106
+stage: 1단계: 정식 SR 파레토 식을 공통 f로 두고 걸러 보기 (새 SR 없음). 선택 낙관성 있음, 판정에 쓰지 않음
+candidates: 2026-11-01_박종화_FV1_sr_pareto.csv 281행 → 고유 식 246개, 변수 없는 식 5개 제외 → 241개
+model: MRR_g = a_g·f(x) + b_g. f 상수 공통, a_g·b_g 테이블별, fold 학습 쪽에서 함께 비선형 최소제곱 (max_nfev 200, 지수 −3~3)
+scale: pooled = 두 테이블 합산 |중앙값|(주), group = 테이블별 |중앙값|(민감도)
+wafers: A-456 940 / B-456 951 (공통 후보 14개 값 있음 = 정식 SR 웨이퍼)
+folds: folds_v1 25 fold, 학습 = 두 테이블 학습 조각 합집합, 평가는 테이블별
+rank: 테이블별 25 fold 평균 RMSE의 두 테이블 평균 (rmse_mean2)
+failed: 
+  pooled: 0
+  group: 1
+  pooled_nfev2000: 0
+outputs: 
+  summary: 2026-11-04_전준혁_FV1_sr_joint_screen.csv
+  folds: 2026-11-04_전준혁_FV1_sr_joint_screen_folds.csv

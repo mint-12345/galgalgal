@@ -1,0 +1,32 @@
+nature: 사후 후속 실험(계획 커밋 3949cb4 이후 실행). 정식 SR 판정은 바꾸지 않음. folds_v1 오차는 식 선택에 쓴 데이터라 낙관적
+date_run: 2026-11-05
+author: 전준혁
+plan: docs/plans/2026-11-04_joint_sr_plan.md (3949cb4)
+code_commit: 3949cb4 (+작업 중 변경)
+labels: wafer_table.csv MRR, train+val, is_outlier=0 (정식 SR과 같은 출처). data/raw가 이 PC에 없어 load_labels()는 쓰지 못함. test·data/locked/ 사용 안 함
+inputs_sha256_16: 
+  features_v1.csv: 31aefa89f84aa209
+  wafer_table.csv: aec5f21f5bcc6c83
+  folds_v1.csv: e4b364141b0bdaa9
+  2026-11-01_박종화_sr_candidates.csv: 31065a4ecc409c44
+  2026-11-01_박종화_FV1_sr_pareto.csv: 0febd322ffa487c0
+  2026-11-01_박종화_sr_selection.csv: 0c3a12e943cd47a9
+env: 
+  python: 3.12.10
+  numpy: 2.5.4
+  pandas: 3.1.0
+  scipy: 1.18.1
+  sklearn: 1.9.1
+  platform: Windows-11-10.0.26200-SP0
+  workers: 8
+  pysr: 2.7.2
+  juliacall: 0.9.36
+runtime_sec: 31
+stage: 기준선 (다) 정식 SR 테이블별 최종 식 재적합, (라) RF(F-free 112, since_POLISH_TABLE_w 제외), 참고: 14개 변수 선형회귀
+repro_max_abs_rmse_diff_vs_formal: 
+  formal_sr: 0.0
+  rf: 0.007671684616012531
+formal_equations: 
+  A-456: (((sqrt(dur_POLISH_s1) * 53.625492) + (auc_PCHAMBER_s1 * (auc_MAIN_OUTER_s1 * (since_MEMBRANE_w + -54.234756)))) / (P1_on * mean_DRESSER_TABLE_s2)) + 74.887695
+  B-456: ((((11.335403 - ((frac_hi / dur_POLISH_s1) - (auc_MAIN_OUTER_s1 * frac_hi))) ^ 1.806481) / auc_SLURRY_C_s1) + frac_hi) / auc_MAIN_OUTER_s1
+note: (가)·(나)·평균은 비교 대상 f의 변수로 따로 계산해 각 결과 파일에 넣는다
