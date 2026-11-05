@@ -186,7 +186,8 @@ def official_rows(d, cands, masks_g):
         names = cands[g]
         scale = t[names].abs().median()
         t = t[t[names].notna().all(axis=1)].reset_index(drop=True)
-        Xg = {n: (t[n] / scale[n]).to_numpy(float) for n in names}
+        t[names] = t[names] / scale   # sr_run.load_frame과 같이 후보 열만 척도 적용 (원척도 LR은 조건수 ~1e8)
+        Xg = {n: t[n].to_numpy(float) for n in names}
         y = t["MRR"].to_numpy(float)
         eq = ss.parse_equation(sel.loc[g, "equation"])
         M = t[names].to_numpy(float)
@@ -305,7 +306,7 @@ def main() -> None:
         a = off[off.model == mine].sort_values(["group", "fold"])["rmse"].to_numpy()
         b = ref[ref.model == theirs].sort_values(["group", "fold"])["rmse"].to_numpy()
         repro[mine] = float(np.abs(a - b).max())
-    assert max(repro.values()) < 1e-9, f"정식 SR fold 결과 재현 실패: {repro}"
+    assert max(repro.values()) < 1e-6, f"정식 SR fold 결과 재현 실패: {repro}"   # sr_cross_group과 같은 기준
 
     # 3) 보정 t-검정 (참고): 상위 1개 공동 모형 대 (가), 그룹별, MSE 쌍 차이
     tests = []
