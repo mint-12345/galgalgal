@@ -1,0 +1,7 @@
+﻿featureset,group,model,rmse_fold_mean,rmse_fold_sd,mae_fold_mean,mae_fold_sd,rmse_oof,mae_oof,n_oof,n_folds,joint_better_folds,diff_by_fold,ref_corrected_t,ref_corrected_p
+features_v1,A-456,joint_sr,4.540317,0.306682,3.591502,0.197707,4.548358,3.591347,940.0,5,,,,
+features_v1,A-456,lr_group_samevars,4.519207,0.305916,3.590662,0.208292,4.526875,3.5902,940.0,5,,,,
+features_v1,A-456,diff_joint_minus_lr,0.02111,0.084062,0.00084,,0.021482,0.001147,,5,2.0,+0.060 -0.040 +0.143 +0.010 -0.068,0.374347,0.727146
+features_v1,B-456,joint_sr,4.76597,0.62743,3.529297,0.120232,4.799616,3.52814,951.0,5,,,,
+features_v1,B-456,lr_group_samevars,4.892343,0.735817,3.600243,0.163566,4.936791,3.598751,951.0,5,,,,
+features_v1,B-456,diff_joint_minus_lr,-0.126373,0.131201,-0.070947,,-0.137175,-0.070611,,5,4.0,-0.015 -0.132 -0.309 -0.188 +0.013,-1.435815,0.224395

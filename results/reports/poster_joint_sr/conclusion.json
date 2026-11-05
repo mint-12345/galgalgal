@@ -1,0 +1,10 @@
+{
+  "_note": "요약 패널 입력. 결론 방향은 계획 5절 규칙: 구조 분류 '반복 낮음'(S* 1/5) → '수식 구조의 재현성이 낮음'. 성능 분류: A-456 차이 불확실, B-456 공동 SR 우세(규칙상). 값 출처: results/2026-11-04_전준혁_FV1_sr_joint_coefs.csv, results/2026-11-05_전준혁_FV1_sr_joint_outer5_{summary,structure}.csv",
+  "full_coefs": {
+    "A-456": {"a": 34.505767, "b": 76.550247},
+    "B-456": {"a": 42.305085, "b": 87.035006}
+  },
+  "structure_line": "Pre-defined form (retainer × log of integrals): 1/5 folds",
+  "identity_line": "No fold re-found the full-data equation; f values\ncorrelated with it at |r| = 0.95–0.99 (form differs).",
+  "conclusion_en": "The equation form was not reproducible: when re-searched in each fold, the retainer × log(integrals) form\nreappeared in only 1 of 5 folds, although every fold used the slurry-flow and air-bag pressure integrals.\nAgainst linear regression with the same variables, the gain was unclear for A-456 (better in 2/5 folds) and\nsmall for B-456 (better in 4/5 folds; out-of-fold RMSE 4.80 vs 4.94)."
+}
