@@ -1,0 +1,25 @@
+date: "2026-11-06"
+author: "김혜연"
+script: "src/sr_joint_screen.py"
+nature: "사후 탐색(계획 커밋 이후 실행), 선택 낙관성 있음, 판정에 쓰지 않음. 정식 SR 판정은 바꾸지 않음"
+plan: "docs/plans/2026-11-04_joint_sr_plan.md (커밋 e37876d), 1단계"
+commit: "3b459b2e046ed53930fe909ff0f936fc112d12dc"
+dirty: false
+featureset: "features_v1"
+seed: 42
+model: "MRR_g = a_g * f(x) + b_g. f와 f 안 상수는 공통, a_g·b_g는 그룹별. 모든 상수를 fold 학습 쪽에서 함께 재적합"
+refit: "scipy least_squares(trf), max_nfev 200, 지수 −3~3, 시작값 = PySR 상수 + 그룹별 최소제곱 a·b"
+scale_main: "pooled = 두 그룹 train+val 합친 |중앙값|"
+scale_sensitivity: "group = 그룹별 |중앙값|"
+wafers: {"B-456": 951, "A-456": 940}
+n_shared_wafer_id: 368
+n_equations: "281행, 서로 다른 식 246개"
+variables: ["P1_on", "auc_MAIN_OUTER_s1", "auc_PCHAMBER_s1", "auc_RETAINER_s1", "auc_SLURRY_C_s1", "dur_POLISH_s1", "frac_hi", "mean_DRESSER_TABLE_s2", "mean_WAFER_ROT_s1", "since_BACKING_FILM_w", "since_MEMBRANE_w", "std_MEMBRANE_s1", "std_POLISH_TABLE_s1", "std_PSHEET_s1"]
+repro_max_abs_rmse_diff_vs_official: {"sr_final": 2.1933919569505633e-08, "lr_cand10": 1.3322676295501878e-14, "rf": 3.9968028886505635e-15}
+nfev_check: [{"scale": "pooled", "rank_key": "top1", "n_nonconv_2000": 0, "max_abs_rmse_diff": 0.0}, {"scale": "pooled", "rank_key": "top2", "n_nonconv_2000": 0, "max_abs_rmse_diff": 0.0}, {"scale": "pooled", "rank_key": "top3", "n_nonconv_2000": 0, "max_abs_rmse_diff": 0.0}, {"scale": "pooled", "rank_key": "top4", "n_nonconv_2000": 0, "max_abs_rmse_diff": 0.0}, {"scale": "pooled", "rank_key": "top5", "n_nonconv_2000": 0, "max_abs_rmse_diff": 0.0}, {"scale": "group", "rank_key": "top1", "n_nonconv_2000": 0, "max_abs_rmse_diff": 0.0}, {"scale": "group", "rank_key": "top2", "n_nonconv_2000": 0, "max_abs_rmse_diff": 0.0}, {"scale": "group", "rank_key": "top3", "n_nonconv_2000": 0, "max_abs_rmse_diff": 0.0}, {"scale": "group", "rank_key": "top4", "n_nonconv_2000": 0, "max_abs_rmse_diff": 0.0}, {"scale": "group", "rank_key": "top5", "n_nonconv_2000": 0, "max_abs_rmse_diff": 0.0}]
+inputs_sha256: {"features_v1.csv": "31aefa89f84aa209535a03fe12190f7cd4fbd43177be11ba51b22acbde7fc4f8", "wafer_table.csv": "aec5f21f5bcc6c833093468bb58b7297d5e63a1cb5de74225e9d6e360d1fb679", "folds_v1.csv": "e4b364141b0bdaa96e6a5687b4f56f0e0ca201216998fdaea9bb3edfe94a4c68", "2026-11-01_박종화_FV1_sr_pareto.csv": "0febd322ffa487c066696b9604da593779fce4dd318b6ab0dcc054a8da0edfcb", "2026-11-01_박종화_sr_selection.csv": "0c3a12e943cd47a942afd7e21cbf0fd43c33c5073222c5bd95170b2e86f26f22", "2026-11-01_박종화_sr_candidates.csv": "31065a4ecc409c44f4b8004b5e5b32a1fb162c40830bc0e4a14aae8bbd0c59b4"}
+labels: "load_labels('train'), load_labels('val'). test MRR·data/locked/ 사용 안 함"
+versions: {"python": "3.13.2", "numpy": "2.5.3", "pandas": "3.0.6", "scipy": "1.18.1", "scikit-learn": "1.9.1", "joblib": "1.6.0", "pysr": "사용 안 함"}
+threads: {"joblib_n_jobs": -1, "rf_n_jobs": -1, "cpu_count": 16, "OMP_NUM_THREADS": "unset", "OPENBLAS_NUM_THREADS": "unset", "MKL_NUM_THREADS": "unset"}
+runtime_sec: 70
+content: "상위 1개 공동 모형 대 (가)·(나)·(다) 보정 t-검정(MSE 쌍 차이, 공동 − 기준선). 참고용"
