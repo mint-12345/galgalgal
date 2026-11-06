@@ -1,0 +1,19 @@
+nature: 사후 해석용 기술 통계. 저장된 결과만 읽음(탐색·재적합·원자료 읽기 없음). 계획 2026-11-05의 판정·분류는 바꾸지 않음
+date_run: 2026-11-06
+author: 전준혁
+inputs_sha256_16:
+  2026-11-05_전준혁_FV1_sr_joint_outer5_oof.csv: 320d9fd3b243c0b1
+  2026-11-05_전준혁_FV1_sr_joint_outer5_selection.csv: 265a9d99d64d9adc
+  2026-11-05_전준혁_FV1_sr_joint_outer5_inner.csv: 9e824773b3936eb7
+  2026-11-05_전준혁_FV1_sr_joint_outer5_structure.csv: 339dac52d625696d
+  2026-11-01_박종화_sr_candidates.csv: 31065a4ecc409c44
+seed: 42
+n_boot: 2000
+bootstrap: 테이블별, 바깥 fold 층화 웨이퍼 재표집. 적합된 예측을 고정하므로 탐색·적합 변동은 들어가지 않음
+extreme_wafer: [-4230160594, 'B']
+env:
+  python: 3.12.10
+  numpy: 2.5.4
+  pandas: 3.1.0
+  platform: Windows-11-10.0.26200-SP0
+runtime_sec: 0.8

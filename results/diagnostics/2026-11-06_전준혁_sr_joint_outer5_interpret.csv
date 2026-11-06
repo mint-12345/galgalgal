@@ -1,0 +1,230 @@
+﻿featureset,section,group,fold,item,value,note
+features_v1,agreement_all,A-456,,n,940.0,
+features_v1,agreement_all,A-456,,corr_pred_joint_lr,0.9719563359777186,
+features_v1,agreement_all,A-456,,rmse_between_preds,1.0354298132811908,두 모형 예측끼리의 RMSE
+features_v1,agreement_all,A-456,,corr_true_joint,0.6914766231087596,
+features_v1,agreement_all,A-456,,corr_true_lr,0.6950124036936873,
+features_v1,agreement_all,A-456,,r2_oof_joint,0.4781192321704705,"1-MSE/var(y), OOF y 분산 기준(기술용)"
+features_v1,agreement_all,A-456,,r2_oof_lr,0.48303738217771175,
+features_v1,agreement_all,A-456,,corr_errors_joint_lr,0.9739892520004102,두 모형 오차의 상관
+features_v1,agreement_all,A-456,,frac_wafers_joint_abs_err_smaller,0.5297872340425532,
+features_v1,agreement_all,A-456,,sd_mrr_true,6.299413043793484,
+features_v1,agreement_all,B-456,,n,951.0,
+features_v1,agreement_all,B-456,,corr_pred_joint_lr,0.9814676898164479,
+features_v1,agreement_all,B-456,,rmse_between_preds,1.5566593353155662,두 모형 예측끼리의 RMSE
+features_v1,agreement_all,B-456,,corr_true_joint,0.8483696708693123,
+features_v1,agreement_all,B-456,,corr_true_lr,0.8376728144444662,
+features_v1,agreement_all,B-456,,r2_oof_joint,0.7175098522562156,"1-MSE/var(y), OOF y 분산 기준(기술용)"
+features_v1,agreement_all,B-456,,r2_oof_lr,0.7011317145699935,
+features_v1,agreement_all,B-456,,corr_errors_joint_lr,0.94930258832356,두 모형 오차의 상관
+features_v1,agreement_all,B-456,,frac_wafers_joint_abs_err_smaller,0.5520504731861199,
+features_v1,agreement_all,B-456,,sd_mrr_true,9.035106401351168,
+features_v1,agreement_drop_extreme,B-456,,n,950.0,
+features_v1,agreement_drop_extreme,B-456,,corr_pred_joint_lr,0.9810074684261681,
+features_v1,agreement_drop_extreme,B-456,,rmse_between_preds,1.5484173270433474,두 모형 예측끼리의 RMSE
+features_v1,agreement_drop_extreme,B-456,,corr_true_joint,0.8751459325337893,
+features_v1,agreement_drop_extreme,B-456,,corr_true_lr,0.8713110891189529,
+features_v1,agreement_drop_extreme,B-456,,r2_oof_joint,0.7658781139160626,"1-MSE/var(y), OOF y 분산 기준(기술용)"
+features_v1,agreement_drop_extreme,B-456,,r2_oof_lr,0.7580277376836353,
+features_v1,agreement_drop_extreme,B-456,,corr_errors_joint_lr,0.9384163468759825,두 모형 오차의 상관
+features_v1,agreement_drop_extreme,B-456,,frac_wafers_joint_abs_err_smaller,0.5515789473684211,
+features_v1,agreement_drop_extreme,B-456,,sd_mrr_true,9.033757792504808,
+features_v1,bootstrap_all,A-456,,rmse_diff_obs,0.021482355788854157,OOF RMSE 공동 - LR
+features_v1,bootstrap_all,A-456,,rmse_diff_ci_lo,-0.04304547907930658,"웨이퍼 재표집(fold 층화), 적합된 모형 고정. 모형 적합 변동은 반영 안 됨"
+features_v1,bootstrap_all,A-456,,rmse_diff_ci_hi,0.08923235631258682,"웨이퍼 재표집(fold 층화), 적합된 모형 고정. 모형 적합 변동은 반영 안 됨"
+features_v1,bootstrap_all,A-456,,rmse_diff_rel_obs,0.004745515326937113,LR RMSE 대비 비율
+features_v1,bootstrap_all,A-456,,frac_boot_joint_better,0.2425,
+features_v1,bootstrap_all,B-456,,rmse_diff_obs,-0.13717515066996544,OOF RMSE 공동 - LR
+features_v1,bootstrap_all,B-456,,rmse_diff_ci_lo,-0.29089252015437483,"웨이퍼 재표집(fold 층화), 적합된 모형 고정. 모형 적합 변동은 반영 안 됨"
+features_v1,bootstrap_all,B-456,,rmse_diff_ci_hi,0.018393518401361657,"웨이퍼 재표집(fold 층화), 적합된 모형 고정. 모형 적합 변동은 반영 안 됨"
+features_v1,bootstrap_all,B-456,,rmse_diff_rel_obs,-0.0277862996131495,LR RMSE 대비 비율
+features_v1,bootstrap_all,B-456,,frac_boot_joint_better,0.95,
+features_v1,bootstrap_drop_extreme,B-456,,rmse_diff_obs,-0.07264129181522261,OOF RMSE 공동 - LR
+features_v1,bootstrap_drop_extreme,B-456,,rmse_diff_ci_lo,-0.19516531503453843,"웨이퍼 재표집(fold 층화), 적합된 모형 고정. 모형 적합 변동은 반영 안 됨"
+features_v1,bootstrap_drop_extreme,B-456,,rmse_diff_ci_hi,0.04377523557170085,"웨이퍼 재표집(fold 층화), 적합된 모형 고정. 모형 적합 변동은 반영 안 됨"
+features_v1,bootstrap_drop_extreme,B-456,,rmse_diff_rel_obs,-0.01635539436770136,LR RMSE 대비 비율
+features_v1,bootstrap_drop_extreme,B-456,,frac_boot_joint_better,0.89,
+features_v1,coef,,full,ratio_aA_aB,0.8156411109487488,
+features_v1,coef,,0,a_A,-39.665768806885296,
+features_v1,coef,,0,a_B,-47.62121686829266,
+features_v1,coef,,0,b_A,73.2708395020697,
+features_v1,coef,,0,b_B,82.79026512574883,
+features_v1,coef,,0,ratio_aA_aB,0.8329432008549892,f 척도와 무관 (두 테이블이 같은 f를 공유)
+features_v1,coef,,0,same_sign_aA_aB,1.0,
+features_v1,coef,,1,a_A,-38.23074914006595,
+features_v1,coef,,1,a_B,-47.68644082735137,
+features_v1,coef,,1,b_A,73.24142494913147,
+features_v1,coef,,1,b_B,82.73542331425551,
+features_v1,coef,,1,ratio_aA_aB,0.8017111043887775,f 척도와 무관 (두 테이블이 같은 f를 공유)
+features_v1,coef,,1,same_sign_aA_aB,1.0,
+features_v1,coef,,2,a_A,-54.41793253059977,
+features_v1,coef,,2,a_B,-70.97990699456732,
+features_v1,coef,,2,b_A,236.5536999093313,
+features_v1,coef,,2,b_B,295.39771394639007,
+features_v1,coef,,2,ratio_aA_aB,0.7666667206927282,f 척도와 무관 (두 테이블이 같은 f를 공유)
+features_v1,coef,,2,same_sign_aA_aB,1.0,
+features_v1,coef,,3,a_A,-52.96004619801395,
+features_v1,coef,,3,a_B,-70.72170751337396,
+features_v1,coef,,3,b_A,126.2520593713289,
+features_v1,coef,,3,b_B,154.0888711022604,
+features_v1,coef,,3,ratio_aA_aB,0.748851350739783,f 척도와 무관 (두 테이블이 같은 f를 공유)
+features_v1,coef,,3,same_sign_aA_aB,1.0,
+features_v1,coef,,4,a_A,-34.935349567848064,
+features_v1,coef,,4,a_B,-42.73524437130133,
+features_v1,coef,,4,b_A,143.84278664628408,
+features_v1,coef,,4,b_B,167.58077154186833,
+features_v1,coef,,4,ratio_aA_aB,0.8174833227655239,f 척도와 무관 (두 테이블이 같은 f를 공유)
+features_v1,coef,,4,same_sign_aA_aB,1.0,
+features_v1,coef,,,ratio_mean_5fold,0.7935311398883604,
+features_v1,coef,,,ratio_sd_5fold,0.03504250993624178,
+features_v1,coef,,,ratio_cv_5fold,0.04416022027966263,
+features_v1,coef,,,ratio_min_5fold,0.748851350739783,
+features_v1,coef,,,ratio_max_5fold,0.8329432008549892,
+features_v1,coef,,,ratio_sd_mrr_A_over_B,0.697215147665713,참고: 테이블 MRR 표준편차 비
+features_v1,lr_coef,A-456,0,auc_PCHAMBER_s1,-50.11429019786798,척도화 변수 기준 기울기
+features_v1,lr_coef,A-456,0,auc_MAIN_OUTER_s1,-77.498482846568,척도화 변수 기준 기울기
+features_v1,lr_coef,A-456,0,auc_SLURRY_C_s1,5.312023057965391,척도화 변수 기준 기울기
+features_v1,lr_coef,A-456,0,std_POLISH_TABLE_s1,-3.4429020669756483,척도화 변수 기준 기울기
+features_v1,lr_coef,A-456,0,auc_RETAINER_s1,5.189420606443079,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,0,auc_PCHAMBER_s1,7.33888504738827,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,0,auc_MAIN_OUTER_s1,-81.72301600744859,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,0,auc_SLURRY_C_s1,-79.13851770238196,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,0,std_POLISH_TABLE_s1,1.6276342501410284,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,0,auc_RETAINER_s1,21.75009155123253,척도화 변수 기준 기울기
+features_v1,lr_coef,A-456,1,auc_PCHAMBER_s1,-52.89150371633976,척도화 변수 기준 기울기
+features_v1,lr_coef,A-456,1,auc_MAIN_OUTER_s1,-84.63083707164535,척도화 변수 기준 기울기
+features_v1,lr_coef,A-456,1,auc_SLURRY_C_s1,7.860958596958191,척도화 변수 기준 기울기
+features_v1,lr_coef,A-456,1,std_POLISH_TABLE_s1,3.3500399340625293,척도화 변수 기준 기울기
+features_v1,lr_coef,A-456,1,std_MEMBRANE_s1,15.995279873345027,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,1,auc_PCHAMBER_s1,0.3794512263815285,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,1,auc_MAIN_OUTER_s1,-79.84238222019978,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,1,auc_SLURRY_C_s1,-75.7595907501941,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,1,std_POLISH_TABLE_s1,5.020185274763811,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,1,std_MEMBRANE_s1,15.778794279203566,척도화 변수 기준 기울기
+features_v1,lr_coef,A-456,2,auc_PCHAMBER_s1,-48.750020595358905,척도화 변수 기준 기울기
+features_v1,lr_coef,A-456,2,auc_MAIN_OUTER_s1,-79.91460847862105,척도화 변수 기준 기울기
+features_v1,lr_coef,A-456,2,auc_SLURRY_C_s1,-3.159927790679916,척도화 변수 기준 기울기
+features_v1,lr_coef,A-456,2,dur_POLISH_s1,16.958678023301623,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,2,auc_PCHAMBER_s1,-3.3766735519289774,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,2,auc_MAIN_OUTER_s1,-80.89559158707708,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,2,auc_SLURRY_C_s1,-70.95735832789663,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,2,dur_POLISH_s1,8.276714285590721,척도화 변수 기준 기울기
+features_v1,lr_coef,A-456,3,auc_MAIN_OUTER_s1,-65.86752832138136,척도화 변수 기준 기울기
+features_v1,lr_coef,A-456,3,auc_SLURRY_C_s1,-22.170469578671863,척도화 변수 기준 기울기
+features_v1,lr_coef,A-456,3,P1_on,3.2874580052118993,척도화 변수 기준 기울기
+features_v1,lr_coef,A-456,3,auc_RETAINER_s1,-11.709925550566238,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,3,auc_MAIN_OUTER_s1,-67.38330137222707,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,3,auc_SLURRY_C_s1,-77.19963139447184,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,3,P1_on,2.518191149176957,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,3,auc_RETAINER_s1,20.108313233238174,척도화 변수 기준 기울기
+features_v1,lr_coef,A-456,4,auc_PCHAMBER_s1,-52.727857606593425,척도화 변수 기준 기울기
+features_v1,lr_coef,A-456,4,auc_MAIN_OUTER_s1,-76.728821194678,척도화 변수 기준 기울기
+features_v1,lr_coef,A-456,4,auc_SLURRY_C_s1,3.905097776605622,척도화 변수 기준 기울기
+features_v1,lr_coef,A-456,4,dur_POLISH_s1,13.543447791221574,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,4,auc_PCHAMBER_s1,1.9654205695999722,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,4,auc_MAIN_OUTER_s1,-65.54873755780508,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,4,auc_SLURRY_C_s1,-89.78068206084691,척도화 변수 기준 기울기
+features_v1,lr_coef,B-456,4,dur_POLISH_s1,22.746733453634967,척도화 변수 기준 기울기
+features_v1,rashomon,,0,n_candidates,104.0,
+features_v1,rashomon,,0,best_inner_rmse,4.286613,
+features_v1,rashomon,,0,limit_1se,4.364719,
+features_v1,rashomon,,0,selected_inner_rmse,4.364023271723824,
+features_v1,rashomon,,0,n_within_1se,26.0,안쪽 점수가 1-표준오차 한계 이하인 서로 다른 식 수
+features_v1,rashomon,,0,complexity_range_within_1se_lo,11.0,
+features_v1,rashomon,,0,complexity_range_within_1se_hi,20.0,
+features_v1,rashomon,,0,best_single_var_inner_rmse,4.990323,auc_MAIN_OUTER_s1
+features_v1,rashomon,,0,frac_all_cands_using:auc_MAIN_OUTER_s1,1.0,
+features_v1,rashomon,,0,frac_within_1se_using:auc_MAIN_OUTER_s1,1.0,
+features_v1,rashomon,,0,frac_all_cands_using:auc_SLURRY_C_s1,0.7596153846153846,
+features_v1,rashomon,,0,frac_within_1se_using:auc_SLURRY_C_s1,0.7307692307692307,
+features_v1,rashomon,,0,frac_all_cands_using:auc_PCHAMBER_s1,0.8846153846153846,
+features_v1,rashomon,,0,frac_within_1se_using:auc_PCHAMBER_s1,1.0,
+features_v1,rashomon,,0,frac_within_1se_using_all3_integrals,0.7307692307692307,
+features_v1,rashomon,,1,n_candidates,102.0,
+features_v1,rashomon,,1,best_inner_rmse,4.339285,
+features_v1,rashomon,,1,limit_1se,4.451556,
+features_v1,rashomon,,1,selected_inner_rmse,4.441229016038902,
+features_v1,rashomon,,1,n_within_1se,36.0,안쪽 점수가 1-표준오차 한계 이하인 서로 다른 식 수
+features_v1,rashomon,,1,complexity_range_within_1se_lo,11.0,
+features_v1,rashomon,,1,complexity_range_within_1se_hi,20.0,
+features_v1,rashomon,,1,best_single_var_inner_rmse,4.989603,auc_MAIN_OUTER_s1
+features_v1,rashomon,,1,frac_all_cands_using:auc_MAIN_OUTER_s1,1.0,
+features_v1,rashomon,,1,frac_within_1se_using:auc_MAIN_OUTER_s1,1.0,
+features_v1,rashomon,,1,frac_all_cands_using:auc_SLURRY_C_s1,0.5882352941176471,
+features_v1,rashomon,,1,frac_within_1se_using:auc_SLURRY_C_s1,0.6111111111111112,
+features_v1,rashomon,,1,frac_all_cands_using:auc_PCHAMBER_s1,0.8627450980392157,
+features_v1,rashomon,,1,frac_within_1se_using:auc_PCHAMBER_s1,0.9722222222222222,
+features_v1,rashomon,,1,frac_within_1se_using_all3_integrals,0.5833333333333334,
+features_v1,rashomon,,2,n_candidates,105.0,
+features_v1,rashomon,,2,best_inner_rmse,4.432214,
+features_v1,rashomon,,2,limit_1se,4.503781,
+features_v1,rashomon,,2,selected_inner_rmse,4.4909063202681,
+features_v1,rashomon,,2,n_within_1se,50.0,안쪽 점수가 1-표준오차 한계 이하인 서로 다른 식 수
+features_v1,rashomon,,2,complexity_range_within_1se_lo,10.0,
+features_v1,rashomon,,2,complexity_range_within_1se_hi,20.0,
+features_v1,rashomon,,2,best_single_var_inner_rmse,4.726938,auc_MAIN_OUTER_s1
+features_v1,rashomon,,2,frac_all_cands_using:auc_MAIN_OUTER_s1,1.0,
+features_v1,rashomon,,2,frac_within_1se_using:auc_MAIN_OUTER_s1,1.0,
+features_v1,rashomon,,2,frac_all_cands_using:auc_SLURRY_C_s1,0.9904761904761905,
+features_v1,rashomon,,2,frac_within_1se_using:auc_SLURRY_C_s1,1.0,
+features_v1,rashomon,,2,frac_all_cands_using:auc_PCHAMBER_s1,0.9333333333333333,
+features_v1,rashomon,,2,frac_within_1se_using:auc_PCHAMBER_s1,1.0,
+features_v1,rashomon,,2,frac_within_1se_using_all3_integrals,1.0,
+features_v1,rashomon,,3,n_candidates,91.0,
+features_v1,rashomon,,3,best_inner_rmse,4.336399,
+features_v1,rashomon,,3,limit_1se,4.4593750000000005,
+features_v1,rashomon,,3,selected_inner_rmse,4.450474468416483,
+features_v1,rashomon,,3,n_within_1se,26.0,안쪽 점수가 1-표준오차 한계 이하인 서로 다른 식 수
+features_v1,rashomon,,3,complexity_range_within_1se_lo,10.0,
+features_v1,rashomon,,3,complexity_range_within_1se_hi,20.0,
+features_v1,rashomon,,3,best_single_var_inner_rmse,5.014037,auc_MAIN_OUTER_s1
+features_v1,rashomon,,3,frac_all_cands_using:auc_MAIN_OUTER_s1,1.0,
+features_v1,rashomon,,3,frac_within_1se_using:auc_MAIN_OUTER_s1,1.0,
+features_v1,rashomon,,3,frac_all_cands_using:auc_SLURRY_C_s1,0.9340659340659341,
+features_v1,rashomon,,3,frac_within_1se_using:auc_SLURRY_C_s1,1.0,
+features_v1,rashomon,,3,frac_all_cands_using:auc_PCHAMBER_s1,0.8681318681318682,
+features_v1,rashomon,,3,frac_within_1se_using:auc_PCHAMBER_s1,0.8846153846153846,
+features_v1,rashomon,,3,frac_within_1se_using_all3_integrals,0.8846153846153846,
+features_v1,rashomon,,4,n_candidates,108.0,
+features_v1,rashomon,,4,best_inner_rmse,4.332965,
+features_v1,rashomon,,4,limit_1se,4.473642,
+features_v1,rashomon,,4,selected_inner_rmse,4.454532141576644,
+features_v1,rashomon,,4,n_within_1se,36.0,안쪽 점수가 1-표준오차 한계 이하인 서로 다른 식 수
+features_v1,rashomon,,4,complexity_range_within_1se_lo,10.0,
+features_v1,rashomon,,4,complexity_range_within_1se_hi,20.0,
+features_v1,rashomon,,4,best_single_var_inner_rmse,5.025336,auc_MAIN_OUTER_s1
+features_v1,rashomon,,4,frac_all_cands_using:auc_MAIN_OUTER_s1,1.0,
+features_v1,rashomon,,4,frac_within_1se_using:auc_MAIN_OUTER_s1,1.0,
+features_v1,rashomon,,4,frac_all_cands_using:auc_SLURRY_C_s1,0.7592592592592593,
+features_v1,rashomon,,4,frac_within_1se_using:auc_SLURRY_C_s1,0.7777777777777778,
+features_v1,rashomon,,4,frac_all_cands_using:auc_PCHAMBER_s1,0.8240740740740741,
+features_v1,rashomon,,4,frac_within_1se_using:auc_PCHAMBER_s1,0.9166666666666666,
+features_v1,rashomon,,4,frac_within_1se_using_all3_integrals,0.6944444444444444,
+features_v1,var_rank,A-456,,auc_PCHAMBER_s1,4.0,rank=1; |spearman|=0.680; formal_selected=1
+features_v1,var_rank,A-456,,auc_MAIN_OUTER_s1,5.0,rank=2; |spearman|=0.637; formal_selected=1
+features_v1,var_rank,A-456,,auc_SLURRY_C_s1,5.0,rank=3; |spearman|=0.624; formal_selected=1
+features_v1,var_rank,A-456,,P1_on,1.0,rank=7; |spearman|=0.547; formal_selected=1
+features_v1,var_rank,A-456,,std_POLISH_TABLE_s1,2.0,rank=9; |spearman|=0.500; formal_selected=1
+features_v1,var_rank,A-456,,dur_POLISH_s1,2.0,rank=10; |spearman|=0.498; formal_selected=1
+features_v1,var_rank,A-456,,std_MEMBRANE_s1,1.0,rank=12; |spearman|=0.478; formal_selected=1
+features_v1,var_rank,A-456,,mean_DRESSER_TABLE_s2,0.0,rank=15; |spearman|=0.472; formal_selected=1
+features_v1,var_rank,A-456,,mean_WAFER_ROT_s1,0.0,rank=18; |spearman|=0.451; formal_selected=1
+features_v1,var_rank,A-456,,since_MEMBRANE_w,0.0,rank=68; |spearman|=0.074; formal_selected=1
+features_v1,var_rank,A-456,,std_PSHEET_s1,0.0,rank=13; |spearman|=0.478; formal_selected=0
+features_v1,var_rank,A-456,,auc_RETAINER_s1,2.0,rank=17; |spearman|=0.469; formal_selected=0
+features_v1,var_rank,A-456,,frac_hi,0.0,rank=8; |spearman|=0.545; formal_selected=0
+features_v1,var_rank,A-456,,since_BACKING_FILM_w,0.0,rank=70; |spearman|=0.074; formal_selected=0
+features_v1,var_rank,B-456,,auc_PCHAMBER_s1,4.0,rank=5; |spearman|=0.805; formal_selected=0
+features_v1,var_rank,B-456,,auc_MAIN_OUTER_s1,5.0,rank=1; |spearman|=0.853; formal_selected=1
+features_v1,var_rank,B-456,,auc_SLURRY_C_s1,5.0,rank=4; |spearman|=0.837; formal_selected=1
+features_v1,var_rank,B-456,,P1_on,1.0,rank=17; |spearman|=0.619; formal_selected=0
+features_v1,var_rank,B-456,,std_POLISH_TABLE_s1,2.0,rank=7; |spearman|=0.752; formal_selected=1
+features_v1,var_rank,B-456,,dur_POLISH_s1,2.0,rank=8; |spearman|=0.751; formal_selected=1
+features_v1,var_rank,B-456,,std_MEMBRANE_s1,1.0,rank=12; |spearman|=0.741; formal_selected=0
+features_v1,var_rank,B-456,,mean_DRESSER_TABLE_s2,0.0,rank=15; |spearman|=0.620; formal_selected=1
+features_v1,var_rank,B-456,,mean_WAFER_ROT_s1,0.0,rank=18; |spearman|=0.608; formal_selected=1
+features_v1,var_rank,B-456,,since_MEMBRANE_w,0.0,rank=97; |spearman|=0.021; formal_selected=0
+features_v1,var_rank,B-456,,std_PSHEET_s1,0.0,rank=10; |spearman|=0.741; formal_selected=1
+features_v1,var_rank,B-456,,auc_RETAINER_s1,2.0,rank=13; |spearman|=0.693; formal_selected=1
+features_v1,var_rank,B-456,,frac_hi,0.0,rank=14; |spearman|=0.686; formal_selected=1
+features_v1,var_rank,B-456,,since_BACKING_FILM_w,0.0,rank=95; |spearman|=0.021; formal_selected=1
