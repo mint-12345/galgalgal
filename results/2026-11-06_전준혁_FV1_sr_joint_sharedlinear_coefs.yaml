@@ -1,0 +1,31 @@
+nature: 사후 보조 분석(2026-11-05 결과와 2026-11-06 사후 해석을 본 뒤 요청). 기존 판정·결과·그림 변경 없음. 후보 14개는 전체 train+val 라벨로 선정된 것이라 외부 검증이 아님. test 라벨·data/locked/ 사용 안 함
+date_run: 2026-11-06
+author: 전준혁
+plan: docs/plans/2026-11-06_joint_sr_shared_linear_plan.md
+section: #5 (계획 3절)
+model: MRR_i = a_g·(wᵀz_i) + b_g. z = 그 fold 공동 SR f의 변수(합산 |중앙값| 척도) → 학습 쪽 평균·SD로 표준화
+identifiability: ‖w‖₂ = 1, a_A > 0, w에 상수항 없음. 자유 모수 p+3
+estimation: 교대 최소제곱, 상대 SSE 감소 < 1e-12 또는 5000회. 초기값 = 테이블별 OLS 기울기 행렬 rank-1 SVD
+stability: fold마다 무작위 시작 20개(SEED 42); 상대 SSE 차이 > 1e-06이면 unstable
+regularization: 없음 (공동 SR 재적합·테이블별 LR과 같은 무정규화 최소제곱)
+eval_labels: 평가 쪽 MRR은 채점에만 사용
+checks: 테이블별 LR 예측이 2026-11-05 저장 OOF와 1e-8 이내 일치 (통과); 공동 SR은 저장 OOF 사용
+bootstrap: 테이블별, fold 층화 웨이퍼 재표집 2000회, SEED 42, 적합된 예측 고정
+classification: 계획 3.5절: OOF RMSE 낮고 4/5 fold 이상 → 우세; 구간 0 미포함일 때만 '실질적 이점'
+inputs_sha256_16:
+  features_v1.csv: 31aefa89f84aa209
+  wafer_table.csv: aec5f21f5bcc6c83
+  folds_v1.csv: e4b364141b0bdaa9
+  2026-11-04_전준혁_FV1_sr_joint_selection.csv: 77a1e366950c57e5
+  2026-11-05_전준혁_FV1_sr_joint_outer5_selection.csv: 265a9d99d64d9adc
+  2026-11-05_전준혁_FV1_sr_joint_outer5_oof.csv: 320d9fd3b243c0b1
+  2026-11-05_전준혁_FV1_sr_joint_outer5_structure.csv: 339dac52d625696d
+env:
+  python: 3.12.10
+  numpy: 2.5.4
+  pandas: 3.1.0
+  scipy: 1.18.1
+  sklearn: 1.9.1
+  platform: Windows-11-10.0.26200-SP0
+runtime_sec: 7.9
+content: 2026-11-06_전준혁_FV1_sr_joint_sharedlinear_coefs.csv
