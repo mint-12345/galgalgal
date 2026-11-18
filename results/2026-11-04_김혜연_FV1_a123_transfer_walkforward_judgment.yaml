@@ -1,0 +1,69 @@
+this_file: "2026-11-04_김혜연_FV1_a123_transfer_walkforward_judgment.csv"
+experiment: "a123_transfer 전진 검증 (preregistration 5.2 보조 평가, 5.5 보조 판정)"
+author: "김혜연"
+tag: "FV1"
+featureset: "features_v1"
+group: "A-123"
+run_started: "2026-11-04 14:29:43"
+run_finished: "2026-11-04 14:30:10"
+runtime_sec: 27
+git:
+  commit: "416e8ebea6e5ee98b5021b9a023dc6125dec9a9b"
+  branch: "results/a123-transfer-aux"
+  uncommitted_files: 0
+environment:
+  python: "3.13.2"
+  numpy: "2.5.3"
+  pandas: "3.0.6"
+  scipy: "1.18.1"
+  scikit-learn: "1.9.1"
+  xgboost: "3.2.0"
+  cpu: "12th Gen Intel(R) Core(TM) i7-12650H"
+  cpu_count: 16
+  os: "Windows-11-10.0.26200-SP0"
+threads_blas:
+  OMP_NUM_THREADS: "(설정 안 됨)"
+  MKL_NUM_THREADS: "(설정 안 됨)"
+  OPENBLAS_NUM_THREADS: "(설정 안 됨)"
+  numpy_blas: "scipy-openblas 0.3.34.106.0"
+  numpy_lapack: "scipy-openblas 0.3.34.106.0"
+command: "python src/a123_transfer.py --design walkforward"
+sources:
+  S1: ["A-456"]
+  S2: ["A-456", "B-456"]
+f456:
+  model: "XGBRegressor (3.2 고정 설정)"
+  params: {"n_estimators": 400, "max_depth": 4, "learning_rate": 0.03, "subsample": 0.8, "colsample_bytree": 0.8, "min_child_weight": 3, "random_state": 42, "n_jobs": 2}
+  n_jobs: 2
+  inputs: {"full": 112, "usage": 36}
+  exclude_full: ["since_POLISH_TABLE_w"]
+same_as_main: "모델 T0~T3, δ 입력 규칙, GP 커널·설정, f_456 설정은 주 평가와 같은 함수 (select_delta, fit_gp, run_fold)"
+seed_rule: "f_456 random_state=42 / GP random_state=42+r (r = repeat*5+fold, 재시작 5회도 이 시드에서 시작)"
+decided_after_main_judgment:
+  date: "2026-11-04"
+  when: "주 판정 이후, 보조 평가 실행 전 결정 (preregistration.md 미반영, 팀 동의 후 변경 이력에 추가 예정)"
+  1_sources: "보조 판정은 f_456 full 기준 소스별로 T3<T1 단계 수를 센다. S1·S2 중 하나라도 3개 미만이면 '보조 평가에서 뒤집힘'"
+  2_main_no_effect: "주 판정이 '효과 없음'이므로 보조 판정은 단계 수와 규칙 해당 여부만 적고, 어느 경우든 기본값 T1 유지"
+  3_walkforward_method: "보조 판정은 8% 고정주기(r = 5×단계). 8% 무작위(시드 42+단계)는 참고로 함께 실행, 다른 비율은 실행 안 함"
+  4_lower: "'T3가 T1보다 낮다' = 그 단계 평가 쪽(43장) MSE가 엄격히 작음. 단계별 차이는 표본이 작아 참고용"
+inputs_sha256_16:
+  features_v1.csv: "31aefa89f84aa209"
+  feature_families_v1.csv: "91eae0447643cb16"
+  folds_v1.csv: "e4b364141b0bdaa9"
+  reveal_masks_v1.csv: "00d9ed3ef9436450"
+  wafer_table.csv: "3aaf498e8562d6e8"
+  walkforward_v1.csv: "041916b59fe38e78"
+  walkforward_cutoffs_v1.csv: "b414e3ed870b8a24"
+  2026-11-01_김혜연_FV1_a123_transfer_folds.csv: "7dfb8e4a55f05bc5"
+walkforward: "walkforward_v1 5단계 (학습 216/259/302/345/388, 평가 43장씩), walkforward_cutoffs_v1"
+reveal: "reveal_masks_v1 design=walkforward, 8%. fixed = 고정주기 r=5*단계 (판정), random = 시드 42+단계 (참고)"
+source_time_rule: "단계마다 456 중 t_start < eval_start 웨이퍼만으로 f_456 재학습 (5.2 #21, 5.7-5)"
+gp_seed: "42 + 단계 (5.7-14), 재시작 5회도 이 시드에서"
+judgment_rule: "단계 평가 쪽 MSE가 T3 < T1인 단계 수를 소스별로 센다(f_456 full). S1·S2 중 하나라도 3개 미만이면 '보조 평가에서 뒤집힘'. 어느 경우든 기본값 T1 유지"
+caveat: "단계별 평가는 43장이라 단계별 T3-T1 차이는 참고용. 평가 쪽 t_start는 학습 범위 밖(외삽)이라 GP가 평균으로 돌아갈 수 있다 (5.5 해석 주의). t_eval_z_* 열 = 학습 쪽 t_start 기준 표준화 값"
+gp_warnings:
+  t1_total: 19
+  t3_total: 69
+outputs:
+  steps: "2026-11-04_김혜연_FV1_a123_transfer_walkforward_steps.csv"
+  judgment: "2026-11-04_김혜연_FV1_a123_transfer_walkforward_judgment.csv"
