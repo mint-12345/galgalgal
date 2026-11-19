@@ -1,0 +1,15 @@
+date: "2026-11-19"
+author: "박종화"
+script: "src/explore/sr_dimred.py"
+code_commit: "b34fb20"
+plan: "docs/plans/2026-11-16_김혜연_dimred_plan.md"
+nature: "사후 탐색 (교수님 제안, dimred 계획 8절). 정식 SR·공동 SR 판정은 바꾸지 않음"
+featureset: "features_v1"
+wafers: "load_data() in_main == True (A-456 940, B-456 951)"
+components: "dimred.fit_transform, PLS, 학습 쪽만으로 학습"
+seeds: [42, 43, 44, 45, 46, 47, 48, 49, 50, 51]
+niterations: 500
+pysr: "2.7.2"
+verdict: "공동식 인정 안 됨"
+seconds: 37
+note: "B1 = k=2 고정(판정), B2 = fold별 선택 설정(보고만)"
