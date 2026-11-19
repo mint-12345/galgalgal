@@ -1,0 +1,2 @@
+﻿verdict,perf_condition,n_same_structure_B1,structure_condition
+공동식 인정 안 됨,"{""A-456"": false, ""B-456"": false}",0,False
